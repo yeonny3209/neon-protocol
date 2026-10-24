@@ -4,6 +4,8 @@ import { setVolumes, sfx, unlockAudio } from './audio';
 import { clear, h } from './dom';
 import { hideTip } from './press';
 import { playBgm } from './bgm';
+import { checkAchievements } from '../engine/achievements';
+import '../engine/missions';
 
 export interface Screen {
   el: HTMLElement;
@@ -32,6 +34,10 @@ export class App {
   }
 
   persist() {
+    if (this.save.started) {
+      const done = checkAchievements(this.save);
+      if (done.length) this.toast(`업적 달성: ${done.map((a) => a.name).join(', ')}`, 2600);
+    }
     writeSave(this.save);
   }
 

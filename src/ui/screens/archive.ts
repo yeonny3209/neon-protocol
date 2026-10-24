@@ -1,6 +1,7 @@
 // 기록 보관소: 본 스토리 다시 보기, 엔딩 보기와 조건 힌트, 챕터 선택(선택지만 다시 고르기)
 import { DATA } from '../../engine/data';
 import { getScript, resetChoicesFrom } from '../../engine/story/runner';
+import { track } from '../../engine/state';
 import type { App, Screen } from '../app';
 import { button, confirmBox, tabs, topBar } from '../common';
 import { h } from '../dom';
@@ -24,8 +25,8 @@ export function archiveScreen(app: App): Screen {
         for (const id of ids) {
           const st = DATA.stages[id];
           const row = h('div', { class: 'row' }, h('span', { style: 'flex:1', text: `${st.index}. ${st.name}` }));
-          if (st.pre) row.append(button('전', () => void playScript(app, st.pre!, st.chapter, { sandbox: true }), 'ghost'));
-          if (st.post) row.append(button('후', () => void playScript(app, st.post!, st.chapter, { sandbox: true }), 'ghost'));
+          if (st.pre) row.append(button('전', () => (track(save, 'archiveView'), void playScript(app, st.pre!, st.chapter, { sandbox: true })), 'ghost'));
+          if (st.post) row.append(button('후', () => (track(save, 'archiveView'), void playScript(app, st.post!, st.chapter, { sandbox: true })), 'ghost'));
           box.append(row);
         }
         b.append(box);
@@ -61,6 +62,7 @@ export function archiveScreen(app: App): Screen {
 
   const redo = async (chapter: string) => {
     resetChoicesFrom(save, chapterOrder, chapter);
+    track(save, 'redo');
     app.persist();
     let ending: string | undefined;
     for (const id of DATA.stageOrder) {

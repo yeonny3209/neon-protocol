@@ -154,6 +154,7 @@ export function dive(save: SaveData, banner: Banner, times: 1 | 10, rng: Rng, no
   }
   save.gacha.history.length = Math.min(save.gacha.history.length, data.balance.gacha.historyLimit);
   track(save, 'dives', times);
+  if (times === 10 && out.filter((r) => r.rarity >= 4).length >= 6) save.stats.luckyTen = 1;
   if (out.some((r) => r.rarity === 5)) track(save, 'dive5');
   return out;
 }

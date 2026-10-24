@@ -14,6 +14,15 @@ import { diveScreen } from './dive';
 import { mapScreen } from './map';
 import { settingsModal } from './settings';
 import { archiveScreen } from './archive';
+import { dailyUnlocked, ensureDaily, isDone, missionsClaimable } from '../../engine/missions';
+import { achClaimable, codexClaimable } from '../../engine/achievements';
+import { deepUnlocked } from '../../engine/deep';
+import { loopUnlocked } from '../../engine/loop';
+import { missionsScreen } from './missions';
+import { materialScreen } from './materials';
+import { codexScreen } from './codex';
+import { deepScreen } from './deep';
+import { loopScreen } from './loop';
 
 export function diveUnlocked(app: App): boolean {
   return app.save.story.chapters.includes('ch1');
@@ -56,9 +65,17 @@ export function nestScreen(app: App): Screen {
   mb('◈', '캐릭터', () => app.go(charsScreen), { dot: anyGrow });
   const keys = count(save, 'key');
   mb('✦', '다이브', () => (diveUnlocked(app) ? app.go(diveScreen) : app.toast('1장을 클리어하면 열려')), { locked: !diveUnlocked(app), dot: diveUnlocked(app) && keys > 0 });
+  ensureDaily(save);
+  const daily = dailyUnlocked(save);
+  mb('☑', '데일리 루틴', () => (daily ? app.go(missionsScreen) : app.toast('1장을 클리어하면 열려')), { locked: !daily, dot: missionsClaimable(save) });
+  mb('⛏', '재료 스테이지', () => app.go((a) => materialScreen(a)));
+  const codexOpen = save.story.chapters.includes('prologue');
+  mb('✎', '도감·업적', () => (codexOpen ? app.go(codexScreen) : app.toast('프롤로그를 클리어하면 열려')), { locked: !codexOpen, dot: codexOpen && (achClaimable(save).length > 0 || codexClaimable(save).length > 0) });
+  mb('▼', '딥 서버', () => (deepUnlocked(save) ? app.go(deepScreen) : app.toast('3장을 클리어하면 열려')), { locked: !deepUnlocked(save) });
+  mb('∞', '시뮬레이션 루프', () => (loopUnlocked(save) ? app.go(loopScreen) : app.toast('4장을 클리어하면 열려')), { locked: !loopUnlocked(save), dot: loopUnlocked(save) && !!save.loop.run });
   mb('▣', '기록 보관소', () => app.go(archiveScreen));
   mb('⚙', '설정', () => settingsModal(app));
-  mb('▤', '도움말', () => help());
+  mb('▤', '도움말', () => (track(save, 'helpOpen'), help()));
 
   const todo = h('div', { class: 'todo panel' }, h('b', { text: '오늘 할 일' }));
   const items: string[] = [];
@@ -69,6 +86,12 @@ export function nestScreen(app: App): Screen {
     const b = currentBanners(save).find((x) => x.kind === 'character');
     if (b?.pickup5) items.push(`이번 배너: ${DATA.characters[b.pickup5]?.name ?? ''}`);
   }
+  if (daily) {
+    const left = save.daily.list.filter((m) => !isDone(m)).length;
+    items.push(left ? `데일리 루틴 ${left}개 남음` : save.daily.allClaimed ? '데일리 루틴 완료' : '데일리 루틴 보상을 받아!');
+    if (save.daily.backlog) items.push(`밀린 루틴 ${save.daily.backlog}일치`);
+  }
+  if (save.loop.run) items.push('진행 중인 시뮬레이션 루프가 있어');
   if (!items.length) items.push('오늘은 푹 쉬어도 돼');
   items.forEach((t) => todo.append(h('div', { text: `· ${t}` })));
   menu.append(todo);

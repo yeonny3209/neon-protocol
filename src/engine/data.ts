@@ -82,4 +82,4 @@ export const DATA: GameData = {
   patches: byId(patchesJson as unknown as PatchDef[], '패치'),
   loopEvents: byId(loopEventsJson as unknown as LoopEventDef[], '루프 이벤트'),
 };
-// (개발 참고) 데이터 폴더에 새 파일을 넣고 테스트가 못 찾으면 이 줄을 살짝 고쳐 저장해서 목록을 새로 읽게 해 줘. [v8]
+// (개발 참고) 데이터 폴더에 새 파일을 넣고 테스트가 못 찾으면 이 줄을 살짝 고쳐 저장해서 목록을 새로 읽게 해 줘. [v9]

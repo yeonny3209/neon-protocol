@@ -3,7 +3,7 @@
   "id": "s_ch0",
   "cat": "story",
   "name": "프롤로그 클리어",
-  "desc": "프롤로그을(를) 끝까지 깨기",
+  "desc": "프롤로그 끝까지 깨기",
   "stat": "chapter:prologue",
   "target": 1,
   "reward": {
@@ -14,7 +14,7 @@
   "id": "s_ch1",
   "cat": "story",
   "name": "1장 클리어",
-  "desc": "1장을(를) 끝까지 깨기",
+  "desc": "1장 끝까지 깨기",
   "stat": "chapter:ch1",
   "target": 1,
   "reward": {
@@ -25,7 +25,7 @@
   "id": "s_ch2",
   "cat": "story",
   "name": "2장 클리어",
-  "desc": "2장을(를) 끝까지 깨기",
+  "desc": "2장 끝까지 깨기",
   "stat": "chapter:ch2",
   "target": 1,
   "reward": {
@@ -36,7 +36,7 @@
   "id": "s_ch3",
   "cat": "story",
   "name": "3장 클리어",
-  "desc": "3장을(를) 끝까지 깨기",
+  "desc": "3장 끝까지 깨기",
   "stat": "chapter:ch3",
   "target": 1,
   "reward": {
@@ -47,7 +47,7 @@
   "id": "s_ch4",
   "cat": "story",
   "name": "4장 클리어",
-  "desc": "4장을(를) 끝까지 깨기",
+  "desc": "4장 끝까지 깨기",
   "stat": "chapter:ch4",
   "target": 1,
   "reward": {
@@ -58,7 +58,7 @@
   "id": "s_ch5",
   "cat": "story",
   "name": "5장 클리어",
-  "desc": "5장을(를) 끝까지 깨기",
+  "desc": "5장 끝까지 깨기",
   "stat": "chapter:ch5",
   "target": 1,
   "reward": {
@@ -69,7 +69,7 @@
   "id": "s_ch6",
   "cat": "story",
   "name": "6장 클리어",
-  "desc": "6장을(를) 끝까지 깨기",
+  "desc": "6장 끝까지 깨기",
   "stat": "chapter:ch6",
   "target": 1,
   "reward": {

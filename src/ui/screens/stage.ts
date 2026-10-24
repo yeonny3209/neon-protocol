@@ -3,6 +3,7 @@ import { DATA } from '../../engine/data';
 import type { StageDef } from '../../engine/defs';
 import { allyFromSave, power } from '../../engine/growth';
 import { storyParty, validParty } from '../../engine/party';
+import { recordBattle } from '../../engine/record';
 import { randomSeed } from '../../engine/rng';
 import { grant, track, type Granted } from '../../engine/state';
 import type { AllySetup, BattleSetup } from '../../engine/battle/types';
@@ -14,7 +15,6 @@ import { clear, h } from '../dom';
 import { ELEMENT_INFO } from '../labels';
 import { onPress } from '../press';
 import { playScript } from '../story';
-import { mapScreen } from './map';
 import { nestScreen } from './nest';
 import { sfx } from '../audio';
 
@@ -43,11 +43,12 @@ export function stageAllies(app: App, st: StageDef): AllySetup[] {
 export { validParty };
 
 /** 지도에서 나가는 입구. 선공이면 아군 행동 거리가 30% 짧아진다 */
-export async function startStage(app: App, stageId: string, ambush = false) {
+export async function startStage(app: App, stageId: string, ambush = false, fromBattle = false) {
   const st = DATA.stages[stageId];
   if (!st) return;
   if (st.pre) await playScript(app, st.pre, st.chapter);
-  app.go((a) => battleScreen(a, st, ambush));
+  // 결과 화면에서 바로 다음 스테이지로 갈 때는 전투 화면을 교체해서 뒤로 가기 기록이 쌓이지 않게 한다
+  app.go((a) => battleScreen(a, st, ambush), { replace: fromBattle });
 }
 
 function battleScreen(app: App, st: StageDef, ambush: boolean): Screen {
@@ -84,8 +85,12 @@ function battleScreen(app: App, st: StageDef, ambush: boolean): Screen {
       },
     },
     onWin: (b) => void finishStage(app, st, b, view),
+    onFinish: (b, seconds) => {
+      recordBattle(app.save, b, { stage: true, boss: !!st.boss, speed: app.save.settings.speed, seconds });
+      app.persist();
+    },
     onChangeParty: st.forcedParty ? undefined : () => partyModal(app, st, () => view.restart()),
-    onQuit: () => app.go(mapScreen, { replace: true }),
+    onQuit: () => app.back(),
   });
   return { el, destroy: () => view.destroy() };
 }
@@ -120,7 +125,6 @@ function finishStage(app: App, st: StageDef, b: Battle, view: BattleView): Promi
     const heal = DATA.balance.difficulty.normal.postBattleHeal;
     for (const u of b.allies(false)) save.story.hp[u.defId] = Math.min(1, (u.alive ? u.hp / u.maxHp : 0) + heal);
   } else save.story.hp = {};
-  track(save, 'battleWin');
   track(save, 'stageClear');
 
   const out: Outcome = { stars, first, got, chapterDone: false, forms: [] };
@@ -165,11 +169,11 @@ function showResult(app: App, st: StageDef, out: Outcome, view: BattleView) {
   if (out.forms.length) panel.append(h('div', { class: 'r5', text: `러너 새 형태: ${out.forms.join(', ')}` }));
   const goNext = button(nextOk ? '다음 스테이지' : '지도로', () => {
     back.remove();
-    if (nextOk) void startStage(app, nextId!);
-    else app.go(mapScreen, { replace: true });
+    if (nextOk) void startStage(app, nextId!, false, true);
+    else app.back();
   }, 'primary big');
   panel.append(goNext);
-  if (nextOk) panel.append(button('지도', () => app.go(mapScreen, { replace: true }), ''));
+  if (nextOk) panel.append(button('지도', () => app.back(), ''));
   panel.append(button('한 번 더', () => (back.remove(), view.restart()), 'ghost'));
   const back = h('div', { class: 'modal-back' }, panel);
   view.root.append(back);

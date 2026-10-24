@@ -22,6 +22,8 @@ export interface BattleViewOptions {
   boss?: boolean;
   /** 이기면 호출. 결과 화면은 부르는 쪽이 띄운다 */
   onWin: (b: Battle) => void;
+  /** 이기든 지든 전투가 끝나면(통계 기록용) */
+  onFinish?: (b: Battle, seconds: number) => void;
   /** 패배 화면의 "편성 바꾸기" */
   onChangeParty?: () => void;
   /** 일시정지의 "그만두기" */
@@ -477,6 +479,7 @@ export class BattleView {
     this.mode = 'wait';
     this.renderAll();
     this.renderActions();
+    this.opts.onFinish?.(this.b, this.elapsedSeconds());
     if (this.b.phase === 'won') void this.showWin();
     else this.showLose();
   }

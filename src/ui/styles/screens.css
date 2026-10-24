@@ -1380,3 +1380,98 @@
 [data-orient='landscape'] .nest {
   grid-template-rows: minmax(0, 1fr);
 }
+
+/* ── 반복 콘텐츠 */
+.mat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+.mat-card {
+  min-height: 64px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.mat-card.focus {
+  border-color: var(--cyan);
+}
+
+.section.locked {
+  opacity: 0.45;
+}
+
+.mission {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 15px;
+}
+
+.mission .bar {
+  grid-column: 1 / -1;
+  height: 6px;
+}
+
+.mission .bar > i {
+  background: linear-gradient(90deg, var(--cyan), var(--lime));
+}
+
+.mission.done {
+  border: 1px solid rgba(182, 255, 59, 0.5);
+}
+
+.mission .btn {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+
+.loop-hp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 64px;
+  font-size: 12px;
+}
+
+.loop-hp .bar > i {
+  background: linear-gradient(90deg, var(--green), #b6ff3b);
+}
+
+.loop-node {
+  min-height: 96px;
+  font-size: 14px;
+}
+
+.loop-node.t-boss {
+  border-color: var(--red);
+}
+
+.loop-node.t-elite {
+  border-color: var(--gold);
+}
+
+.loop-node.t-rest,
+.loop-node.t-shop,
+.loop-node.t-event {
+  border-color: var(--cyan);
+}
