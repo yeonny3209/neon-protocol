@@ -13,6 +13,6 @@ const root = document.getElementById('app')!;
 if (location.hash === '#proto') showProto(root);
 else {
   const app = new App(root);
-  app.go(location.hash === '#dev' ? devScreen : app.save.started ? titleScreen : titleScreen, { reset: true });
+  app.go(location.hash === '#dev' ? devScreen : titleScreen, { reset: true });
   if ('serviceWorker' in navigator && import.meta.env.PROD) navigator.serviceWorker.register('./sw.js').catch(() => undefined);
 }

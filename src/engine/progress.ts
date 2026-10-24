@@ -38,7 +38,8 @@ export interface ClearOutcome {
 export function applyStageClear(save: SaveData, st: StageDef, stars: number, data: GameData = DATA): ClearOutcome {
   const first = !save.story.cleared[st.id];
   save.story.cleared[st.id] = (save.story.cleared[st.id] ?? 0) | stars;
-  save.story.next = nextStageId(st.id, data);
+  // 지난 스테이지를 다시 깨도 "이야기 이어하기"가 뒤로 돌아가지 않게, 아직 안 깬 첫 스테이지를 가리킨다
+  save.story.next = data.stageOrder.find((id) => !save.story.cleared[id]);
   const got = grant(save, stageReward(st, first, data), data);
   track(save, 'stageClear');
   const out: ClearOutcome = { stars, first, got, chapterDone: false, forms: [] };

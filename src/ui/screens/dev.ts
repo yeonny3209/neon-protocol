@@ -39,6 +39,7 @@ export function devScreen(app: App): Screen {
       s.started = true;
       const upto = ['prologue', 'ch1', 'ch2', 'ch3', 'ch4'];
       for (const id of DATA.stageOrder) if (upto.includes(DATA.stages[id].chapter)) s.story.cleared[id] = 7;
+      s.story.next = DATA.stageOrder.find((id) => !s.story.cleared[id]);
       for (const c of upto) if (!s.story.chapters.includes(c)) s.story.chapters.push(c);
       for (const f of DATA.characters.runner.forms ?? []) if ((f.unlockAfter === 'start' || upto.includes(f.unlockAfter)) && !s.runnerForms.includes(f.id)) s.runnerForms.push(f.id);
       done('4장까지 클리어 처리했어 (다이브·데일리·도감·딥 서버·루프 열림)');

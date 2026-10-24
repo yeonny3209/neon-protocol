@@ -201,7 +201,10 @@ export class Battle {
 
   canOverclock(uid: string): boolean {
     const u = this.units.find((x) => x.uid === uid);
-    return !!u && u.side === 'ally' && u.alive && !this.ended && u.heat >= u.heatMax && (this.phase === 'idle' || this.phase === 'input');
+    if (!u || u.side !== 'ally' || !u.alive || this.ended || u.heat < u.heatMax) return false;
+    if (this.phase !== 'idle' && this.phase !== 'input') return false;
+    // 남은 동료가 없어서 쓸 대상이 없는 오버클럭은 막는다
+    return this.validTargets(uid, 'overclock').length > 0;
   }
 
   canUseSkill(): boolean {

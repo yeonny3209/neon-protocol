@@ -23,7 +23,7 @@ self.addEventListener('fetch', (e) => {
           if (res.ok) cache.put(req, res.clone());
           return res;
         })
-        .catch(() => hit);
+        .catch(() => hit ?? Response.error());
       return hit || net;
     }),
   );

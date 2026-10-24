@@ -206,16 +206,35 @@ export const MIGRATIONS: Record<number, (old: AnySave) => AnySave> = {
   },
 };
 
-/** 빠진 칸은 기본값으로 채운다(같은 버전 안에서 칸이 늘어난 경우) */
+/** 빠진 칸은 기본값으로 채우고, 종류가 다른 칸(손으로 고친 파일, 깨진 파일)은 기본값으로 되돌린다 */
 function fillDefaults<T>(base: T, data: unknown): T {
-  if (Array.isArray(base) || base === null || typeof base !== 'object') return (data === undefined ? base : data) as T;
-  if (!data || typeof data !== 'object' || Array.isArray(data)) return base;
+  if (data === undefined || data === null) return base;
+  if (Array.isArray(base)) return (Array.isArray(data) ? data : base) as T;
+  if (base === null) return data as T;
+  if (typeof base === 'number') return (typeof data === 'number' && Number.isFinite(data) ? data : base) as T;
+  if (typeof base !== 'object') return (typeof data === typeof base ? data : base) as T;
+  if (typeof data !== 'object' || Array.isArray(data)) return base;
   const out: Record<string, unknown> = { ...(data as Record<string, unknown>) };
   for (const [k, v] of Object.entries(base as Record<string, unknown>)) {
-    if (v !== null && typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length) out[k] = fillDefaults(v, (data as Record<string, unknown>)[k]);
-    else if (!(k in out)) out[k] = v;
+    if (v !== null && typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length) out[k] = fillDefaults(v, out[k]);
+    else out[k] = fillDefaults(v, out[k]);
   }
   return out as T;
+}
+
+/** 재화·재료 같은 "이름 → 숫자" 칸에서 숫자가 아닌 값을 걸러낸다 */
+function cleanCounts(rec: Record<string, number>): Record<string, number> {
+  const out: Record<string, number> = {};
+  for (const [k, v] of Object.entries(rec)) if (typeof v === 'number' && Number.isFinite(v) && v >= 0) out[k] = v;
+  return out;
+}
+
+function repair(save: SaveData): SaveData {
+  save.wallet = cleanCounts(save.wallet);
+  save.stats = cleanCounts(save.stats);
+  for (const [id, c] of Object.entries(save.chars)) save.chars[id] = fillDefaults(newCharState(id), c);
+  if (!save.chars.runner) save.chars.runner = newCharState('runner');
+  return save;
 }
 
 export function migrate(raw: unknown): SaveData {
@@ -227,12 +246,12 @@ export function migrate(raw: unknown): SaveData {
     if (!m) throw new Error(`저장 데이터 변환 규칙이 없음: v${data.version}`);
     data = m(data);
   }
-  return fillDefaults(newSave(), data);
+  return repair(fillDefaults(newSave(), data));
 }
 
 export interface Storage {
   get(key: string): string | null;
-  set(key: string, value: string): void;
+  set(key: string, value: string): boolean | void;
 }
 
 export const browserStorage: Storage = {
@@ -246,8 +265,10 @@ export const browserStorage: Storage = {
   set: (k, v) => {
     try {
       localStorage.setItem(k, v);
+      return true;
     } catch {
       /* 저장 공간이 막힌 환경: 이번 실행 동안만 유지 */
+      return false;
     }
   },
 };
@@ -262,9 +283,10 @@ export function loadSave(storage: Storage = browserStorage): SaveData {
   }
 }
 
-export function writeSave(data: SaveData, storage: Storage = browserStorage) {
+/** 저장했으면 true. 저장 공간이 막혀 있으면 false(이번 실행 동안만 유지됨) */
+export function writeSave(data: SaveData, storage: Storage = browserStorage): boolean {
   data.updated = Date.now();
-  storage.set(SAVE_KEY, JSON.stringify(data));
+  return storage.set(SAVE_KEY, JSON.stringify(data)) !== false;
 }
 
 /** 내보내기용 문자열 */

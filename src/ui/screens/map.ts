@@ -38,9 +38,6 @@ export function mapScreen(app: App): Screen {
   }
 
   const el = h('div', { class: 'scr' }, topBar(app, '스테이지', { currencies: ['shard', 'key', 'credit'] }), h('div', { class: 'scr-body' }, col));
-  if (save.story.next) {
-    // 마지막으로 보던 곳으로
-  }
   setTimeout(() => (focus ?? col.lastElementChild)?.scrollIntoView({ block: 'center' }), 50);
   return { el };
 }

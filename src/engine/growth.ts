@@ -196,6 +196,8 @@ export function nodeCost(save: SaveData, charId: string, type: 'big' | 'small', 
 
 export function canUnlockNode(save: SaveData, charId: string, type: 'big' | 'small', i: number, data: GameData = DATA): UpCheck {
   const c = save.chars[charId];
+  const table = type === 'big' ? G(data).bigNode : G(data).smallNode;
+  if (!Number.isInteger(i) || i < 0 || i >= table.chips.length) return { ok: false, reason: 'max' };
   if ((type === 'big' ? c.big : c.small).includes(i)) return { ok: false, reason: 'max' };
   const { cost, asc } = nodeCost(save, charId, type, i, data);
   if (c.asc < asc) return { ok: false, reason: 'asc', cost, need: asc };

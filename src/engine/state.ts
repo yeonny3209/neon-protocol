@@ -191,3 +191,22 @@ export function monthKey(now: Date = new Date()): string {
 export function daysBetween(a: string, b: string): number {
   return Math.round((Date.parse(b) - Date.parse(a)) / 86400_000);
 }
+
+/** 게임 데이터에 없는 캐릭터·카트리지·스테이지를 저장에서 걷어낸다(업데이트로 이름이 바뀌었거나 손으로 고친 파일 대비) */
+export function pruneUnknown(save: SaveData, data: GameData = DATA): SaveData {
+  for (const id of Object.keys(save.chars)) if (!data.characters[id]) delete save.chars[id];
+  if (!save.chars.runner) save.chars.runner = newCharState('runner');
+  save.carts = save.carts.filter((c) => data.cartridges[c.id]);
+  for (const c of Object.values(save.chars)) if (c.cart !== null && !save.carts.some((x) => x.uid === c.cart)) c.cart = null;
+  save.party = save.party.filter((id, i, a) => save.chars[id] && a.indexOf(id) === i).slice(0, 4);
+  if (!save.party.length) save.party = ['runner'];
+  save.partyB = save.partyB.filter((id, i, a) => save.chars[id] && a.indexOf(id) === i && !save.party.includes(id)).slice(0, 4);
+  if (!save.chars[save.rep]) save.rep = save.party[0];
+  const forms = (data.characters.runner.forms ?? []).map((f) => f.id);
+  save.runnerForms = save.runnerForms.filter((f) => forms.includes(f));
+  if (!save.runnerForms.length) save.runnerForms = [forms[0]];
+  if (!save.runnerForms.includes(save.runnerForm)) save.runnerForm = save.runnerForms[0];
+  for (const id of Object.keys(save.story.cleared)) if (!data.stages[id]) delete save.story.cleared[id];
+  if (save.story.next && !data.stages[save.story.next]) save.story.next = undefined;
+  return save;
+}

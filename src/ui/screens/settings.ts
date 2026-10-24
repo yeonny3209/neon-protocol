@@ -1,4 +1,5 @@
 // 설정. 어디서나 열 수 있고, 저장 내보내기·불러오기가 여기 있다(iPad 데이터 삭제 대비).
+import { pruneUnknown } from '../../engine/state';
 import { exportSave, importSave, newSave } from '../../engine/save';
 import type { App } from '../app';
 import { setVolumes } from '../audio';
@@ -68,7 +69,7 @@ export function settingsModal(app: App) {
         const f = input.files?.[0];
         if (!f) return;
         try {
-          app.save = importSave(await f.text());
+          app.save = pruneUnknown(importSave(await f.text()));
           app.persist();
           m.close();
           app.toast('불러왔어');
