@@ -1,0 +1,1222 @@
+[
+ {
+  "id": "s_ch0",
+  "cat": "story",
+  "name": "프롤로그 클리어",
+  "desc": "프롤로그을(를) 끝까지 깨기",
+  "stat": "chapter:prologue",
+  "target": 1,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "s_ch1",
+  "cat": "story",
+  "name": "1장 클리어",
+  "desc": "1장을(를) 끝까지 깨기",
+  "stat": "chapter:ch1",
+  "target": 1,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "s_ch2",
+  "cat": "story",
+  "name": "2장 클리어",
+  "desc": "2장을(를) 끝까지 깨기",
+  "stat": "chapter:ch2",
+  "target": 1,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "s_ch3",
+  "cat": "story",
+  "name": "3장 클리어",
+  "desc": "3장을(를) 끝까지 깨기",
+  "stat": "chapter:ch3",
+  "target": 1,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "s_ch4",
+  "cat": "story",
+  "name": "4장 클리어",
+  "desc": "4장을(를) 끝까지 깨기",
+  "stat": "chapter:ch4",
+  "target": 1,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "s_ch5",
+  "cat": "story",
+  "name": "5장 클리어",
+  "desc": "5장을(를) 끝까지 깨기",
+  "stat": "chapter:ch5",
+  "target": 1,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "s_ch6",
+  "cat": "story",
+  "name": "6장 클리어",
+  "desc": "6장을(를) 끝까지 깨기",
+  "stat": "chapter:ch6",
+  "target": 1,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "s_endA",
+  "cat": "story",
+  "name": "엔딩 A. 정전",
+  "desc": "엔딩 A를 보기",
+  "stat": "ending:A",
+  "target": 1,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "s_endB",
+  "cat": "story",
+  "name": "엔딩 B. 재부팅",
+  "desc": "엔딩 B를 보기",
+  "stat": "ending:B",
+  "target": 1,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "s_endC",
+  "cat": "story",
+  "name": "엔딩 C. 공존",
+  "desc": "엔딩 C를 보기",
+  "stat": "ending:C",
+  "target": 1,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "s_end_all",
+  "cat": "story",
+  "name": "모든 이야기의 끝",
+  "desc": "엔딩 3종을 모두 보기",
+  "stat": "endingsSeen",
+  "target": 3,
+  "reward": {
+   "shard": 200
+  }
+ },
+ {
+  "id": "s_stage1",
+  "cat": "story",
+  "name": "스테이지 1개 클리어",
+  "desc": "스테이지를 1개 깨기",
+  "stat": "stagesCleared",
+  "target": 1,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "s_stage10",
+  "cat": "story",
+  "name": "스테이지 10개 클리어",
+  "desc": "스테이지를 10개 깨기",
+  "stat": "stagesCleared",
+  "target": 10,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "s_stage30",
+  "cat": "story",
+  "name": "스테이지 30개 클리어",
+  "desc": "스테이지를 30개 깨기",
+  "stat": "stagesCleared",
+  "target": 30,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "s_stage50",
+  "cat": "story",
+  "name": "스테이지 50개 클리어",
+  "desc": "스테이지를 50개 깨기",
+  "stat": "stagesCleared",
+  "target": 50,
+  "reward": {
+   "shard": 50
+  }
+ },
+ {
+  "id": "s_stage69",
+  "cat": "story",
+  "name": "스테이지 69개 클리어",
+  "desc": "스테이지를 69개 깨기",
+  "stat": "stagesCleared",
+  "target": 69,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "s_star10",
+  "cat": "story",
+  "name": "별 30개",
+  "desc": "스토리 스테이지 별을 30개 모으기",
+  "stat": "storyStars",
+  "target": 30,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "s_star30",
+  "cat": "story",
+  "name": "별 90개",
+  "desc": "스토리 스테이지 별을 90개 모으기",
+  "stat": "storyStars",
+  "target": 90,
+  "reward": {
+   "shard": 50
+  }
+ },
+ {
+  "id": "s_star69",
+  "cat": "story",
+  "name": "별 207개",
+  "desc": "스토리 스테이지 별을 207개 모으기",
+  "stat": "storyStars",
+  "target": 207,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "s_trust",
+  "cat": "story",
+  "name": "신뢰의 기록",
+  "desc": "세 세력 신뢰도를 모두 5 이상 쌓기",
+  "stat": "trustAll5",
+  "target": 1,
+  "reward": {
+   "shard": 80
+  }
+ },
+ {
+  "id": "s_replay",
+  "cat": "story",
+  "name": "다시 쓰는 이야기",
+  "desc": "챕터 선택으로 선택지를 다시 고르기",
+  "stat": "redo",
+  "target": 1,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "s_archive",
+  "cat": "story",
+  "name": "기록 보관",
+  "desc": "기록 보관소에서 이야기를 다시 보기",
+  "stat": "archiveView",
+  "target": 1,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "b_win1",
+  "cat": "battle",
+  "name": "1번째 승리",
+  "desc": "전투에서 1번 이기기",
+  "stat": "battleWin",
+  "target": 1,
+  "reward": {
+   "shard": 10
+  }
+ },
+ {
+  "id": "b_win10",
+  "cat": "battle",
+  "name": "10번째 승리",
+  "desc": "전투에서 10번 이기기",
+  "stat": "battleWin",
+  "target": 10,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "b_win50",
+  "cat": "battle",
+  "name": "50번째 승리",
+  "desc": "전투에서 50번 이기기",
+  "stat": "battleWin",
+  "target": 50,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "b_win100",
+  "cat": "battle",
+  "name": "100번째 승리",
+  "desc": "전투에서 100번 이기기",
+  "stat": "battleWin",
+  "target": 100,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "b_win300",
+  "cat": "battle",
+  "name": "300번째 승리",
+  "desc": "전투에서 300번 이기기",
+  "stat": "battleWin",
+  "target": 300,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "b_win1000",
+  "cat": "battle",
+  "name": "1000번째 승리",
+  "desc": "전투에서 1000번 이기기",
+  "stat": "battleWin",
+  "target": 1000,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "b_down1",
+  "cat": "battle",
+  "name": "시스템 다운 1회",
+  "desc": "적을 시스템 다운 1번 시키기",
+  "stat": "downs",
+  "target": 1,
+  "reward": {
+   "shard": 10
+  }
+ },
+ {
+  "id": "b_down20",
+  "cat": "battle",
+  "name": "시스템 다운 20회",
+  "desc": "적을 시스템 다운 20번 시키기",
+  "stat": "downs",
+  "target": 20,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "b_down100",
+  "cat": "battle",
+  "name": "시스템 다운 100회",
+  "desc": "적을 시스템 다운 100번 시키기",
+  "stat": "downs",
+  "target": 100,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "b_down500",
+  "cat": "battle",
+  "name": "시스템 다운 500회",
+  "desc": "적을 시스템 다운 500번 시키기",
+  "stat": "downs",
+  "target": 500,
+  "reward": {
+   "shard": 70
+  }
+ },
+ {
+  "id": "b_multi2",
+  "cat": "battle",
+  "name": "한 번에 2명 다운",
+  "desc": "한 전투에서 적 2명을 동시에 다운시키기",
+  "stat": "maxDownAtOnce",
+  "target": 2,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "b_multi3",
+  "cat": "battle",
+  "name": "한 번에 3명 다운",
+  "desc": "한 전투에서 적 3명을 동시에 다운시키기",
+  "stat": "maxDownAtOnce",
+  "target": 3,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "b_multi4",
+  "cat": "battle",
+  "name": "한 번에 4명 다운",
+  "desc": "한 전투에서 적 4명을 동시에 다운시키기",
+  "stat": "maxDownAtOnce",
+  "target": 4,
+  "reward": {
+   "shard": 50
+  }
+ },
+ {
+  "id": "b_oc1",
+  "cat": "battle",
+  "name": "오버클럭 1회",
+  "desc": "오버클럭을 1번 쓰기",
+  "stat": "overclock",
+  "target": 1,
+  "reward": {
+   "shard": 10
+  }
+ },
+ {
+  "id": "b_oc20",
+  "cat": "battle",
+  "name": "오버클럭 20회",
+  "desc": "오버클럭을 20번 쓰기",
+  "stat": "overclock",
+  "target": 20,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "b_oc100",
+  "cat": "battle",
+  "name": "오버클럭 100회",
+  "desc": "오버클럭을 100번 쓰기",
+  "stat": "overclock",
+  "target": 100,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "b_oc400",
+  "cat": "battle",
+  "name": "오버클럭 400회",
+  "desc": "오버클럭을 400번 쓰기",
+  "stat": "overclock",
+  "target": 400,
+  "reward": {
+   "shard": 70
+  }
+ },
+ {
+  "id": "b_crit10",
+  "cat": "battle",
+  "name": "치명타 10회",
+  "desc": "치명타를 10번 터뜨리기",
+  "stat": "crits",
+  "target": 10,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "b_crit100",
+  "cat": "battle",
+  "name": "치명타 100회",
+  "desc": "치명타를 100번 터뜨리기",
+  "stat": "crits",
+  "target": 100,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "b_dmg1000",
+  "cat": "battle",
+  "name": "한 방 1000",
+  "desc": "한 번에 1000 이상 피해 주기",
+  "stat": "maxHit",
+  "target": 1000,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "b_dmg5000",
+  "cat": "battle",
+  "name": "한 방 5000",
+  "desc": "한 번에 5000 이상 피해 주기",
+  "stat": "maxHit",
+  "target": 5000,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "b_dmg20000",
+  "cat": "battle",
+  "name": "한 방 20000",
+  "desc": "한 번에 20000 이상 피해 주기",
+  "stat": "maxHit",
+  "target": 20000,
+  "reward": {
+   "shard": 80
+  }
+ },
+ {
+  "id": "b_sweep1",
+  "cat": "battle",
+  "name": "소탕 1회",
+  "desc": "재료 스테이지를 소탕 1번 하기",
+  "stat": "sweep",
+  "target": 1,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "b_sweep10",
+  "cat": "battle",
+  "name": "소탕 10회",
+  "desc": "재료 스테이지를 소탕 10번 하기",
+  "stat": "sweep",
+  "target": 50,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "b_boss",
+  "cat": "battle",
+  "name": "보스 사냥꾼",
+  "desc": "보스 스테이지를 7번 클리어하기",
+  "stat": "bossClear",
+  "target": 7,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "b_noko",
+  "cat": "battle",
+  "name": "한 명도 쓰러지지 않았다",
+  "desc": "전원 생존으로 스테이지 10개 클리어하기",
+  "stat": "noKoClear",
+  "target": 10,
+  "reward": {
+   "shard": 50
+  }
+ },
+ {
+  "id": "b_speed3",
+  "cat": "battle",
+  "name": "빨리 감기",
+  "desc": "3배속으로 전투 10번 이기기",
+  "stat": "speed3Win",
+  "target": 10,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "b_deep1",
+  "cat": "battle",
+  "name": "서버 속으로",
+  "desc": "딥 서버 1층 클리어하기",
+  "stat": "deepFloor",
+  "target": 1,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "b_deep6",
+  "cat": "battle",
+  "name": "깊이 내려가다",
+  "desc": "딥 서버 6층 클리어하기",
+  "stat": "deepFloor",
+  "target": 6,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "b_deep12",
+  "cat": "battle",
+  "name": "서버의 바닥",
+  "desc": "딥 서버 12층 클리어하기",
+  "stat": "deepFloor",
+  "target": 12,
+  "reward": {
+   "shard": 120
+  }
+ },
+ {
+  "id": "b_deepstar",
+  "cat": "battle",
+  "name": "별을 모으는 사람",
+  "desc": "딥 서버 별 36개 모두 모으기",
+  "stat": "deepStarsMax",
+  "target": 36,
+  "reward": {
+   "shard": 150
+  }
+ },
+ {
+  "id": "c_char2",
+  "cat": "collect",
+  "name": "동료 2명",
+  "desc": "캐릭터를 2명 모으기",
+  "stat": "charsOwned",
+  "target": 2,
+  "reward": {
+   "shard": 10
+  }
+ },
+ {
+  "id": "c_char5",
+  "cat": "collect",
+  "name": "동료 5명",
+  "desc": "캐릭터를 5명 모으기",
+  "stat": "charsOwned",
+  "target": 5,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "c_char8",
+  "cat": "collect",
+  "name": "동료 8명",
+  "desc": "캐릭터를 8명 모으기",
+  "stat": "charsOwned",
+  "target": 8,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "c_char10",
+  "cat": "collect",
+  "name": "동료 10명",
+  "desc": "캐릭터를 10명 모으기",
+  "stat": "charsOwned",
+  "target": 10,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "c_char14",
+  "cat": "collect",
+  "name": "동료 14명",
+  "desc": "캐릭터를 14명 모으기",
+  "stat": "charsOwned",
+  "target": 14,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "c_dive1",
+  "cat": "collect",
+  "name": "다이브 1회",
+  "desc": "다이브를 1번 하기",
+  "stat": "dives",
+  "target": 1,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "c_dive10",
+  "cat": "collect",
+  "name": "다이브 10회",
+  "desc": "다이브를 10번 하기",
+  "stat": "dives",
+  "target": 10,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "c_dive50",
+  "cat": "collect",
+  "name": "다이브 50회",
+  "desc": "다이브를 50번 하기",
+  "stat": "dives",
+  "target": 50,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "c_dive100",
+  "cat": "collect",
+  "name": "다이브 100회",
+  "desc": "다이브를 100번 하기",
+  "stat": "dives",
+  "target": 100,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "c_dive300",
+  "cat": "collect",
+  "name": "다이브 300회",
+  "desc": "다이브를 300번 하기",
+  "stat": "dives",
+  "target": 300,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "c_dive500",
+  "cat": "collect",
+  "name": "다이브 500회",
+  "desc": "다이브를 500번 하기",
+  "stat": "dives",
+  "target": 500,
+  "reward": {
+   "shard": 150
+  }
+ },
+ {
+  "id": "c_five1",
+  "cat": "collect",
+  "name": "5성 1번",
+  "desc": "5성이 나온 다이브 1번",
+  "stat": "dive5",
+  "target": 1,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "c_five5",
+  "cat": "collect",
+  "name": "5성 5번",
+  "desc": "5성이 나온 다이브 5번",
+  "stat": "dive5",
+  "target": 5,
+  "reward": {
+   "shard": 50
+  }
+ },
+ {
+  "id": "c_five10",
+  "cat": "collect",
+  "name": "5성 10번",
+  "desc": "5성이 나온 다이브 10번",
+  "stat": "dive5",
+  "target": 10,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "c_sync1",
+  "cat": "collect",
+  "name": "동기화 1단계",
+  "desc": "캐릭터 한 명의 동기화를 1단계까지 올리기",
+  "stat": "maxSync",
+  "target": 1,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "c_sync6",
+  "cat": "collect",
+  "name": "동기화 6단계",
+  "desc": "캐릭터 한 명의 동기화를 6단계까지 올리기",
+  "stat": "maxSync",
+  "target": 6,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "c_cart1",
+  "cat": "collect",
+  "name": "카트리지 1개",
+  "desc": "카트리지를 1종 모으기",
+  "stat": "cartsOwned",
+  "target": 1,
+  "reward": {
+   "shard": 10
+  }
+ },
+ {
+  "id": "c_cart6",
+  "cat": "collect",
+  "name": "카트리지 6개",
+  "desc": "카트리지를 6종 모으기",
+  "stat": "cartsOwned",
+  "target": 6,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "c_cart12",
+  "cat": "collect",
+  "name": "카트리지 12개",
+  "desc": "카트리지를 12종 모으기",
+  "stat": "cartsOwned",
+  "target": 12,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "c_cart24",
+  "cat": "collect",
+  "name": "카트리지 24개",
+  "desc": "카트리지를 24종 모으기",
+  "stat": "cartsOwned",
+  "target": 24,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "c_codex",
+  "cat": "collect",
+  "name": "도감 수집가",
+  "desc": "도감 항목을 50개 채우기",
+  "stat": "codexCount",
+  "target": 50,
+  "reward": {
+   "shard": 80
+  }
+ },
+ {
+  "id": "c_patch",
+  "cat": "collect",
+  "name": "패치 수집가",
+  "desc": "루프 패치를 25종 모으기",
+  "stat": "patchCount",
+  "target": 25,
+  "reward": {
+   "shard": 80
+  }
+ },
+ {
+  "id": "c_tutorial",
+  "cat": "collect",
+  "name": "친절한 설명서",
+  "desc": "도움말을 열어 보기",
+  "stat": "helpOpen",
+  "target": 1,
+  "reward": {
+   "shard": 10
+  }
+ },
+ {
+  "id": "g_lv20",
+  "cat": "growth",
+  "name": "레벨 20",
+  "desc": "캐릭터 한 명을 레벨 20까지 올리기",
+  "stat": "maxLevel",
+  "target": 20,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "g_lv40",
+  "cat": "growth",
+  "name": "레벨 40",
+  "desc": "캐릭터 한 명을 레벨 40까지 올리기",
+  "stat": "maxLevel",
+  "target": 40,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "g_lv60",
+  "cat": "growth",
+  "name": "레벨 60",
+  "desc": "캐릭터 한 명을 레벨 60까지 올리기",
+  "stat": "maxLevel",
+  "target": 60,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "g_asc1",
+  "cat": "growth",
+  "name": "1차 돌파",
+  "desc": "돌파를 1단계까지 하기",
+  "stat": "maxAsc",
+  "target": 1,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "g_asc4",
+  "cat": "growth",
+  "name": "4차 돌파",
+  "desc": "돌파를 4단계까지 하기",
+  "stat": "maxAsc",
+  "target": 4,
+  "reward": {
+   "shard": 80
+  }
+ },
+ {
+  "id": "g_skill10",
+  "cat": "growth",
+  "name": "스킬 달인",
+  "desc": "스킬 하나를 10레벨로 올리기",
+  "stat": "maxSkill",
+  "target": 10,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "g_rank10",
+  "cat": "growth",
+  "name": "러너 등급 10",
+  "desc": "러너 등급 10 달성",
+  "stat": "rankLevel",
+  "target": 10,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "g_rank20",
+  "cat": "growth",
+  "name": "러너 등급 20",
+  "desc": "러너 등급 20 달성",
+  "stat": "rankLevel",
+  "target": 20,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "g_rank40",
+  "cat": "growth",
+  "name": "러너 등급 40",
+  "desc": "러너 등급 40 달성",
+  "stat": "rankLevel",
+  "target": 40,
+  "reward": {
+   "shard": 150
+  }
+ },
+ {
+  "id": "g_form",
+  "cat": "growth",
+  "name": "다재다능한 러너",
+  "desc": "러너의 형태를 모두 열기",
+  "stat": "runnerForms",
+  "target": 6,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "g_cartmax",
+  "cat": "growth",
+  "name": "장비 마스터",
+  "desc": "카트리지를 30레벨 이상 올리기",
+  "stat": "maxCartLevel",
+  "target": 30,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "g_node",
+  "cat": "growth",
+  "name": "회로 설계자",
+  "desc": "회로도 노드를 20개 열기",
+  "stat": "nodesOpened",
+  "target": 20,
+  "reward": {
+   "shard": 50
+  }
+ },
+ {
+  "id": "g_party",
+  "cat": "growth",
+  "name": "든든한 파티",
+  "desc": "4명을 모두 50레벨 이상으로 만들기",
+  "stat": "party50",
+  "target": 1,
+  "reward": {
+   "shard": 100
+  }
+ },
+ {
+  "id": "l_clear1",
+  "cat": "loop",
+  "name": "루프 완주 1회",
+  "desc": "시뮬레이션 루프를 1번 완주하기",
+  "stat": "loopClear",
+  "target": 1,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "l_clear5",
+  "cat": "loop",
+  "name": "루프 완주 5회",
+  "desc": "시뮬레이션 루프를 5번 완주하기",
+  "stat": "loopClear",
+  "target": 5,
+  "reward": {
+   "shard": 80
+  }
+ },
+ {
+  "id": "l_diff3",
+  "cat": "loop",
+  "name": "더 깊은 시뮬레이션",
+  "desc": "루프 난이도 3단계 클리어",
+  "stat": "loopDiff",
+  "target": 3,
+  "reward": {
+   "shard": 80
+  }
+ },
+ {
+  "id": "l_diff5",
+  "cat": "loop",
+  "name": "동기화가 필요한 곳",
+  "desc": "루프 난이도 5단계 클리어",
+  "stat": "loopDiff",
+  "target": 5,
+  "reward": {
+   "shard": 150
+  }
+ },
+ {
+  "id": "l_score",
+  "cat": "loop",
+  "name": "루프 점수 3000",
+  "desc": "한 번에 루프 점수 3000 이상 얻기",
+  "stat": "loopMaxScore",
+  "target": 3000,
+  "reward": {
+   "shard": 60
+  }
+ },
+ {
+  "id": "m_daily7",
+  "cat": "loop",
+  "name": "일일 루틴 7일",
+  "desc": "일일 미션을 모두 끝낸 날이 7일",
+  "stat": "dailyDone",
+  "target": 7,
+  "reward": {
+   "shard": 30
+  }
+ },
+ {
+  "id": "m_daily30",
+  "cat": "loop",
+  "name": "일일 루틴 30일",
+  "desc": "일일 미션을 모두 끝낸 날이 30일",
+  "stat": "dailyDone",
+  "target": 30,
+  "reward": {
+   "shard": 80
+  }
+ },
+ {
+  "id": "f_touch10",
+  "cat": "fun",
+  "name": "둥지 대표를 10번 터치",
+  "desc": "둥지 대표를 10번 누르기",
+  "stat": "repTouch",
+  "target": 10,
+  "reward": {
+   "shard": 10
+  }
+ },
+ {
+  "id": "f_touch100",
+  "cat": "fun",
+  "name": "둥지 대표를 100번 터치",
+  "desc": "둥지 대표를 100번 누르기",
+  "stat": "repTouch",
+  "target": 100,
+  "reward": {
+   "shard": 40
+  }
+ },
+ {
+  "id": "f_rep",
+  "cat": "fun",
+  "name": "최애 세우기",
+  "desc": "러너가 아닌 캐릭터를 둥지 대표로 세우기",
+  "stat": "repOther",
+  "target": 1,
+  "reward": {
+   "shard": 20
+  }
+ },
+ {
+  "id": "f_name",
+  "cat": "fun",
+  "name": "나만의 이름",
+  "desc": "이름을 직접 정하고 시작하기",
+  "stat": "customName",
+  "target": 1,
+  "reward": {
+   "shard": 10
+  }
+ },
+ {
+  "id": "h_lose10",
+  "cat": "fun",
+  "name": "넘어져도 괜찮아",
+  "desc": "전투에서 10번 지기",
+  "stat": "battleLose",
+  "target": 10,
+  "reward": {
+   "shard": 30
+  },
+  "hidden": true
+ },
+ {
+  "id": "h_touch1000",
+  "cat": "fun",
+  "name": "둥지 대표의 친구",
+  "desc": "둥지 대표를 1000번 누르기",
+  "stat": "repTouch",
+  "target": 1000,
+  "reward": {
+   "shard": 100
+  },
+  "hidden": true
+ },
+ {
+  "id": "h_basic",
+  "cat": "fun",
+  "name": "일반공격의 길",
+  "desc": "일반공격만으로 보스 스테이지 클리어하기",
+  "stat": "basicOnlyBoss",
+  "target": 1,
+  "reward": {
+   "shard": 60
+  },
+  "hidden": true
+ },
+ {
+  "id": "h_oc4",
+  "cat": "fun",
+  "name": "총 출동",
+  "desc": "한 전투에서 오버클럭을 4번 쓰기",
+  "stat": "maxOcInBattle",
+  "target": 4,
+  "reward": {
+   "shard": 50
+  },
+  "hidden": true
+ },
+ {
+  "id": "h_first_nodown",
+  "cat": "fun",
+  "name": "다운 없이 승리",
+  "desc": "시스템 다운 없이 보스를 이기기",
+  "stat": "bossNoDown",
+  "target": 1,
+  "reward": {
+   "shard": 50
+  },
+  "hidden": true
+ },
+ {
+  "id": "h_night",
+  "cat": "fun",
+  "name": "올빼미",
+  "desc": "새벽 3시에 접속해서 전투 이기기",
+  "stat": "nightWin",
+  "target": 1,
+  "reward": {
+   "shard": 30
+  },
+  "hidden": true
+ },
+ {
+  "id": "h_speedrun",
+  "cat": "fun",
+  "name": "한 판 1분",
+  "desc": "1분 안에 스테이지 클리어하기",
+  "stat": "fastWin",
+  "target": 1,
+  "reward": {
+   "shard": 40
+  },
+  "hidden": true
+ },
+ {
+  "id": "h_zero_hp",
+  "cat": "fun",
+  "name": "아슬아슬",
+  "desc": "아군 체력이 5% 이하로 남은 채 승리하기",
+  "stat": "closeWin",
+  "target": 1,
+  "reward": {
+   "shard": 50
+  },
+  "hidden": true
+ },
+ {
+  "id": "h_dive_streak",
+  "cat": "fun",
+  "name": "운명의 세 번",
+  "desc": "10회 다이브에서 4성 이상을 6개 이상 얻기",
+  "stat": "luckyTen",
+  "target": 1,
+  "reward": {
+   "shard": 60
+  },
+  "hidden": true
+ },
+ {
+  "id": "h_all",
+  "cat": "fun",
+  "name": "모든 것을 보았다",
+  "desc": "다른 업적을 모두 달성하기",
+  "stat": "achAll",
+  "target": 1,
+  "reward": {
+   "shard": 300
+  },
+  "hidden": true
+ }
+]

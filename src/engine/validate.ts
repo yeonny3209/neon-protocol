@@ -105,5 +105,32 @@ export function validateData(data: GameData): string[] {
       chk(w, id, !!data.items[id], '아이템');
     }
   }
+  const rewardIds = (w: string, r: Record<string, number>) => {
+    for (const id of Object.keys(r)) {
+      if (id === 'rankExp' || id.startsWith('char:') || id.startsWith('cart:')) continue;
+      chk(w, id, !!data.items[id], '아이템');
+    }
+  };
+  for (const m of Object.values(data.materials)) {
+    m.tiers.forEach((t, i) => {
+      t.enemies.forEach((e) => chk(`재료 ${m.id}[${i}]`, e, !!data.enemies[e], '적'));
+      rewardIds(`재료 ${m.id}[${i}]`, t.reward);
+    });
+  }
+  for (const f of data.deep.floors) [...f.partA, ...(f.partB ?? [])].forEach((e) => chk(`딥 서버 ${f.floor}층`, e, !!data.enemies[e], '적'));
+  for (const p of Object.values(data.patches)) {
+    if (!data.families[p.family] && p.family !== 'neutral') err(`패치 ${p.id}`, `없는 계열 "${p.family}"`);
+    checkPassive(`패치 ${p.id}`, p.passive);
+  }
+  for (const f of Object.values(data.families)) {
+    checkPassive(`계열 ${f.id}.set3`, f.set3);
+    checkPassive(`계열 ${f.id}.set6`, f.set6);
+  }
+  const achIds = new Set<string>();
+  for (const a of data.achievements) {
+    if (achIds.has(a.id)) err('업적', `id 중복 "${a.id}"`);
+    achIds.add(a.id);
+    rewardIds(`업적 ${a.id}`, a.reward);
+  }
   return errors;
 }

@@ -504,11 +504,11 @@
     "backlogDays": 3,
     "weeklyCount": 3,
     "weeklyReward": {
-      "shard": 60,
-      "chip_any": 0,
       "weekly": 1,
+      "pack_l": 1,
       "credit": 20000
-    }
+    },
+    "unlockChapter": "ch1"
   },
   "deep": {
     "floors": 12,
@@ -573,7 +573,8 @@
       ],
       "weekly": 1
     },
-    "starRounds": 6
+    "starRounds": 6,
+    "unlockChapter": "ch3"
   },
   "loop": {
     "zones": 3,
@@ -629,12 +630,53 @@
       20,
       28,
       34
-    ]
+    ],
+    "difficultyMult": [
+      [
+        0.6,
+        0.5,
+        0.7
+      ],
+      [
+        0.75,
+        0.65,
+        0.8
+      ],
+      [
+        0.9,
+        0.8,
+        0.9
+      ],
+      [
+        1.0,
+        0.95,
+        1.0
+      ],
+      [
+        1.15,
+        1.1,
+        1.1
+      ]
+    ],
+    "rewardPerScore": {
+      "credit": 20,
+      "pack_m": 0.004,
+      "chip_any": 0.004
+    },
+    "unlockChapter": "ch4"
   },
   "story": {
     "trueTrust": 5,
     "bigChoice": 3,
     "smallChoice": 1,
     "defaultStarRounds": 8
+  },
+  "materials": {
+    "sweepTimes": [
+      1,
+      5,
+      10
+    ],
+    "weeklyLimit": 3
   }
 }

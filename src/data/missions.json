@@ -1,0 +1,92 @@
+{
+ "daily": [
+  {
+   "slot": "A",
+   "variants": [
+    {
+     "id": "d_win1",
+     "text": "전투 1회 승리",
+     "ev": "battleWin",
+     "n": 1
+    },
+    {
+     "id": "d_win3",
+     "text": "전투 3회 승리",
+     "ev": "battleWin",
+     "n": 3
+    }
+   ]
+  },
+  {
+   "slot": "B",
+   "variants": [
+    {
+     "id": "d_oc2",
+     "text": "오버클럭 2회 사용",
+     "ev": "overclock",
+     "n": 2
+    },
+    {
+     "id": "d_oc3",
+     "text": "오버클럭 3회 사용",
+     "ev": "overclock",
+     "n": 3
+    }
+   ]
+  },
+  {
+   "slot": "C",
+   "variants": [
+    {
+     "id": "d_sweep1",
+     "text": "재료 스테이지 소탕 1회",
+     "ev": "sweep",
+     "n": 1
+    },
+    {
+     "id": "d_sweep3",
+     "text": "재료 스테이지 소탕 3회",
+     "ev": "sweep",
+     "n": 3
+    }
+   ]
+  },
+  {
+   "slot": "D",
+   "variants": [
+    {
+     "id": "d_grow1",
+     "text": "캐릭터 성장 1회",
+     "ev": "grow",
+     "n": 1
+    },
+    {
+     "id": "d_grow2",
+     "text": "캐릭터 성장 2회",
+     "ev": "grow",
+     "n": 2
+    }
+   ]
+  }
+ ],
+ "weekly": [
+  {
+   "id": "w_deep",
+   "text": "딥 서버에 도전하기",
+   "ev": "deepAttempt",
+   "n": 1
+  },
+  {
+   "id": "w_loop",
+   "text": "시뮬레이션 루프 1회 완주",
+   "ev": "loopClear",
+   "n": 1
+  },
+  {
+   "id": "w_win10",
+   "text": "전투 10회 승리",
+   "ev": "battleWin",
+   "n": 10
+  }
+ ]
+}

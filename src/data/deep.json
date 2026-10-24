@@ -1,0 +1,286 @@
+{
+ "floors": [
+  {
+   "floor": 1,
+   "name": "서버 1층",
+   "level": 40,
+   "hp": 0.5,
+   "atk": 0.45,
+   "fw": 0.9,
+   "rounds": 7,
+   "partA": [
+    "sec_drone",
+    "street_thug",
+    "flame_drone"
+   ],
+   "starReward": {
+    "shard": 0
+   }
+  },
+  {
+   "floor": 2,
+   "name": "서버 2층",
+   "level": 42,
+   "hp": 0.55,
+   "atk": 0.5,
+   "fw": 0.9,
+   "rounds": 7,
+   "partA": [
+    "stall_bot",
+    "holo_ad",
+    "debt_collector"
+   ],
+   "starReward": {
+    "shard": 0
+   }
+  },
+  {
+   "floor": 3,
+   "name": "서버 3층",
+   "level": 44,
+   "hp": 0.6,
+   "atk": 0.55,
+   "fw": 0.9,
+   "rounds": 8,
+   "partA": [
+    "prefect_drone",
+    "lab_assistant",
+    "smile_student"
+   ],
+   "starReward": {
+    "shard": 0
+   }
+  },
+  {
+   "floor": 4,
+   "name": "서버 4층",
+   "level": 46,
+   "hp": 0.65,
+   "atk": 0.6,
+   "fw": 0.9,
+   "rounds": 8,
+   "partA": [
+    "lab_golem",
+    "proctor"
+   ],
+   "starReward": {
+    "shard": 0
+   }
+  },
+  {
+   "floor": 5,
+   "name": "서버 5층",
+   "level": 48,
+   "hp": 0.8,
+   "atk": 0.75,
+   "fw": 1.0,
+   "rounds": 9,
+   "partA": [
+    "gardener_drone",
+    "vine_bot",
+    "sentry_turret",
+    "rogue_drone"
+   ],
+   "starReward": {
+    "shard": 0
+   }
+  },
+  {
+   "floor": 6,
+   "name": "서버 6층",
+   "level": 52,
+   "hp": 0.9,
+   "atk": 0.85,
+   "fw": 1.0,
+   "rounds": 9,
+   "partA": [
+    "thorn_walker",
+    "manor_butler"
+   ],
+   "starReward": {
+    "shard": 0
+   },
+   "partB": [
+    "white_guard",
+    "silent_unit",
+    "data_clerk"
+   ]
+  },
+  {
+   "floor": 7,
+   "name": "서버 7층",
+   "level": 54,
+   "hp": 1.0,
+   "atk": 0.95,
+   "fw": 1.0,
+   "rounds": 10,
+   "partA": [
+    "white_guard",
+    "mute_enforcer",
+    "tower_sniper"
+   ],
+   "starReward": {
+    "shard": 0
+   },
+   "partB": [
+    "silent_unit",
+    "silent_unit",
+    "data_clerk"
+   ]
+  },
+  {
+   "floor": 8,
+   "name": "서버 8층",
+   "level": 56,
+   "hp": 1.1,
+   "atk": 1.0,
+   "fw": 1.0,
+   "rounds": 10,
+   "partA": [
+    "data_wraith",
+    "memory_shard",
+    "glitch_beast"
+   ],
+   "starReward": {
+    "shard": 0
+   },
+   "partB": [
+    "core_guard",
+    "echo_self"
+   ]
+  },
+  {
+   "floor": 9,
+   "name": "서버 9층",
+   "level": 58,
+   "hp": 1.25,
+   "atk": 1.15,
+   "fw": 1.0,
+   "rounds": 11,
+   "partA": [
+    "core_guard",
+    "echo_self",
+    "core_guard"
+   ],
+   "starReward": {
+    "shard": 0
+   },
+   "partB": [
+    "mute_enforcer",
+    "tower_sniper",
+    "mute_enforcer"
+   ]
+  },
+  {
+   "floor": 10,
+   "name": "서버 10층",
+   "level": 60,
+   "hp": 1.4,
+   "atk": 1.3,
+   "fw": 1.0,
+   "rounds": 11,
+   "partA": [
+    "auction_guard",
+    "hit_squad",
+    "proctor"
+   ],
+   "starReward": {
+    "shard": 0
+   },
+   "partB": [
+    "lab_golem",
+    "manor_butler",
+    "thorn_walker"
+   ]
+  },
+  {
+   "floor": 11,
+   "name": "서버 11층",
+   "level": 62,
+   "hp": 1.55,
+   "atk": 1.45,
+   "fw": 1.0,
+   "rounds": 12,
+   "partA": [
+    "memory_broker",
+    "debt_collector"
+   ],
+   "starReward": {
+    "shard": 0
+   },
+   "partB": [
+    "emotion_editor",
+    "prefect_drone"
+   ]
+  },
+  {
+   "floor": 12,
+   "name": "서버 12층",
+   "level": 64,
+   "hp": 1.7,
+   "atk": 1.6,
+   "fw": 1.0,
+   "rounds": 12,
+   "partA": [
+    "oracle_core"
+   ],
+   "starReward": {
+    "shard": 0
+   },
+   "partB": [
+    "silence",
+    "garden_warden"
+   ]
+  }
+ ],
+ "envs": [
+  {
+   "id": "e_volt",
+   "name": "과전류 서버",
+   "desc": "볼트 속성 아군의 피해 +30%",
+   "elementBonus": {
+    "volt": 0.3
+   }
+  },
+  {
+   "id": "e_plasma",
+   "name": "과열 서버",
+   "desc": "플라즈마 속성 아군의 피해 +30%",
+   "elementBonus": {
+    "plasma": 0.3
+   }
+  },
+  {
+   "id": "e_cryo",
+   "name": "냉각 서버",
+   "desc": "크라이오 속성 아군의 피해 +30%",
+   "elementBonus": {
+    "cryo": 0.3
+   }
+  },
+  {
+   "id": "e_kinetic",
+   "name": "충격 서버",
+   "desc": "키네틱 속성 아군의 피해 +30%",
+   "elementBonus": {
+    "kinetic": 0.3
+   }
+  },
+  {
+   "id": "e_glitch",
+   "name": "오류 서버",
+   "desc": "글리치 속성 아군의 피해 +30%",
+   "elementBonus": {
+    "glitch": 0.3
+   }
+  },
+  {
+   "id": "e_void",
+   "name": "공허 서버",
+   "desc": "보이드 속성 아군의 피해 +30%",
+   "elementBonus": {
+    "void": 0.3
+   }
+  }
+ ]
+}

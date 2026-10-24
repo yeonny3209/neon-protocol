@@ -5,7 +5,16 @@ import cartridgesJson from '../data/cartridges.json';
 import itemsJson from '../data/items.json';
 import bannersJson from '../data/banners.json';
 import chaptersJson from '../data/chapters.json';
-import type { CartridgeDef, ChapterDef, CharacterDef, EnemyDef, ItemDef, StageDef, StatusDef } from './defs';
+import materialsJson from '../data/materials.json';
+import missionsJson from '../data/missions.json';
+import achievementsJson from '../data/achievements.json';
+import deepJson from '../data/deep.json';
+import familiesJson from '../data/loop/families.json';
+import patchesJson from '../data/loop/patches.json';
+import loopEventsJson from '../data/loop/events.json';
+import type {
+  AchievementDef, CartridgeDef, ChapterDef, CharacterDef, DeepEnvDef, DeepFloorDef, EnemyDef, ItemDef, LoopEventDef, MaterialStageDef, MissionsData, PatchDef, PatchFamilyDef, StageDef, StatusDef,
+} from './defs';
 
 export type Balance = typeof balanceJson;
 export type BannerData = typeof bannersJson;
@@ -37,6 +46,13 @@ export interface GameData {
   /** 스테이지 진행 순서(챕터 → 번호) */
   stageOrder: string[];
   scripts: Record<string, string>;
+  materials: Record<string, MaterialStageDef>;
+  missions: MissionsData;
+  achievements: AchievementDef[];
+  deep: { floors: DeepFloorDef[]; envs: DeepEnvDef[] };
+  families: Record<string, PatchFamilyDef>;
+  patches: Record<string, PatchDef>;
+  loopEvents: Record<string, LoopEventDef>;
 }
 
 const stages = byId(Object.values(stageFiles).flat(), '스테이지');
@@ -58,5 +74,12 @@ export const DATA: GameData = {
     .sort((a, b) => (chapters[a.chapter]?.order ?? 0) - (chapters[b.chapter]?.order ?? 0) || a.index - b.index)
     .map((x) => x.id),
   scripts,
+  materials: byId(materialsJson as unknown as MaterialStageDef[], '재료 스테이지'),
+  missions: missionsJson as MissionsData,
+  achievements: achievementsJson as unknown as AchievementDef[],
+  deep: deepJson as unknown as { floors: DeepFloorDef[]; envs: DeepEnvDef[] },
+  families: byId(familiesJson as unknown as PatchFamilyDef[], '패치 계열'),
+  patches: byId(patchesJson as unknown as PatchDef[], '패치'),
+  loopEvents: byId(loopEventsJson as unknown as LoopEventDef[], '루프 이벤트'),
 };
-// (개발 참고) 데이터 폴더에 새 파일을 넣고 테스트가 못 찾으면 이 줄을 살짝 고쳐 저장해서 목록을 새로 읽게 해 줘. [v6]
+// (개발 참고) 데이터 폴더에 새 파일을 넣고 테스트가 못 찾으면 이 줄을 살짝 고쳐 저장해서 목록을 새로 읽게 해 줘. [v8]

@@ -1,0 +1,908 @@
+[
+ {
+  "id": "oh1",
+  "family": "overheat",
+  "name": "과열 코어",
+  "desc": "오버클럭 피해 +25%",
+  "rarity": 1,
+  "passive": {
+   "desc": "오버클럭 피해 +25%",
+   "mods": {
+    "overclockDmg": 0.25
+   }
+  }
+ },
+ {
+  "id": "oh2",
+  "family": "overheat",
+  "name": "열 순환",
+  "desc": "열량 획득 +20%",
+  "rarity": 1,
+  "passive": {
+   "desc": "열량 획득 +20%",
+   "mods": {
+    "heatGain": 0.2
+   }
+  }
+ },
+ {
+  "id": "oh3",
+  "family": "overheat",
+  "name": "점화 플러그",
+  "desc": "전투 시작 시 열량 +30",
+  "rarity": 1,
+  "passive": {
+   "desc": "전투 시작 시 열량 +30",
+   "triggers": [
+    {
+     "on": "battleStart",
+     "effects": [
+      {
+       "type": "heat",
+       "amount": 30,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "oh4",
+  "family": "overheat",
+  "name": "연소 가속",
+  "desc": "오버클럭을 쓰면 자신의 행동 25% 당김",
+  "rarity": 2,
+  "passive": {
+   "desc": "오버클럭을 쓰면 자신의 행동 25% 당김",
+   "triggers": [
+    {
+     "on": "afterOverclock",
+     "effects": [
+      {
+       "type": "advance",
+       "pct": 0.25,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "oh5",
+  "family": "overheat",
+  "name": "폭주 회로",
+  "desc": "치명타 피해 +30%",
+  "rarity": 1,
+  "passive": {
+   "desc": "치명타 피해 +30%",
+   "mods": {
+    "critDmg": 0.3
+   }
+  }
+ },
+ {
+  "id": "oh6",
+  "family": "overheat",
+  "name": "잔열",
+  "desc": "적을 처치하면 열량 +15",
+  "rarity": 1,
+  "passive": {
+   "desc": "적을 처치하면 열량 +15",
+   "triggers": [
+    {
+     "on": "kill",
+     "effects": [
+      {
+       "type": "heat",
+       "amount": 15,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "oh7",
+  "family": "overheat",
+  "name": "오버드라이브",
+  "desc": "주는 피해 +12%",
+  "rarity": 1,
+  "passive": {
+   "desc": "주는 피해 +12%",
+   "mods": {
+    "dmgBonus": 0.12
+   }
+  }
+ },
+ {
+  "id": "oh8",
+  "family": "overheat",
+  "name": "임계점",
+  "desc": "체력 50% 미만이면 피해 +30%",
+  "rarity": 2,
+  "passive": {
+   "desc": "체력 50% 미만이면 피해 +30%",
+   "condMods": [
+    {
+     "if": {
+      "selfHpBelow": 0.5
+     },
+     "mods": {
+      "dmgBonus": 0.3
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "fw1",
+  "family": "firewall",
+  "name": "쐐기 패킷",
+  "desc": "방화벽 감소량 +30%",
+  "rarity": 1,
+  "passive": {
+   "desc": "방화벽 감소량 +30%",
+   "mods": {
+    "breakEff": 0.3
+   }
+  }
+ },
+ {
+  "id": "fw2",
+  "family": "firewall",
+  "name": "붕괴 증폭",
+  "desc": "다운 추가 피해 +50%",
+  "rarity": 1,
+  "passive": {
+   "desc": "다운 추가 피해 +50%",
+   "mods": {
+    "breakDmg": 0.5
+   }
+  }
+ },
+ {
+  "id": "fw3",
+  "family": "firewall",
+  "name": "약점 추적",
+  "desc": "약점인 적에게 피해 +20%",
+  "rarity": 1,
+  "passive": {
+   "desc": "약점인 적에게 피해 +20%",
+   "condMods": [
+    {
+     "if": {
+      "targetWeak": true
+     },
+     "mods": {
+      "dmgBonus": 0.2
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "fw4",
+  "family": "firewall",
+  "name": "다운 사냥",
+  "desc": "다운 상태인 적에게 피해 +25%",
+  "rarity": 2,
+  "passive": {
+   "desc": "다운 상태인 적에게 피해 +25%",
+   "condMods": [
+    {
+     "if": {
+      "targetDown": true
+     },
+     "mods": {
+      "dmgBonus": 0.25
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "fw5",
+  "family": "firewall",
+  "name": "침투 루틴",
+  "desc": "적 방어력 12% 무시",
+  "rarity": 1,
+  "passive": {
+   "desc": "적 방어력 12% 무시",
+   "mods": {
+    "defIgnore": 0.12
+   }
+  }
+ },
+ {
+  "id": "fw6",
+  "family": "firewall",
+  "name": "연쇄 붕괴",
+  "desc": "적이 다운되면 열량 +8",
+  "rarity": 1,
+  "passive": {
+   "desc": "적이 다운되면 열량 +8",
+   "triggers": [
+    {
+     "on": "enemyDown",
+     "effects": [
+      {
+       "type": "heat",
+       "amount": 8,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "fw7",
+  "family": "firewall",
+  "name": "틈새 공략",
+  "desc": "다운 상태인 적에게 치명타 확률 +20%",
+  "rarity": 1,
+  "passive": {
+   "desc": "다운 상태인 적에게 치명타 확률 +20%",
+   "condMods": [
+    {
+     "if": {
+      "targetDown": true
+     },
+     "mods": {
+      "critRate": 0.2
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "fw8",
+  "family": "firewall",
+  "name": "재부팅 방해",
+  "desc": "적이 다운되면 받는 피해 10% 증가(2턴)",
+  "rarity": 2,
+  "passive": {
+   "desc": "적이 다운되면 받는 피해 10% 증가(2턴)",
+   "triggers": [
+    {
+     "on": "enemyDown",
+     "effects": [
+      {
+       "type": "status",
+       "status": "vuln",
+       "value": 0.1,
+       "turns": 2,
+       "who": "target",
+       "fixed": true
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "vr1",
+  "family": "virus",
+  "name": "증식 코드",
+  "desc": "지속 피해 +35%",
+  "rarity": 1,
+  "passive": {
+   "desc": "지속 피해 +35%",
+   "mods": {
+    "dotBonus": 0.35
+   }
+  }
+ },
+ {
+  "id": "vr2",
+  "family": "virus",
+  "name": "감염 경로",
+  "desc": "효과 명중 +25%",
+  "rarity": 1,
+  "passive": {
+   "desc": "효과 명중 +25%",
+   "mods": {
+    "effHit": 0.25
+   }
+  }
+ },
+ {
+  "id": "vr3",
+  "family": "virus",
+  "name": "숙주 분석",
+  "desc": "디버프가 걸린 적에게 피해 +20%",
+  "rarity": 1,
+  "passive": {
+   "desc": "디버프가 걸린 적에게 피해 +20%",
+   "condMods": [
+    {
+     "if": {
+      "targetHasDebuff": true
+     },
+     "mods": {
+      "dmgBonus": 0.2
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "vr4",
+  "family": "virus",
+  "name": "악성 루프",
+  "desc": "적에게 디버프가 걸리면 열량 +3",
+  "rarity": 1,
+  "passive": {
+   "desc": "적에게 디버프가 걸리면 열량 +3",
+   "triggers": [
+    {
+     "on": "enemyDebuffed",
+     "effects": [
+      {
+       "type": "heat",
+       "amount": 3,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "vr5",
+  "family": "virus",
+  "name": "출혈 코드",
+  "desc": "전투스킬을 쓰면 15% 확률로 적 전체 출혈",
+  "rarity": 2,
+  "passive": {
+   "desc": "전투스킬을 쓰면 15% 확률로 적 전체 출혈",
+   "triggers": [
+    {
+     "on": "afterSkill",
+     "effects": [
+      {
+       "type": "breakEffect",
+       "element": "kinetic",
+       "chance": 0.15,
+       "who": "allEnemies"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "vr6",
+  "family": "virus",
+  "name": "과열 코드",
+  "desc": "전투스킬을 쓰면 15% 확률로 적 전체 과열",
+  "rarity": 2,
+  "passive": {
+   "desc": "전투스킬을 쓰면 15% 확률로 적 전체 과열",
+   "triggers": [
+    {
+     "on": "afterSkill",
+     "effects": [
+      {
+       "type": "breakEffect",
+       "element": "plasma",
+       "chance": 0.15,
+       "who": "allEnemies"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "vr7",
+  "family": "virus",
+  "name": "감전 코드",
+  "desc": "전투스킬을 쓰면 15% 확률로 적 전체 감전",
+  "rarity": 2,
+  "passive": {
+   "desc": "전투스킬을 쓰면 15% 확률로 적 전체 감전",
+   "triggers": [
+    {
+     "on": "afterSkill",
+     "effects": [
+      {
+       "type": "breakEffect",
+       "element": "volt",
+       "chance": 0.15,
+       "who": "allEnemies"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "vr8",
+  "family": "virus",
+  "name": "약화 패킷",
+  "desc": "적 방어력 10% 무시",
+  "rarity": 1,
+  "passive": {
+   "desc": "적 방어력 10% 무시",
+   "mods": {
+    "defIgnore": 0.1
+   }
+  }
+ },
+ {
+  "id": "ca1",
+  "family": "cache",
+  "name": "캐시 적중",
+  "desc": "전투스킬 피해 +20%",
+  "rarity": 1,
+  "passive": {
+   "desc": "전투스킬 피해 +20%",
+   "mods": {
+    "skillDmg": 0.2
+   }
+  }
+ },
+ {
+  "id": "ca2",
+  "family": "cache",
+  "name": "선행 로딩",
+  "desc": "일반공격 후 20% 확률로 CP +1",
+  "rarity": 2,
+  "passive": {
+   "desc": "일반공격 후 20% 확률로 CP +1",
+   "triggers": [
+    {
+     "on": "afterBasic",
+     "effects": [
+      {
+       "type": "cp",
+       "amount": 1
+      }
+     ],
+     "chance": 0.2
+    }
+   ]
+  }
+ },
+ {
+  "id": "ca3",
+  "family": "cache",
+  "name": "메모리 압축",
+  "desc": "전투스킬 피해 +15%, 일반공격 피해 +10%",
+  "rarity": 1,
+  "passive": {
+   "desc": "전투스킬 피해 +15%, 일반공격 피해 +10%",
+   "mods": {
+    "skillDmg": 0.15,
+    "basicDmg": 0.1
+   }
+  }
+ },
+ {
+  "id": "ca4",
+  "family": "cache",
+  "name": "빠른 호출",
+  "desc": "전투스킬을 쓰면 열량 +8",
+  "rarity": 1,
+  "passive": {
+   "desc": "전투스킬을 쓰면 열량 +8",
+   "triggers": [
+    {
+     "on": "afterSkill",
+     "effects": [
+      {
+       "type": "heat",
+       "amount": 8,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ca5",
+  "family": "cache",
+  "name": "백업 연산",
+  "desc": "전투 시작 시 열량 +15",
+  "rarity": 1,
+  "passive": {
+   "desc": "전투 시작 시 열량 +15",
+   "triggers": [
+    {
+     "on": "battleStart",
+     "effects": [
+      {
+       "type": "heat",
+       "amount": 15,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ca6",
+  "family": "cache",
+  "name": "효율 정리",
+  "desc": "전투스킬을 쓰면 행동 10% 당김",
+  "rarity": 1,
+  "passive": {
+   "desc": "전투스킬을 쓰면 행동 10% 당김",
+   "triggers": [
+    {
+     "on": "afterSkill",
+     "effects": [
+      {
+       "type": "advance",
+       "pct": 0.1,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ca7",
+  "family": "cache",
+  "name": "버퍼 확장",
+  "desc": "공격력 +12%",
+  "rarity": 1,
+  "passive": {
+   "desc": "공격력 +12%",
+   "mods": {
+    "atkPct": 0.12
+   }
+  }
+ },
+ {
+  "id": "ca8",
+  "family": "cache",
+  "name": "프리페치",
+  "desc": "적을 처음 처치하면 CP +1(전투마다 1번)",
+  "rarity": 2,
+  "passive": {
+   "desc": "적을 처음 처치하면 CP +1(전투마다 1번)",
+   "triggers": [
+    {
+     "on": "kill",
+     "effects": [
+      {
+       "type": "cp",
+       "amount": 1
+      }
+     ],
+     "limit": "perBattle"
+    }
+   ]
+  }
+ },
+ {
+  "id": "mr1",
+  "family": "mirror",
+  "name": "거울 막",
+  "desc": "주는 보호막 +30%",
+  "rarity": 1,
+  "passive": {
+   "desc": "주는 보호막 +30%",
+   "mods": {
+    "shieldBonus": 0.3
+   }
+  }
+ },
+ {
+  "id": "mr2",
+  "family": "mirror",
+  "name": "반사 장갑",
+  "desc": "보호막이 있으면 피해 +25%",
+  "rarity": 2,
+  "passive": {
+   "desc": "보호막이 있으면 피해 +25%",
+   "condMods": [
+    {
+     "if": {
+      "selfHasShield": true
+     },
+     "mods": {
+      "dmgBonus": 0.25
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "mr3",
+  "family": "mirror",
+  "name": "굴절",
+  "desc": "받는 피해 -10%",
+  "rarity": 1,
+  "passive": {
+   "desc": "받는 피해 -10%",
+   "mods": {
+    "dmgReduce": 0.1
+   }
+  }
+ },
+ {
+  "id": "mr4",
+  "family": "mirror",
+  "name": "반짝임",
+  "desc": "전투 시작 시 최대 체력 12%의 보호막(2턴)",
+  "rarity": 1,
+  "passive": {
+   "desc": "전투 시작 시 최대 체력 12%의 보호막(2턴)",
+   "triggers": [
+    {
+     "on": "battleStart",
+     "effects": [
+      {
+       "type": "shield",
+       "scale": 0.12,
+       "stat": "hp",
+       "turns": 2,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "mr5",
+  "family": "mirror",
+  "name": "되돌려 주기",
+  "desc": "공격받으면 공격한 적에게 반격(차례 사이 1번)",
+  "rarity": 2,
+  "passive": {
+   "desc": "공격받으면 공격한 적에게 반격(차례 사이 1번)",
+   "triggers": [
+    {
+     "on": "selfHit",
+     "effects": [
+      {
+       "type": "counter",
+       "scale": 0.5
+      }
+     ],
+     "limit": "perOwnTurn"
+    }
+   ]
+  }
+ },
+ {
+  "id": "mr6",
+  "family": "mirror",
+  "name": "강화 유리",
+  "desc": "체력 +15%",
+  "rarity": 1,
+  "passive": {
+   "desc": "체력 +15%",
+   "mods": {
+    "hpPct": 0.15
+   }
+  }
+ },
+ {
+  "id": "mr7",
+  "family": "mirror",
+  "name": "빛의 갑옷",
+  "desc": "방어력 +20%",
+  "rarity": 1,
+  "passive": {
+   "desc": "방어력 +20%",
+   "mods": {
+    "defPct": 0.2
+   }
+  }
+ },
+ {
+  "id": "mr8",
+  "family": "mirror",
+  "name": "투영",
+  "desc": "보호막이 있으면 치명타 확률 +15%",
+  "rarity": 1,
+  "passive": {
+   "desc": "보호막이 있으면 치명타 확률 +15%",
+   "condMods": [
+    {
+     "if": {
+      "selfHasShield": true
+     },
+     "mods": {
+      "critRate": 0.15
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "ch1",
+  "family": "chain",
+  "name": "순서 당기기",
+  "desc": "전투 시작 시 행동 20% 당김",
+  "rarity": 1,
+  "passive": {
+   "desc": "전투 시작 시 행동 20% 당김",
+   "triggers": [
+    {
+     "on": "battleStart",
+     "effects": [
+      {
+       "type": "advance",
+       "pct": 0.2,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ch2",
+  "family": "chain",
+  "name": "가속 루틴",
+  "desc": "속도 +10%",
+  "rarity": 1,
+  "passive": {
+   "desc": "속도 +10%",
+   "mods": {
+    "spdPct": 0.1
+   }
+  }
+ },
+ {
+  "id": "ch3",
+  "family": "chain",
+  "name": "연쇄 반응",
+  "desc": "전투스킬을 쓰면 행동 12% 당김",
+  "rarity": 1,
+  "passive": {
+   "desc": "전투스킬을 쓰면 행동 12% 당김",
+   "triggers": [
+    {
+     "on": "afterSkill",
+     "effects": [
+      {
+       "type": "advance",
+       "pct": 0.12,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ch4",
+  "family": "chain",
+  "name": "박자 맞추기",
+  "desc": "속도 +8",
+  "rarity": 1,
+  "passive": {
+   "desc": "속도 +8",
+   "mods": {
+    "spdFlat": 8
+   }
+  }
+ },
+ {
+  "id": "ch5",
+  "family": "chain",
+  "name": "동시 실행",
+  "desc": "오버클럭을 쓰면 행동 30% 당김",
+  "rarity": 2,
+  "passive": {
+   "desc": "오버클럭을 쓰면 행동 30% 당김",
+   "triggers": [
+    {
+     "on": "afterOverclock",
+     "effects": [
+      {
+       "type": "advance",
+       "pct": 0.3,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ch6",
+  "family": "chain",
+  "name": "숨 고르기",
+  "desc": "적을 처치하면 행동 20% 당김",
+  "rarity": 1,
+  "passive": {
+   "desc": "적을 처치하면 행동 20% 당김",
+   "triggers": [
+    {
+     "on": "kill",
+     "effects": [
+      {
+       "type": "advance",
+       "pct": 0.2,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ch7",
+  "family": "chain",
+  "name": "리듬 타기",
+  "desc": "일반공격을 하면 열량 +5",
+  "rarity": 1,
+  "passive": {
+   "desc": "일반공격을 하면 열량 +5",
+   "triggers": [
+    {
+     "on": "afterBasic",
+     "effects": [
+      {
+       "type": "heat",
+       "amount": 5,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ch8",
+  "family": "chain",
+  "name": "공명",
+  "desc": "적이 2명 이상이면 피해 +10%",
+  "rarity": 1,
+  "passive": {
+   "desc": "적이 2명 이상이면 피해 +10%",
+   "condMods": [
+    {
+     "if": {
+      "enemiesAtLeast": 2
+     },
+     "mods": {
+      "dmgBonus": 0.1
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "nt1",
+  "family": "neutral",
+  "name": "응급 키트",
+  "desc": "체력 +10%, 주는 회복 +20%",
+  "rarity": 1,
+  "passive": {
+   "desc": "체력 +10%, 주는 회복 +20%",
+   "mods": {
+    "hpPct": 0.1,
+    "healBonus": 0.2
+   }
+  }
+ },
+ {
+  "id": "nt2",
+  "family": "neutral",
+  "name": "만능 패치",
+  "desc": "공격력 +8%, 방어력 +8%",
+  "rarity": 1,
+  "passive": {
+   "desc": "공격력 +8%, 방어력 +8%",
+   "mods": {
+    "atkPct": 0.08,
+    "defPct": 0.08
+   }
+  }
+ }
+]

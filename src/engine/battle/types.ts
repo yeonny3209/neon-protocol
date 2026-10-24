@@ -93,6 +93,8 @@ export interface BattleSetup {
   allyMods?: Mods;
   enemyMods?: Mods;
   allyPassives?: Passive[];
+  /** 난이도 설정 대신 쓰는 고정 배율(딥 서버·루프) */
+  diffMult?: { enemyHp: number; enemyAtk: number; enemyFirewall: number };
   /** 아군 속성별 피해 보정(딥 서버 환경) */
   elementBonus?: Partial<Record<Element, number>>;
 }
@@ -133,4 +135,5 @@ export interface BattleStats {
   allyActions: number;
   enemyActions: number;
   koAllies: number;
+  skillsUsed: number;
 }

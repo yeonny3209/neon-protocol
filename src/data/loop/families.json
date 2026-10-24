@@ -1,0 +1,178 @@
+[
+ {
+  "id": "overheat",
+  "name": "오버히트",
+  "theme": "오버클럭을 자주 쓰고 강하게",
+  "fit": "딜러 중심",
+  "set3": {
+   "desc": "열량 획득 +25%",
+   "mods": {
+    "heatGain": 0.25
+   }
+  },
+  "set6": {
+   "desc": "오버클럭 피해 +40%, 오버클럭을 쓰면 아군 전체 열량 +15",
+   "mods": {
+    "overclockDmg": 0.4
+   },
+   "triggers": [
+    {
+     "on": "afterOverclock",
+     "effects": [
+      {
+       "type": "heat",
+       "amount": 15,
+       "who": "allAllies"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "firewall",
+  "name": "파이어월",
+  "theme": "방화벽을 빨리 깎고 다운 효과 강화",
+  "fit": "약점 맞춰 편성",
+  "set3": {
+   "desc": "방화벽 감소량 +20%",
+   "mods": {
+    "breakEff": 0.2
+   }
+  },
+  "set6": {
+   "desc": "다운 추가 피해 +60%, 다운 상태 적에게 피해 +20%",
+   "mods": {
+    "breakDmg": 0.6
+   },
+   "condMods": [
+    {
+     "if": {
+      "targetDown": true
+     },
+     "mods": {
+      "dmgBonus": 0.2
+     }
+    }
+   ]
+  }
+ },
+ {
+  "id": "virus",
+  "name": "바이러스",
+  "theme": "지속 피해(과열·감전·출혈)를 키움",
+  "fit": "해킹 중심",
+  "set3": {
+   "desc": "지속 피해 +30%",
+   "mods": {
+    "dotBonus": 0.3
+   }
+  },
+  "set6": {
+   "desc": "지속 피해 +50%, 효과 명중 +20%",
+   "mods": {
+    "dotBonus": 0.5,
+    "effHit": 0.2
+   }
+  }
+ },
+ {
+  "id": "cache",
+  "name": "캐시",
+  "theme": "CP를 더 많이 모으고 스킬 강화",
+  "fit": "스킬 위주",
+  "set3": {
+   "desc": "전투스킬 피해 +20%",
+   "mods": {
+    "skillDmg": 0.2
+   }
+  },
+  "set6": {
+   "desc": "전투스킬 피해 +30%, 전투스킬 뒤 행동 10% 당김",
+   "mods": {
+    "skillDmg": 0.3
+   },
+   "triggers": [
+    {
+     "on": "afterSkill",
+     "effects": [
+      {
+       "type": "advance",
+       "pct": 0.1,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "mirror",
+  "name": "미러",
+  "theme": "보호막을 공격력으로 바꿈",
+  "fit": "실드 중심",
+  "set3": {
+   "desc": "주는 보호막 +25%",
+   "mods": {
+    "shieldBonus": 0.25
+   }
+  },
+  "set6": {
+   "desc": "보호막이 있으면 피해 +35%, 전투 시작 시 보호막",
+   "condMods": [
+    {
+     "if": {
+      "selfHasShield": true
+     },
+     "mods": {
+      "dmgBonus": 0.35
+     }
+    }
+   ],
+   "triggers": [
+    {
+     "on": "battleStart",
+     "effects": [
+      {
+       "type": "shield",
+       "scale": 0.1,
+       "stat": "hp",
+       "turns": 2,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "chain",
+  "name": "오버클럭 체인",
+  "theme": "행동 당기기로 연속 행동",
+  "fit": "앰프 중심",
+  "set3": {
+   "desc": "속도 +8%",
+   "mods": {
+    "spdPct": 0.08
+   }
+  },
+  "set6": {
+   "desc": "속도 +10%, 전투 시작 시 행동 25% 당김",
+   "mods": {
+    "spdPct": 0.1
+   },
+   "triggers": [
+    {
+     "on": "battleStart",
+     "effects": [
+      {
+       "type": "advance",
+       "pct": 0.25,
+       "who": "self"
+      }
+     ]
+    }
+   ]
+  }
+ }
+]

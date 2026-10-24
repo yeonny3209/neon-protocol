@@ -290,3 +290,76 @@ export interface StatusDef {
   sign?: 1 | -1;
   dispellable?: boolean;
 }
+
+// ───────────────────────── 반복 콘텐츠
+
+export interface AchievementDef {
+  id: string;
+  cat: 'story' | 'battle' | 'collect' | 'growth' | 'loop' | 'fun';
+  name: string;
+  desc: string;
+  /** 진행도를 읽는 키 (save.stats 또는 계산값) */
+  stat: string;
+  target: number;
+  reward: Reward;
+  hidden?: boolean;
+}
+
+export interface MissionDef {
+  id: string;
+  text: string;
+  /** state.track()의 이벤트 이름 */
+  ev: string;
+  n: number;
+}
+
+export interface MissionsData {
+  daily: { slot: string; variants: MissionDef[] }[];
+  weekly: MissionDef[];
+}
+
+export interface DeepFloorDef {
+  floor: number;
+  name: string;
+  level: number;
+  hp: number;
+  atk: number;
+  fw: number;
+  rounds: number;
+  partA: string[];
+  partB?: string[];
+}
+
+export interface DeepEnvDef {
+  id: string;
+  name: string;
+  desc: string;
+  elementBonus?: Partial<Record<Element, number>>;
+}
+
+export interface PatchFamilyDef {
+  id: string;
+  name: string;
+  theme: string;
+  fit: string;
+  set3: Passive;
+  set6: Passive;
+}
+
+export interface PatchDef {
+  id: string;
+  family: string;
+  name: string;
+  desc: string;
+  rarity: number;
+  passive: Passive;
+}
+
+export type LoopEffect = { type: 'heal'; pct: number } | { type: 'hurt'; pct: number } | { type: 'coins'; n: number } | { type: 'patch' } | { type: 'score'; n: number };
+
+export interface LoopEventDef {
+  id: string;
+  title: string;
+  text: string;
+  options: { text: string; effects: LoopEffect[]; result: string }[];
+}

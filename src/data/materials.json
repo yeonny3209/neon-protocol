@@ -1,0 +1,1161 @@
+[
+ {
+  "id": "mat_exp",
+  "name": "데이터 팩 서버",
+  "kind": "exp",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "pack_s": 8,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "pack_m": 4,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "pack_m": 8,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "pack_l": 3,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "pack_l": 6,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_credit",
+  "name": "크레딧 금고",
+  "kind": "credit",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "credit": 20000
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "credit": 45000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "credit": 90000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "credit": 160000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "credit": 260000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_part_kinetic",
+  "name": "키네틱 부품 공장",
+  "kind": "part",
+  "element": "kinetic",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "part_kinetic_s": 6,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "part_kinetic_m": 5,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "part_kinetic_m": 9,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "part_kinetic_l": 5,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "part_kinetic_l": 8,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_part_plasma",
+  "name": "플라즈마 부품 공장",
+  "kind": "part",
+  "element": "plasma",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "part_plasma_s": 6,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "part_plasma_m": 5,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "part_plasma_m": 9,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "part_plasma_l": 5,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "part_plasma_l": 8,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_part_cryo",
+  "name": "크라이오 부품 공장",
+  "kind": "part",
+  "element": "cryo",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "part_cryo_s": 6,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "part_cryo_m": 5,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "part_cryo_m": 9,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "part_cryo_l": 5,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "part_cryo_l": 8,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_part_volt",
+  "name": "볼트 부품 공장",
+  "kind": "part",
+  "element": "volt",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "part_volt_s": 6,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "part_volt_m": 5,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "part_volt_m": 9,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "part_volt_l": 5,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "part_volt_l": 8,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_part_glitch",
+  "name": "글리치 부품 공장",
+  "kind": "part",
+  "element": "glitch",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "part_glitch_s": 6,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "part_glitch_m": 5,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "part_glitch_m": 9,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "part_glitch_l": 5,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "part_glitch_l": 8,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_part_void",
+  "name": "보이드 부품 공장",
+  "kind": "part",
+  "element": "void",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "part_void_s": 6,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "part_void_m": 5,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "part_void_m": 9,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "part_void_l": 5,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "part_void_l": 8,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_chip_strike",
+  "name": "스트라이크 회로 연구소",
+  "kind": "chip",
+  "protocol": "strike",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "chip_strike": 4,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "chip_strike": 8,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "chip_strike": 14,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "chip_strike": 20,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "chip_strike": 28,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_chip_blitz",
+  "name": "블리츠 회로 연구소",
+  "kind": "chip",
+  "protocol": "blitz",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "chip_blitz": 4,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "chip_blitz": 8,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "chip_blitz": 14,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "chip_blitz": 20,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "chip_blitz": 28,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_chip_hack",
+  "name": "해킹 회로 연구소",
+  "kind": "chip",
+  "protocol": "hack",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "chip_hack": 4,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "chip_hack": 8,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "chip_hack": 14,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "chip_hack": 20,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "chip_hack": 28,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_chip_amp",
+  "name": "앰프 회로 연구소",
+  "kind": "chip",
+  "protocol": "amp",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "chip_amp": 4,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "chip_amp": 8,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "chip_amp": 14,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "chip_amp": 20,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "chip_amp": 28,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_chip_shield",
+  "name": "실드 회로 연구소",
+  "kind": "chip",
+  "protocol": "shield",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "chip_shield": 4,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "chip_shield": 8,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "chip_shield": 14,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "chip_shield": 20,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "chip_shield": 28,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_chip_reboot",
+  "name": "리부트 회로 연구소",
+  "kind": "chip",
+  "protocol": "reboot",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "chip_reboot": 4,
+     "credit": 1500
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "chip_reboot": 8,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "chip_reboot": 14,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "chip_reboot": 20,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "chip_reboot": 28,
+     "credit": 12000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_core",
+  "name": "보스 코어 재도전",
+  "kind": "core",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "core": 1,
+     "credit": 2000
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "core": 1,
+     "credit": 4000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "core": 2,
+     "credit": 6000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "core": 3,
+     "credit": 9000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "core": 4,
+     "credit": 14000
+    }
+   }
+  ]
+ },
+ {
+  "id": "mat_weekly",
+  "name": "주간 보스: 암호화 서버",
+  "kind": "weekly",
+  "tiers": [
+   {
+    "rank": 1,
+    "level": 20,
+    "enemies": [
+     "sec_drone",
+     "street_thug",
+     "stall_bot"
+    ],
+    "reward": {
+     "weekly": 1,
+     "credit": 3000
+    }
+   },
+   {
+    "rank": 2,
+    "level": 30,
+    "enemies": [
+     "lab_assistant",
+     "holo_ad",
+     "prefect_drone"
+    ],
+    "reward": {
+     "weekly": 1,
+     "credit": 5000
+    }
+   },
+   {
+    "rank": 3,
+    "level": 40,
+    "enemies": [
+     "vine_bot",
+     "sentry_turret",
+     "gardener_drone"
+    ],
+    "reward": {
+     "weekly": 2,
+     "credit": 8000
+    }
+   },
+   {
+    "rank": 4,
+    "level": 50,
+    "enemies": [
+     "white_guard",
+     "silent_unit",
+     "data_clerk"
+    ],
+    "reward": {
+     "weekly": 2,
+     "credit": 12000
+    }
+   },
+   {
+    "rank": 5,
+    "level": 60,
+    "enemies": [
+     "memory_shard",
+     "glitch_beast",
+     "data_wraith"
+    ],
+    "reward": {
+     "weekly": 3,
+     "credit": 18000
+    }
+   }
+  ]
+ }
+]

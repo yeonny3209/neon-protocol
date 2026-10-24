@@ -36,7 +36,7 @@ export class Battle {
   active: string | null = null;
   time = 0;
   seed = 0;
-  stats: BattleStats = { downs: 0, maxDownAtOnce: 0, overclocks: 0, kills: 0, crits: 0, maxHit: 0, allyActions: 0, enemyActions: 0, koAllies: 0 };
+  stats: BattleStats = { downs: 0, maxDownAtOnce: 0, overclocks: 0, kills: 0, crits: 0, maxHit: 0, allyActions: 0, enemyActions: 0, koAllies: 0, skillsUsed: 0 };
   elementBonus: Partial<Record<Element, number>> = {};
   private events: BattleEvent[] = [];
   private pending: PendingTrigger[] = [];
@@ -94,7 +94,7 @@ export class Battle {
   private makeEnemy(defId: string, level: number, slot: number, setup: BattleSetup): Unit {
     const def = this.D.enemies[defId];
     if (!def) throw new Error(`없는 적: ${defId}`);
-    const diff = setup.difficulty === 'fixed' ? { enemyHp: 1, enemyAtk: 1, enemyFirewall: 1 } : this.D.balance.difficulty[setup.difficulty];
+    const diff = setup.diffMult ?? (setup.difficulty === 'fixed' ? { enemyHp: 1, enemyAtk: 1, enemyFirewall: 1 } : this.D.balance.difficulty[setup.difficulty]);
     const mult = statMult(level, ascForLevel(level, this.D), this.D);
     const mods: Record<string, number> = { ...(setup.enemyMods ?? {}) };
     const hp = Math.round(def.stats.hp * mult * diff.enemyHp * (1 + (mods.hpPct ?? 0)));
@@ -351,7 +351,10 @@ export class Battle {
     this.events = [];
     const { targets, main } = this.resolveTargets(u, skill.target, target);
     if (kind === 'basic') this.changeCp(this.B.cp.basicGain);
-    else this.changeCp(-this.B.cp.skillCost);
+    else {
+      this.changeCp(-this.B.cp.skillCost);
+      this.stats.skillsUsed++;
+    }
     this.emit({ t: 'action', uid: u.uid, kind, name: skill.name, targets: targets.map((x) => x.uid) });
     this.runSkill(u, skill, kind, targets, main);
     if (u.alive) this.gainHeat(u, skill.heat ?? (kind === 'basic' ? this.B.heat.basic : this.B.heat.skill));
