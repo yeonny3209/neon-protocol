@@ -1,0 +1,40 @@
+{
+  "id": "doyun", "name": "도윤", "rarity": 4, "element": "volt", "protocol": "strike", "faction": "neutral", "firstAppear": "프롤로그",
+  "concept": "언더타운 배달 라이더. 러너를 처음 구해 준 친구",
+  "profile": "언더타운에서 제일 빠른 배달 라이더. 폐기장에 쓰러진 러너를 오토바이 뒤에 싣고 달린 게 모든 일의 시작이었다. 가진 건 없어도 의리는 있다는 게 본인 말.",
+  "look": { "hair": "헬멧 자국이 남은 노란 브릿지 머리", "eyes": "갈색", "accents": ["번개 무늬 라이더 재킷", "목에 건 고글", "전기 스파크가 튀는 장갑"], "color": "#ffe14d" },
+  "stats": { "hp": [135, 1150], "atk": [76, 646], "def": [46, 120], "spd": 108, "critRate": 0.05, "critDmg": 0.5, "effHit": 0, "effRes": 0 },
+  "heatMax": 120,
+  "skills": {
+    "basic": { "name": "급정거", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "번개 배달", "kind": "skill", "target": "enemy", "desc": "적 하나에게 공격력 180% 피해, 자신의 행동 순서 15% 당김.", "effects": [{ "type": "damage", "scale": 1.8 }, { "type": "advance", "pct": 0.15, "who": "self" }] },
+    "overclock": { "name": "풀 스로틀", "kind": "overclock", "target": "enemy", "desc": "적 하나에게 공격력 320% 피해, 감전을 건다.", "effects": [{ "type": "damage", "scale": 3.2 }, { "type": "breakEffect", "element": "volt", "chance": 1.0 }] }
+  },
+  "trait": { "name": "배달 완료", "desc": "적을 처치하면 자신의 행동 순서 25% 당김.", "triggers": [{ "on": "kill", "effects": [{ "type": "advance", "pct": 0.25, "who": "self" }] }] },
+  "circuit": {
+    "big": [
+      { "name": "튜닝 엔진", "desc": "전투스킬 피해 12% 증가.", "mods": { "skillDmg": 0.12 } },
+      { "name": "지름길", "desc": "디버프가 걸린 적에게 주는 피해 15% 증가.", "condMods": [{ "if": { "targetHasDebuff": true }, "mods": { "dmgBonus": 0.15 } }] },
+      { "name": "터보 차저", "desc": "속도 +5.", "mods": { "spdFlat": 5 } }
+    ],
+    "small": [
+      { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "critRate": 0.02 }, "desc": "치명타 확률 +2%" },
+      { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "critRate": 0.02 }, "desc": "치명타 확률 +2%" },
+      { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }, { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }, { "mods": { "critRate": 0.03 }, "desc": "치명타 확률 +3%" }, { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }
+    ]
+  },
+  "sync": {
+    "1": { "name": "단골손님", "desc": "지속 피해 20% 증가.", "mods": { "dotBonus": 0.2 } },
+    "2": { "name": "예열", "desc": "전투 시작 시 열량 20 회복.", "triggers": [{ "on": "battleStart", "effects": [{ "type": "heat", "amount": 20, "who": "self" }] }] },
+    "3": { "name": "단축 경로", "desc": "전투스킬 레벨 +2, 일반공격 레벨 +1.", "skillLevels": { "skill": 2, "basic": 1 } },
+    "4": { "name": "안전 운전", "desc": "치명타 확률 8% 증가.", "mods": { "critRate": 0.08 } },
+    "5": { "name": "야간 배송", "desc": "오버클럭 레벨 +2, 특성 레벨 +2.", "skillLevels": { "overclock": 2, "trait": 2 } },
+    "6": { "name": "언더타운 최고 속도", "desc": "오버클럭 피해 25% 증가.", "mods": { "overclockDmg": 0.25 } }
+  },
+  "lines": {
+    "nest": ["배달 왔습니다~ 아, 여긴 내 집이기도 하지.", "그날 폐기장에서 너 주운 거, 내 인생 최고의 배달이었다.", "오토바이 배터리 좀 충전해도 되지? 콘센트 어디야?", "카이 형은 무서운데 좋은 사람이야. 진짜야.", "배고프면 말해. 마켓 레이어 맛집 다 알아."],
+    "dive": "도윤 도착! 빠르게 모시겠습니다~",
+    "overclock": "풀 스로틀! 비켜!",
+    "victory": "배달 완료! 별점 다섯 개 부탁해~"
+  }
+}

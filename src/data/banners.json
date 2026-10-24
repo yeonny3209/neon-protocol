@@ -1,0 +1,14 @@
+{
+  "_note": "배너 순환표. 2주마다 rotation이 한 칸씩 넘어간다(기준일은 balance.gacha.bannerEpoch). 새 5성이 나오면 rotation에 한 줄 추가.",
+  "standardChars": ["kai", "seraphine", "zero", "luna"],
+  "standardCarts": ["c5_kai", "c5_seraphine", "c5_zero", "c5_luna", "c5_neon", "c5_oracle"],
+  "fourChars": ["doyun", "mio", "basil", "hana", "rex", "yuki", "grey", "pico"],
+  "fourCarts": ["c4_knuckle", "c4_trunk", "c4_megaphone", "c4_scatter", "c4_viruskit", "c4_scanner", "c4_lightstick", "c4_notebook", "c4_riotshield", "c4_airbag", "c4_firstaid", "c4_resetswitch"],
+  "threeCarts": ["c3_pipe", "c3_firework", "c3_chip", "c3_earphone", "c3_plate", "c3_bandage"],
+  "rotation": [
+    { "title": "주먹이 필요한 밤", "char": "kai", "chars4": ["doyun", "hana", "yuki"], "cart": "c5_kai", "carts4": ["c4_knuckle", "c4_viruskit", "c4_lightstick"] },
+    { "title": "오늘의 무대", "char": "luna", "chars4": ["rex", "mio", "pico"], "cart": "c5_luna", "carts4": ["c4_megaphone", "c4_firstaid", "c4_airbag"] },
+    { "title": "영하의 계산", "char": "seraphine", "chars4": ["yuki", "basil", "grey"], "cart": "c5_seraphine", "carts4": ["c4_notebook", "c4_riotshield", "c4_scatter"] },
+    { "title": "괄호 속의 목소리", "char": "zero", "chars4": ["pico", "hana", "doyun"], "cart": "c5_zero", "carts4": ["c4_scanner", "c4_trunk", "c4_resetswitch"] }
+  ]
+}

@@ -61,12 +61,12 @@ export function validateData(data: GameData): string[] {
     if (c.skills?.skill && c.skills.skill.kind !== 'skill') err(`${w}.skill`, 'kind가 skill이 아님');
     if (c.skills?.overclock && c.skills.overclock.kind !== 'overclock') err(`${w}.overclock`, 'kind가 overclock이 아님');
     checkPassive(`${w}.trait`, c.trait);
-    if (c.rarity !== 0) {
+    {
       if (c.circuit?.big?.length !== 3) err(w, '회로도 큰 노드는 3개여야 함');
       if (c.circuit?.small?.length !== 10) err(w, '회로도 작은 노드는 10개여야 함');
       c.circuit?.big?.forEach((p, i) => checkPassive(`${w}.circuit.big[${i}]`, p));
       c.circuit?.small?.forEach((p, i) => checkMods(`${w}.circuit.small[${i}]`, p.mods));
-      for (const k of ['1', '2', '3', '4', '5', '6'] as const) checkPassive(`${w}.sync.${k}`, c.sync?.[k]);
+      if (c.rarity !== 0) for (const k of ['1', '2', '3', '4', '5', '6'] as const) checkPassive(`${w}.sync.${k}`, c.sync?.[k]);
       if ((c.lines?.nest?.length ?? 0) < 5) err(w, '둥지 대사는 5줄 이상');
     }
     if (!(c.heatMax > 0)) err(w, 'heatMax가 없음');

@@ -1,0 +1,40 @@
+{
+  "id": "mio", "name": "미오", "rarity": 4, "element": "glitch", "protocol": "reboot", "faction": "nox", "firstAppear": "프롤로그",
+  "concept": "꼬마 천재 해커. 코드로 동료를 고침",
+  "profile": "녹스트리트 최연소 해커. 열두 살이지만 언더타운의 고장 난 의수와 드론은 대부분 미오가 고쳤다. 사람 몸도 코드로 고칠 수 있다고 믿고, 실제로 꽤 잘 고친다.",
+  "look": { "hair": "초록 하이라이트가 섞인 짧은 단발", "eyes": "연두", "accents": ["커다란 헤드셋", "소매가 긴 후드", "손목에 감은 케이블"], "color": "#3dff8b" },
+  "stats": { "hp": [140, 1190], "atk": [62, 527], "def": [50, 130], "spd": 102, "critRate": 0.05, "critDmg": 0.5, "effHit": 0, "effRes": 0.1 },
+  "heatMax": 110,
+  "skills": {
+    "basic": { "name": "디버그 탭", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "핫픽스", "kind": "skill", "target": "allAllies", "desc": "아군 전체 체력을 미오 최대 체력의 14%만큼 회복하고, 디버프를 하나씩 지운다.", "effects": [{ "type": "heal", "scale": 0.14, "stat": "hp" }, { "type": "cleanse", "count": 1 }] },
+    "overclock": { "name": "롤백", "kind": "overclock", "target": "allAllies", "desc": "쓰러진 아군을 체력 30%로 되살리고, 아군 전체 체력을 미오 최대 체력의 28%만큼 회복.", "effects": [{ "type": "revive", "hpPct": 0.3 }, { "type": "heal", "scale": 0.28, "stat": "hp" }] }
+  },
+  "trait": { "name": "자동 저장", "desc": "핫픽스를 쓰면 아군 전체에 자동 복구(2턴, 미오 최대 체력의 5%).", "triggers": [{ "on": "afterSkill", "effects": [{ "type": "status", "status": "regen", "value": 0.05, "turns": 2, "who": "allAllies" }] }] },
+  "circuit": {
+    "big": [
+      { "name": "최적화 코드", "desc": "주는 회복량 10% 증가.", "mods": { "healBonus": 0.1 } },
+      { "name": "방화벽 강화", "desc": "핫픽스를 받은 아군의 방어력 10% 증가(2턴).", "skillAdds": [{ "kind": "skill", "effects": [{ "type": "status", "status": "defUp", "value": 0.1, "turns": 2 }] }] },
+      { "name": "튼튼한 몸", "desc": "체력 10% 증가.", "mods": { "hpPct": 0.1 } }
+    ],
+    "small": [
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "defPct": 0.05 }, "desc": "방어력 +5%" }, { "mods": { "effRes": 0.04 }, "desc": "효과 저항 +4%" },
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "defPct": 0.05 }, "desc": "방어력 +5%" }, { "mods": { "effRes": 0.04 }, "desc": "효과 저항 +4%" },
+      { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }, { "mods": { "defPct": 0.075 }, "desc": "방어력 +7.5%" }, { "mods": { "effRes": 0.06 }, "desc": "효과 저항 +6%" }, { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }
+    ]
+  },
+  "sync": {
+    "1": { "name": "버그 리포트", "desc": "주는 회복량 10% 증가.", "mods": { "healBonus": 0.1 } },
+    "2": { "name": "부팅 완료", "desc": "전투 시작 시 열량 20 회복.", "triggers": [{ "on": "battleStart", "effects": [{ "type": "heat", "amount": 20, "who": "self" }] }] },
+    "3": { "name": "리팩터링", "desc": "전투스킬 레벨 +2, 일반공격 레벨 +1.", "skillLevels": { "skill": 2, "basic": 1 } },
+    "4": { "name": "백업 서버", "desc": "체력 10% 증가.", "mods": { "hpPct": 0.1 } },
+    "5": { "name": "패치 노트", "desc": "오버클럭 레벨 +2, 특성 레벨 +2.", "skillLevels": { "overclock": 2, "trait": 2 } },
+    "6": { "name": "모두 고쳐 줄게", "desc": "오버클럭을 쓰면 CP +1.", "triggers": [{ "on": "afterOverclock", "effects": [{ "type": "cp", "amount": 1 }] }] }
+  },
+  "lines": {
+    "nest": ["러너! 너 목 뒤 한 번만 열어 봐도 돼? 아 포트가 없지 참.", "바실은 내가 고친 거야. 엄청 무뚝뚝하지? 그래도 착해.", "아픈 데 있으면 말해. 코드로 고쳐 줄게!", "카이 아저씨 팔에서 소리 나는 거 내가 고쳐 주려는데 자꾸 도망가.", "오늘 해킹한 거 자랑해도 돼? 아 비밀이었지…"],
+    "dive": "미오야! 고칠 거 있으면 다 가져와!",
+    "overclock": "롤백! 다 원래대로!",
+    "victory": "다친 사람 없지? 있으면 말해, 바로 패치해 줄게."
+  }
+}

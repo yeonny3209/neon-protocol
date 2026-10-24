@@ -1,0 +1,40 @@
+{
+  "id": "pico", "name": "피코", "rarity": 4, "element": "glitch", "protocol": "shield", "faction": "loop", "firstAppear": "4장",
+  "concept": "드론 몸에 들어간 어린 AI. 호기심 많음",
+  "profile": "더 루프에서 가장 어린 AI. 스카이 가든의 감시 드론에 몰래 들어가 바깥 세상을 구경하다 러너 일행과 마주쳤다. 모든 게 궁금하고, 궁금한 걸 지키고 싶어 한다.",
+  "look": { "hair": "없음. 동그란 드론 몸체에 픽셀 얼굴 화면", "eyes": "초록 픽셀 눈", "accents": ["작은 프로펠러 네 개", "몸에 붙인 꽃 스티커", "깜빡이는 안테나"], "color": "#3dff8b" },
+  "stats": { "hp": [158, 1343], "atk": [58, 493], "def": [58, 151], "spd": 104, "critRate": 0.05, "critDmg": 0.5, "effHit": 0, "effRes": 0.1 },
+  "heatMax": 110,
+  "skills": {
+    "basic": { "name": "삑!", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "호기심 장벽", "kind": "skill", "target": "ally", "desc": "아군 하나에게 피코 최대 체력 22%의 보호막(2턴). 피코는 도발(1턴).", "effects": [{ "type": "shield", "scale": 0.22, "stat": "hp", "turns": 2 }, { "type": "status", "status": "taunt", "turns": 1, "who": "self" }] },
+    "overclock": { "name": "같이 놀자!", "kind": "overclock", "target": "allEnemies", "desc": "적 전체에게 공격력 80% 피해, 행동 순서 20% 밀기. 아군 전체에게 피코 최대 체력 14%의 보호막(2턴).", "effects": [{ "type": "damage", "scale": 0.8 }, { "type": "advance", "pct": -0.2 }, { "type": "shield", "scale": 0.14, "stat": "hp", "turns": 2, "who": "allAllies" }] }
+  },
+  "trait": { "name": "드론 몸체", "desc": "받는 피해 10% 감소. 전투 시작 시 자신에게 최대 체력 10%의 보호막(2턴).", "mods": { "dmgReduce": 0.1 }, "triggers": [{ "on": "battleStart", "effects": [{ "type": "shield", "scale": 0.1, "stat": "hp", "turns": 2, "who": "self" }] }] },
+  "circuit": {
+    "big": [
+      { "name": "튼튼한 프로펠러", "desc": "주는 보호막 15% 증가.", "mods": { "shieldBonus": 0.15 } },
+      { "name": "깜짝 놀람", "desc": "공격받으면 열량 5 회복(차례 사이 1번).", "triggers": [{ "on": "selfHit", "limit": "perOwnTurn", "effects": [{ "type": "heat", "amount": 5, "who": "self" }] }] },
+      { "name": "꽃 스티커", "desc": "체력 10% 증가.", "mods": { "hpPct": 0.1 } }
+    ],
+    "small": [
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "defPct": 0.05 }, "desc": "방어력 +5%" }, { "mods": { "spdFlat": 2 }, "desc": "속도 +2" },
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "defPct": 0.05 }, "desc": "방어력 +5%" }, { "mods": { "spdFlat": 2 }, "desc": "속도 +2" },
+      { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }, { "mods": { "defPct": 0.075 }, "desc": "방어력 +7.5%" }, { "mods": { "spdFlat": 3 }, "desc": "속도 +3" }, { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }
+    ]
+  },
+  "sync": {
+    "1": { "name": "새 친구", "desc": "주는 보호막 10% 증가.", "mods": { "shieldBonus": 0.1 } },
+    "2": { "name": "신나는 시동", "desc": "전투 시작 시 열량 20 회복.", "triggers": [{ "on": "battleStart", "effects": [{ "type": "heat", "amount": 20, "who": "self" }] }] },
+    "3": { "name": "배우는 중", "desc": "전투스킬 레벨 +2, 일반공격 레벨 +1.", "skillLevels": { "skill": 2, "basic": 1 } },
+    "4": { "name": "몸집 키우기", "desc": "체력 12% 증가.", "mods": { "hpPct": 0.12 } },
+    "5": { "name": "궁금한 게 너무 많아", "desc": "오버클럭 레벨 +2, 특성 레벨 +2.", "skillLevels": { "overclock": 2, "trait": 2 } },
+    "6": { "name": "내가 지킬게!", "desc": "호기심 장벽이 받는 피해 10% 감소(2턴)도 준다.", "skillAdds": [{ "kind": "skill", "effects": [{ "type": "status", "status": "dmgReduce", "value": 0.1, "turns": 2 }] }] }
+  },
+  "lines": {
+    "nest": ["삑! 여기 뭐야? 이건 뭐야? 저건?", "정비소 냄새는 기름 냄새래! 냄새가 뭔지는 아직 몰라!", "제로 언니가 사람 앞에서 너무 많이 묻지 말래. 근데 궁금해!", "러너는 우리랑 비슷하대. 그럼 친구지?", "프로펠러에 먼지 꼈어. 미오가 닦아 준대!"],
+    "dive": "삑! 피코야! 같이 놀자!",
+    "overclock": "다 같이 놀자아아!",
+    "victory": "이겼다! 이게 신난다는 거지?"
+  }
+}

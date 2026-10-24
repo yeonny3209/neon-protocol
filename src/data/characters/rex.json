@@ -1,0 +1,40 @@
+{
+  "id": "rex", "name": "렉스", "rarity": 4, "element": "cryo", "protocol": "blitz", "faction": "helix", "firstAppear": "2장",
+  "concept": "헬릭스 보안팀 저격수. 처음엔 적으로 등장",
+  "profile": "헬릭스 보안팀 최고의 저격수였다. 명령대로만 쏘던 그는 마켓 레이어에서 러너를 겨눈 순간 처음으로 방아쇠를 망설였다. 지금은 왜 망설였는지 알아내려고 러너 곁에 있다.",
+  "look": { "hair": "하얗게 탈색한 짧은 머리", "eyes": "얼음 같은 파랑", "accents": ["헬릭스 마크를 지운 전술 코트", "냉각 장치가 달린 저격총", "한쪽 눈의 조준 렌즈"], "color": "#7fd6ff" },
+  "stats": { "hp": [130, 1105], "atk": [74, 629], "def": [44, 115], "spd": 99, "critRate": 0.08, "critDmg": 0.5, "effHit": 0, "effRes": 0 },
+  "heatMax": 120,
+  "skills": {
+    "basic": { "name": "조준 사격", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "관통탄", "kind": "skill", "target": "blast", "desc": "적 하나에게 공격력 140%, 양옆 적에게 70% 피해.", "effects": [{ "type": "damage", "scale": 1.4, "adjScale": 0.7 }] },
+    "overclock": { "name": "빙결 탄막", "kind": "overclock", "target": "allEnemies", "desc": "적 전체에게 공격력 150% 피해. 30% 확률로 동결.", "effects": [{ "type": "damage", "scale": 1.5 }, { "type": "breakEffect", "element": "cryo", "chance": 0.3 }] }
+  },
+  "trait": { "name": "저격수의 인내", "desc": "시스템 다운 상태인 적을 공격할 때 치명타 확률 20% 증가.", "condMods": [{ "if": { "targetDown": true }, "mods": { "critRate": 0.2 } }] },
+  "circuit": {
+    "big": [
+      { "name": "냉각 총열", "desc": "전투스킬 피해 12% 증가.", "mods": { "skillDmg": 0.12 } },
+      { "name": "정밀 조준", "desc": "치명타 피해 15% 증가.", "mods": { "critDmg": 0.15 } },
+      { "name": "망설임 없는 손", "desc": "적을 처치하면 열량 10 회복.", "triggers": [{ "on": "kill", "effects": [{ "type": "heat", "amount": 10, "who": "self" }] }] }
+    ],
+    "small": [
+      { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "critDmg": 0.05 }, "desc": "치명타 피해 +5%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" },
+      { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "critDmg": 0.05 }, "desc": "치명타 피해 +5%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" },
+      { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }, { "mods": { "critDmg": 0.08 }, "desc": "치명타 피해 +8%" }, { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }, { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }
+    ]
+  },
+  "sync": {
+    "1": { "name": "명령 해제", "desc": "치명타 확률 6% 증가.", "mods": { "critRate": 0.06 } },
+    "2": { "name": "영점 조정", "desc": "전투 시작 시 열량 20 회복.", "triggers": [{ "on": "battleStart", "effects": [{ "type": "heat", "amount": 20, "who": "self" }] }] },
+    "3": { "name": "탄도 계산", "desc": "전투스킬 레벨 +2, 일반공격 레벨 +1.", "skillLevels": { "skill": 2, "basic": 1 } },
+    "4": { "name": "얼어붙은 시선", "desc": "공격력 10% 증가.", "mods": { "atkPct": 0.1 } },
+    "5": { "name": "최후의 한 발", "desc": "오버클럭 레벨 +2, 특성 레벨 +2.", "skillLevels": { "overclock": 2, "trait": 2 } },
+    "6": { "name": "내가 고른 표적", "desc": "빙결 탄막의 동결 확률이 30% 더 오른다.", "skillAdds": [{ "kind": "overclock", "effects": [{ "type": "breakEffect", "element": "cryo", "chance": 0.3 }] }] }
+  },
+  "lines": {
+    "nest": ["…여기서는 등을 보여도 괜찮다는 게 아직 익숙하지 않다.", "왜 그때 쏘지 못했는지, 아직 답을 찾는 중이다.", "카이가 날 노려본다. 당연한 일이지.", "총은 매일 닦는다. 습관이다.", "러너. 네 등 뒤는 내가 본다."],
+    "dive": "렉스. 표적을 지정해라.",
+    "overclock": "한 발도 빗나가지 않는다.",
+    "victory": "표적 제거 확인."
+  }
+}

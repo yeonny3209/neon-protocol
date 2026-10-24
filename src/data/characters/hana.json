@@ -1,0 +1,40 @@
+{
+  "id": "hana", "name": "하나", "rarity": 4, "element": "plasma", "protocol": "hack", "faction": "neutral", "firstAppear": "2장",
+  "concept": "마켓 레이어 노점 요리사. 화력으로 적을 태움",
+  "profile": "마켓 레이어 37번 골목 포장마차 사장. 개조한 플라즈마 버너로 볶음면을 만든다. 손님에게는 다정하지만, 가게를 건드리는 사람에게는 화력을 아끼지 않는다.",
+  "look": { "hair": "두건 아래로 묶은 주황빛 갈색 머리", "eyes": "호박색", "accents": ["기름 자국 있는 앞치마", "등에 멘 플라즈마 버너", "손목의 주문 단말기"], "color": "#ff8a3d" },
+  "stats": { "hp": [140, 1190], "atk": [70, 595], "def": [48, 125], "spd": 100, "critRate": 0.05, "critDmg": 0.5, "effHit": 0.1, "effRes": 0 },
+  "heatMax": 110,
+  "skills": {
+    "basic": { "name": "프라이팬", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "강불 조리", "kind": "skill", "target": "enemy", "desc": "적 하나에게 공격력 110% 피해, 바이러스(공격력 50%, 2턴)와 방어력 15% 감소(2턴).", "effects": [{ "type": "damage", "scale": 1.1 }, { "type": "status", "status": "virus", "value": 0.5, "turns": 2, "chance": 1.0 }, { "type": "status", "status": "defDown", "value": 0.15, "turns": 2, "chance": 1.0 }] },
+    "overclock": { "name": "불맛 폭발", "kind": "overclock", "target": "allEnemies", "desc": "적 전체에게 공격력 120% 피해, 바이러스(공격력 60%, 3턴).", "effects": [{ "type": "damage", "scale": 1.2 }, { "type": "status", "status": "virus", "value": 0.6, "turns": 3, "chance": 1.0 }] }
+  },
+  "trait": { "name": "불 조절", "desc": "지속 피해 20% 증가.", "mods": { "dotBonus": 0.2 } },
+  "circuit": {
+    "big": [
+      { "name": "비법 양념", "desc": "강불 조리가 효과 저항을 10% 낮춘다(2턴).", "skillAdds": [{ "kind": "skill", "effects": [{ "type": "status", "status": "effResDown", "value": 0.1, "turns": 2, "chance": 1.0 }] }] },
+      { "name": "단골 관리", "desc": "디버프가 걸린 적에게 주는 피해 15% 증가.", "condMods": [{ "if": { "targetHasDebuff": true }, "mods": { "dmgBonus": 0.15 } }] },
+      { "name": "센 불", "desc": "지속 피해 15% 증가.", "mods": { "dotBonus": 0.15 } }
+    ],
+    "small": [
+      { "mods": { "effHit": 0.04 }, "desc": "효과 명중 +4%" }, { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" },
+      { "mods": { "effHit": 0.04 }, "desc": "효과 명중 +4%" }, { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" },
+      { "mods": { "effHit": 0.06 }, "desc": "효과 명중 +6%" }, { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }, { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }, { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }
+    ]
+  },
+  "sync": {
+    "1": { "name": "첫 손님", "desc": "효과 명중 10% 증가.", "mods": { "effHit": 0.1 } },
+    "2": { "name": "불 올리기", "desc": "전투 시작 시 열량 20 회복.", "triggers": [{ "on": "battleStart", "effects": [{ "type": "heat", "amount": 20, "who": "self" }] }] },
+    "3": { "name": "신메뉴", "desc": "전투스킬 레벨 +2, 일반공격 레벨 +1.", "skillLevels": { "skill": 2, "basic": 1 } },
+    "4": { "name": "줄 서는 가게", "desc": "지속 피해 20% 증가.", "mods": { "dotBonus": 0.2 } },
+    "5": { "name": "야시장 특선", "desc": "오버클럭 레벨 +2, 특성 레벨 +2.", "skillLevels": { "overclock": 2, "trait": 2 } },
+    "6": { "name": "37번 골목의 전설", "desc": "불맛 폭발이 방어력도 15% 낮춘다(2턴).", "skillAdds": [{ "kind": "overclock", "effects": [{ "type": "status", "status": "defDown", "value": 0.15, "turns": 2, "chance": 1.0 }] }] }
+  },
+  "lines": {
+    "nest": ["배고프지? 여기 주방 좀 써도 되지? 볶음면 해 줄게.", "기억을 사고판다니, 요리로 치면 남의 입맛을 훔치는 거야.", "불 조절이 제일 중요해. 싸움도 똑같고.", "가게? 단골들이 봐 주고 있어. 다들 좋은 사람들이야.", "오늘의 메뉴는 매운맛 3단계. 도전할래?"],
+    "dive": "하나 포장마차, 오늘부터 여기서도 영업합니다!",
+    "overclock": "불맛 제대로 보여 줄게!",
+    "victory": "잘 익었네. 다음 손님!"
+  }
+}

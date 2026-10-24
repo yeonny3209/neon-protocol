@@ -1,0 +1,96 @@
+{
+  "id": "runner",
+  "name": "러너",
+  "rarity": 0,
+  "element": "glitch",
+  "protocol": "hack",
+  "faction": "protagonist",
+  "firstAppear": "프롤로그",
+  "concept": "기억을 잃은 해커. 챕터를 깨면 프로토콜을 바꿀 수 있음",
+  "profile": "언더타운 폐기장에서 기억 없이 깨어난 해커. 목 뒤에 뉴럴 포트가 없어서 오라클 넷이 추적하지 못한다. 대신 다른 사람의 포트 신호를 읽고 그 사람의 전투 패턴, 프로토콜과 동기화할 수 있다.",
+  "look": { "hair": "목덜미를 덮는 짙은 남색 머리, 끝이 네온 시안으로 빛남", "eyes": "시안", "accents": ["후드 달린 테크웨어 점퍼", "손등의 홀로그램 키보드", "포트 자리가 비어 있는 목"], "color": "#40e8ff" },
+  "stats": { "hp": [155, 1320], "atk": [80, 680], "def": [56, 146], "spd": 100, "critRate": 0.05, "critDmg": 0.5, "effHit": 0, "effRes": 0 },
+  "heatMax": 110,
+  "skills": {
+    "basic": { "name": "인터럽트", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "디버그 스캔", "kind": "skill", "target": "enemy", "desc": "적 하나에게 공격력 120% 피해, 방어력 20% 감소와 속도 10% 감소(2턴).", "effects": [{ "type": "damage", "scale": 1.2 }, { "type": "status", "status": "defDown", "value": 0.2, "turns": 2, "chance": 1.0 }, { "type": "status", "status": "spdDown", "value": 0.1, "turns": 2, "chance": 1.0 }] },
+    "overclock": { "name": "강제 종료", "kind": "overclock", "target": "allEnemies", "desc": "적 전체에게 공격력 120% 피해, 행동 순서 20% 밀기.", "effects": [{ "type": "damage", "scale": 1.2 }, { "type": "advance", "pct": -0.2 }] }
+  },
+  "trait": { "name": "포트 없음", "desc": "적에게 디버프가 걸릴 때마다 열량 3 회복.", "triggers": [{ "on": "enemyDebuffed", "effects": [{ "type": "heat", "amount": 3, "who": "self" }] }] },
+  "forms": [
+    {
+      "id": "debug", "name": "디버그 모드", "unlockAfter": "start", "element": "glitch", "protocol": "hack", "heatMax": 110,
+      "skills": {
+        "basic": { "name": "인터럽트", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+        "skill": { "name": "디버그 스캔", "kind": "skill", "target": "enemy", "desc": "적 하나에게 공격력 120% 피해, 방어력 20% 감소와 속도 10% 감소(2턴).", "effects": [{ "type": "damage", "scale": 1.2 }, { "type": "status", "status": "defDown", "value": 0.2, "turns": 2, "chance": 1.0 }, { "type": "status", "status": "spdDown", "value": 0.1, "turns": 2, "chance": 1.0 }] },
+        "overclock": { "name": "강제 종료", "kind": "overclock", "target": "allEnemies", "desc": "적 전체에게 공격력 120% 피해, 행동 순서 20% 밀기.", "effects": [{ "type": "damage", "scale": 1.2 }, { "type": "advance", "pct": -0.2 }] }
+      },
+      "trait": { "name": "포트 없음", "desc": "적에게 디버프가 걸릴 때마다 열량 3 회복.", "triggers": [{ "on": "enemyDebuffed", "effects": [{ "type": "heat", "amount": 3, "who": "self" }] }] }
+    },
+    {
+      "id": "burst", "name": "버스트 모드", "unlockAfter": "prologue", "element": "volt", "protocol": "blitz", "heatMax": 120,
+      "skills": {
+        "basic": { "name": "스파크", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+        "skill": { "name": "체인 패킷", "kind": "skill", "target": "blast", "desc": "적 하나에게 공격력 150%, 양옆 적에게 75% 피해.", "effects": [{ "type": "damage", "scale": 1.5, "adjScale": 0.75 }] },
+        "overclock": { "name": "브로드캐스트", "kind": "overclock", "target": "allEnemies", "desc": "적 전체에게 공격력 170% 피해.", "effects": [{ "type": "damage", "scale": 1.7 }] }
+      },
+      "trait": { "name": "과전류", "desc": "적이 시스템 다운되면 열량 8 회복.", "triggers": [{ "on": "enemyDown", "effects": [{ "type": "heat", "amount": 8, "who": "self" }] }] }
+    },
+    {
+      "id": "patch", "name": "패치 모드", "unlockAfter": "ch1", "element": "cryo", "protocol": "reboot", "heatMax": 110,
+      "skills": {
+        "basic": { "name": "핑 체크", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+        "skill": { "name": "긴급 패치", "kind": "skill", "target": "allAllies", "desc": "아군 전체 체력을 러너 최대 체력의 13%만큼 회복.", "effects": [{ "type": "heal", "scale": 0.13, "stat": "hp" }] },
+        "overclock": { "name": "시스템 복원", "kind": "overclock", "target": "allAllies", "desc": "아군 전체 체력을 러너 최대 체력의 25%만큼 회복하고, 쓰러진 아군을 체력 30%로 되살린다.", "effects": [{ "type": "revive", "hpPct": 0.3 }, { "type": "heal", "scale": 0.25, "stat": "hp" }] }
+      },
+      "trait": { "name": "백업", "desc": "긴급 패치가 디버프를 하나 지운다.", "skillAdds": [{ "kind": "skill", "effects": [{ "type": "cleanse", "count": 1 }] }] }
+    },
+    {
+      "id": "guard", "name": "가드 모드", "unlockAfter": "ch2", "element": "void", "protocol": "shield", "heatMax": 110,
+      "skills": {
+        "basic": { "name": "차단", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+        "skill": { "name": "샌드박스", "kind": "skill", "target": "allAllies", "desc": "아군 전체에게 러너 최대 체력 11%의 보호막(2턴).", "effects": [{ "type": "shield", "scale": 0.11, "stat": "hp", "turns": 2 }] },
+        "overclock": { "name": "격리 구역", "kind": "overclock", "target": "allAllies", "desc": "아군 전체에게 러너 최대 체력 20%의 보호막, 받는 피해 15% 감소(2턴). 러너는 도발(2턴).", "effects": [{ "type": "shield", "scale": 0.2, "stat": "hp", "turns": 2 }, { "type": "status", "status": "dmgReduce", "value": 0.15, "turns": 2 }, { "type": "status", "status": "taunt", "turns": 2, "who": "self" }] }
+      },
+      "trait": { "name": "방어 우선", "desc": "받는 피해 10% 감소.", "mods": { "dmgReduce": 0.1 } }
+    },
+    {
+      "id": "boost", "name": "부스트 모드", "unlockAfter": "ch3", "element": "plasma", "protocol": "amp", "heatMax": 110,
+      "skills": {
+        "basic": { "name": "점화", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+        "skill": { "name": "오버드라이브", "kind": "skill", "target": "allyOther", "desc": "다른 아군 하나의 주는 피해 25% 증가(2턴), 행동 순서 35% 당김.", "effects": [{ "type": "status", "status": "dmgUp", "value": 0.25, "turns": 2 }, { "type": "advance", "pct": 0.35 }] },
+        "overclock": { "name": "풀 부스트", "kind": "overclock", "target": "allAllies", "desc": "아군 전체 공격력 20% 증가(2턴), 열량 15 회복.", "effects": [{ "type": "status", "status": "atkUp", "value": 0.2, "turns": 2 }, { "type": "heat", "amount": 15, "who": "otherAllies" }] }
+      },
+      "trait": { "name": "공유 회선", "desc": "전투 시작 시 아군 전체 열량 10 회복.", "triggers": [{ "on": "battleStart", "effects": [{ "type": "heat", "amount": 10, "who": "allAllies" }] }] }
+    },
+    {
+      "id": "exploit", "name": "익스플로잇 모드", "unlockAfter": "ch4", "element": "kinetic", "protocol": "strike", "heatMax": 120,
+      "skills": {
+        "basic": { "name": "취약점 찌르기", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+        "skill": { "name": "제로데이", "kind": "skill", "target": "enemy", "desc": "적 하나에게 공격력 210% 피해. 디버프가 걸린 적이면 피해 25% 증가.", "effects": [{ "type": "damage", "scale": 2.1, "bonus": [{ "if": { "targetHasDebuff": true }, "mods": { "dmgBonus": 0.25 } }] }] },
+        "overclock": { "name": "루트 권한", "kind": "overclock", "target": "enemy", "desc": "적 하나에게 공격력 380% 피해.", "effects": [{ "type": "damage", "scale": 3.8 }] }
+      },
+      "trait": { "name": "약점 수집", "desc": "시스템 다운 상태인 적에게 주는 피해 15% 증가.", "condMods": [{ "if": { "targetDown": true }, "mods": { "dmgBonus": 0.15 } }] }
+    }
+  ],
+  "circuit": {
+    "big": [
+      { "name": "적응형 코드", "desc": "효과 명중 10% 증가.", "mods": { "effHit": 0.1 } },
+      { "name": "동기화 숙련", "desc": "전투 시작 시 열량 15 회복.", "triggers": [{ "on": "battleStart", "effects": [{ "type": "heat", "amount": 15, "who": "self" }] }] },
+      { "name": "예외 처리", "desc": "주는 피해 10% 증가.", "mods": { "dmgBonus": 0.1 } }
+    ],
+    "small": [
+      { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" },
+      { "mods": { "defPct": 0.05 }, "desc": "방어력 +5%" }, { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" },
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "defPct": 0.05 }, "desc": "방어력 +5%" },
+      { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }, { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" },
+      { "mods": { "defPct": 0.075 }, "desc": "방어력 +7.5%" }, { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }
+    ]
+  },
+  "lines": {
+    "nest": ["여기가… 우리 집이라고 불러도 되는 곳일까.", "기억은 아직 안 돌아왔어. 그래도 오늘 일은 기억할 거야.", "다른 사람 신호를 읽으면 그 사람이 조금 이해돼. 이상하지?", "포트가 없는 목이 허전하지는 않아. 오히려 조용해서 좋아.", "다음엔 어디로 갈까? 위로, 계속 위로."],
+    "dive": "신호 연결 완료. 같이 가자.",
+    "overclock": "권한 획득. 내 차례야.",
+    "victory": "다들 괜찮지? 좋아, 다음으로."
+  }
+}

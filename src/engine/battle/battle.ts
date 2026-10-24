@@ -880,7 +880,7 @@ export class Battle {
       return;
     }
     if (id === 'virus' && extra.dot === undefined) extra = { ...extra, dot: this.atk(src) * value * (1 + this.mod(src, 'dotBonus')) };
-    if (id === 'regen') value = this.atk(src) * value * (1 + this.mod(src, 'healBonus'));
+    if (id === 'regen') value = src.maxHp * value * (1 + this.mod(src, 'healBonus'));
     this.addStatus(t, { id, value, turns, src: src.uid, fresh: t.uid === this.active, ...extra });
     if (def.kind === 'debuff' && t.side === 'enemy') this.onDebuffed(src, t);
   }

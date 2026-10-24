@@ -1,0 +1,448 @@
+[
+ {
+  "id": "shard",
+  "name": "데이터 샤드",
+  "kind": "currency",
+  "rarity": 5,
+  "desc": "다이브 키로 바꿀 수 있는 결정. 160개 = 다이브 키 1개.",
+  "sources": [
+   "스토리 스테이지 첫 클리어",
+   "챕터 완료 보상",
+   "업적·미션",
+   "딥 서버·시뮬레이션 루프"
+  ]
+ },
+ {
+  "id": "key",
+  "name": "다이브 키",
+  "kind": "currency",
+  "rarity": 5,
+  "desc": "다이브(뽑기) 1회에 1개를 쓴다.",
+  "sources": [
+   "러너 등급 보상",
+   "초보자 미션",
+   "데이터 샤드로 교환",
+   "신호 교환소"
+  ]
+ },
+ {
+  "id": "signal",
+  "name": "신호 조각",
+  "kind": "currency",
+  "rarity": 4,
+  "desc": "신호 교환소에서 캐릭터·카트리지·다이브 키로 바꾼다.",
+  "sources": [
+   "다이브 1회마다 1개",
+   "동기화 6단계를 넘긴 중복"
+  ]
+ },
+ {
+  "id": "credit",
+  "name": "크레딧",
+  "kind": "currency",
+  "rarity": 3,
+  "desc": "모든 성장에 드는 돈.",
+  "sources": [
+   "모든 전투",
+   "크레딧 금고 소탕"
+  ],
+  "stage": "mat_credit"
+ },
+ {
+  "id": "pack_s",
+  "name": "데이터 팩 (소)",
+  "kind": "exp",
+  "rarity": 2,
+  "exp": 500,
+  "desc": "캐릭터 경험치 500.",
+  "sources": [
+   "스토리 스테이지 첫 클리어",
+   "데이터 팩 서버 소탕",
+   "일일 미션"
+  ],
+  "stage": "mat_exp"
+ },
+ {
+  "id": "pack_m",
+  "name": "데이터 팩 (중)",
+  "kind": "exp",
+  "rarity": 3,
+  "exp": 2000,
+  "desc": "캐릭터 경험치 2,000.",
+  "sources": [
+   "스토리 스테이지 첫 클리어",
+   "데이터 팩 서버 소탕",
+   "일일 미션"
+  ],
+  "stage": "mat_exp"
+ },
+ {
+  "id": "pack_l",
+  "name": "데이터 팩 (대)",
+  "kind": "exp",
+  "rarity": 4,
+  "exp": 10000,
+  "desc": "캐릭터 경험치 10,000.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "데이터 팩 서버 소탕(3단계 이상)"
+  ],
+  "stage": "mat_exp"
+ },
+ {
+  "id": "cart_data",
+  "name": "카트리지 데이터",
+  "kind": "exp",
+  "rarity": 3,
+  "exp": 1,
+  "desc": "카트리지 경험치. 중첩 5단계를 넘긴 카트리지가 바뀐 것.",
+  "sources": [
+   "다이브에서 나온 카트리지 중복",
+   "카트리지 데이터 소탕"
+  ],
+  "stage": "mat_exp"
+ },
+ {
+  "id": "core",
+  "name": "보스 코어",
+  "kind": "core",
+  "rarity": 4,
+  "desc": "3차·4차 돌파에 쓰는 보스의 연산 핵.",
+  "sources": [
+   "챕터 보스 재도전",
+   "시뮬레이션 루프 최초 완주"
+  ],
+  "stage": "mat_core"
+ },
+ {
+  "id": "weekly",
+  "name": "암호화 로그",
+  "kind": "weekly",
+  "rarity": 5,
+  "desc": "스킬을 6레벨 이상 올릴 때 쓴다.",
+  "sources": [
+   "주간 보스 (주 3회)",
+   "딥 서버 별 보상",
+   "챕터 보스 첫 클리어"
+  ],
+  "stage": "mat_weekly"
+ },
+ {
+  "id": "part_kinetic_s",
+  "name": "키네틱 부품 (소)",
+  "kind": "part",
+  "rarity": 2,
+  "element": "kinetic",
+  "desc": "키네틱 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "키네틱 부품 공장 소탕"
+  ],
+  "stage": "mat_part_kinetic"
+ },
+ {
+  "id": "part_kinetic_m",
+  "name": "키네틱 부품 (중)",
+  "kind": "part",
+  "rarity": 3,
+  "element": "kinetic",
+  "desc": "키네틱 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "키네틱 부품 공장 소탕"
+  ],
+  "stage": "mat_part_kinetic"
+ },
+ {
+  "id": "part_kinetic_l",
+  "name": "키네틱 부품 (대)",
+  "kind": "part",
+  "rarity": 4,
+  "element": "kinetic",
+  "desc": "키네틱 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "키네틱 부품 공장 소탕"
+  ],
+  "stage": "mat_part_kinetic"
+ },
+ {
+  "id": "part_plasma_s",
+  "name": "플라즈마 부품 (소)",
+  "kind": "part",
+  "rarity": 2,
+  "element": "plasma",
+  "desc": "플라즈마 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "플라즈마 부품 공장 소탕"
+  ],
+  "stage": "mat_part_plasma"
+ },
+ {
+  "id": "part_plasma_m",
+  "name": "플라즈마 부품 (중)",
+  "kind": "part",
+  "rarity": 3,
+  "element": "plasma",
+  "desc": "플라즈마 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "플라즈마 부품 공장 소탕"
+  ],
+  "stage": "mat_part_plasma"
+ },
+ {
+  "id": "part_plasma_l",
+  "name": "플라즈마 부품 (대)",
+  "kind": "part",
+  "rarity": 4,
+  "element": "plasma",
+  "desc": "플라즈마 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "플라즈마 부품 공장 소탕"
+  ],
+  "stage": "mat_part_plasma"
+ },
+ {
+  "id": "part_cryo_s",
+  "name": "크라이오 부품 (소)",
+  "kind": "part",
+  "rarity": 2,
+  "element": "cryo",
+  "desc": "크라이오 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "크라이오 부품 공장 소탕"
+  ],
+  "stage": "mat_part_cryo"
+ },
+ {
+  "id": "part_cryo_m",
+  "name": "크라이오 부품 (중)",
+  "kind": "part",
+  "rarity": 3,
+  "element": "cryo",
+  "desc": "크라이오 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "크라이오 부품 공장 소탕"
+  ],
+  "stage": "mat_part_cryo"
+ },
+ {
+  "id": "part_cryo_l",
+  "name": "크라이오 부품 (대)",
+  "kind": "part",
+  "rarity": 4,
+  "element": "cryo",
+  "desc": "크라이오 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "크라이오 부품 공장 소탕"
+  ],
+  "stage": "mat_part_cryo"
+ },
+ {
+  "id": "part_volt_s",
+  "name": "볼트 부품 (소)",
+  "kind": "part",
+  "rarity": 2,
+  "element": "volt",
+  "desc": "볼트 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "볼트 부품 공장 소탕"
+  ],
+  "stage": "mat_part_volt"
+ },
+ {
+  "id": "part_volt_m",
+  "name": "볼트 부품 (중)",
+  "kind": "part",
+  "rarity": 3,
+  "element": "volt",
+  "desc": "볼트 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "볼트 부품 공장 소탕"
+  ],
+  "stage": "mat_part_volt"
+ },
+ {
+  "id": "part_volt_l",
+  "name": "볼트 부품 (대)",
+  "kind": "part",
+  "rarity": 4,
+  "element": "volt",
+  "desc": "볼트 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "볼트 부품 공장 소탕"
+  ],
+  "stage": "mat_part_volt"
+ },
+ {
+  "id": "part_glitch_s",
+  "name": "글리치 부품 (소)",
+  "kind": "part",
+  "rarity": 2,
+  "element": "glitch",
+  "desc": "글리치 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "글리치 부품 공장 소탕"
+  ],
+  "stage": "mat_part_glitch"
+ },
+ {
+  "id": "part_glitch_m",
+  "name": "글리치 부품 (중)",
+  "kind": "part",
+  "rarity": 3,
+  "element": "glitch",
+  "desc": "글리치 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "글리치 부품 공장 소탕"
+  ],
+  "stage": "mat_part_glitch"
+ },
+ {
+  "id": "part_glitch_l",
+  "name": "글리치 부품 (대)",
+  "kind": "part",
+  "rarity": 4,
+  "element": "glitch",
+  "desc": "글리치 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "글리치 부품 공장 소탕"
+  ],
+  "stage": "mat_part_glitch"
+ },
+ {
+  "id": "part_void_s",
+  "name": "보이드 부품 (소)",
+  "kind": "part",
+  "rarity": 2,
+  "element": "void",
+  "desc": "보이드 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "보이드 부품 공장 소탕"
+  ],
+  "stage": "mat_part_void"
+ },
+ {
+  "id": "part_void_m",
+  "name": "보이드 부품 (중)",
+  "kind": "part",
+  "rarity": 3,
+  "element": "void",
+  "desc": "보이드 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "보이드 부품 공장 소탕"
+  ],
+  "stage": "mat_part_void"
+ },
+ {
+  "id": "part_void_l",
+  "name": "보이드 부품 (대)",
+  "kind": "part",
+  "rarity": 4,
+  "element": "void",
+  "desc": "보이드 속성 캐릭터의 돌파 재료.",
+  "sources": [
+   "챕터 보스 첫 클리어",
+   "보이드 부품 공장 소탕"
+  ],
+  "stage": "mat_part_void"
+ },
+ {
+  "id": "chip_strike",
+  "name": "스트라이크 회로 칩",
+  "kind": "chip",
+  "rarity": 3,
+  "protocol": "strike",
+  "desc": "스트라이크 캐릭터의 회로도와 스트라이크 카트리지 돌파 재료.",
+  "sources": [
+   "스토리 보상",
+   "스트라이크 회로 연구소 소탕",
+   "딥 서버"
+  ],
+  "stage": "mat_chip_strike"
+ },
+ {
+  "id": "chip_blitz",
+  "name": "블리츠 회로 칩",
+  "kind": "chip",
+  "rarity": 3,
+  "protocol": "blitz",
+  "desc": "블리츠 캐릭터의 회로도와 블리츠 카트리지 돌파 재료.",
+  "sources": [
+   "스토리 보상",
+   "블리츠 회로 연구소 소탕",
+   "딥 서버"
+  ],
+  "stage": "mat_chip_blitz"
+ },
+ {
+  "id": "chip_hack",
+  "name": "해킹 회로 칩",
+  "kind": "chip",
+  "rarity": 3,
+  "protocol": "hack",
+  "desc": "해킹 캐릭터의 회로도와 해킹 카트리지 돌파 재료.",
+  "sources": [
+   "스토리 보상",
+   "해킹 회로 연구소 소탕",
+   "딥 서버"
+  ],
+  "stage": "mat_chip_hack"
+ },
+ {
+  "id": "chip_amp",
+  "name": "앰프 회로 칩",
+  "kind": "chip",
+  "rarity": 3,
+  "protocol": "amp",
+  "desc": "앰프 캐릭터의 회로도와 앰프 카트리지 돌파 재료.",
+  "sources": [
+   "스토리 보상",
+   "앰프 회로 연구소 소탕",
+   "딥 서버"
+  ],
+  "stage": "mat_chip_amp"
+ },
+ {
+  "id": "chip_shield",
+  "name": "실드 회로 칩",
+  "kind": "chip",
+  "rarity": 3,
+  "protocol": "shield",
+  "desc": "실드 캐릭터의 회로도와 실드 카트리지 돌파 재료.",
+  "sources": [
+   "스토리 보상",
+   "실드 회로 연구소 소탕",
+   "딥 서버"
+  ],
+  "stage": "mat_chip_shield"
+ },
+ {
+  "id": "chip_reboot",
+  "name": "리부트 회로 칩",
+  "kind": "chip",
+  "rarity": 3,
+  "protocol": "reboot",
+  "desc": "리부트 캐릭터의 회로도와 리부트 카트리지 돌파 재료.",
+  "sources": [
+   "스토리 보상",
+   "리부트 회로 연구소 소탕",
+   "딥 서버"
+  ],
+  "stage": "mat_chip_reboot"
+ }
+]

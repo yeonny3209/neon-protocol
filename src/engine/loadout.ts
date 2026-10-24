@@ -139,7 +139,7 @@ export function effectiveSkillLevels(def: CharacterDef, lo: Loadout): SkillLevel
   const lv = { ...lo.skills };
   if (def.rarity === 0) return lv;
   for (let i = 1; i <= lo.sync; i++) {
-    const bonus = def.sync[String(i) as '1']?.skillLevels;
+    const bonus = def.sync?.[String(i) as '1']?.skillLevels;
     if (bonus) for (const [k, v] of Object.entries(bonus)) lv[k as keyof SkillLevels] += v ?? 0;
   }
   return lv;
@@ -155,15 +155,15 @@ export function buildAlly(lo: Loadout, data: GameData = DATA, cartridges?: Recor
 
   const traitMul = levelMuls(lv.trait, data);
   passives.push(scalePassive(kit.trait, traitMul.scale, traitMul.value));
-  if (def.rarity !== 0) {
+  {
     for (const i of lo.bigNodes) if (def.circuit.big[i]) passives.push(def.circuit.big[i]);
     for (let i = 1; i <= lo.sync; i++) {
-      const s = def.sync[String(i) as '1'];
+      const s = def.sync?.[String(i) as '1'];
       if (s && !s.skillLevels) passives.push(s);
     }
   }
   const small: Mods = {};
-  if (def.rarity !== 0) {
+  {
     for (const i of lo.smallNodes) {
       for (const [k, v] of Object.entries(def.circuit.small[i]?.mods ?? {})) small[k as keyof Mods] = (small[k as keyof Mods] ?? 0) + (v as number);
     }

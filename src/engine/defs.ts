@@ -160,7 +160,7 @@ export interface CharacterDef extends CharacterKit {
     small: { mods: Mods; desc: string }[]; // 10개
   };
   /** 1~6단계. 3·5단계는 skillLevels로 스킬 레벨 +2 */
-  sync: Record<'1' | '2' | '3' | '4' | '5' | '6', Passive & { name: string }>;
+  sync?: Record<'1' | '2' | '3' | '4' | '5' | '6', Passive & { name: string }>;
   exclusiveCartridge?: string;
   lines: { nest: string[]; dive: string; overclock: string; victory: string };
   /** 러너 전용: 형태 목록. 있으면 위의 element/protocol/skills/trait는 첫 형태와 같아야 한다 */

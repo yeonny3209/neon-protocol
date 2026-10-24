@@ -1,6 +1,9 @@
-// 브라우저 저장. 맨 위 version 숫자로 구조를 구분하고, 구조가 바뀌면 MIGRATIONS에 변환을 추가한다.
+// 브라우저 저장. 맨 위 version 숫자로 구조를 구분하고, 구조가 바뀌면 MIGRATIONS에 변환을 하나 추가한다.
+// 저장 시점: 전투 종료, 선택지 직후, 다이브 결과 직후(연출 전), 성장 직후, 화면 이동 시.
+import type { SkillLevels } from './loadout';
 
 export const SAVE_KEY = 'neon-protocol.save';
+export const SAVE_VERSION = 2;
 
 export interface Settings {
   speed: 1 | 2 | 3;
@@ -8,38 +11,223 @@ export interface Settings {
   cutin: 'first' | 'always' | 'never';
   skipBossIntro: boolean;
   skipVictory: boolean;
+  storyAlwaysSkip: boolean;
+  autoText: boolean;
+  instantText: boolean;
+  bgm: number;
+  sfx: number;
 }
 
-export interface SaveV1 {
-  version: 1;
+export interface CharState {
+  id: string;
+  level: number;
+  exp: number;
+  asc: number;
+  skills: SkillLevels;
+  big: number[];
+  small: number[];
+  sync: number;
+  cart: number | null;
+  obtained: number;
+}
+
+export interface CartState {
+  uid: number;
+  id: string;
+  level: number;
+  exp: number;
+  asc: number;
+  rank: number;
+}
+
+export interface PityState {
+  five: number;
+  four: number;
+  guar5: boolean;
+  guar4: boolean;
+  total: number;
+}
+
+export interface DiveRecord {
+  at: number;
+  banner: string;
+  kind: 'char' | 'cart';
+  id: string;
+  rarity: number;
+}
+
+export interface StoryState {
+  /** 스테이지 id → 별(비트: 1 클리어, 2 전원 생존, 4 제한 라운드) */
+  cleared: Record<string, number>;
+  chapters: string[];
+  trust: { nox: number; white: number; loop: number };
+  flags: Record<string, number>;
+  /** 선택지 id → 고른 번호 */
+  choices: Record<string, number>;
+  /** 선택지 id → 그 선택지를 고른 챕터(챕터 선택용) */
+  choiceChapter: Record<string, string>;
+  seen: string[];
+  endings: string[];
+  /** 보통 난이도에서 이어지는 체력 (캐릭터 id → 0~1) */
+  hp: Record<string, number>;
+  /** 다음에 할 스테이지 (결과 화면의 "다음 스테이지") */
+  next?: string;
+}
+
+export interface MissionProgress {
+  id: string;
+  p: number;
+  claimed: boolean;
+}
+
+export interface DailyState {
+  day: string;
+  list: MissionProgress[];
+  allClaimed: boolean;
+  /** 받지 못한 일일 완료 보상 수(최대 3) */
+  backlog: number;
+  week: string;
+  weekly: MissionProgress[];
+}
+
+export interface DeepState {
+  period: string;
+  /** 층 → 별 비트 */
+  stars: Record<string, number>;
+  claimed: number[];
+  weeklyClaimed: number[];
+}
+
+export interface LoopState {
+  week: string;
+  score: number;
+  weeklyClaimed: boolean;
+  firstClear: number[];
+  /** 진행 중인 루프(없으면 null) */
+  run: unknown;
+  patches: string[];
+  events: string[];
+  maxDifficulty: number;
+}
+
+export interface SaveV2 {
+  version: 2;
+  created: number;
+  updated: number;
+  name: string;
+  started: boolean;
   settings: Settings;
   seenCutins: string[];
+  seenDive: string[];
+  tutorials: string[];
+  rank: { level: number; exp: number };
+  /** 재화와 재료 수량 */
+  wallet: Record<string, number>;
+  chars: Record<string, CharState>;
+  carts: CartState[];
+  nextCart: number;
+  party: string[];
+  partyB: string[];
+  rep: string;
+  repTouches: number;
+  runnerForm: string;
+  runnerForms: string[];
+  story: StoryState;
+  gacha: {
+    pity: Record<string, PityState>;
+    beginner: number;
+    standardPulls: number;
+    standardPicked: boolean;
+    history: DiveRecord[];
+    keyExMonth: string;
+    keyExCount: number;
+  };
+  mats: { stars: Record<string, number>; sweeps: Record<string, { day: string; n: number }>; weekly: { week: string; n: number } };
+  daily: DailyState;
+  deep: DeepState;
+  loop: LoopState;
+  codex: { enemies: string[]; claimed: string[] };
+  ach: { done: Record<string, number>; claimed: string[] };
+  stats: Record<string, number>;
 }
 
-export type SaveData = SaveV1;
-export const SAVE_VERSION = 1;
+export type SaveData = SaveV2;
 
 export function defaultSettings(): Settings {
-  return { speed: 1, difficulty: 'story', cutin: 'first', skipBossIntro: false, skipVictory: false };
+  return { speed: 1, difficulty: 'story', cutin: 'first', skipBossIntro: false, skipVictory: false, storyAlwaysSkip: false, autoText: false, instantText: false, bgm: 0.6, sfx: 0.8 };
 }
 
-export function newSave(): SaveData {
-  return { version: 1, settings: defaultSettings(), seenCutins: [] };
+export function newCharState(id: string, now = Date.now()): CharState {
+  return { id, level: 1, exp: 0, asc: 0, skills: { basic: 1, skill: 1, overclock: 1, trait: 1 }, big: [], small: [], sync: 0, cart: null, obtained: now };
 }
 
-type Migration = (old: any) => any; // eslint-disable-line @typescript-eslint/no-explicit-any
-/** MIGRATIONS[n]은 버전 n을 n+1로 바꾼다 */
-export const MIGRATIONS: Record<number, Migration> = {};
+export function newSave(now = Date.now()): SaveData {
+  return {
+    version: 2,
+    created: now,
+    updated: now,
+    name: '러너',
+    started: false,
+    settings: defaultSettings(),
+    seenCutins: [],
+    seenDive: [],
+    tutorials: [],
+    rank: { level: 1, exp: 0 },
+    wallet: {},
+    chars: { runner: newCharState('runner', now) },
+    carts: [],
+    nextCart: 1,
+    party: ['runner'],
+    partyB: [],
+    rep: 'runner',
+    repTouches: 0,
+    runnerForm: 'debug',
+    runnerForms: ['debug'],
+    story: { cleared: {}, chapters: [], trust: { nox: 0, white: 0, loop: 0 }, flags: {}, choices: {}, choiceChapter: {}, seen: [], endings: [], hp: {} },
+    gacha: { pity: {}, beginner: 0, standardPulls: 0, standardPicked: false, history: [], keyExMonth: '', keyExCount: 0 },
+    mats: { stars: {}, sweeps: {}, weekly: { week: '', n: 0 } },
+    daily: { day: '', list: [], allClaimed: false, backlog: 0, week: '', weekly: [] },
+    deep: { period: '', stars: {}, claimed: [], weeklyClaimed: [] },
+    loop: { week: '', score: 0, weeklyClaimed: false, firstClear: [], run: null, patches: [], events: [], maxDifficulty: 1 },
+    codex: { enemies: [], claimed: [] },
+    ach: { done: {}, claimed: [] },
+    stats: {},
+  };
+}
+
+type AnySave = { version: number } & Record<string, unknown>;
+/** MIGRATIONS[n]은 버전 n 저장을 n+1로 바꾼다 */
+export const MIGRATIONS: Record<number, (old: AnySave) => AnySave> = {
+  // v1(전투 프로토타입): 설정과 본 컷인만 있었다
+  1: (old) => {
+    const fresh = newSave() as unknown as AnySave;
+    const s = (old.settings ?? {}) as Partial<Settings>;
+    return { ...fresh, settings: { ...defaultSettings(), ...s }, seenCutins: Array.isArray(old.seenCutins) ? old.seenCutins : [] };
+  },
+};
+
+/** 빠진 칸은 기본값으로 채운다(같은 버전 안에서 칸이 늘어난 경우) */
+function fillDefaults<T>(base: T, data: unknown): T {
+  if (Array.isArray(base) || base === null || typeof base !== 'object') return (data === undefined ? base : data) as T;
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return base;
+  const out: Record<string, unknown> = { ...(data as Record<string, unknown>) };
+  for (const [k, v] of Object.entries(base as Record<string, unknown>)) {
+    if (v !== null && typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length) out[k] = fillDefaults(v, (data as Record<string, unknown>)[k]);
+    else if (!(k in out)) out[k] = v;
+  }
+  return out as T;
+}
 
 export function migrate(raw: unknown): SaveData {
   if (!raw || typeof raw !== 'object' || typeof (raw as { version?: unknown }).version !== 'number') return newSave();
-  let data = raw as { version: number };
+  let data = raw as AnySave;
+  if (data.version > SAVE_VERSION) throw new Error(`이 게임보다 새 버전의 저장 데이터예요 (v${data.version})`);
   while (data.version < SAVE_VERSION) {
     const m = MIGRATIONS[data.version];
     if (!m) throw new Error(`저장 데이터 변환 규칙이 없음: v${data.version}`);
     data = m(data);
   }
-  return { ...newSave(), ...(data as SaveData), settings: { ...defaultSettings(), ...(data as SaveData).settings } };
+  return fillDefaults(newSave(), data);
 }
 
 export interface Storage {
@@ -75,5 +263,18 @@ export function loadSave(storage: Storage = browserStorage): SaveData {
 }
 
 export function writeSave(data: SaveData, storage: Storage = browserStorage) {
+  data.updated = Date.now();
   storage.set(SAVE_KEY, JSON.stringify(data));
+}
+
+/** 내보내기용 문자열 */
+export function exportSave(data: SaveData): string {
+  return JSON.stringify(data);
+}
+
+/** 불러오기. 잘못된 파일이면 예외 */
+export function importSave(text: string): SaveData {
+  const raw = JSON.parse(text);
+  if (!raw || typeof raw.version !== 'number') throw new Error('네온 프로토콜 저장 파일이 아니에요');
+  return migrate(raw);
 }

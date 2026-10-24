@@ -1,0 +1,40 @@
+{
+  "id": "grey", "name": "그레이", "rarity": 4, "element": "void", "protocol": "reboot", "faction": "white", "firstAppear": "4장",
+  "concept": "무면허 의사. 돈보다 환자를 더 여김",
+  "profile": "의사 면허를 오라클 넷에 등록하지 않은, 기록에 없는 의사. 기록이 남지 않는 치료가 필요한 사람들, 도망자와 버그와 더 루프의 의체까지 가리지 않고 고친다. 진료비는 받을 때도 있고 안 받을 때도 있다.",
+  "look": { "hair": "대충 묶은 회색 장발", "eyes": "보라빛 회색", "accents": ["낡은 의사 가운", "보라색 광이 도는 수술 장갑", "목에 건 구형 청진기"], "color": "#b07cff" },
+  "stats": { "hp": [145, 1232], "atk": [60, 510], "def": [50, 130], "spd": 98, "critRate": 0.05, "critDmg": 0.5, "effHit": 0, "effRes": 0.1 },
+  "heatMax": 110,
+  "skills": {
+    "basic": { "name": "메스", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "응급 처치", "kind": "skill", "target": "ally", "desc": "아군 하나의 체력을 그레이 최대 체력의 26%만큼 회복하고, 디버프를 둘 지운다.", "effects": [{ "type": "heal", "scale": 0.26, "stat": "hp" }, { "type": "cleanse", "count": 2 }] },
+    "overclock": { "name": "무면허 수술", "kind": "overclock", "target": "allAllies", "desc": "쓰러진 아군을 체력 40%로 되살리고, 아군 전체 체력을 그레이 최대 체력의 25%만큼 회복.", "effects": [{ "type": "revive", "hpPct": 0.4 }, { "type": "heal", "scale": 0.25, "stat": "hp" }] }
+  },
+  "trait": { "name": "돈보다 환자", "desc": "일반공격 후 체력이 가장 낮은 아군을 그레이 최대 체력의 6%만큼 회복.", "triggers": [{ "on": "afterBasic", "effects": [{ "type": "heal", "scale": 0.06, "stat": "hp", "who": "lowestHpAlly" }] }] },
+  "circuit": {
+    "big": [
+      { "name": "현장 경험", "desc": "주는 회복량 12% 증가.", "mods": { "healBonus": 0.12 } },
+      { "name": "진통제", "desc": "응급 처치를 받은 아군의 받는 피해 10% 감소(2턴).", "skillAdds": [{ "kind": "skill", "effects": [{ "type": "status", "status": "dmgReduce", "value": 0.1, "turns": 2 }] }] },
+      { "name": "밤샘 진료", "desc": "체력 10% 증가.", "mods": { "hpPct": 0.1 } }
+    ],
+    "small": [
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "effRes": 0.04 }, "desc": "효과 저항 +4%" }, { "mods": { "defPct": 0.05 }, "desc": "방어력 +5%" },
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "effRes": 0.04 }, "desc": "효과 저항 +4%" }, { "mods": { "defPct": 0.05 }, "desc": "방어력 +5%" },
+      { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }, { "mods": { "effRes": 0.06 }, "desc": "효과 저항 +6%" }, { "mods": { "defPct": 0.075 }, "desc": "방어력 +7.5%" }, { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }
+    ]
+  },
+  "sync": {
+    "1": { "name": "왕진", "desc": "주는 회복량 10% 증가.", "mods": { "healBonus": 0.1 } },
+    "2": { "name": "커피 한 잔", "desc": "전투 시작 시 열량 20 회복.", "triggers": [{ "on": "battleStart", "effects": [{ "type": "heat", "amount": 20, "who": "self" }] }] },
+    "3": { "name": "임상 노트", "desc": "전투스킬 레벨 +2, 일반공격 레벨 +1.", "skillLevels": { "skill": 2, "basic": 1 } },
+    "4": { "name": "질긴 목숨", "desc": "체력 10% 증가.", "mods": { "hpPct": 0.1 } },
+    "5": { "name": "명의", "desc": "오버클럭 레벨 +2, 특성 레벨 +2.", "skillLevels": { "overclock": 2, "trait": 2 } },
+    "6": { "name": "진료비는 됐어", "desc": "무면허 수술을 쓰면 CP +1.", "triggers": [{ "on": "afterOverclock", "effects": [{ "type": "cp", "amount": 1 }] }] }
+  },
+  "lines": {
+    "nest": ["진료소보다 여기가 조용해서 좋군. 커피는 어디 있지?", "기록에 없는 사람을 고치는 게 내 일이야. 너도 기록에 없지.", "진료비? 이번 달은 아직 못 받았어. 괜찮아.", "더 루프의 의체도 고칠 수 있냐고? 몸은 몸이야.", "아프면 참지 말고 와. 참는 건 치료가 아니야."],
+    "dive": "그레이다. 환자는 어디 있지?",
+    "overclock": "수술 시작한다. 다들 숨 쉬어.",
+    "victory": "출혈 확인… 다들 멀쩡하군."
+  }
+}
