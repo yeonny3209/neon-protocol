@@ -89,5 +89,20 @@ export function validateData(data: GameData): string[] {
     if (e.charge) checkSkill(`${w}.charge`, e.charge.skill);
   }
 
+  const chk = (where: string, id: string | undefined, ok: boolean, what: string) => {
+    if (id && !ok) err(where, `없는 ${what} "${id}"`);
+  };
+  for (const st of Object.values(data.stages)) {
+    const w = `스테이지 ${st.id}`;
+    chk(w, st.chapter, !!data.chapters[st.chapter], '챕터');
+    st.enemies.forEach((e) => chk(w, e, !!data.enemies[e], '적'));
+    st.forcedParty?.forEach((c) => chk(w, c, !!data.characters[c], '캐릭터'));
+    chk(w, st.pre, st.pre !== undefined && st.pre in data.scripts, '대본');
+    chk(w, st.post, st.post !== undefined && st.post in data.scripts, '대본');
+    for (const id of Object.keys({ ...st.firstReward, ...st.reward })) {
+      if (id === 'rankExp' || id.startsWith('char:') || id.startsWith('cart:')) continue;
+      chk(w, id, !!data.items[id], '아이템');
+    }
+  }
   return errors;
 }

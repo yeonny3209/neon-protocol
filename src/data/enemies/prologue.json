@@ -1,0 +1,35 @@
+[
+  {
+    "id": "recall_hound",
+    "name": "회수 부대장 K-9",
+    "rank": "boss",
+    "family": "mech",
+    "desc": "헬릭스 회수 부대를 이끄는 사냥개형 기갑. 3번째 차례마다 강한 공격을 충전한다. 그 전에 시스템 다운을 내면 취소된다.",
+    "element": "volt",
+    "color": "#ff4d6d",
+    "intro": "대상 확인. 버그, 회수한다.",
+    "stats": { "hp": 1100, "atk": 50, "def": 90, "spd": 98 },
+    "weaknesses": ["volt", "kinetic"],
+    "firewall": 240,
+    "actions": [
+      { "skill": { "name": "추적 사격", "kind": "basic", "target": "enemy", "desc": "아군 하나에게 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] }, "weight": 3 },
+      { "skill": { "name": "스캔 펄스", "kind": "skill", "target": "allEnemies", "desc": "아군 전체에게 피해.", "effects": [{ "type": "damage", "scale": 0.55 }] }, "weight": 1, "cooldown": 2 }
+    ],
+    "charge": {
+      "every": 3,
+      "line": "회수 프로토콜 충전 중… 다운시키면 막을 수 있어!",
+      "skill": { "name": "회수 프로토콜", "kind": "skill", "target": "allEnemies", "desc": "아군 전체에게 큰 피해.", "effects": [{ "type": "damage", "scale": 1.5 }] }
+    },
+    "phases": [
+      {
+        "hpBelow": 0.5,
+        "line": "출력 상승. 약점 구조 변경.",
+        "weaknesses": ["glitch", "kinetic"],
+        "actions": [
+          { "skill": { "name": "추적 사격", "kind": "basic", "target": "enemy", "desc": "아군 하나에게 피해.", "effects": [{ "type": "damage", "scale": 1.15 }] }, "weight": 3 },
+          { "skill": { "name": "스캔 펄스", "kind": "skill", "target": "allEnemies", "desc": "아군 전체에게 피해.", "effects": [{ "type": "damage", "scale": 0.65 }] }, "weight": 2, "cooldown": 1 }
+        ]
+      }
+    ]
+  }
+]

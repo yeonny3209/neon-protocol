@@ -1,0 +1,23 @@
+[
+  {
+    "id": "prologue-1", "chapter": "prologue", "index": 1, "name": "깨어난 폐기장",
+    "recLevel": 5, "enemyLevel": 4, "enemies": ["sec_drone", "sec_drone"],
+    "pre": "prologue_1_pre", "post": "prologue_1_post",
+    "forcedParty": ["runner", "doyun", "mio", "basil"], "tutorial": "timeline", "bg": "dump",
+    "firstReward": { "shard": 60, "pack_s": 4, "credit": 2000, "rankExp": 80 }, "reward": { "credit": 600 }
+  },
+  {
+    "id": "prologue-2", "chapter": "prologue", "index": 2, "name": "쫓기는 골목",
+    "recLevel": 5, "enemyLevel": 5, "enemies": ["sec_drone", "street_thug", "sec_drone"],
+    "pre": "prologue_2_pre", "post": "prologue_2_post",
+    "forcedParty": ["runner", "doyun", "mio", "basil"], "tutorial": "weakness", "bg": "undertown",
+    "firstReward": { "shard": 60, "pack_s": 4, "credit": 2000, "rankExp": 80 }, "reward": { "credit": 700 }
+  },
+  {
+    "id": "prologue-3", "chapter": "prologue", "index": 3, "name": "회수 부대장",
+    "recLevel": 6, "enemyLevel": 6, "enemies": ["sec_drone", "recall_hound", "sec_drone"], "boss": true,
+    "pre": "prologue_3_pre", "post": "prologue_3_post",
+    "forcedParty": ["runner", "doyun", "mio", "basil"], "tutorial": "cpOverclock", "bg": "undertown", "starRounds": 9,
+    "firstReward": { "shard": 60, "pack_m": 2, "credit": 3000, "rankExp": 160, "weekly": 1 }, "reward": { "credit": 900 }
+  }
+]

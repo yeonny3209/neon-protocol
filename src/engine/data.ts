@@ -4,12 +4,15 @@ import statusesJson from '../data/statuses.json';
 import cartridgesJson from '../data/cartridges.json';
 import itemsJson from '../data/items.json';
 import bannersJson from '../data/banners.json';
-import type { CartridgeDef, CharacterDef, EnemyDef, ItemDef, StatusDef } from './defs';
+import chaptersJson from '../data/chapters.json';
+import type { CartridgeDef, ChapterDef, CharacterDef, EnemyDef, ItemDef, StageDef, StatusDef } from './defs';
 
 export type Balance = typeof balanceJson;
 export type BannerData = typeof bannersJson;
 
 const characterFiles = import.meta.glob<CharacterDef>('../data/characters/*.json', { eager: true, import: 'default' });
+const stageFiles = import.meta.glob<StageDef[]>('../data/stages/*.json', { eager: true, import: 'default' });
+const scriptFiles = import.meta.glob<string>('../data/story/*.txt', { query: '?raw', import: 'default', eager: true });
 const enemyFiles = import.meta.glob<EnemyDef[]>('../data/enemies/*.json', { eager: true, import: 'default' });
 
 function byId<T extends { id: string }>(list: T[], what: string): Record<string, T> {
@@ -29,7 +32,17 @@ export interface GameData {
   cartridges: Record<string, CartridgeDef>;
   items: Record<string, ItemDef>;
   banners: BannerData;
+  chapters: Record<string, ChapterDef>;
+  stages: Record<string, StageDef>;
+  /** 스테이지 진행 순서(챕터 → 번호) */
+  stageOrder: string[];
+  scripts: Record<string, string>;
 }
+
+const stages = byId(Object.values(stageFiles).flat(), '스테이지');
+const chapters = byId(chaptersJson as unknown as ChapterDef[], '챕터');
+const scripts: Record<string, string> = {};
+for (const [path, text] of Object.entries(scriptFiles)) scripts[path.split('/').pop()!.replace(/\.txt$/, '')] = text;
 
 export const DATA: GameData = {
   balance: balanceJson,
@@ -39,4 +52,10 @@ export const DATA: GameData = {
   cartridges: byId(cartridgesJson as CartridgeDef[], '카트리지'),
   items: byId(itemsJson as ItemDef[], '아이템'),
   banners: bannersJson,
+  chapters,
+  stages,
+  stageOrder: Object.values(stages)
+    .sort((a, b) => (chapters[a.chapter]?.order ?? 0) - (chapters[b.chapter]?.order ?? 0) || a.index - b.index)
+    .map((x) => x.id),
+  scripts,
 };
