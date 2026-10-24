@@ -11,12 +11,6 @@
    "sentry_turret"
   ],
   "pre": "ch4_1_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "grey"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -26,7 +20,13 @@
   },
   "reward": {
    "credit": 1080
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ]
  },
  {
   "id": "ch4-2",
@@ -41,12 +41,6 @@
    "gardener_drone"
   ],
   "pre": "ch4_2_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "grey"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -56,7 +50,13 @@
   },
   "reward": {
    "credit": 1160
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ]
  },
  {
   "id": "ch4-3",
@@ -71,12 +71,6 @@
    "rogue_drone"
   ],
   "pre": "ch4_3_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "grey"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -86,7 +80,13 @@
   },
   "reward": {
    "credit": 1240
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ]
  },
  {
   "id": "ch4-4",
@@ -100,12 +100,6 @@
    "vine_bot"
   ],
   "pre": "ch4_4_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "grey"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -115,7 +109,13 @@
   },
   "reward": {
    "credit": 1320
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ]
  },
  {
   "id": "ch4-5",
@@ -130,12 +130,6 @@
    "gardener_drone"
   ],
   "pre": "ch4_5_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "grey"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -146,7 +140,13 @@
   "reward": {
    "credit": 1400
   },
-  "post": "ch4_5_post"
+  "post": "ch4_5_post",
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ]
  },
  {
   "id": "ch4-6",
@@ -160,12 +160,6 @@
    "thorn_walker"
   ],
   "pre": "ch4_6_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "grey"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -175,7 +169,13 @@
   },
   "reward": {
    "credit": 1480
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ]
  },
  {
   "id": "ch4-7",
@@ -190,12 +190,6 @@
    "gardener_drone"
   ],
   "pre": "ch4_7_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "zero",
-   "grey"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -206,7 +200,13 @@
   "reward": {
    "credit": 1560
   },
-  "post": "ch4_7_post"
+  "post": "ch4_7_post",
+  "trialParty": [
+   "runner",
+   "kai",
+   "zero",
+   "grey"
+  ]
  },
  {
   "id": "ch4-8",
@@ -221,12 +221,6 @@
    "rogue_drone"
   ],
   "pre": "ch4_8_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "zero",
-   "grey"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -236,7 +230,13 @@
   },
   "reward": {
    "credit": 1640
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "zero",
+   "grey"
+  ]
  },
  {
   "id": "ch4-9",
@@ -251,12 +251,6 @@
    "manor_butler"
   ],
   "pre": "ch4_9_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "zero",
-   "grey"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -266,7 +260,13 @@
   },
   "reward": {
    "credit": 1720
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "zero",
+   "grey"
+  ]
  },
  {
   "id": "ch4-10",
@@ -281,12 +281,6 @@
    "rogue_drone"
   ],
   "pre": "ch4_10_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "zero",
-   "pico"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -296,7 +290,13 @@
   },
   "reward": {
    "credit": 1800
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "zero",
+   "pico"
+  ]
  },
  {
   "id": "ch4-11",
@@ -311,12 +311,6 @@
    "sentry_turret"
   ],
   "pre": "ch4_11_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "zero",
-   "pico"
-  ],
   "bg": "garden",
   "firstReward": {
    "shard": 60,
@@ -333,6 +327,12 @@
   },
   "post": "ch4_11_post",
   "boss": true,
-  "starRounds": 11
+  "starRounds": 11,
+  "trialParty": [
+   "runner",
+   "kai",
+   "zero",
+   "pico"
+  ]
  }
 ]

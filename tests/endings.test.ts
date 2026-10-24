@@ -159,7 +159,7 @@ describe('최종 보스', () => {
     const rate = (diff: 'story' | 'normal') => {
       let w = 0;
       for (let seed = 1; seed <= 40; seed++) {
-        const r = autoPlay(new Battle({ allies: st.forcedParty!.map((c) => buildAlly(standardLoadout(c, st.recLevel, { trial: true }))), enemies: st.enemies.map((e) => ({ defId: e, level: st.enemyLevel })), seed, difficulty: diff }), 'smart');
+        const r = autoPlay(new Battle({ allies: (st.forcedParty ?? st.trialParty)!.map((c) => buildAlly(standardLoadout(c, st.recLevel, { trial: true }))), enemies: st.enemies.map((e) => ({ defId: e, level: st.enemyLevel })), seed, difficulty: diff }), 'smart');
         if (r.result === 'won') w++;
       }
       return w / 40;
@@ -183,7 +183,7 @@ describe('2~6장 전투 난이도', () => {
       const n = 25;
       for (let seed = 1; seed <= n; seed++) {
         const r = autoPlay(
-          new Battle({ allies: st.forcedParty!.map((c) => buildAlly(standardLoadout(c, st.recLevel, { trial: true }))), enemies: st.enemies.map((e) => ({ defId: e, level: st.enemyLevel })), seed, difficulty: 'story' }),
+          new Battle({ allies: (st.forcedParty ?? st.trialParty)!.map((c) => buildAlly(standardLoadout(c, st.recLevel, { trial: true }))), enemies: st.enemies.map((e) => ({ defId: e, level: st.enemyLevel })), seed, difficulty: 'story' }),
           'basicOnly',
         );
         if (r.result === 'won') wins++;

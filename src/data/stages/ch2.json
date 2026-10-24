@@ -11,12 +11,6 @@
    "stall_bot"
   ],
   "pre": "ch2_1_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -26,7 +20,13 @@
   },
   "reward": {
    "credit": 1080
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  },
  {
   "id": "ch2-2",
@@ -41,12 +41,6 @@
    "stall_bot"
   ],
   "pre": "ch2_2_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -56,7 +50,13 @@
   },
   "reward": {
    "credit": 1160
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  },
  {
   "id": "ch2-3",
@@ -71,12 +71,6 @@
    "stall_bot"
   ],
   "pre": "ch2_3_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -87,7 +81,13 @@
   "reward": {
    "credit": 1240
   },
-  "post": "ch2_3_post"
+  "post": "ch2_3_post",
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  },
  {
   "id": "ch2-4",
@@ -102,12 +102,6 @@
    "holo_ad"
   ],
   "pre": "ch2_4_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -117,7 +111,13 @@
   },
   "reward": {
    "credit": 1320
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  },
  {
   "id": "ch2-5",
@@ -131,12 +131,6 @@
    "stall_bot"
   ],
   "pre": "ch2_5_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -146,7 +140,13 @@
   },
   "reward": {
    "credit": 1400
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  },
  {
   "id": "ch2-6",
@@ -161,12 +161,6 @@
    "memory_clerk"
   ],
   "pre": "ch2_6_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -176,7 +170,13 @@
   },
   "reward": {
    "credit": 1480
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  },
  {
   "id": "ch2-7",
@@ -191,12 +191,6 @@
    "holo_ad"
   ],
   "pre": "ch2_7_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -207,7 +201,13 @@
   "reward": {
    "credit": 1560
   },
-  "post": "ch2_7_post"
+  "post": "ch2_7_post",
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  },
  {
   "id": "ch2-8",
@@ -221,12 +221,6 @@
    "memory_clerk"
   ],
   "pre": "ch2_8_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -237,7 +231,13 @@
   "reward": {
    "credit": 1640
   },
-  "post": "ch2_8_post"
+  "post": "ch2_8_post",
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  },
  {
   "id": "ch2-9",
@@ -252,12 +252,6 @@
    "auction_guard"
   ],
   "pre": "ch2_9_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -268,7 +262,13 @@
   "reward": {
    "credit": 1720
   },
-  "post": "ch2_9_post"
+  "post": "ch2_9_post",
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  },
  {
   "id": "ch2-10",
@@ -283,12 +283,6 @@
    "debt_collector"
   ],
   "pre": "ch2_10_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "hana"
-  ],
   "bg": "market",
   "firstReward": {
    "shard": 60,
@@ -305,6 +299,12 @@
   },
   "post": "ch2_10_post",
   "boss": true,
-  "starRounds": 11
+  "starRounds": 11,
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ]
  }
 ]

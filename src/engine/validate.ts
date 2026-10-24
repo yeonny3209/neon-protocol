@@ -97,6 +97,7 @@ export function validateData(data: GameData): string[] {
     chk(w, st.chapter, !!data.chapters[st.chapter], '챕터');
     st.enemies.forEach((e) => chk(w, e, !!data.enemies[e], '적'));
     st.forcedParty?.forEach((c) => chk(w, c, !!data.characters[c], '캐릭터'));
+    st.trialParty?.forEach((c) => chk(w, c, !!data.characters[c], '캐릭터'));
     chk(w, st.pre, st.pre !== undefined && st.pre in data.scripts, '대본');
     chk(w, st.post, st.post !== undefined && st.post in data.scripts, '대본');
     for (const id of Object.keys({ ...st.firstReward, ...st.reward })) {

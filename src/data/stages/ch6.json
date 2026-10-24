@@ -11,12 +11,6 @@
    "memory_shard"
   ],
   "pre": "ch6_1_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -26,7 +20,13 @@
   },
   "reward": {
    "credit": 1080
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-2",
@@ -41,12 +41,6 @@
    "glitch_beast"
   ],
   "pre": "ch6_2_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -56,7 +50,13 @@
   },
   "reward": {
    "credit": 1160
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-3",
@@ -71,12 +71,6 @@
    "memory_shard"
   ],
   "pre": "ch6_3_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -86,7 +80,13 @@
   },
   "reward": {
    "credit": 1240
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-4",
@@ -101,12 +101,6 @@
    "data_wraith"
   ],
   "pre": "ch6_4_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -116,7 +110,13 @@
   },
   "reward": {
    "credit": 1320
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-5",
@@ -130,12 +130,6 @@
    "memory_shard"
   ],
   "pre": "ch6_5_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -145,7 +139,13 @@
   },
   "reward": {
    "credit": 1400
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-6",
@@ -160,12 +160,6 @@
    "core_guard"
   ],
   "pre": "ch6_6_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -175,7 +169,13 @@
   },
   "reward": {
    "credit": 1480
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-7",
@@ -190,12 +190,6 @@
    "memory_shard"
   ],
   "pre": "ch6_7_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -205,7 +199,13 @@
   },
   "reward": {
    "credit": 1560
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-8",
@@ -220,12 +220,6 @@
    "memory_shard"
   ],
   "pre": "ch6_8_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -235,7 +229,13 @@
   },
   "reward": {
    "credit": 1640
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-9",
@@ -250,12 +250,6 @@
    "core_guard"
   ],
   "pre": "ch6_9_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -265,7 +259,13 @@
   },
   "reward": {
    "credit": 1720
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-10",
@@ -280,12 +280,6 @@
    "echo_self"
   ],
   "pre": "ch6_10_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "luna",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -295,7 +289,13 @@
   },
   "reward": {
    "credit": 1800
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "luna",
+   "zero"
+  ]
  },
  {
   "id": "ch6-11",
@@ -310,12 +310,6 @@
    "core_guard"
   ],
   "pre": "ch6_11_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -325,7 +319,13 @@
   },
   "reward": {
    "credit": 1880
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  },
  {
   "id": "ch6-12",
@@ -340,12 +340,6 @@
    "core_guard"
   ],
   "pre": "ch6_12_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "seraphine",
-   "zero"
-  ],
   "bg": "core",
   "firstReward": {
    "shard": 60,
@@ -362,6 +356,12 @@
   },
   "post": "ch6_12_post",
   "boss": true,
-  "starRounds": 11
+  "starRounds": 11,
+  "trialParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ]
  }
 ]

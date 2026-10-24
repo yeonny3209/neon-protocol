@@ -11,12 +11,6 @@
    "street_thug"
   ],
   "pre": "ch1_1_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -26,7 +20,13 @@
   },
   "reward": {
    "credit": 860
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  },
  {
   "id": "ch1-2",
@@ -41,12 +41,6 @@
    "street_thug"
   ],
   "pre": "ch1_2_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -56,7 +50,13 @@
   },
   "reward": {
    "credit": 920
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  },
  {
   "id": "ch1-3",
@@ -71,12 +71,6 @@
    "flame_drone"
   ],
   "pre": "ch1_3_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -86,7 +80,13 @@
   },
   "reward": {
    "credit": 980
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  },
  {
   "id": "ch1-4",
@@ -101,12 +101,6 @@
    "street_thug"
   ],
   "pre": "ch1_4_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -116,7 +110,13 @@
   },
   "reward": {
    "credit": 1040
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  },
  {
   "id": "ch1-5",
@@ -129,12 +129,6 @@
    "heavy_mech"
   ],
   "pre": "ch1_5_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -145,7 +139,13 @@
   "reward": {
    "credit": 1100
   },
-  "post": "ch1_5_post"
+  "post": "ch1_5_post",
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  },
  {
   "id": "ch1-6",
@@ -160,12 +160,6 @@
    "street_thug"
   ],
   "pre": "ch1_6_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -175,7 +169,13 @@
   },
   "reward": {
    "credit": 1160
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  },
  {
   "id": "ch1-7",
@@ -190,12 +190,6 @@
    "street_thug"
   ],
   "pre": "ch1_7_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -205,7 +199,13 @@
   },
   "reward": {
    "credit": 1220
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  },
  {
   "id": "ch1-8",
@@ -220,12 +220,6 @@
    "flame_drone"
   ],
   "pre": "ch1_8_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -235,7 +229,13 @@
   },
   "reward": {
    "credit": 1280
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  },
  {
   "id": "ch1-9",
@@ -250,12 +250,6 @@
    "street_thug"
   ],
   "pre": "ch1_9_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -265,7 +259,13 @@
   },
   "reward": {
    "credit": 1340
-  }
+  },
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  },
  {
   "id": "ch1-10",
@@ -280,12 +280,6 @@
    "flame_drone"
   ],
   "pre": "ch1_10_pre",
-  "forcedParty": [
-   "runner",
-   "kai",
-   "mio",
-   "basil"
-  ],
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
@@ -301,6 +295,12 @@
   },
   "post": "ch1_10_post",
   "boss": true,
-  "starRounds": 10
+  "starRounds": 10,
+  "trialParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ]
  }
 ]

@@ -7,6 +7,7 @@ import { h } from '../dom';
 import { ELEMENT_INFO } from '../labels';
 import { onPress } from '../press';
 import { sfx } from '../audio';
+import { storyParty } from '../../engine/party';
 import { nextStageId, partyModal, stageAvailable, startStage, validParty } from './stage';
 
 export function mapScreen(app: App): Screen {
@@ -72,8 +73,13 @@ export function stageModal(app: App, st: StageDef) {
   };
   drawDiff();
   m.el.append(h('div', { class: 'row' }, '난이도', diff, h('span', { class: 'muted', style: 'font-size:12px', text: '보상은 똑같아' })));
+  if (!st.forcedParty) {
+    const sp = storyParty(save, st, save.settings.difficulty);
+    const names = (ids: string[]) => ids.map((id) => DATA.characters[id].name).join(', ');
+    m.el.append(h('div', { class: 'muted', style: 'font-size:13px', text: `${sp.filled.length ? `빈 자리는 체험 캐릭터(${names(sp.filled)})가 채워 줘. ` : ''}${sp.lifted.length ? `${names(sp.lifted)}는 권장 레벨보다 낮아서 스토리용으로 레벨을 올려 줄게.` : ''}` }));
+  }
   const row = h('div', { class: 'row' });
-  if (!st.forcedParty) row.append(button(`편성 (${validParty(app).map((id) => DATA.characters[id].name).join(', ')})`, () => partyModal(app, st, () => m.close()), ''));
+  if (!st.forcedParty) row.append(button(`편성 (${validParty(app.save).map((id) => DATA.characters[id].name).join(', ')})`, () => partyModal(app, st, () => m.close()), ''));
   row.append(
     button('출격', () => {
       m.close();

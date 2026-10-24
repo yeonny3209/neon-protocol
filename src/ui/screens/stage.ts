@@ -2,7 +2,7 @@
 import { DATA } from '../../engine/data';
 import type { StageDef } from '../../engine/defs';
 import { allyFromSave, power } from '../../engine/growth';
-import { buildAlly, standardLoadout } from '../../engine/loadout';
+import { storyParty, validParty } from '../../engine/party';
 import { randomSeed } from '../../engine/rng';
 import { grant, track, type Granted } from '../../engine/state';
 import type { AllySetup, BattleSetup } from '../../engine/battle/types';
@@ -35,19 +35,12 @@ export function nextStageId(id: string): string | undefined {
   return DATA.stageOrder[i + 1];
 }
 
-/** 전투에 나갈 아군 */
+/** 전투에 나갈 아군: 내 편성 + 빈 자리는 체험 캐릭터 */
 export function stageAllies(app: App, st: StageDef): AllySetup[] {
-  if (st.forcedParty) return st.forcedParty.map((id) => buildAlly(standardLoadout(id, st.recLevel, { trial: true })));
-  const hp = app.save.settings.difficulty === 'normal' ? app.save.story.hp : {};
-  return validParty(app).map((id) => ({ ...allyFromSave(app.save, id), hpFrac: hp[id] }));
+  return storyParty(app.save, st, app.save.settings.difficulty).allies;
 }
 
-export function validParty(app: App): string[] {
-  let party = app.save.party.filter((id) => app.save.chars[id]).slice(0, 4);
-  if (!party.length) party = Object.keys(app.save.chars).slice(0, 4);
-  app.save.party = party;
-  return party;
-}
+export { validParty };
 
 /** 지도에서 나가는 입구. 선공이면 아군 행동 거리가 30% 짧아진다 */
 export async function startStage(app: App, stageId: string, ambush = false) {
@@ -187,7 +180,7 @@ function showResult(app: App, st: StageDef, out: Outcome, view: BattleView) {
 /** 4인 편성. 적의 약점을 미리 보여 주고, 추천 편성 버튼이 있다 */
 export function partyModal(app: App, st: StageDef | null, onDone: () => void) {
   const save = app.save;
-  let party = [...validParty(app)];
+  let party = [...validParty(app.save)];
   const weak = new Set(st ? st.enemies.flatMap((e) => DATA.enemies[e].weaknesses) : []);
   const m = modal([h('h2', { text: '편성' })], { wide: true });
   const info = h('div', { class: 'muted', style: 'font-size:13px' });

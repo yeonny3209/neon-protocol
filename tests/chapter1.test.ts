@@ -15,7 +15,7 @@ function winRate(id: string, difficulty: 'story' | 'normal', policy: 'smart' | '
   for (let seed = 1; seed <= runs; seed++) {
     const r = autoPlay(
       new Battle({
-        allies: st.forcedParty!.map((c) => buildAlly(standardLoadout(c, st.recLevel, { trial: true }))),
+        allies: (st.forcedParty ?? st.trialParty)!.map((c) => buildAlly(standardLoadout(c, st.recLevel, { trial: true }))),
         enemies: st.enemies.map((e) => ({ defId: e, level: st.enemyLevel })),
         seed,
         difficulty,

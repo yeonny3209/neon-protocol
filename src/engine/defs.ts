@@ -244,7 +244,10 @@ export interface StageDef {
   pre?: string;
   post?: string;
   trial?: string[];
+  /** 튜토리얼처럼 체험 캐릭터로만 싸우는 스테이지 */
   forcedParty?: string[];
+  /** 내 편성의 빈 자리를 채울 체험 캐릭터(앞쪽부터) */
+  trialParty?: string[];
   boss?: boolean;
   tutorial?: 'timeline' | 'weakness' | 'cpOverclock';
   /** 별 3번째 조건: 이 라운드 안에 클리어 */

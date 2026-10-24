@@ -11,12 +11,6 @@
    "smile_student"
   ],
   "pre": "ch3_1_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -26,7 +20,13 @@
   },
   "reward": {
    "credit": 1080
-  }
+  },
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-2",
@@ -41,12 +41,6 @@
    "prefect_drone"
   ],
   "pre": "ch3_2_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -56,7 +50,13 @@
   },
   "reward": {
    "credit": 1160
-  }
+  },
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-3",
@@ -71,12 +71,6 @@
    "lab_assistant"
   ],
   "pre": "ch3_3_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -86,7 +80,13 @@
   },
   "reward": {
    "credit": 1240
-  }
+  },
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-4",
@@ -100,12 +100,6 @@
    "lab_golem"
   ],
   "pre": "ch3_4_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -115,7 +109,13 @@
   },
   "reward": {
    "credit": 1320
-  }
+  },
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-5",
@@ -130,12 +130,6 @@
    "prefect_drone"
   ],
   "pre": "ch3_5_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -146,7 +140,13 @@
   "reward": {
    "credit": 1400
   },
-  "post": "ch3_5_post"
+  "post": "ch3_5_post",
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-6",
@@ -160,12 +160,6 @@
    "smile_student"
   ],
   "pre": "ch3_6_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -175,7 +169,13 @@
   },
   "reward": {
    "credit": 1480
-  }
+  },
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-7",
@@ -190,12 +190,6 @@
    "prefect_drone"
   ],
   "pre": "ch3_7_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -205,7 +199,13 @@
   },
   "reward": {
    "credit": 1560
-  }
+  },
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-8",
@@ -220,12 +220,6 @@
    "smile_student"
   ],
   "pre": "ch3_8_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -235,7 +229,13 @@
   },
   "reward": {
    "credit": 1640
-  }
+  },
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-9",
@@ -250,12 +250,6 @@
    "proctor"
   ],
   "pre": "ch3_9_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -265,7 +259,13 @@
   },
   "reward": {
    "credit": 1720
-  }
+  },
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-10",
@@ -280,12 +280,6 @@
    "lab_assistant"
   ],
   "pre": "ch3_10_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -295,7 +289,13 @@
   },
   "reward": {
    "credit": 1800
-  }
+  },
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  },
  {
   "id": "ch3-11",
@@ -310,12 +310,6 @@
    "prefect_drone"
   ],
   "pre": "ch3_11_pre",
-  "forcedParty": [
-   "runner",
-   "seraphine",
-   "yuki",
-   "kai"
-  ],
   "bg": "academy",
   "firstReward": {
    "shard": 60,
@@ -332,6 +326,12 @@
   },
   "post": "ch3_11_post",
   "boss": true,
-  "starRounds": 11
+  "starRounds": 11,
+  "trialParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ]
  }
 ]
