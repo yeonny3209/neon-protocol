@@ -25,7 +25,7 @@ import { deepScreen } from './deep';
 import { loopScreen } from './loop';
 
 export function diveUnlocked(app: App): boolean {
-  return app.save.story.chapters.includes('ch1');
+  return app.save.story.chapters.includes('prologue');
 }
 
 export function nestScreen(app: App): Screen {
@@ -64,7 +64,7 @@ export function nestScreen(app: App): Screen {
   const anyGrow = Object.keys(save.chars).some((id) => growable(save, id).any);
   mb('◈', '캐릭터', () => app.go(charsScreen), { dot: anyGrow });
   const keys = count(save, 'key');
-  mb('✦', '다이브', () => (diveUnlocked(app) ? app.go(diveScreen) : app.toast('1장을 클리어하면 열려')), { locked: !diveUnlocked(app), dot: diveUnlocked(app) && keys > 0 });
+  mb('✦', '다이브', () => (diveUnlocked(app) ? app.go(diveScreen) : app.toast('프롤로그를 클리어하면 열려')), { locked: !diveUnlocked(app), dot: diveUnlocked(app) && keys > 0 });
   ensureDaily(save);
   const daily = dailyUnlocked(save);
   mb('☑', '데일리 루틴', () => (daily ? app.go(missionsScreen) : app.toast('1장을 클리어하면 열려')), { locked: !daily, dot: missionsClaimable(save) });

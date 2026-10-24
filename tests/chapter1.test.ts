@@ -55,11 +55,12 @@ describe('1장', () => {
     process.stderr.write(`[1장 보통·스마트] ${lines.join(' | ')}\n`);
   });
 
-  it('챕터 클리어 보상: 다이브 키와 4성 카트리지, 샤드', () => {
+  it('챕터 클리어 보상: 프롤로그는 다이브 키와 샤드, 1장은 4성 카트리지', () => {
     const s = newSave();
-    const g = grant(s, DATA.chapters.ch1.completeReward);
+    grant(s, DATA.chapters.prologue.completeReward);
     expect(s.wallet.key).toBe(40);
-    expect(s.wallet.shard).toBe(3200);
+    expect(s.wallet.shard).toBe(1600);
+    const g = grant(s, DATA.chapters.ch1.completeReward);
     expect(g.carts[0].id).toBe('c4_scanner');
   });
 });

@@ -5,10 +5,12 @@
     "title": "부팅 에러",
     "zone": "언더타운",
     "floors": "폐기장",
-    "summary": "기억 없이 깨어난 러너가 처음으로 다른 사람과 동기화한다.",
+    "summary": "기억 없이 깨어난 러너가 처음으로 다른 사람과 동기화한다. 챕터 끝에 다이브가 열린다.",
     "completeReward": {
       "credit": 5000,
-      "pack_m": 3
+      "pack_m": 3,
+      "shard": 1600,
+      "key": 40
     },
     "bgm": "undertown",
     "bg": "dump",
@@ -20,10 +22,9 @@
     "title": "네온 아래의 소음",
     "zone": "언더타운",
     "floors": "지하~10층",
-    "summary": "녹스트리트와 손잡고 정비소 둥지를 얻는다. 챕터 끝에 다이브가 열린다.",
+    "summary": "녹스트리트와 손잡고 정비소 둥지를 얻는다.",
     "completeReward": {
-      "shard": 3200,
-      "key": 40,
+      "shard": 1600,
       "pack_m": 4,
       "cart:c4_scanner": 1
     },
