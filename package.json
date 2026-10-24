@@ -9,9 +9,10 @@
     "preview": "vite preview --host",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "sim": "vite-node tools/sim.ts"
+    "sim": "vitest run --config vitest.sim.config.ts"
   },
   "devDependencies": {
+    "@types/node": "^24.19.2",
     "typescript": "^7.0.2",
     "vite": "^8.3.5",
     "vitest": "^5.0.5"
