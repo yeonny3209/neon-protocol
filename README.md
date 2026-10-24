@@ -19,3 +19,4 @@ npm run build      # dist/ 에 정적 파일 생성
 - `docs/PLAN.md` — 기획서 (원본: `docs/plan-original.pdf`)
 - `docs/DECISIONS.md` — 기획서가 비어 있거나 부딪히는 부분을 어떻게 정했는지
 - `docs/DATA.md` — 데이터 파일 구조, 캐릭터 추가하는 법
+- `docs/CHECKLIST.md` — 12.2 내부 검증 체크리스트와 본편 시뮬레이션 결과 (`npx vitest run tests/progression.test.ts`)

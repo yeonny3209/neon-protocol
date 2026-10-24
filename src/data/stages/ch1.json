@@ -4,8 +4,8 @@
   "chapter": "ch1",
   "index": 1,
   "name": "녹스트리트의 문턱",
-  "recLevel": 8,
-  "enemyLevel": 8,
+  "recLevel": 6,
+  "enemyLevel": 6,
   "enemies": [
    "sec_drone",
    "street_thug"
@@ -14,12 +14,15 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 2700
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_strike": 3,
+   "chip_blitz": 3,
+   "chip_hack": 3
   },
   "reward": {
-   "credit": 860
+   "credit": 1040
   },
   "trialParty": [
    "runner",
@@ -33,8 +36,8 @@
   "chapter": "ch1",
   "index": 2,
   "name": "골목 검문",
-  "recLevel": 9,
-  "enemyLevel": 9,
+  "recLevel": 7,
+  "enemyLevel": 7,
   "enemies": [
    "sec_drone",
    "sec_drone",
@@ -44,12 +47,15 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 2900
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_amp": 3,
+   "chip_shield": 3,
+   "chip_reboot": 3
   },
   "reward": {
-   "credit": 920
+   "credit": 1080
   },
   "trialParty": [
    "runner",
@@ -63,8 +69,8 @@
   "chapter": "ch1",
   "index": 3,
   "name": "개조 살롱",
-  "recLevel": 10,
-  "enemyLevel": 10,
+  "recLevel": 8,
+  "enemyLevel": 8,
   "enemies": [
    "street_thug",
    "street_thug",
@@ -74,12 +80,15 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 3100
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_strike": 3,
+   "chip_blitz": 3,
+   "chip_hack": 3
   },
   "reward": {
-   "credit": 980
+   "credit": 1120
   },
   "trialParty": [
    "runner",
@@ -93,8 +102,8 @@
   "chapter": "ch1",
   "index": 4,
   "name": "빗속의 추격",
-  "recLevel": 11,
-  "enemyLevel": 11,
+  "recLevel": 9,
+  "enemyLevel": 9,
   "enemies": [
    "volt_drone",
    "sec_drone",
@@ -104,12 +113,15 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 3300
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_amp": 3,
+   "chip_shield": 3,
+   "chip_reboot": 3
   },
   "reward": {
-   "credit": 1040
+   "credit": 1160
   },
   "trialParty": [
    "runner",
@@ -123,8 +135,8 @@
   "chapter": "ch1",
   "index": 5,
   "name": "카이의 시험",
-  "recLevel": 12,
-  "enemyLevel": 12,
+  "recLevel": 10,
+  "enemyLevel": 10,
   "enemies": [
    "heavy_mech"
   ],
@@ -132,12 +144,15 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 3500
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_strike": 3,
+   "chip_blitz": 3,
+   "chip_hack": 3
   },
   "reward": {
-   "credit": 1100
+   "credit": 1200
   },
   "post": "ch1_5_post",
   "trialParty": [
@@ -152,8 +167,8 @@
   "chapter": "ch1",
   "index": 6,
   "name": "폐업한 수리점",
-  "recLevel": 13,
-  "enemyLevel": 13,
+  "recLevel": 11,
+  "enemyLevel": 11,
   "enemies": [
    "flame_drone",
    "flame_drone",
@@ -163,12 +178,15 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 3700
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_amp": 3,
+   "chip_shield": 3,
+   "chip_reboot": 3
   },
   "reward": {
-   "credit": 1160
+   "credit": 1240
   },
   "trialParty": [
    "runner",
@@ -182,8 +200,8 @@
   "chapter": "ch1",
   "index": 7,
   "name": "갱단의 경계",
-  "recLevel": 14,
-  "enemyLevel": 14,
+  "recLevel": 12,
+  "enemyLevel": 12,
   "enemies": [
    "street_thug",
    "street_thug",
@@ -193,12 +211,15 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 3900
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_strike": 3,
+   "chip_blitz": 3,
+   "chip_hack": 3
   },
   "reward": {
-   "credit": 1220
+   "credit": 1280
   },
   "trialParty": [
    "runner",
@@ -212,8 +233,8 @@
   "chapter": "ch1",
   "index": 8,
   "name": "지하 하수로",
-  "recLevel": 15,
-  "enemyLevel": 15,
+  "recLevel": 13,
+  "enemyLevel": 13,
   "enemies": [
    "volt_drone",
    "volt_drone",
@@ -223,12 +244,15 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 4100
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_amp": 3,
+   "chip_shield": 3,
+   "chip_reboot": 3
   },
   "reward": {
-   "credit": 1280
+   "credit": 1320
   },
   "trialParty": [
    "runner",
@@ -242,8 +266,8 @@
   "chapter": "ch1",
   "index": 9,
   "name": "두목의 부하들",
-  "recLevel": 16,
-  "enemyLevel": 16,
+  "recLevel": 14,
+  "enemyLevel": 14,
   "enemies": [
    "heavy_mech",
    "street_thug",
@@ -253,12 +277,15 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 4300
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_strike": 3,
+   "chip_blitz": 3,
+   "chip_hack": 3
   },
   "reward": {
-   "credit": 1340
+   "credit": 1360
   },
   "trialParty": [
    "runner",
@@ -272,8 +299,8 @@
   "chapter": "ch1",
   "index": 10,
   "name": "철골 두목 바이스",
-  "recLevel": 18,
-  "enemyLevel": 18,
+  "recLevel": 15,
+  "enemyLevel": 15,
   "enemies": [
    "volt_drone",
    "iron_boss",
@@ -283,12 +310,23 @@
   "bg": "undertown",
   "firstReward": {
    "shard": 60,
-   "pack_s": 3,
-   "pack_m": 1,
-   "credit": 4500,
+   "pack_m": 2,
+   "pack_s": 2,
+   "credit": 6000,
+   "chip_amp": 4,
+   "chip_shield": 4,
+   "chip_reboot": 4,
+   "weekly": 4,
+   "part_kinetic_s": 8,
+   "part_plasma_s": 8,
+   "part_cryo_s": 8,
+   "part_volt_s": 8,
+   "part_glitch_s": 8,
+   "part_void_s": 8,
    "pack_l": 1,
-   "weekly": 1,
-   "part_kinetic_s": 3
+   "chip_strike": 4,
+   "chip_blitz": 4,
+   "chip_hack": 4
   },
   "reward": {
    "credit": 1400

@@ -213,14 +213,14 @@ export function unlockNode(save: SaveData, charId: string, type: 'big' | 'small'
   return true;
 }
 
-export type PlanStep = { kind: 'skill'; slot: SkillSlot } | { kind: 'big'; i: number } | { kind: 'small'; i: number };
+export type PlanStep = { kind: 'skill'; slot: SkillSlot; to: number } | { kind: 'big'; i: number } | { kind: 'small'; i: number };
 
 /** 추천 순서: 전투스킬 → 오버클럭 → 특성을 한 단계씩 번갈아 올리고, 큰 노드는 열리는 대로, 작은 노드는 마지막 */
 export function recommendedOrder(): PlanStep[] {
   const steps: PlanStep[] = [];
   for (let lv = 2; lv <= 10; lv++) {
-    for (const slot of ['skill', 'overclock', 'trait'] as const) steps.push({ kind: 'skill', slot });
-    if (lv <= 6) steps.push({ kind: 'skill', slot: 'basic' });
+    for (const slot of ['skill', 'overclock', 'trait'] as const) steps.push({ kind: 'skill', slot, to: lv });
+    if (lv <= 6) steps.push({ kind: 'skill', slot: 'basic', to: lv });
     if (lv === 3) steps.push({ kind: 'big', i: 0 });
     if (lv === 5) steps.push({ kind: 'big', i: 1 });
     if (lv === 7) steps.push({ kind: 'big', i: 2 });
@@ -229,20 +229,18 @@ export function recommendedOrder(): PlanStep[] {
   return steps;
 }
 
-/** 추천 순서로, 살 수 있는 것을 전부 연다. 연 개수를 돌려준다 */
+/** 추천 순서대로 연다. 재료가 모자란 단계를 만나면 거기서 멈춘다(뒤의 싼 것에 재료를 먼저 쓰지 않는다). 연 개수를 돌려준다 */
 export function applyRecommended(save: SaveData, charId: string, data: GameData = DATA): number {
+  const c = save.chars[charId];
   let done = 0;
-  let progressed = true;
-  while (progressed) {
-    progressed = false;
-    for (const st of recommendedOrder()) {
-      const ok = st.kind === 'skill' ? skillUp(save, charId, st.slot, data) : unlockNode(save, charId, st.kind, st.i, data);
-      if (ok) {
-        done++;
-        progressed = true;
-        break;
-      }
-    }
+  for (const st of recommendedOrder()) {
+    if (st.kind === 'skill' && c.skills[st.slot] >= st.to) continue;
+    const chk = st.kind === 'skill' ? canSkillUp(save, charId, st.slot, data) : canUnlockNode(save, charId, st.kind, st.i, data);
+    if (!chk.ok && chk.reason === 'items') break;
+    if (!chk.ok) continue;
+    if (st.kind === 'skill') skillUp(save, charId, st.slot, data);
+    else unlockNode(save, charId, st.kind, st.i, data);
+    done++;
   }
   return done;
 }

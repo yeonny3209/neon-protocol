@@ -4,8 +4,8 @@ import type { StageDef } from '../../engine/defs';
 import { allyFromSave, power } from '../../engine/growth';
 import { storyParty, validParty } from '../../engine/party';
 import { recordBattle } from '../../engine/record';
+import { applyStageClear, nextStageId, stageStars, type ClearOutcome } from '../../engine/progress';
 import { randomSeed } from '../../engine/rng';
-import { grant, track, type Granted } from '../../engine/state';
 import type { AllySetup, BattleSetup } from '../../engine/battle/types';
 import type { Battle } from '../../engine/battle/battle';
 import type { App, Screen } from '../app';
@@ -30,10 +30,7 @@ export function stageAvailable(app: App, id: string): boolean {
   return !!app.save.story.cleared[DATA.stageOrder[i - 1]];
 }
 
-export function nextStageId(id: string): string | undefined {
-  const i = DATA.stageOrder.indexOf(id);
-  return DATA.stageOrder[i + 1];
-}
+export { nextStageId };
 
 /** 전투에 나갈 아군: 내 편성 + 빈 자리는 체험 캐릭터 */
 export function stageAllies(app: App, st: StageDef): AllySetup[] {
@@ -95,53 +92,17 @@ function battleScreen(app: App, st: StageDef, ambush: boolean): Screen {
   return { el, destroy: () => view.destroy() };
 }
 
-interface Outcome {
-  stars: number;
-  first: boolean;
-  got: Granted;
-  chapterDone: boolean;
-  chapterGot?: Granted;
-  forms: string[];
-}
+type Outcome = ClearOutcome;
 
 function finishStage(app: App, st: StageDef, b: Battle, view: BattleView): Promise<void> {
   const save = app.save;
-  const first = !save.story.cleared[st.id];
-  const alive = b.allies(false).every((u) => u.alive);
-  const rounds = b.round();
-  let stars = 1;
-  if (alive) stars |= 2;
-  if (rounds <= (st.starRounds ?? DATA.balance.story.defaultStarRounds)) stars |= 4;
-  save.story.cleared[st.id] = (save.story.cleared[st.id] ?? 0) | stars;
-  save.story.next = nextStageId(st.id);
-
-  const reward = first ? { ...st.reward, ...st.firstReward } : { ...st.reward };
-  if (!first) delete reward.rankExp;
-  reward.rankExp = (reward.rankExp ?? 0) + DATA.balance.economy.rankExp.battleWin;
-  if (first) reward.rankExp += st.boss ? DATA.balance.economy.rankExp.storyBossFirstClear : DATA.balance.economy.rankExp.storyFirstClear;
-  const got = grant(save, reward);
+  const out: Outcome = applyStageClear(save, st, stageStars(b, st));
+  const first = out.first;
   // 보통 난이도는 체력이 일부만 회복된 채로 다음 전투로 이어진다
   if (save.settings.difficulty === 'normal' && !st.forcedParty) {
     const heal = DATA.balance.difficulty.normal.postBattleHeal;
     for (const u of b.allies(false)) save.story.hp[u.defId] = Math.min(1, (u.alive ? u.hp / u.maxHp : 0) + heal);
   } else save.story.hp = {};
-  track(save, 'stageClear');
-
-  const out: Outcome = { stars, first, got, chapterDone: false, forms: [] };
-  const ch = DATA.chapters[st.chapter];
-  const chapterStages = DATA.stageOrder.filter((id) => DATA.stages[id].chapter === st.chapter);
-  if (first && !save.story.chapters.includes(st.chapter) && chapterStages.every((id) => save.story.cleared[id])) {
-    save.story.chapters.push(st.chapter);
-    out.chapterDone = true;
-    out.chapterGot = grant(save, ch.completeReward);
-    for (const f of DATA.characters.runner.forms ?? []) {
-      if (f.unlockAfter === st.chapter && !save.runnerForms.includes(f.id)) {
-        save.runnerForms.push(f.id);
-        out.forms.push(f.name);
-      }
-    }
-    track(save, 'chapterClear');
-  }
   app.persist();
 
   return (async () => {

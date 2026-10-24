@@ -7,7 +7,7 @@
   "stat": "chapter:prologue",
   "target": 1,
   "reward": {
-   "shard": 40
+   "shard": 400
   }
  },
  {
@@ -18,7 +18,7 @@
   "stat": "chapter:ch1",
   "target": 1,
   "reward": {
-   "shard": 40
+   "shard": 400
   }
  },
  {
@@ -29,7 +29,7 @@
   "stat": "chapter:ch2",
   "target": 1,
   "reward": {
-   "shard": 40
+   "shard": 400
   }
  },
  {
@@ -40,7 +40,7 @@
   "stat": "chapter:ch3",
   "target": 1,
   "reward": {
-   "shard": 40
+   "shard": 400
   }
  },
  {
@@ -51,7 +51,7 @@
   "stat": "chapter:ch4",
   "target": 1,
   "reward": {
-   "shard": 40
+   "shard": 400
   }
  },
  {
@@ -62,7 +62,7 @@
   "stat": "chapter:ch5",
   "target": 1,
   "reward": {
-   "shard": 40
+   "shard": 400
   }
  },
  {
@@ -73,7 +73,7 @@
   "stat": "chapter:ch6",
   "target": 1,
   "reward": {
-   "shard": 40
+   "shard": 400
   }
  },
  {
@@ -84,7 +84,7 @@
   "stat": "ending:A",
   "target": 1,
   "reward": {
-   "shard": 100
+   "shard": 400
   }
  },
  {
@@ -95,7 +95,7 @@
   "stat": "ending:B",
   "target": 1,
   "reward": {
-   "shard": 100
+   "shard": 400
   }
  },
  {
@@ -106,7 +106,7 @@
   "stat": "ending:C",
   "target": 1,
   "reward": {
-   "shard": 100
+   "shard": 500
   }
  },
  {
@@ -117,7 +117,7 @@
   "stat": "endingsSeen",
   "target": 3,
   "reward": {
-   "shard": 200
+   "shard": 300
   }
  },
  {
@@ -128,7 +128,7 @@
   "stat": "stagesCleared",
   "target": 1,
   "reward": {
-   "shard": 20
+   "shard": 40
   }
  },
  {
@@ -139,7 +139,7 @@
   "stat": "stagesCleared",
   "target": 10,
   "reward": {
-   "shard": 30
+   "shard": 80
   }
  },
  {
@@ -150,7 +150,7 @@
   "stat": "stagesCleared",
   "target": 30,
   "reward": {
-   "shard": 40
+   "shard": 150
   }
  },
  {
@@ -161,7 +161,7 @@
   "stat": "stagesCleared",
   "target": 50,
   "reward": {
-   "shard": 50
+   "shard": 230
   }
  },
  {
@@ -172,7 +172,7 @@
   "stat": "stagesCleared",
   "target": 69,
   "reward": {
-   "shard": 100
+   "shard": 300
   }
  },
  {
@@ -183,7 +183,7 @@
   "stat": "storyStars",
   "target": 30,
   "reward": {
-   "shard": 30
+   "shard": 150
   }
  },
  {
@@ -194,7 +194,7 @@
   "stat": "storyStars",
   "target": 90,
   "reward": {
-   "shard": 50
+   "shard": 250
   }
  },
  {
@@ -205,7 +205,7 @@
   "stat": "storyStars",
   "target": 207,
   "reward": {
-   "shard": 100
+   "shard": 400
   }
  },
  {
