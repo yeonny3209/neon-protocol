@@ -1,0 +1,173 @@
+{
+  "_note": "모든 수치는 초안이다. 여기 숫자만 바꾸면 게임 전체에 반영된다.",
+  "battle": {
+    "distanceBase": 10000,
+    "defenseConst": 100,
+    "cp": { "start": 3, "max": 5, "basicGain": 1, "skillCost": 1 },
+    "heat": { "basic": 20, "skill": 30, "overclockRefund": 5, "hit": 10, "kill": 10, "counter": 5 },
+    "firewall": { "basic": 10, "skillSingle": 20, "skillAoe": 10, "blastMain": 20, "blastAdj": 10, "overclock": 30, "counter": 10, "dot": 0 },
+    "downFactor": { "down": 1.1, "firewallUp": 0.9, "noFirewall": 1.0 },
+    "down": {
+      "pushPct": 0.25,
+      "breakScale": { "kinetic": 1.6, "plasma": 1.6, "cryo": 1.2, "volt": 1.4, "glitch": 1.0, "void": 1.0 },
+      "rankMult": { "normal": 1.0, "elite": 1.4, "boss": 1.8 }
+    },
+    "downEffects": {
+      "bleed": { "turns": 2, "pctMaxHp": { "normal": 0.10, "elite": 0.06, "boss": 0.03 }, "capAtkScale": 1.6 },
+      "overheat": { "turns": 2, "atkScale": 0.6, "defReduction": 0.1 },
+      "freeze": { "turns": 1, "atkScale": 0.3 },
+      "shock": { "turns": 2, "atkScale": 0.5, "spreadPct": 0.5 },
+      "glitch": { "extraPushPct": 0.35, "atkScale": 0.3 },
+      "erase": { "turns": 2, "dmgTaken": 0.15, "spdPct": -0.1 }
+    },
+    "ambushPct": 0.3,
+    "rounds": { "first": 150, "next": 100 },
+    "aggro": { "strike": 3, "blitz": 3, "hack": 3, "amp": 3, "shield": 6, "reboot": 3 },
+    "baseCrit": { "rate": 0.05, "dmg": 0.5 },
+    "skillLevel": { "scalePerLevel": 0.1, "valuePerLevel": 0.05 },
+    "maxEnemies": 5
+  },
+  "difficulty": {
+    "story": { "enemyHp": 0.6, "enemyAtk": 0.5, "enemyFirewall": 0.7, "postBattleHeal": 1.0 },
+    "normal": { "enemyHp": 1.0, "enemyAtk": 1.0, "enemyFirewall": 1.0, "postBattleHeal": 0.3 }
+  },
+  "scaling": {
+    "_note": "스탯 배율 = 1 + perLevel*(레벨-1) + perAscension*돌파. 방어는 별도 배율.",
+    "perLevel": 0.1,
+    "perAscension": 0.4,
+    "defPerLevel": 0.02,
+    "defPerAscension": 0.1,
+    "enemyAscensionAt": [21, 31, 41, 51]
+  },
+  "growth": {
+    "maxLevel": 60,
+    "levelCaps": [20, 30, 40, 50, 60],
+    "exp": { "a": 24, "p": 1.65, "b": 120 },
+    "creditPerExp": 0.1,
+    "ascension": [
+      { "level": 20, "part": "s", "parts": 4, "cores": 0, "credits": 4000 },
+      { "level": 30, "part": "m", "parts": 6, "cores": 0, "credits": 12000 },
+      { "level": 40, "part": "m", "parts": 10, "cores": 3, "credits": 30000 },
+      { "level": 50, "part": "l", "parts": 8, "cores": 6, "credits": 60000 }
+    ],
+    "ascensionRankReq": [1, 8, 16, 24],
+    "skillMax": { "basic": 6, "skill": 10, "overclock": 10, "trait": 10 },
+    "skillCapByAscension": {
+      "basic": [2, 3, 4, 5, 6],
+      "skill": [3, 5, 7, 9, 10],
+      "overclock": [3, 5, 7, 9, 10],
+      "trait": [3, 5, 7, 9, 10]
+    },
+    "skillCost": {
+      "_note": "인덱스 = 올릴 레벨(2~10). 6레벨부터 주간 보스 재료",
+      "chips": [0, 0, 2, 3, 4, 6, 8, 10, 12, 15, 18],
+      "credits": [0, 0, 2000, 4000, 7000, 11000, 16000, 22000, 30000, 40000, 52000],
+      "weekly": [0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3]
+    },
+    "bigNode": { "ascension": [1, 2, 3], "chips": [5, 8, 12], "credits": [8000, 20000, 40000], "weekly": [0, 1, 2] },
+    "smallNode": { "ascension": [0, 0, 1, 1, 2, 2, 3, 3, 4, 4], "chips": [2, 2, 3, 3, 4, 4, 5, 5, 6, 6], "credits": [3000, 3000, 6000, 6000, 10000, 10000, 15000, 15000, 22000, 22000] },
+    "syncSkillBonus": 2
+  },
+  "cartridge": {
+    "superimposeStep": 0.25,
+    "fodderExp": { "3": 1500, "4": 4000, "5": 10000 },
+    "expMult": 0.8,
+    "ascension": [
+      { "level": 20, "chips": 2, "credits": 3000 },
+      { "level": 30, "chips": 4, "credits": 8000 },
+      { "level": 40, "chips": 6, "credits": 20000 },
+      { "level": 50, "chips": 8, "credits": 40000 }
+    ]
+  },
+  "gacha": {
+    "keyPriceShards": 160,
+    "character": {
+      "five": { "base": 0.006, "softStart": 74, "softStep": 0.06, "hard": 90 },
+      "four": { "base": 0.051, "hard": 10 },
+      "pickupChance": 0.5,
+      "fourPickupChance": 0.5
+    },
+    "cartridge": {
+      "five": { "base": 0.008, "softStart": 66, "softStep": 0.07, "hard": 80 },
+      "four": { "base": 0.066, "hard": 10 },
+      "pickupChance": 0.75,
+      "fourPickupChance": 0.75
+    },
+    "standard": {
+      "five": { "base": 0.006, "softStart": 74, "softStep": 0.06, "hard": 90 },
+      "four": { "base": 0.051, "hard": 10 },
+      "selectAt": 300,
+      "charShare": 0.5
+    },
+    "beginner": {
+      "five": { "base": 0.006, "softStart": 40, "softStep": 0.06, "hard": 50 },
+      "four": { "base": 0.051, "hard": 10 },
+      "limit": 50,
+      "tenCost": 8
+    },
+    "signal": { "perPull": 1, "dupFourOverflow": 8, "dupFiveOverflow": 40 },
+    "exchange": {
+      "standardFive": 300,
+      "pickupFour": 60,
+      "fourCartridge": 40,
+      "key": 20,
+      "keyMonthlyLimit": 5
+    },
+    "bannerEpoch": "2026-11-02",
+    "bannerDays": 14,
+    "historyLimit": 500
+  },
+  "economy": {
+    "runnerRank": {
+      "max": 40,
+      "expPerRank": [0, 100, 150, 200, 250, 300, 360, 420, 480, 540, 600, 660, 720, 780, 840, 900, 960, 1020, 1080, 1140, 1200, 1260, 1320, 1380, 1440, 1500, 1560, 1620, 1680, 1740, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700],
+      "shardsPerRank": 100,
+      "keysEvery": 5,
+      "keysPerMilestone": 1
+    },
+    "rankExp": { "storyFirstClear": 80, "storyBossFirstClear": 160, "dailyAll": 100, "sweep": 6, "deepFloor": 30, "loopZone": 60, "battleWin": 4 },
+    "dailyReset": 4,
+    "startGift": { "key": 20 },
+    "sweepDailyLimit": 30,
+    "codexShards": 10,
+    "chapterHealOnNest": true
+  },
+  "daily": {
+    "count": 4,
+    "allReward": { "shard": 90, "pack_m": 3, "credit": 15000 },
+    "backlogDays": 3,
+    "weeklyCount": 3,
+    "weeklyReward": { "shard": 60, "chip_any": 0, "weekly": 1, "credit": 20000 }
+  },
+  "deep": {
+    "floors": 12,
+    "twoTeamsFrom": 7,
+    "periodDays": 14,
+    "starRewards": [
+      { "stars": 3, "shard": 60 }, { "stars": 6, "shard": 60 }, { "stars": 9, "shard": 60 },
+      { "stars": 12, "shard": 60 }, { "stars": 15, "shard": 60 }, { "stars": 18, "shard": 70 },
+      { "stars": 21, "shard": 70 }, { "stars": 24, "shard": 70 }, { "stars": 27, "shard": 80 },
+      { "stars": 30, "shard": 80 }, { "stars": 33, "shard": 40 }, { "stars": 36, "shard": 40 }
+    ],
+    "starWeeklyMat": { "stars": [9, 18, 27, 36], "weekly": 1 },
+    "starRounds": 6
+  },
+  "loop": {
+    "zones": 3,
+    "nodesPerZone": [6, 8],
+    "patchChoices": 3,
+    "setThresholds": [3, 6],
+    "weeklyScoreTarget": 1000,
+    "weeklyShards": 225,
+    "firstClear": { "key": 2, "core": 2 },
+    "startCoins": 100,
+    "coinsPerBattle": 40,
+    "coinsPerElite": 70,
+    "shopPrices": { "patch": 120, "heal": 60, "reroll": 40 },
+    "restHealPct": 0.4,
+    "eliteHeal": 0,
+    "score": { "battle": 40, "elite": 90, "boss": 200, "event": 30, "clearBonus": 300, "difficultyMult": [1, 1.2, 1.4, 1.7, 2.0] },
+    "difficultyLevel": [20, 32, 44, 54, 62],
+    "difficultyRank": [1, 12, 20, 28, 34]
+  }
+}

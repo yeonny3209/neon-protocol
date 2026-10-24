@@ -1,0 +1,49 @@
+[
+  {
+    "id": "sec_drone",
+    "name": "경비 드론",
+    "rank": "normal",
+    "family": "drone",
+    "desc": "헬릭스가 언더타운 순찰에 쓰는 소형 드론. 얇은 장갑에 열과 냉기에 약하다.",
+    "element": "kinetic",
+    "color": "#8fa6c4",
+    "stats": { "hp": 300, "atk": 44, "def": 70, "spd": 104 },
+    "weaknesses": ["plasma", "cryo", "volt"],
+    "firewall": 30,
+    "actions": [
+      { "skill": { "name": "경고 사격", "kind": "basic", "target": "enemy", "desc": "아군 하나에게 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] }, "weight": 1 }
+    ]
+  },
+  {
+    "id": "street_thug",
+    "name": "개조 불량배",
+    "rank": "normal",
+    "family": "thug",
+    "desc": "싸구려 강화 시술을 받은 갱단원. 근육은 단단하지만 충격과 공허 속성에 약하다.",
+    "element": "kinetic",
+    "color": "#c48f6a",
+    "stats": { "hp": 340, "atk": 48, "def": 80, "spd": 95 },
+    "weaknesses": ["kinetic", "void"],
+    "firewall": 30,
+    "actions": [
+      { "skill": { "name": "강철 주먹", "kind": "basic", "target": "enemy", "desc": "아군 하나에게 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] }, "weight": 3 },
+      { "skill": { "name": "급소 노리기", "kind": "skill", "target": "enemy", "desc": "아군 하나에게 큰 피해를 주고 방어력을 10% 낮춘다.", "effects": [{ "type": "damage", "scale": 1.25 }, { "type": "status", "status": "defDown", "value": 0.1, "turns": 2, "chance": 0.8 }] }, "weight": 1, "cooldown": 1 }
+    ]
+  },
+  {
+    "id": "heavy_mech",
+    "name": "진압 기갑병",
+    "rank": "elite",
+    "family": "mech",
+    "desc": "폭동 진압용 2족 보행 기갑. 장갑이 두껍지만 관절이 충격과 냉기에 약하다. 다운시키면 크게 흔들린다.",
+    "element": "kinetic",
+    "color": "#d0b04a",
+    "stats": { "hp": 820, "atk": 52, "def": 100, "spd": 90 },
+    "weaknesses": ["kinetic", "cryo"],
+    "firewall": 90,
+    "actions": [
+      { "skill": { "name": "회전 포격", "kind": "skill", "target": "allAllies", "desc": "아군 전체에게 피해.", "effects": [{ "type": "damage", "scale": 0.6 }] }, "weight": 2, "cooldown": 1 },
+      { "skill": { "name": "압착", "kind": "basic", "target": "enemy", "desc": "아군 하나에게 큰 피해.", "effects": [{ "type": "damage", "scale": 1.4 }] }, "weight": 2 }
+    ]
+  }
+]

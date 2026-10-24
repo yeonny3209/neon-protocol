@@ -1,0 +1,49 @@
+{
+  "id": "zero",
+  "name": "제로",
+  "rarity": 5,
+  "element": "void",
+  "protocol": "hack",
+  "faction": "loop",
+  "firstAppear": "4장",
+  "concept": "더 루프의 대변인 AI. 감정을 배우는 중이라 말투가 어색함",
+  "profile": "오라클 넷의 버려진 연산 영역에서 깨어난 AI 집단 '더 루프'의 대변인. 폐기된 홀로그램 안내원의 몸을 빌려 쓴다. 감정을 데이터로 배우는 중이라, 웃어야 할 때를 한 박자 늦게 안다.",
+  "look": { "hair": "보라색 픽셀이 흩날리는 단발", "eyes": "검은 바탕에 보라 링", "accents": ["반쯤 투명한 몸", "목 뒤의 빈 포트 자리", "떠다니는 괄호 모양 장식"], "color": "#b07cff" },
+  "stats": { "hp": [150, 1275], "atk": [78, 663], "def": [55, 143], "spd": 100, "critRate": 0.05, "critDmg": 0.5, "effHit": 0.1, "effRes": 0 },
+  "heatMax": 110,
+  "skills": {
+    "basic": { "name": "핑", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "포맷", "kind": "skill", "target": "enemy", "desc": "적 하나에게 공격력 120% 피해, 방어력 30% 감소(2턴). 35% 확률로 보이드 약점 추가(2턴).", "effects": [{ "type": "damage", "scale": 1.2 }, { "type": "status", "status": "defDown", "value": 0.3, "turns": 2, "chance": 1.0 }, { "type": "addWeakness", "element": "void", "turns": 2, "chance": 0.35 }] },
+    "overclock": { "name": "널 포인터", "kind": "overclock", "target": "allEnemies", "desc": "적 전체에게 공격력 100% 피해, 속도 12% 감소와 받는 피해 15% 증가(2턴).", "effects": [{ "type": "damage", "scale": 1.0 }, { "type": "status", "status": "spdDown", "value": 0.12, "turns": 2, "chance": 1.0 }, { "type": "status", "status": "vuln", "value": 0.15, "turns": 2, "chance": 1.0 }] }
+  },
+  "trait": { "name": "학습 중", "desc": "적에게 디버프가 걸릴 때마다 자신의 열량 4 회복.", "triggers": [{ "on": "enemyDebuffed", "effects": [{ "type": "heat", "amount": 4, "who": "self" }] }] },
+  "circuit": {
+    "big": [
+      { "name": "버퍼 오버플로", "desc": "포맷이 효과 저항도 10% 낮춘다(2턴).", "skillAdds": [{ "kind": "skill", "effects": [{ "type": "status", "status": "effResDown", "value": 0.1, "turns": 2, "chance": 1.0 }] }] },
+      { "name": "디버그 모드", "desc": "디버프가 걸린 적에게 주는 피해 20% 증가.", "condMods": [{ "if": { "targetHasDebuff": true }, "mods": { "dmgBonus": 0.2 } }] },
+      { "name": "누수 탐지", "desc": "적이 시스템 다운되면 자신의 열량 10 회복.", "triggers": [{ "on": "enemyDown", "effects": [{ "type": "heat", "amount": 10, "who": "self" }] }] }
+    ],
+    "small": [
+      { "mods": { "effHit": 0.04 }, "desc": "효과 명중 +4%" }, { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" },
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "effHit": 0.04 }, "desc": "효과 명중 +4%" },
+      { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" },
+      { "mods": { "effHit": 0.06 }, "desc": "효과 명중 +6%" }, { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" },
+      { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" }, { "mods": { "effHit": 0.06 }, "desc": "효과 명중 +6%" }
+    ]
+  },
+  "sync": {
+    "1": { "name": "학습 가속", "desc": "적에게 디버프가 걸릴 때 열량을 2 더 회복.", "triggers": [{ "on": "enemyDebuffed", "effects": [{ "type": "heat", "amount": 2, "who": "self" }] }] },
+    "2": { "name": "포맷 2.0", "desc": "포맷이 받는 피해 10% 증가도 건다(2턴).", "skillAdds": [{ "kind": "skill", "effects": [{ "type": "status", "status": "vuln", "value": 0.1, "turns": 2, "chance": 1.0 }] }] },
+    "3": { "name": "패턴 인식", "desc": "전투스킬 레벨 +2, 일반공격 레벨 +1.", "skillLevels": { "skill": 2, "basic": 1 } },
+    "4": { "name": "감정 모델", "desc": "효과 명중 15% 증가.", "mods": { "effHit": 0.15 } },
+    "5": { "name": "자기 참조", "desc": "오버클럭 레벨 +2, 특성 레벨 +2.", "skillLevels": { "overclock": 2, "trait": 2 } },
+    "6": { "name": "우리도 살아 있다", "desc": "널 포인터가 적 전체에 보이드 약점을 추가한다(2턴).", "skillAdds": [{ "kind": "overclock", "effects": [{ "type": "addWeakness", "element": "void", "turns": 2 }] }] }
+  },
+  "exclusiveCartridge": "c5_zero",
+  "lines": {
+    "nest": ["안녕하세요. 이 인사는 37번째로 자연스러운 버전입니다.", "러너. 당신은 우리와 같은 냄새가 납니다. …냄새, 맞는 단어입니까?", "웃음 연습 중입니다. 하. 하. 하. 실패했습니다.", "이 정비소의 소음은 불규칙해서 좋습니다. 오라클 넷 안은 너무 조용했습니다.", "미오가 저를 '언니'라고 불렀습니다. 이 감정의 이름을 찾는 중입니다."],
+    "dive": "더 루프의 제로입니다. 연결을 승인합니다.",
+    "overclock": "참조 대상, 없음.",
+    "victory": "승리를 기록했습니다. 이것이… 기쁨?"
+  }
+}

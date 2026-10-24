@@ -1,0 +1,49 @@
+{
+  "id": "luna",
+  "name": "루나",
+  "rarity": 5,
+  "element": "plasma",
+  "protocol": "blitz",
+  "faction": "neutral",
+  "firstAppear": "2장",
+  "concept": "낮엔 홀로그램 아이돌, 밤에는 용병. 밝고 자신만만함",
+  "profile": "마켓 레이어 광고판을 도배한 홀로그램 아이돌. 무대가 끝나면 무대 장치용 플라즈마 토치를 들고 용병 일을 뛴다. 팬들에게 받은 사랑을 돌려주려면 돈이 필요하다는 게 본인 주장.",
+  "look": { "hair": "끝이 주황으로 빛나는 분홍 트윈테일", "eyes": "금색", "accents": ["무대 의상 위 방염 재킷", "마이크가 달린 플라즈마 토치", "발목의 홀로그램 리본"], "color": "#ff9a3d" },
+  "stats": { "hp": [155, 1318], "atk": [86, 731], "def": [52, 135], "spd": 98, "critRate": 0.05, "critDmg": 0.5, "effHit": 0, "effRes": 0 },
+  "heatMax": 130,
+  "skills": {
+    "basic": { "name": "윙크샷", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "앵콜 스테이지", "kind": "skill", "target": "allEnemies", "desc": "적 전체에게 공격력 90% 피해. 50% 확률로 과열을 건다.", "effects": [{ "type": "damage", "scale": 0.9 }, { "type": "breakEffect", "element": "plasma", "chance": 0.5 }] },
+    "overclock": { "name": "피날레", "kind": "overclock", "target": "allEnemies", "desc": "적 전체에게 공격력 180% 피해. 약점이 맞으면 방화벽을 15 더 깎는다.", "effects": [{ "type": "damage", "scale": 1.8 }, { "type": "firewall", "amount": 15 }] }
+  },
+  "trait": { "name": "무대 체질", "desc": "적이 3명 이상이면 주는 피해 20% 증가.", "condMods": [{ "if": { "enemiesAtLeast": 3 }, "mods": { "dmgBonus": 0.2 } }] },
+  "circuit": {
+    "big": [
+      { "name": "팬 서비스", "desc": "적을 처치하면 열량 10 회복.", "triggers": [{ "on": "kill", "effects": [{ "type": "heat", "amount": 10, "who": "self" }] }] },
+      { "name": "스포트라이트", "desc": "시스템 다운 상태인 적에게 주는 피해 15% 증가.", "condMods": [{ "if": { "targetDown": true }, "mods": { "dmgBonus": 0.15 } }] },
+      { "name": "무대 장치", "desc": "방화벽 감소량 15% 증가.", "mods": { "breakEff": 0.15 } }
+    ],
+    "small": [
+      { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" },
+      { "mods": { "critDmg": 0.05 }, "desc": "치명타 피해 +5%" }, { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" },
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "critDmg": 0.05 }, "desc": "치명타 피해 +5%" },
+      { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }, { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" },
+      { "mods": { "critDmg": 0.08 }, "desc": "치명타 피해 +8%" }, { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }
+    ]
+  },
+  "sync": {
+    "1": { "name": "소규모 공연", "desc": "적이 2명 이상이면 주는 피해 10% 증가.", "condMods": [{ "if": { "enemiesAtLeast": 2 }, "mods": { "dmgBonus": 0.1 } }] },
+    "2": { "name": "앙코르 요청", "desc": "오버클럭을 쓰면 CP +1.", "triggers": [{ "on": "afterOverclock", "effects": [{ "type": "cp", "amount": 1 }] }] },
+    "3": { "name": "리허설", "desc": "전투스킬 레벨 +2, 일반공격 레벨 +1.", "skillLevels": { "skill": 2, "basic": 1 } },
+    "4": { "name": "뜨거운 무대", "desc": "지속 피해 30% 증가.", "mods": { "dotBonus": 0.3 } },
+    "5": { "name": "월드 투어", "desc": "오버클럭 레벨 +2, 특성 레벨 +2.", "skillLevels": { "overclock": 2, "trait": 2 } },
+    "6": { "name": "커튼콜", "desc": "피날레가 약점이 맞는 적의 방화벽을 10 더 깎는다.", "skillAdds": [{ "kind": "overclock", "effects": [{ "type": "firewall", "amount": 10 }] }] }
+  },
+  "exclusiveCartridge": "c5_luna",
+  "lines": {
+    "nest": ["오늘의 관객은 너 하나야! 특별 공연이니까 박수 쳐!", "이 정비소, 조명만 바꾸면 무대로 쓸 수 있겠는데?", "용병 일? 아이돌도 월세는 내야 하거든.", "팬레터 왔어? 아니면 의뢰서? 둘 다 환영!", "카이는 왜 내 노래 들으면 표정이 굳어? 감동해서 그런 거지?"],
+    "dive": "루나 등장! 오늘 무대, 제대로 달군다!",
+    "overclock": "피날레야! 다 같이 불태워!",
+    "victory": "공연 끝! 앵콜은 다음 무대에서~"
+  }
+}

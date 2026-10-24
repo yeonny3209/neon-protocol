@@ -1,0 +1,49 @@
+{
+  "id": "kai",
+  "name": "카이",
+  "rarity": 5,
+  "element": "kinetic",
+  "protocol": "strike",
+  "faction": "nox",
+  "firstAppear": "1장",
+  "concept": "개조 의수 격투가. 녹스트리트 리더, 무뚝뚝하지만 의리 있음",
+  "profile": "언더타운에서 자란 녹스트리트의 리더. 오른팔은 공장 사고로 잃고 직접 개조한 의수로 바꿨다. 말이 짧고 표정이 없지만, 동료가 다치면 가장 먼저 앞에 선다. 오라클 넷을 부숴야 한다고 믿는다.",
+  "look": { "hair": "짧게 깎은 검은 머리", "eyes": "회색", "accents": ["무광 회색 의수", "찢어진 작업 재킷", "손목의 발광 라인"], "color": "#9aa3b2" },
+  "stats": { "hp": [160, 1360], "atk": [92, 780], "def": [55, 143], "spd": 102, "critRate": 0.05, "critDmg": 0.5, "effHit": 0, "effRes": 0 },
+  "heatMax": 120,
+  "skills": {
+    "basic": { "name": "잽", "kind": "basic", "target": "enemy", "desc": "적 하나에게 공격력 100% 피해.", "effects": [{ "type": "damage", "scale": 1.0 }] },
+    "skill": { "name": "피스톤 펀치", "kind": "skill", "target": "enemy", "desc": "적 하나에게 공격력 220% 피해. 대상이 시스템 다운 상태면 피해 50% 증가.", "effects": [{ "type": "damage", "scale": 2.2, "bonus": [{ "if": { "targetDown": true }, "mods": { "dmgBonus": 0.5 } }] }] },
+    "overclock": { "name": "이중 출력", "kind": "overclock", "target": "enemy", "desc": "적 하나에게 공격력 210% 피해를 두 번 준다. 다음 차례까지 치명타 확률 30% 증가.", "effects": [{ "type": "damage", "scale": 2.1, "hits": 2 }, { "type": "status", "status": "critRateUp", "value": 0.3, "turns": 1, "who": "self" }] }
+  },
+  "trait": { "name": "버티는 주먹", "desc": "아군이 공격받으면 공격한 적에게 공격력 90% 반격. 카이 차례 사이에 1번.", "triggers": [{ "on": "allyHit", "limit": "perOwnTurn", "effects": [{ "type": "counter", "scale": 0.9 }] }] },
+  "circuit": {
+    "big": [
+      { "name": "압축 실린더", "desc": "전투스킬 피해 15% 증가.", "mods": { "skillDmg": 0.15 } },
+      { "name": "버티는 몸", "desc": "체력이 50%보다 많으면 치명타 확률 10% 증가.", "condMods": [{ "if": { "selfHpAbove": 0.5 }, "mods": { "critRate": 0.1 } }] },
+      { "name": "마무리 일격", "desc": "체력 30% 미만인 적에게 주는 피해 20% 증가.", "condMods": [{ "if": { "targetHpBelow": 0.3 }, "mods": { "dmgBonus": 0.2 } }] }
+    ],
+    "small": [
+      { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" }, { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" },
+      { "mods": { "critRate": 0.02 }, "desc": "치명타 확률 +2%" }, { "mods": { "atkPct": 0.04 }, "desc": "공격력 +4%" },
+      { "mods": { "hpPct": 0.04 }, "desc": "체력 +4%" }, { "mods": { "critRate": 0.02 }, "desc": "치명타 확률 +2%" },
+      { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }, { "mods": { "hpPct": 0.06 }, "desc": "체력 +6%" },
+      { "mods": { "critRate": 0.03 }, "desc": "치명타 확률 +3%" }, { "mods": { "atkPct": 0.06 }, "desc": "공격력 +6%" }
+    ]
+  },
+  "sync": {
+    "1": { "name": "같은 골목", "desc": "시스템 다운 상태인 적에게 주는 피해 10% 증가.", "condMods": [{ "if": { "targetDown": true }, "mods": { "dmgBonus": 0.1 } }] },
+    "2": { "name": "투지", "desc": "적을 처치하면 열량 15 회복.", "triggers": [{ "on": "kill", "effects": [{ "type": "heat", "amount": 15, "who": "self" }] }] },
+    "3": { "name": "단련", "desc": "전투스킬 레벨 +2, 일반공격 레벨 +1.", "skillLevels": { "skill": 2, "basic": 1 } },
+    "4": { "name": "무게 중심", "desc": "체력 10% 증가.", "mods": { "hpPct": 0.1 } },
+    "5": { "name": "과부하 단련", "desc": "오버클럭 레벨 +2, 특성 레벨 +2.", "skillLevels": { "overclock": 2, "trait": 2 } },
+    "6": { "name": "끝까지 간다", "desc": "오버클럭 피해 30% 증가.", "mods": { "overclockDmg": 0.3 } }
+  },
+  "exclusiveCartridge": "c5_kai",
+  "lines": {
+    "nest": ["…밥은 먹었냐.", "의수 소리 시끄러우면 말해. 기름 칠할 테니까.", "녹스트리트는 가족이야. 너도 이제 들어왔고.", "약한 놈 괴롭히는 건 못 봐. 그게 다야.", "미오가 또 내 팔 뜯어보려고 하더라. 막아 줘."],
+    "dive": "카이다. 주먹이 필요하면 불러.",
+    "overclock": "출력 최대. 버텨 봐라.",
+    "victory": "끝났군. 다친 사람 없지?"
+  }
+}
