@@ -1,0 +1,306 @@
+[
+ {
+  "id": "ch1-1",
+  "chapter": "ch1",
+  "index": 1,
+  "name": "녹스트리트의 문턱",
+  "recLevel": 8,
+  "enemyLevel": 8,
+  "enemies": [
+   "sec_drone",
+   "street_thug"
+  ],
+  "pre": "ch1_1_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 2700
+  },
+  "reward": {
+   "credit": 860
+  }
+ },
+ {
+  "id": "ch1-2",
+  "chapter": "ch1",
+  "index": 2,
+  "name": "골목 검문",
+  "recLevel": 9,
+  "enemyLevel": 9,
+  "enemies": [
+   "sec_drone",
+   "sec_drone",
+   "street_thug"
+  ],
+  "pre": "ch1_2_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 2900
+  },
+  "reward": {
+   "credit": 920
+  }
+ },
+ {
+  "id": "ch1-3",
+  "chapter": "ch1",
+  "index": 3,
+  "name": "개조 살롱",
+  "recLevel": 10,
+  "enemyLevel": 10,
+  "enemies": [
+   "street_thug",
+   "street_thug",
+   "flame_drone"
+  ],
+  "pre": "ch1_3_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3100
+  },
+  "reward": {
+   "credit": 980
+  }
+ },
+ {
+  "id": "ch1-4",
+  "chapter": "ch1",
+  "index": 4,
+  "name": "빗속의 추격",
+  "recLevel": 11,
+  "enemyLevel": 11,
+  "enemies": [
+   "volt_drone",
+   "sec_drone",
+   "street_thug"
+  ],
+  "pre": "ch1_4_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3300
+  },
+  "reward": {
+   "credit": 1040
+  }
+ },
+ {
+  "id": "ch1-5",
+  "chapter": "ch1",
+  "index": 5,
+  "name": "카이의 시험",
+  "recLevel": 12,
+  "enemyLevel": 12,
+  "enemies": [
+   "heavy_mech"
+  ],
+  "pre": "ch1_5_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3500
+  },
+  "reward": {
+   "credit": 1100
+  },
+  "post": "ch1_5_post"
+ },
+ {
+  "id": "ch1-6",
+  "chapter": "ch1",
+  "index": 6,
+  "name": "폐업한 수리점",
+  "recLevel": 13,
+  "enemyLevel": 13,
+  "enemies": [
+   "flame_drone",
+   "flame_drone",
+   "street_thug"
+  ],
+  "pre": "ch1_6_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3700
+  },
+  "reward": {
+   "credit": 1160
+  }
+ },
+ {
+  "id": "ch1-7",
+  "chapter": "ch1",
+  "index": 7,
+  "name": "갱단의 경계",
+  "recLevel": 14,
+  "enemyLevel": 14,
+  "enemies": [
+   "street_thug",
+   "street_thug",
+   "street_thug"
+  ],
+  "pre": "ch1_7_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3900
+  },
+  "reward": {
+   "credit": 1220
+  }
+ },
+ {
+  "id": "ch1-8",
+  "chapter": "ch1",
+  "index": 8,
+  "name": "지하 하수로",
+  "recLevel": 15,
+  "enemyLevel": 15,
+  "enemies": [
+   "volt_drone",
+   "volt_drone",
+   "flame_drone"
+  ],
+  "pre": "ch1_8_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4100
+  },
+  "reward": {
+   "credit": 1280
+  }
+ },
+ {
+  "id": "ch1-9",
+  "chapter": "ch1",
+  "index": 9,
+  "name": "두목의 부하들",
+  "recLevel": 16,
+  "enemyLevel": 16,
+  "enemies": [
+   "heavy_mech",
+   "street_thug",
+   "street_thug"
+  ],
+  "pre": "ch1_9_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4300
+  },
+  "reward": {
+   "credit": 1340
+  }
+ },
+ {
+  "id": "ch1-10",
+  "chapter": "ch1",
+  "index": 10,
+  "name": "철골 두목 바이스",
+  "recLevel": 18,
+  "enemyLevel": 18,
+  "enemies": [
+   "volt_drone",
+   "iron_boss",
+   "flame_drone"
+  ],
+  "pre": "ch1_10_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "mio",
+   "basil"
+  ],
+  "bg": "undertown",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4500,
+   "pack_l": 1,
+   "weekly": 1,
+   "part_kinetic_s": 3
+  },
+  "reward": {
+   "credit": 1400
+  },
+  "post": "ch1_10_post",
+  "boss": true,
+  "starRounds": 10
+ }
+]

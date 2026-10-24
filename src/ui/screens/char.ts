@@ -85,6 +85,13 @@ export function charScreen(app: App, charId: string): Screen {
     }
     const prof = button('프로필', () => modal([h('h2', { text: def.name }), h('div', { text: def.profile }), h('div', { class: 'muted', text: `외형: ${def.look.hair} · 눈 ${def.look.eyes} · ${def.look.accents.join(', ')}` })]), 'ghost');
     side.append(prof);
+    if (own) {
+      const isRep = app.save.rep === charId;
+      side.append(button(isRep ? '둥지 대표 ✓' : '둥지 대표로', () => {
+        app.save.rep = charId;
+        done(`${def.name}가 둥지 대표가 됐어`);
+      }, isRep ? 'cyan' : 'ghost'));
+    }
   };
 
   // ───── 레벨·돌파

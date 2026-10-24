@@ -59,3 +59,4 @@ export const DATA: GameData = {
     .map((x) => x.id),
   scripts,
 };
+// (테스트 도구 참고) 데이터 폴더에 새 파일을 넣고 테스트가 못 찾으면 이 파일을 한 번 저장해서 목록을 새로 읽게 해 줘.

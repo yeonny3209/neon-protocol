@@ -4,12 +4,8 @@ import './ui/styles/screens.css';
 import { App } from './ui/app';
 import { watchOrient } from './ui/layout';
 import { showProto } from './ui/proto';
-import { charsScreen } from './ui/screens/chars';
 import { devScreen } from './ui/screens/dev';
-import { diveScreen } from './ui/screens/dive';
-import { mapScreen } from './ui/screens/map';
-import { button, topBar } from './ui/common';
-import { h } from './ui/dom';
+import { titleScreen } from './ui/screens/title';
 
 watchOrient();
 const root = document.getElementById('app')!;
@@ -17,18 +13,6 @@ const root = document.getElementById('app')!;
 if (location.hash === '#proto') showProto(root);
 else {
   const app = new App(root);
-  // 임시 허브: 5단계에서 둥지 화면으로 바뀐다
-  const hub = (a: App) => ({
-    el: h(
-      'div',
-      { class: 'scr' },
-      topBar(a, '둥지', { back: false }),
-      h(
-        'div',
-        { class: 'scr-body' },
-        h('div', { class: 'nest-menu' }, button(Object.keys(a.save.story.cleared).length ? '이야기 이어하기' : '이야기 시작', () => a.go(mapScreen), 'primary big'), button('캐릭터', () => a.go(charsScreen)), button('다이브', () => a.go(diveScreen)), button('전투 프로토타입', () => ((location.hash = '#proto'), location.reload())), button('테스트 도구', () => a.go(devScreen))),
-      ),
-    ),
-  });
-  app.go(location.hash === '#dev' ? devScreen : hub, { reset: true });
+  app.go(location.hash === '#dev' ? devScreen : app.save.started ? titleScreen : titleScreen, { reset: true });
+  if ('serviceWorker' in navigator && import.meta.env.PROD) navigator.serviceWorker.register('./sw.js').catch(() => undefined);
 }

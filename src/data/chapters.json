@@ -1,9 +1,109 @@
 [
-  { "id": "prologue", "order": 0, "title": "부팅 에러", "zone": "언더타운", "floors": "폐기장", "summary": "기억 없이 깨어난 러너가 처음으로 다른 사람과 동기화한다.", "completeReward": { "credit": 5000, "pack_m": 3 }, "bgm": "undertown", "bg": "dump", "color": "#40e8ff" },
-  { "id": "ch1", "order": 1, "title": "네온 아래의 소음", "zone": "언더타운", "floors": "지하~10층", "summary": "녹스트리트와 손잡고 정비소 둥지를 얻는다. 챕터 끝에 다이브가 열린다.", "completeReward": { "shard": 1600, "pack_m": 4 }, "bgm": "undertown", "bg": "undertown", "color": "#ff3e9a" },
-  { "id": "ch2", "order": 2, "title": "가격표가 붙은 기억", "zone": "마켓 레이어", "floors": "11~40층", "summary": "기억을 사고파는 암시장을 쫓는다. 첫 큰 선택이 나온다.", "completeReward": { "shard": 1600, "pack_m": 4 }, "bgm": "market", "bg": "market", "color": "#ffd166" },
-  { "id": "ch3", "order": 3, "title": "완벽한 우등생", "zone": "아카데미 지구", "floors": "41~70층", "summary": "기업 부설 학교에서 감정이 지워지고 있다는 걸 알게 된다.", "completeReward": { "shard": 1600, "pack_m": 4 }, "bgm": "academy", "bg": "academy", "color": "#7fd6ff" },
-  { "id": "ch4", "order": 4, "title": "하늘 정원의 비명", "zone": "스카이 가든", "floors": "71~100층", "summary": "더 루프가 모습을 드러내고, 러너의 정체에 단서가 나온다.", "completeReward": { "shard": 1600, "pack_m": 4 }, "bgm": "garden", "bg": "garden", "color": "#3dff8b" },
-  { "id": "ch5", "order": 5, "title": "하얀 복도", "zone": "헬릭스 타워", "floors": "101층~", "summary": "동료의 배신 또는 희생. 러너의 정체가 밝혀진다.", "completeReward": { "shard": 1600, "pack_m": 4 }, "bgm": "tower", "bg": "tower", "color": "#e8eaf6" },
-  { "id": "ch6", "order": 6, "title": "네온 프로토콜", "zone": "오라클 코어", "floors": "네트워크 내부", "summary": "최종 선택. 엔딩이 갈린다.", "completeReward": { "shard": 1600, "pack_m": 4 }, "bgm": "core", "bg": "core", "color": "#b07cff" }
+  {
+    "id": "prologue",
+    "order": 0,
+    "title": "부팅 에러",
+    "zone": "언더타운",
+    "floors": "폐기장",
+    "summary": "기억 없이 깨어난 러너가 처음으로 다른 사람과 동기화한다.",
+    "completeReward": {
+      "credit": 5000,
+      "pack_m": 3
+    },
+    "bgm": "undertown",
+    "bg": "dump",
+    "color": "#40e8ff"
+  },
+  {
+    "id": "ch1",
+    "order": 1,
+    "title": "네온 아래의 소음",
+    "zone": "언더타운",
+    "floors": "지하~10층",
+    "summary": "녹스트리트와 손잡고 정비소 둥지를 얻는다. 챕터 끝에 다이브가 열린다.",
+    "completeReward": {
+      "shard": 3200,
+      "key": 40,
+      "pack_m": 4,
+      "cart:c4_scanner": 1
+    },
+    "bgm": "undertown",
+    "bg": "undertown",
+    "color": "#ff3e9a"
+  },
+  {
+    "id": "ch2",
+    "order": 2,
+    "title": "가격표가 붙은 기억",
+    "zone": "마켓 레이어",
+    "floors": "11~40층",
+    "summary": "기억을 사고파는 암시장을 쫓는다. 첫 큰 선택이 나온다.",
+    "completeReward": {
+      "shard": 1600,
+      "pack_m": 4
+    },
+    "bgm": "market",
+    "bg": "market",
+    "color": "#ffd166"
+  },
+  {
+    "id": "ch3",
+    "order": 3,
+    "title": "완벽한 우등생",
+    "zone": "아카데미 지구",
+    "floors": "41~70층",
+    "summary": "기업 부설 학교에서 감정이 지워지고 있다는 걸 알게 된다.",
+    "completeReward": {
+      "shard": 1600,
+      "pack_m": 4
+    },
+    "bgm": "academy",
+    "bg": "academy",
+    "color": "#7fd6ff"
+  },
+  {
+    "id": "ch4",
+    "order": 4,
+    "title": "하늘 정원의 비명",
+    "zone": "스카이 가든",
+    "floors": "71~100층",
+    "summary": "더 루프가 모습을 드러내고, 러너의 정체에 단서가 나온다.",
+    "completeReward": {
+      "shard": 1600,
+      "pack_m": 4
+    },
+    "bgm": "garden",
+    "bg": "garden",
+    "color": "#3dff8b"
+  },
+  {
+    "id": "ch5",
+    "order": 5,
+    "title": "하얀 복도",
+    "zone": "헬릭스 타워",
+    "floors": "101층~",
+    "summary": "동료의 배신 또는 희생. 러너의 정체가 밝혀진다.",
+    "completeReward": {
+      "shard": 1600,
+      "pack_m": 4
+    },
+    "bgm": "tower",
+    "bg": "tower",
+    "color": "#e8eaf6"
+  },
+  {
+    "id": "ch6",
+    "order": 6,
+    "title": "네온 프로토콜",
+    "zone": "오라클 코어",
+    "floors": "네트워크 내부",
+    "summary": "최종 선택. 엔딩이 갈린다.",
+    "completeReward": {
+      "shard": 1600,
+      "pack_m": 4
+    },
+    "bgm": "core",
+    "bg": "core",
+    "color": "#b07cff"
+  }
 ]

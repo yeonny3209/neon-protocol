@@ -1283,3 +1283,100 @@
   position: absolute;
   inset: 0;
 }
+
+/* ── 타이틀 */
+.title-scr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  text-align: center;
+}
+
+.title-logo h1 {
+  margin: 4px 0;
+  font-size: clamp(40px, 9vw, 84px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  background: linear-gradient(90deg, var(--cyan), var(--pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 22px rgba(255, 62, 154, 0.5));
+}
+
+.title-logo .sub {
+  color: var(--muted);
+  letter-spacing: 0.4em;
+  font-size: 13px;
+}
+
+.title-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  min-height: 200px;
+  width: min(360px, 90vw);
+}
+
+.title-body .btn {
+  width: 100%;
+}
+
+.touch-hint {
+  font-size: 20px;
+  animation: pulse 1.4s ease-in-out infinite;
+  margin-top: 40px;
+}
+
+.name-input {
+  width: 100%;
+  min-height: 56px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: rgba(10, 9, 30, 0.9);
+  color: var(--text);
+  text-align: center;
+  font-size: 22px;
+  font-family: inherit;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* 둥지 레이아웃 보정 */
+.nest {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+}
+
+.nest > * {
+  min-width: 0;
+}
+
+.stage-rep .muted {
+  text-align: center;
+  font-size: 13px;
+}
+
+[data-orient='portrait'] .nest {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  overflow: auto;
+}
+
+[data-orient='portrait'] .rep-figure {
+  width: min(22vh, 180px);
+  font-size: min(9vh, 70px);
+}
+
+[data-orient='portrait'] .nest-menu {
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 8px;
+}
+
+[data-orient='landscape'] .nest {
+  grid-template-rows: minmax(0, 1fr);
+}

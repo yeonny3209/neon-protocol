@@ -72,3 +72,7 @@
 ## 저장 데이터
 
 `src/engine/save.ts`의 `SaveData`. 맨 위에 `version` 숫자가 있고, 구조가 바뀌면 `MIGRATIONS` 배열에 변환 함수를 하나 추가한다.
+
+## 새 파일을 넣었는데 테스트가 못 찾을 때
+
+`npm test`가 새로 만든 데이터 파일을 못 찾으면 `src/engine/data.ts`를 한 번 저장(내용 변경)한 뒤 다시 돌린다. 개발 서버는 자동으로 읽는다.
