@@ -34,6 +34,27 @@ export function devScreen(app: App): Screen {
       addItem(app.save, 'key', 10);
       done('키 +10');
     }),
+    button('스토리 4장까지 클리어 처리 (반복 콘텐츠 전부 열기)', () => {
+      const s = app.save;
+      s.started = true;
+      const upto = ['prologue', 'ch1', 'ch2', 'ch3', 'ch4'];
+      for (const id of DATA.stageOrder) if (upto.includes(DATA.stages[id].chapter)) s.story.cleared[id] = 7;
+      for (const c of upto) if (!s.story.chapters.includes(c)) s.story.chapters.push(c);
+      for (const f of DATA.characters.runner.forms ?? []) if ((f.unlockAfter === 'start' || upto.includes(f.unlockAfter)) && !s.runnerForms.includes(f.id)) s.runnerForms.push(f.id);
+      done('4장까지 클리어 처리했어 (다이브·데일리·도감·딥 서버·루프 열림)');
+    }),
+    button('가진 캐릭터 전원 50레벨', () => {
+      const s = app.save;
+      s.rank.level = Math.max(s.rank.level, 40);
+      for (const c of Object.values(s.chars)) {
+        c.level = 50;
+        c.asc = 3;
+        c.skills = { basic: 5, skill: 8, overclock: 8, trait: 8 };
+        c.big = [0, 1, 2];
+        c.small = [0, 1, 2, 3, 4, 5, 6, 7];
+      }
+      done('전원 50레벨');
+    }),
     button('저장 초기화', () => {
       app.save = newSave();
       done('초기화했어');
