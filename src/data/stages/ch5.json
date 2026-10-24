@@ -1,0 +1,368 @@
+[
+ {
+  "id": "ch5-1",
+  "chapter": "ch5",
+  "index": 1,
+  "name": "하얀 입구",
+  "recLevel": 50,
+  "enemyLevel": 50,
+  "enemies": [
+   "white_guard",
+   "data_clerk"
+  ],
+  "pre": "ch5_1_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3250
+  },
+  "reward": {
+   "credit": 1080
+  }
+ },
+ {
+  "id": "ch5-2",
+  "chapter": "ch5",
+  "index": 2,
+  "name": "서류의 방",
+  "recLevel": 51,
+  "enemyLevel": 51,
+  "enemies": [
+   "data_clerk",
+   "white_guard",
+   "data_clerk"
+  ],
+  "pre": "ch5_2_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3500
+  },
+  "reward": {
+   "credit": 1160
+  }
+ },
+ {
+  "id": "ch5-3",
+  "chapter": "ch5",
+  "index": 3,
+  "name": "무음 복도",
+  "recLevel": 52,
+  "enemyLevel": 52,
+  "enemies": [
+   "silent_unit",
+   "silent_unit",
+   "white_guard"
+  ],
+  "pre": "ch5_3_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3750
+  },
+  "reward": {
+   "credit": 1240
+  }
+ },
+ {
+  "id": "ch5-4",
+  "chapter": "ch5",
+  "index": 4,
+  "name": "중역 엘리베이터",
+  "recLevel": 53,
+  "enemyLevel": 53,
+  "enemies": [
+   "white_guard",
+   "mute_enforcer"
+  ],
+  "pre": "ch5_4_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4000
+  },
+  "reward": {
+   "credit": 1320
+  }
+ },
+ {
+  "id": "ch5-5",
+  "chapter": "ch5",
+  "index": 5,
+  "name": "예외 처리 프로그램",
+  "recLevel": 54,
+  "enemyLevel": 54,
+  "enemies": [
+   "tower_sniper",
+   "silent_unit",
+   "tower_sniper"
+  ],
+  "pre": "ch5_5_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4250
+  },
+  "reward": {
+   "credit": 1400
+  },
+  "post": "ch5_5_post"
+ },
+ {
+  "id": "ch5-6",
+  "chapter": "ch5",
+  "index": 6,
+  "name": "중간 복도",
+  "recLevel": 55,
+  "enemyLevel": 55,
+  "enemies": [
+   "white_guard",
+   "mute_enforcer",
+   "white_guard"
+  ],
+  "pre": "ch5_6_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4500
+  },
+  "reward": {
+   "credit": 1480
+  }
+ },
+ {
+  "id": "ch5-7",
+  "chapter": "ch5",
+  "index": 7,
+  "name": "갈라지는 길",
+  "recLevel": 56,
+  "enemyLevel": 56,
+  "enemies": [
+   "tower_sniper",
+   "mute_enforcer",
+   "white_guard"
+  ],
+  "pre": "ch5_7_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4750
+  },
+  "reward": {
+   "credit": 1560
+  }
+ },
+ {
+  "id": "ch5-8",
+  "chapter": "ch5",
+  "index": 8,
+  "name": "무너지는 신뢰",
+  "recLevel": 57,
+  "enemyLevel": 57,
+  "enemies": [
+   "silent_unit",
+   "tower_sniper",
+   "silent_unit"
+  ],
+  "pre": "ch5_8_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5000
+  },
+  "reward": {
+   "credit": 1640
+  }
+ },
+ {
+  "id": "ch5-9",
+  "chapter": "ch5",
+  "index": 9,
+  "name": "저격수의 시선",
+  "recLevel": 58,
+  "enemyLevel": 58,
+  "enemies": [
+   "tower_sniper",
+   "tower_sniper",
+   "silent_unit"
+  ],
+  "pre": "ch5_9_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "rex"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5250
+  },
+  "reward": {
+   "credit": 1720
+  }
+ },
+ {
+  "id": "ch5-10",
+  "chapter": "ch5",
+  "index": 10,
+  "name": "정화 구역",
+  "recLevel": 59,
+  "enemyLevel": 59,
+  "enemies": [
+   "mute_enforcer",
+   "white_guard",
+   "mute_enforcer"
+  ],
+  "pre": "ch5_10_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "rex"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5500
+  },
+  "reward": {
+   "credit": 1800
+  }
+ },
+ {
+  "id": "ch5-11",
+  "chapter": "ch5",
+  "index": 11,
+  "name": "마지막 하얀 문",
+  "recLevel": 60,
+  "enemyLevel": 60,
+  "enemies": [
+   "silent_unit",
+   "mute_enforcer",
+   "tower_sniper"
+  ],
+  "pre": "ch5_11_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5750
+  },
+  "reward": {
+   "credit": 1880
+  }
+ },
+ {
+  "id": "ch5-12",
+  "chapter": "ch5",
+  "index": 12,
+  "name": "침묵의 집행자 사일런스",
+  "recLevel": 62,
+  "enemyLevel": 62,
+  "enemies": [
+   "white_guard",
+   "silence",
+   "white_guard"
+  ],
+  "pre": "ch5_12_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "tower",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 6000,
+   "pack_l": 2,
+   "weekly": 1,
+   "core": 1,
+   "part_void_l": 2
+  },
+  "reward": {
+   "credit": 1960
+  },
+  "post": "ch5_12_post",
+  "boss": true,
+  "starRounds": 11
+ }
+]

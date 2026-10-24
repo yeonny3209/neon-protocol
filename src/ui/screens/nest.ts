@@ -13,6 +13,7 @@ import { charsScreen } from './chars';
 import { diveScreen } from './dive';
 import { mapScreen } from './map';
 import { settingsModal } from './settings';
+import { archiveScreen } from './archive';
 
 export function diveUnlocked(app: App): boolean {
   return app.save.story.chapters.includes('ch1');
@@ -55,6 +56,7 @@ export function nestScreen(app: App): Screen {
   mb('◈', '캐릭터', () => app.go(charsScreen), { dot: anyGrow });
   const keys = count(save, 'key');
   mb('✦', '다이브', () => (diveUnlocked(app) ? app.go(diveScreen) : app.toast('1장을 클리어하면 열려')), { locked: !diveUnlocked(app), dot: diveUnlocked(app) && keys > 0 });
+  mb('▣', '기록 보관소', () => app.go(archiveScreen));
   mb('⚙', '설정', () => settingsModal(app));
   mb('▤', '도움말', () => help());
 

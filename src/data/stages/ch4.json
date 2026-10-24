@@ -1,0 +1,338 @@
+[
+ {
+  "id": "ch4-1",
+  "chapter": "ch4",
+  "index": 1,
+  "name": "하늘 정원의 문",
+  "recLevel": 40,
+  "enemyLevel": 40,
+  "enemies": [
+   "gardener_drone",
+   "sentry_turret"
+  ],
+  "pre": "ch4_1_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3250
+  },
+  "reward": {
+   "credit": 1080
+  }
+ },
+ {
+  "id": "ch4-2",
+  "chapter": "ch4",
+  "index": 2,
+  "name": "꽃길 위의 순찰",
+  "recLevel": 41,
+  "enemyLevel": 41,
+  "enemies": [
+   "gardener_drone",
+   "vine_bot",
+   "gardener_drone"
+  ],
+  "pre": "ch4_2_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3500
+  },
+  "reward": {
+   "credit": 1160
+  }
+ },
+ {
+  "id": "ch4-3",
+  "chapter": "ch4",
+  "index": 3,
+  "name": "폭주하는 감시망",
+  "recLevel": 42,
+  "enemyLevel": 42,
+  "enemies": [
+   "rogue_drone",
+   "sentry_turret",
+   "rogue_drone"
+  ],
+  "pre": "ch4_3_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3750
+  },
+  "reward": {
+   "credit": 1240
+  }
+ },
+ {
+  "id": "ch4-4",
+  "chapter": "ch4",
+  "index": 4,
+  "name": "저택의 집사",
+  "recLevel": 43,
+  "enemyLevel": 43,
+  "enemies": [
+   "manor_butler",
+   "vine_bot"
+  ],
+  "pre": "ch4_4_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4000
+  },
+  "reward": {
+   "credit": 1320
+  }
+ },
+ {
+  "id": "ch4-5",
+  "chapter": "ch4",
+  "index": 5,
+  "name": "드론 속의 목소리",
+  "recLevel": 44,
+  "enemyLevel": 44,
+  "enemies": [
+   "rogue_drone",
+   "rogue_drone",
+   "gardener_drone"
+  ],
+  "pre": "ch4_5_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4250
+  },
+  "reward": {
+   "credit": 1400
+  },
+  "post": "ch4_5_post"
+ },
+ {
+  "id": "ch4-6",
+  "chapter": "ch4",
+  "index": 6,
+  "name": "더 루프의 정원",
+  "recLevel": 45,
+  "enemyLevel": 45,
+  "enemies": [
+   "rogue_drone",
+   "thorn_walker"
+  ],
+  "pre": "ch4_6_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "grey"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4500
+  },
+  "reward": {
+   "credit": 1480
+  }
+ },
+ {
+  "id": "ch4-7",
+  "chapter": "ch4",
+  "index": 7,
+  "name": "지하 서버의 아이",
+  "recLevel": 46,
+  "enemyLevel": 46,
+  "enemies": [
+   "gardener_drone",
+   "sentry_turret",
+   "gardener_drone"
+  ],
+  "pre": "ch4_7_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "zero",
+   "grey"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4750
+  },
+  "reward": {
+   "credit": 1560
+  },
+  "post": "ch4_7_post"
+ },
+ {
+  "id": "ch4-8",
+  "chapter": "ch4",
+  "index": 8,
+  "name": "누군가의 비명",
+  "recLevel": 47,
+  "enemyLevel": 47,
+  "enemies": [
+   "rogue_drone",
+   "vine_bot",
+   "rogue_drone"
+  ],
+  "pre": "ch4_8_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "zero",
+   "grey"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5000
+  },
+  "reward": {
+   "credit": 1640
+  }
+ },
+ {
+  "id": "ch4-9",
+  "chapter": "ch4",
+  "index": 9,
+  "name": "집사의 마지막 명령",
+  "recLevel": 48,
+  "enemyLevel": 48,
+  "enemies": [
+   "manor_butler",
+   "thorn_walker",
+   "manor_butler"
+  ],
+  "pre": "ch4_9_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "zero",
+   "grey"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5250
+  },
+  "reward": {
+   "credit": 1720
+  }
+ },
+ {
+  "id": "ch4-10",
+  "chapter": "ch4",
+  "index": 10,
+  "name": "러너의 신호",
+  "recLevel": 49,
+  "enemyLevel": 49,
+  "enemies": [
+   "rogue_drone",
+   "gardener_drone",
+   "rogue_drone"
+  ],
+  "pre": "ch4_10_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "zero",
+   "pico"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5500
+  },
+  "reward": {
+   "credit": 1800
+  }
+ },
+ {
+  "id": "ch4-11",
+  "chapter": "ch4",
+  "index": 11,
+  "name": "정원 감시 총괄 가디언",
+  "recLevel": 50,
+  "enemyLevel": 50,
+  "enemies": [
+   "gardener_drone",
+   "garden_warden",
+   "sentry_turret"
+  ],
+  "pre": "ch4_11_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "zero",
+   "pico"
+  ],
+  "bg": "garden",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5750,
+   "pack_l": 2,
+   "weekly": 1,
+   "core": 1,
+   "part_plasma_m": 2
+  },
+  "reward": {
+   "credit": 1880
+  },
+  "post": "ch4_11_post",
+  "boss": true,
+  "starRounds": 11
+ }
+]

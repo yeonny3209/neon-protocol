@@ -40,7 +40,8 @@
     "summary": "기억을 사고파는 암시장을 쫓는다. 첫 큰 선택이 나온다.",
     "completeReward": {
       "shard": 1600,
-      "pack_m": 4
+      "pack_m": 4,
+      "cart:c4_firstaid": 1
     },
     "bgm": "market",
     "bg": "market",
@@ -55,7 +56,8 @@
     "summary": "기업 부설 학교에서 감정이 지워지고 있다는 걸 알게 된다.",
     "completeReward": {
       "shard": 1600,
-      "pack_m": 4
+      "pack_m": 4,
+      "cart:c4_riotshield": 1
     },
     "bgm": "academy",
     "bg": "academy",
@@ -70,7 +72,8 @@
     "summary": "더 루프가 모습을 드러내고, 러너의 정체에 단서가 나온다.",
     "completeReward": {
       "shard": 1600,
-      "pack_m": 4
+      "pack_m": 4,
+      "cart:c4_lightstick": 1
     },
     "bgm": "garden",
     "bg": "garden",
@@ -85,7 +88,8 @@
     "summary": "동료의 배신 또는 희생. 러너의 정체가 밝혀진다.",
     "completeReward": {
       "shard": 1600,
-      "pack_m": 4
+      "pack_m": 4,
+      "cart:c4_megaphone": 1
     },
     "bgm": "tower",
     "bg": "tower",
@@ -100,7 +104,8 @@
     "summary": "최종 선택. 엔딩이 갈린다.",
     "completeReward": {
       "shard": 1600,
-      "pack_m": 4
+      "pack_m": 4,
+      "cart:c4_knuckle": 1
     },
     "bgm": "core",
     "bg": "core",

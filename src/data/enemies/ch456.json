@@ -1,0 +1,1231 @@
+[
+ {
+  "id": "gardener_drone",
+  "name": "정원사 드론",
+  "rank": "normal",
+  "family": "drone",
+  "desc": "정원을 가꾸는 드론. 열에 강하지만 냉기에 약하다.",
+  "element": "plasma",
+  "color": "#6fe06f",
+  "stats": {
+   "hp": 700,
+   "atk": 58,
+   "def": 84,
+   "spd": 106
+  },
+  "weaknesses": [
+   "cryo",
+   "void"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "sentry_turret",
+  "name": "감시 포탑",
+  "rank": "normal",
+  "family": "mech",
+  "desc": "상류층 저택을 지키는 포탑.",
+  "element": "volt",
+  "color": "#ffe14d",
+  "stats": {
+   "hp": 760,
+   "atk": 62,
+   "def": 100,
+   "spd": 96
+  },
+  "weaknesses": [
+   "kinetic",
+   "glitch"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "vine_bot",
+  "name": "덩굴 로봇",
+  "rank": "normal",
+  "family": "thug",
+  "desc": "인공 덩굴로 적을 휘감는 로봇.",
+  "element": "kinetic",
+  "color": "#5bbf5b",
+  "stats": {
+   "hp": 780,
+   "atk": 60,
+   "def": 92,
+   "spd": 100
+  },
+  "weaknesses": [
+   "plasma",
+   "volt"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "rogue_drone",
+  "name": "폭주 드론",
+  "rank": "normal",
+  "family": "drone",
+  "desc": "더 루프의 영향으로 폭주한 감시 드론.",
+  "element": "glitch",
+  "color": "#3dff8b",
+  "stats": {
+   "hp": 720,
+   "atk": 64,
+   "def": 80,
+   "spd": 112
+  },
+  "weaknesses": [
+   "kinetic",
+   "void"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "thorn_walker",
+  "name": "가시 보행기",
+  "rank": "elite",
+  "family": "mech",
+  "desc": "정원 외곽을 순찰하는 정예 보행기.",
+  "element": "kinetic",
+  "color": "#8fd06f",
+  "stats": {
+   "hp": 1300,
+   "atk": 66,
+   "def": 118,
+   "spd": 92
+  },
+  "weaknesses": [
+   "plasma",
+   "cryo"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "manor_butler",
+  "name": "저택 집사 유닛",
+  "rank": "elite",
+  "family": "mech",
+  "desc": "상류층 저택의 집사형 정예 유닛.",
+  "element": "cryo",
+  "color": "#bfe9ff",
+  "stats": {
+   "hp": 1250,
+   "atk": 68,
+   "def": 112,
+   "spd": 100
+  },
+  "weaknesses": [
+   "plasma",
+   "glitch"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "garden_warden",
+  "name": "정원 감시 총괄 가디언",
+  "rank": "boss",
+  "family": "mech",
+  "desc": "스카이 가든 감시망을 총괄하는 거대 기갑. 충전하는 전면 소각을 다운으로 막아라.",
+  "element": "plasma",
+  "color": "#6fe06f",
+  "intro": "침입자 확인. 화단을 지킨다.",
+  "stats": {
+   "hp": 3000,
+   "atk": 70,
+   "def": 124,
+   "spd": 98
+  },
+  "weaknesses": [
+   "cryo",
+   "void"
+  ],
+  "firewall": 360,
+  "actions": [
+   {
+    "skill": {
+     "name": "강타",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.1
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "충격파",
+     "kind": "skill",
+     "target": "allEnemies",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 0.6
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ],
+  "charge": {
+   "every": 3,
+   "line": "전면 소각 충전 중… 다운시키면 막을 수 있어!",
+   "skill": {
+    "name": "전면 소각",
+    "kind": "skill",
+    "target": "allEnemies",
+    "desc": "아군 전체에게 큰 피해.",
+    "effects": [
+     {
+      "type": "damage",
+      "scale": 1.5
+     }
+    ]
+   }
+  },
+  "phases": [
+   {
+    "hpBelow": 0.5,
+    "line": "시스템 과부하! 약점 구조 변경!",
+    "weaknesses": [
+     "kinetic",
+     "void"
+    ],
+    "actions": [
+     {
+      "skill": {
+       "name": "강타",
+       "kind": "basic",
+       "target": "enemy",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 1.25
+        }
+       ]
+      },
+      "weight": 3
+     },
+     {
+      "skill": {
+       "name": "충격파",
+       "kind": "skill",
+       "target": "allEnemies",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 0.7
+        }
+       ]
+      },
+      "weight": 2,
+      "cooldown": 1
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "white_guard",
+  "name": "화이트 가드",
+  "rank": "normal",
+  "family": "thug",
+  "desc": "타워 복도를 지키는 흰 제복의 경비.",
+  "element": "cryo",
+  "color": "#e8eaf6",
+  "stats": {
+   "hp": 900,
+   "atk": 70,
+   "def": 100,
+   "spd": 106
+  },
+  "weaknesses": [
+   "plasma",
+   "void"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "silent_unit",
+  "name": "무음 유닛",
+  "rank": "normal",
+  "family": "drone",
+  "desc": "소리 없이 접근하는 정찰 유닛.",
+  "element": "void",
+  "color": "#c9c9e0",
+  "stats": {
+   "hp": 860,
+   "atk": 72,
+   "def": 90,
+   "spd": 112
+  },
+  "weaknesses": [
+   "kinetic",
+   "volt"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "data_clerk",
+  "name": "문서 정리 로봇",
+  "rank": "normal",
+  "family": "mech",
+  "desc": "서류와 기록을 정리하는 로봇.",
+  "element": "volt",
+  "color": "#f5f5ff",
+  "stats": {
+   "hp": 950,
+   "atk": 70,
+   "def": 110,
+   "spd": 98
+  },
+  "weaknesses": [
+   "kinetic",
+   "glitch"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "mute_enforcer",
+  "name": "무음 집행자",
+  "rank": "elite",
+  "family": "mech",
+  "desc": "소리 없이 처리하는 정예 집행자.",
+  "element": "void",
+  "color": "#b8b8d0",
+  "stats": {
+   "hp": 1700,
+   "atk": 76,
+   "def": 130,
+   "spd": 100
+  },
+  "weaknesses": [
+   "kinetic",
+   "plasma"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "tower_sniper",
+  "name": "타워 저격 유닛",
+  "rank": "elite",
+  "family": "drone",
+  "desc": "복도 끝에서 약점을 노리는 저격 유닛.",
+  "element": "cryo",
+  "color": "#dff3ff",
+  "stats": {
+   "hp": 1600,
+   "atk": 78,
+   "def": 118,
+   "spd": 108
+  },
+  "weaknesses": [
+   "plasma",
+   "volt"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "silence",
+  "name": "침묵의 집행자 사일런스",
+  "rank": "boss",
+  "family": "mech",
+  "desc": "헬릭스 타워의 마지막 문을 지키는 집행자. 소리 없는 충전을 다운으로 막아라.",
+  "element": "void",
+  "color": "#d6d6ee",
+  "intro": "…………(소리 없이 다가온다)",
+  "stats": {
+   "hp": 3900,
+   "atk": 80,
+   "def": 138,
+   "spd": 102
+  },
+  "weaknesses": [
+   "kinetic",
+   "plasma"
+  ],
+  "firewall": 400,
+  "actions": [
+   {
+    "skill": {
+     "name": "강타",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.1
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "충격파",
+     "kind": "skill",
+     "target": "allEnemies",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 0.6
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ],
+  "charge": {
+   "every": 3,
+   "line": "무음 처형 충전 중… 다운시키면 막을 수 있어!",
+   "skill": {
+    "name": "무음 처형",
+    "kind": "skill",
+    "target": "allEnemies",
+    "desc": "아군 전체에게 큰 피해.",
+    "effects": [
+     {
+      "type": "damage",
+      "scale": 1.5
+     }
+    ]
+   }
+  },
+  "phases": [
+   {
+    "hpBelow": 0.5,
+    "line": "…(기록 삭제 모드로 전환)",
+    "weaknesses": [
+     "kinetic",
+     "volt"
+    ],
+    "actions": [
+     {
+      "skill": {
+       "name": "강타",
+       "kind": "basic",
+       "target": "enemy",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 1.25
+        }
+       ]
+      },
+      "weight": 3
+     },
+     {
+      "skill": {
+       "name": "충격파",
+       "kind": "skill",
+       "target": "allEnemies",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 0.7
+        }
+       ]
+      },
+      "weight": 2,
+      "cooldown": 1
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "data_wraith",
+  "name": "데이터 망령",
+  "rank": "normal",
+  "family": "drone",
+  "desc": "기억의 파편이 모여 만든 망령.",
+  "element": "glitch",
+  "color": "#40e8ff",
+  "stats": {
+   "hp": 1100,
+   "atk": 82,
+   "def": 100,
+   "spd": 112
+  },
+  "weaknesses": [
+   "kinetic",
+   "void"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "memory_shard",
+  "name": "기억 파편체",
+  "rank": "normal",
+  "family": "thug",
+  "desc": "사라진 기억이 형체를 이룬 것.",
+  "element": "void",
+  "color": "#b07cff",
+  "stats": {
+   "hp": 1150,
+   "atk": 84,
+   "def": 108,
+   "spd": 104
+  },
+  "weaknesses": [
+   "kinetic",
+   "volt"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "glitch_beast",
+  "name": "글리치 야수",
+  "rank": "normal",
+  "family": "mech",
+  "desc": "오류가 짐승의 모습이 된 것.",
+  "element": "glitch",
+  "color": "#3dff8b",
+  "stats": {
+   "hp": 1200,
+   "atk": 86,
+   "def": 112,
+   "spd": 108
+  },
+  "weaknesses": [
+   "plasma",
+   "cryo"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "core_guard",
+  "name": "코어 수호자",
+  "rank": "elite",
+  "family": "mech",
+  "desc": "코어를 지키는 정예 수호자.",
+  "element": "volt",
+  "color": "#ffe14d",
+  "stats": {
+   "hp": 2100,
+   "atk": 90,
+   "def": 140,
+   "spd": 100
+  },
+  "weaknesses": [
+   "kinetic",
+   "glitch",
+   "void"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "echo_self",
+  "name": "또 하나의 러너",
+  "rank": "elite",
+  "family": "thug",
+  "desc": "러너의 신호를 베낀 그림자.",
+  "element": "glitch",
+  "color": "#40e8ff",
+  "stats": {
+   "hp": 2000,
+   "atk": 92,
+   "def": 130,
+   "spd": 108
+  },
+  "weaknesses": [
+   "void",
+   "kinetic"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "oracle_core",
+  "name": "오라클 코어: 예외 처리기",
+  "rank": "boss",
+  "family": "boss",
+  "desc": "오라클 넷의 중심. 세 번 모습을 바꾼다. 충전하는 전면 재기록을 다운으로 막아라.",
+  "element": "void",
+  "color": "#ffffff",
+  "intro": "예외 처리 개체를 확인. 재기록을 시작한다.",
+  "stats": {
+   "hp": 3400,
+   "atk": 78,
+   "def": 130,
+   "spd": 104
+  },
+  "weaknesses": [
+   "glitch",
+   "kinetic"
+  ],
+  "firewall": 480,
+  "actions": [
+   {
+    "skill": {
+     "name": "강타",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.1
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "충격파",
+     "kind": "skill",
+     "target": "allEnemies",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 0.6
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ],
+  "charge": {
+   "every": 4,
+   "line": "전면 재기록 충전 중… 다운시키면 막을 수 있어!",
+   "skill": {
+    "name": "전면 재기록",
+    "kind": "skill",
+    "target": "allEnemies",
+    "desc": "아군 전체에게 큰 피해.",
+    "effects": [
+     {
+      "type": "damage",
+      "scale": 1.5
+     }
+    ]
+   }
+  },
+  "phases": [
+   {
+    "hpBelow": 0.66,
+    "line": "재기록 출력 상승. 약점을 변경한다.",
+    "weaknesses": [
+     "volt",
+     "kinetic"
+    ],
+    "actions": [
+     {
+      "skill": {
+       "name": "강타",
+       "kind": "basic",
+       "target": "enemy",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 1.25
+        }
+       ]
+      },
+      "weight": 3
+     },
+     {
+      "skill": {
+       "name": "충격파",
+       "kind": "skill",
+       "target": "allEnemies",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 0.7
+        }
+       ]
+      },
+      "weight": 2,
+      "cooldown": 1
+     }
+    ]
+   },
+   {
+    "hpBelow": 0.33,
+    "line": "…나는 정말 고장 난 걸까?",
+    "weaknesses": [
+     "plasma",
+     "glitch"
+    ],
+    "actions": [
+     {
+      "skill": {
+       "name": "강타",
+       "kind": "basic",
+       "target": "enemy",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 1.4000000000000001
+        }
+       ]
+      },
+      "weight": 3
+     },
+     {
+      "skill": {
+       "name": "충격파",
+       "kind": "skill",
+       "target": "allEnemies",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 0.8
+        }
+       ]
+      },
+      "weight": 2,
+      "cooldown": 1
+     }
+    ]
+   }
+  ]
+ }
+]

@@ -27,13 +27,15 @@ function charByName(name: string) {
 export interface PlayOptions {
   /** 챕터 선택으로 다시 고르는 중: 대사는 건너뛰고 선택지에서만 멈춘다 */
   replay?: boolean;
+  /** 다시 보기: 선택해도 저장 데이터(신뢰도·선택 기록)는 바뀌지 않는다 */
+  sandbox?: boolean;
 }
 
 /** 대본 하나를 끝까지 재생한다. 끝나면 resolve */
 export function playScript(app: App, scriptId: string, chapter: string, opts: PlayOptions = {}): Promise<{ ending?: string }> {
   return new Promise((resolve) => {
     const save = app.save;
-    const runner = new StoryRunner(getScript(scriptId), save, chapter);
+    const runner = new StoryRunner(getScript(scriptId), opts.sandbox ? structuredClone(save) : save, chapter);
     const log: { who: string; text: string }[] = [];
     const name = (w: string) => (w === '러너' ? save.name : w);
     const fill = (t: string) => t.replace(/\{name\}/g, save.name);
@@ -70,7 +72,7 @@ export function playScript(app: App, scriptId: string, chapter: string, opts: Pl
       clearTimeout(auto);
       window.removeEventListener('keydown', key);
       root.remove();
-      if (!save.story.seen.includes(scriptId)) save.story.seen.push(scriptId);
+      if (!opts.sandbox && !save.story.seen.includes(scriptId)) save.story.seen.push(scriptId);
       app.persist();
       resolve({ ending });
     };
@@ -156,7 +158,7 @@ export function playScript(app: App, scriptId: string, chapter: string, opts: Pl
           if (b.disabled) return;
           sfx('confirm');
           runner.choose(s, idx);
-          app.persist(); // 선택 직후 저장
+          if (!opts.sandbox) app.persist(); // 선택 직후 저장
           log.push({ who: '선택', text: opt.text });
           if (opts.replay || save.settings.storyAlwaysSkip) return void skip();
           show(runner.next());

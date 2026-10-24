@@ -1,0 +1,337 @@
+[
+ {
+  "id": "ch3-1",
+  "chapter": "ch3",
+  "index": 1,
+  "name": "교복을 빌려 입다",
+  "recLevel": 30,
+  "enemyLevel": 30,
+  "enemies": [
+   "prefect_drone",
+   "smile_student"
+  ],
+  "pre": "ch3_1_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3250
+  },
+  "reward": {
+   "credit": 1080
+  }
+ },
+ {
+  "id": "ch3-2",
+  "chapter": "ch3",
+  "index": 2,
+  "name": "완벽한 복도",
+  "recLevel": 31,
+  "enemyLevel": 31,
+  "enemies": [
+   "smile_student",
+   "smile_student",
+   "prefect_drone"
+  ],
+  "pre": "ch3_2_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3500
+  },
+  "reward": {
+   "credit": 1160
+  }
+ },
+ {
+  "id": "ch3-3",
+  "chapter": "ch3",
+  "index": 3,
+  "name": "연구동 별관",
+  "recLevel": 32,
+  "enemyLevel": 32,
+  "enemies": [
+   "lab_assistant",
+   "prefect_drone",
+   "lab_assistant"
+  ],
+  "pre": "ch3_3_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3750
+  },
+  "reward": {
+   "credit": 1240
+  }
+ },
+ {
+  "id": "ch3-4",
+  "chapter": "ch3",
+  "index": 4,
+  "name": "감정 실험실",
+  "recLevel": 33,
+  "enemyLevel": 33,
+  "enemies": [
+   "lab_assistant",
+   "lab_golem"
+  ],
+  "pre": "ch3_4_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4000
+  },
+  "reward": {
+   "credit": 1320
+  }
+ },
+ {
+  "id": "ch3-5",
+  "chapter": "ch3",
+  "index": 5,
+  "name": "수석 학생 유키",
+  "recLevel": 34,
+  "enemyLevel": 34,
+  "enemies": [
+   "prefect_drone",
+   "smile_student",
+   "prefect_drone"
+  ],
+  "pre": "ch3_5_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4250
+  },
+  "reward": {
+   "credit": 1400
+  },
+  "post": "ch3_5_post"
+ },
+ {
+  "id": "ch3-6",
+  "chapter": "ch3",
+  "index": 6,
+  "name": "복도의 감독관",
+  "recLevel": 35,
+  "enemyLevel": 35,
+  "enemies": [
+   "proctor",
+   "smile_student"
+  ],
+  "pre": "ch3_6_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4500
+  },
+  "reward": {
+   "credit": 1480
+  }
+ },
+ {
+  "id": "ch3-7",
+  "chapter": "ch3",
+  "index": 7,
+  "name": "의견 충돌",
+  "recLevel": 36,
+  "enemyLevel": 36,
+  "enemies": [
+   "lab_golem",
+   "lab_assistant",
+   "prefect_drone"
+  ],
+  "pre": "ch3_7_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4750
+  },
+  "reward": {
+   "credit": 1560
+  }
+ },
+ {
+  "id": "ch3-8",
+  "chapter": "ch3",
+  "index": 8,
+  "name": "마음을 지우는 방",
+  "recLevel": 37,
+  "enemyLevel": 37,
+  "enemies": [
+   "smile_student",
+   "lab_golem",
+   "smile_student"
+  ],
+  "pre": "ch3_8_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5000
+  },
+  "reward": {
+   "credit": 1640
+  }
+ },
+ {
+  "id": "ch3-9",
+  "chapter": "ch3",
+  "index": 9,
+  "name": "편집관의 서재",
+  "recLevel": 38,
+  "enemyLevel": 38,
+  "enemies": [
+   "proctor",
+   "lab_golem",
+   "proctor"
+  ],
+  "pre": "ch3_9_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5250
+  },
+  "reward": {
+   "credit": 1720
+  }
+ },
+ {
+  "id": "ch3-10",
+  "chapter": "ch3",
+  "index": 10,
+  "name": "정화 프로토콜",
+  "recLevel": 39,
+  "enemyLevel": 39,
+  "enemies": [
+   "lab_assistant",
+   "proctor",
+   "lab_assistant"
+  ],
+  "pre": "ch3_10_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5500
+  },
+  "reward": {
+   "credit": 1800
+  }
+ },
+ {
+  "id": "ch3-11",
+  "chapter": "ch3",
+  "index": 11,
+  "name": "감정 편집관 에코",
+  "recLevel": 40,
+  "enemyLevel": 40,
+  "enemies": [
+   "prefect_drone",
+   "emotion_editor",
+   "prefect_drone"
+  ],
+  "pre": "ch3_11_pre",
+  "forcedParty": [
+   "runner",
+   "seraphine",
+   "yuki",
+   "kai"
+  ],
+  "bg": "academy",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5750,
+   "pack_l": 2,
+   "weekly": 1,
+   "core": 1,
+   "part_cryo_m": 2
+  },
+  "reward": {
+   "credit": 1880
+  },
+  "post": "ch3_11_post",
+  "boss": true,
+  "starRounds": 11
+ }
+]

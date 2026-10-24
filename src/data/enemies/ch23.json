@@ -1,0 +1,812 @@
+[
+ {
+  "id": "stall_bot",
+  "name": "노점 경비 로봇",
+  "rank": "normal",
+  "family": "mech",
+  "desc": "노점을 지키는 싸구려 경비 로봇. 열과 전기에 약하다.",
+  "element": "kinetic",
+  "color": "#c9a063",
+  "stats": {
+   "hp": 520,
+   "atk": 46,
+   "def": 78,
+   "spd": 98
+  },
+  "weaknesses": [
+   "plasma",
+   "volt"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "holo_ad",
+  "name": "홀로그램 호객꾼",
+  "rank": "normal",
+  "family": "drone",
+  "desc": "광고 홀로그램에 깃든 호객 드론. 충격과 공허에 약하다.",
+  "element": "glitch",
+  "color": "#3dff8b",
+  "stats": {
+   "hp": 470,
+   "atk": 44,
+   "def": 60,
+   "spd": 108
+  },
+  "weaknesses": [
+   "kinetic",
+   "void"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "debt_collector",
+  "name": "빚 추심꾼",
+  "rank": "normal",
+  "family": "thug",
+  "desc": "기억을 담보로 잡는 추심꾼. 충격과 냉기에 약하다.",
+  "element": "void",
+  "color": "#b07cff",
+  "stats": {
+   "hp": 560,
+   "atk": 50,
+   "def": 82,
+   "spd": 100
+  },
+  "weaknesses": [
+   "kinetic",
+   "cryo"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "memory_clerk",
+  "name": "기억 감정사",
+  "rank": "normal",
+  "family": "drone",
+  "desc": "기억의 값을 매기는 감정 드론.",
+  "element": "cryo",
+  "color": "#7fd6ff",
+  "stats": {
+   "hp": 500,
+   "atk": 46,
+   "def": 66,
+   "spd": 104
+  },
+  "weaknesses": [
+   "plasma",
+   "glitch"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "auction_guard",
+  "name": "경매장 경비병",
+  "rank": "elite",
+  "family": "mech",
+  "desc": "경매장을 지키는 정예 경비병. 다운시키면 크게 흔들린다.",
+  "element": "volt",
+  "color": "#ffe14d",
+  "stats": {
+   "hp": 900,
+   "atk": 52,
+   "def": 100,
+   "spd": 92
+  },
+  "weaknesses": [
+   "kinetic",
+   "glitch",
+   "void"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "hit_squad",
+  "name": "헬릭스 저격조",
+  "rank": "elite",
+  "family": "thug",
+  "desc": "헬릭스 보안팀 저격조. 먼 거리에서 약점을 노린다.",
+  "element": "cryo",
+  "color": "#9fe9ff",
+  "stats": {
+   "hp": 880,
+   "atk": 56,
+   "def": 90,
+   "spd": 104
+  },
+  "weaknesses": [
+   "plasma",
+   "volt"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "memory_broker",
+  "name": "기억 중개인 마담 오닉스",
+  "rank": "boss",
+  "family": "drone",
+  "desc": "기억 암시장의 주인. 충전하는 기억 회수를 다운으로 막아야 한다.",
+  "element": "void",
+  "color": "#b07cff",
+  "intro": "상품이 제 발로 왔네. 값을 매겨 볼까?",
+  "stats": {
+   "hp": 1700,
+   "atk": 56,
+   "def": 100,
+   "spd": 96
+  },
+  "weaknesses": [
+   "kinetic",
+   "plasma"
+  ],
+  "firewall": 320,
+  "actions": [
+   {
+    "skill": {
+     "name": "강타",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.1
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "충격파",
+     "kind": "skill",
+     "target": "allEnemies",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 0.6
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ],
+  "charge": {
+   "every": 3,
+   "line": "기억 회수 충전 중… 다운시키면 막을 수 있어!",
+   "skill": {
+    "name": "기억 회수",
+    "kind": "skill",
+    "target": "allEnemies",
+    "desc": "아군 전체에게 큰 피해.",
+    "effects": [
+     {
+      "type": "damage",
+      "scale": 1.5
+     }
+    ]
+   }
+  },
+  "phases": [
+   {
+    "hpBelow": 0.5,
+    "line": "값이 올랐군. 이제 전부 가져가겠어!",
+    "weaknesses": [
+     "cryo",
+     "plasma"
+    ],
+    "actions": [
+     {
+      "skill": {
+       "name": "강타",
+       "kind": "basic",
+       "target": "enemy",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 1.25
+        }
+       ]
+      },
+      "weight": 3
+     },
+     {
+      "skill": {
+       "name": "충격파",
+       "kind": "skill",
+       "target": "allEnemies",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 0.7
+        }
+       ]
+      },
+      "weight": 2,
+      "cooldown": 1
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "id": "prefect_drone",
+  "name": "학생회 순찰 드론",
+  "rank": "normal",
+  "family": "drone",
+  "desc": "아카데미 복도를 도는 순찰 드론.",
+  "element": "volt",
+  "color": "#ffe14d",
+  "stats": {
+   "hp": 640,
+   "atk": 52,
+   "def": 82,
+   "spd": 106
+  },
+  "weaknesses": [
+   "kinetic",
+   "glitch"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "smile_student",
+  "name": "웃는 학생",
+  "rank": "normal",
+  "family": "thug",
+  "desc": "감정이 지워져 웃기만 하는 학생. 작은 충격에도 웃음이 깨진다.",
+  "element": "cryo",
+  "color": "#bfe9ff",
+  "stats": {
+   "hp": 660,
+   "atk": 54,
+   "def": 86,
+   "spd": 100
+  },
+  "weaknesses": [
+   "plasma",
+   "void"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "lab_assistant",
+  "name": "연구실 보조 로봇",
+  "rank": "normal",
+  "family": "mech",
+  "desc": "실험 장비를 나르는 보조 로봇.",
+  "element": "plasma",
+  "color": "#ff8a3d",
+  "stats": {
+   "hp": 700,
+   "atk": 56,
+   "def": 96,
+   "spd": 96
+  },
+  "weaknesses": [
+   "cryo",
+   "kinetic"
+  ],
+  "firewall": 30,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "lab_golem",
+  "name": "실험체 골렘",
+  "rank": "elite",
+  "family": "mech",
+  "desc": "감정 실험의 잔해로 만든 골렘.",
+  "element": "kinetic",
+  "color": "#d0b04a",
+  "stats": {
+   "hp": 1150,
+   "atk": 58,
+   "def": 110,
+   "spd": 90
+  },
+  "weaknesses": [
+   "plasma",
+   "glitch"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "proctor",
+  "name": "감독관 유닛",
+  "rank": "elite",
+  "family": "mech",
+  "desc": "시험 감독용 기갑. 모두의 감정을 기록한다.",
+  "element": "void",
+  "color": "#b07cff",
+  "stats": {
+   "hp": 1100,
+   "atk": 60,
+   "def": 104,
+   "spd": 98
+  },
+  "weaknesses": [
+   "kinetic",
+   "volt"
+  ],
+  "firewall": 90,
+  "actions": [
+   {
+    "skill": {
+     "name": "공격",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.0
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "강공",
+     "kind": "skill",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.35
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ]
+ },
+ {
+  "id": "emotion_editor",
+  "name": "감정 편집관 에코",
+  "rank": "boss",
+  "family": "drone",
+  "desc": "아카데미의 감정 편집 책임자. 충전하는 감정 소거를 다운으로 막아라.",
+  "element": "cryo",
+  "color": "#7fd6ff",
+  "intro": "슬픔은 불필요한 오류입니다. 지워 드리죠.",
+  "stats": {
+   "hp": 2400,
+   "atk": 62,
+   "def": 112,
+   "spd": 98
+  },
+  "weaknesses": [
+   "plasma",
+   "glitch"
+  ],
+  "firewall": 360,
+  "actions": [
+   {
+    "skill": {
+     "name": "강타",
+     "kind": "basic",
+     "target": "enemy",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 1.1
+      }
+     ]
+    },
+    "weight": 3
+   },
+   {
+    "skill": {
+     "name": "충격파",
+     "kind": "skill",
+     "target": "allEnemies",
+     "desc": "아군에게 피해.",
+     "effects": [
+      {
+       "type": "damage",
+       "scale": 0.6
+      }
+     ]
+    },
+    "weight": 1,
+    "cooldown": 2
+   }
+  ],
+  "charge": {
+   "every": 3,
+   "line": "감정 소거 충전 중… 다운시키면 막을 수 있어!",
+   "skill": {
+    "name": "감정 소거",
+    "kind": "skill",
+    "target": "allEnemies",
+    "desc": "아군 전체에게 큰 피해.",
+    "effects": [
+     {
+      "type": "damage",
+      "scale": 1.5
+     }
+    ]
+   }
+  },
+  "phases": [
+   {
+    "hpBelow": 0.5,
+    "line": "오류가 늘어납니다. 전부 정리하겠습니다!",
+    "weaknesses": [
+     "volt",
+     "kinetic"
+    ],
+    "actions": [
+     {
+      "skill": {
+       "name": "강타",
+       "kind": "basic",
+       "target": "enemy",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 1.25
+        }
+       ]
+      },
+      "weight": 3
+     },
+     {
+      "skill": {
+       "name": "충격파",
+       "kind": "skill",
+       "target": "allEnemies",
+       "desc": "아군에게 피해.",
+       "effects": [
+        {
+         "type": "damage",
+         "scale": 0.7
+        }
+       ]
+      },
+      "weight": 2,
+      "cooldown": 1
+     }
+    ]
+   }
+  ]
+ }
+]

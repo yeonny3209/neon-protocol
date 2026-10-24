@@ -1,0 +1,367 @@
+[
+ {
+  "id": "ch6-1",
+  "chapter": "ch6",
+  "index": 1,
+  "name": "네온으로 터지는 문",
+  "recLevel": 60,
+  "enemyLevel": 60,
+  "enemies": [
+   "data_wraith",
+   "memory_shard"
+  ],
+  "pre": "ch6_1_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3250
+  },
+  "reward": {
+   "credit": 1080
+  }
+ },
+ {
+  "id": "ch6-2",
+  "chapter": "ch6",
+  "index": 2,
+  "name": "흐르는 기억",
+  "recLevel": 60,
+  "enemyLevel": 60,
+  "enemies": [
+   "memory_shard",
+   "data_wraith",
+   "glitch_beast"
+  ],
+  "pre": "ch6_2_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3500
+  },
+  "reward": {
+   "credit": 1160
+  }
+ },
+ {
+  "id": "ch6-3",
+  "chapter": "ch6",
+  "index": 3,
+  "name": "화해의 틈",
+  "recLevel": 60,
+  "enemyLevel": 60,
+  "enemies": [
+   "data_wraith",
+   "glitch_beast",
+   "memory_shard"
+  ],
+  "pre": "ch6_3_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3750
+  },
+  "reward": {
+   "credit": 1240
+  }
+ },
+ {
+  "id": "ch6-4",
+  "chapter": "ch6",
+  "index": 4,
+  "name": "기억의 바다",
+  "recLevel": 61,
+  "enemyLevel": 61,
+  "enemies": [
+   "glitch_beast",
+   "glitch_beast",
+   "data_wraith"
+  ],
+  "pre": "ch6_4_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4000
+  },
+  "reward": {
+   "credit": 1320
+  }
+ },
+ {
+  "id": "ch6-5",
+  "chapter": "ch6",
+  "index": 5,
+  "name": "또 하나의 러너",
+  "recLevel": 61,
+  "enemyLevel": 61,
+  "enemies": [
+   "echo_self",
+   "memory_shard"
+  ],
+  "pre": "ch6_5_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4250
+  },
+  "reward": {
+   "credit": 1400
+  }
+ },
+ {
+  "id": "ch6-6",
+  "chapter": "ch6",
+  "index": 6,
+  "name": "코어 수호자",
+  "recLevel": 62,
+  "enemyLevel": 62,
+  "enemies": [
+   "core_guard",
+   "data_wraith",
+   "core_guard"
+  ],
+  "pre": "ch6_6_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4500
+  },
+  "reward": {
+   "credit": 1480
+  }
+ },
+ {
+  "id": "ch6-7",
+  "chapter": "ch6",
+  "index": 7,
+  "name": "속삭이는 연결선",
+  "recLevel": 62,
+  "enemyLevel": 62,
+  "enemies": [
+   "memory_shard",
+   "glitch_beast",
+   "memory_shard"
+  ],
+  "pre": "ch6_7_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4750
+  },
+  "reward": {
+   "credit": 1560
+  }
+ },
+ {
+  "id": "ch6-8",
+  "chapter": "ch6",
+  "index": 8,
+  "name": "사람들의 목소리",
+  "recLevel": 63,
+  "enemyLevel": 63,
+  "enemies": [
+   "glitch_beast",
+   "data_wraith",
+   "memory_shard"
+  ],
+  "pre": "ch6_8_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5000
+  },
+  "reward": {
+   "credit": 1640
+  }
+ },
+ {
+  "id": "ch6-9",
+  "chapter": "ch6",
+  "index": 9,
+  "name": "불꽃이 튀는 중심",
+  "recLevel": 63,
+  "enemyLevel": 63,
+  "enemies": [
+   "core_guard",
+   "echo_self",
+   "core_guard"
+  ],
+  "pre": "ch6_9_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5250
+  },
+  "reward": {
+   "credit": 1720
+  }
+ },
+ {
+  "id": "ch6-10",
+  "chapter": "ch6",
+  "index": 10,
+  "name": "마지막 무대",
+  "recLevel": 64,
+  "enemyLevel": 64,
+  "enemies": [
+   "echo_self",
+   "core_guard",
+   "echo_self"
+  ],
+  "pre": "ch6_10_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5500
+  },
+  "reward": {
+   "credit": 1800
+  }
+ },
+ {
+  "id": "ch6-11",
+  "chapter": "ch6",
+  "index": 11,
+  "name": "코어 앞의 숨",
+  "recLevel": 65,
+  "enemyLevel": 65,
+  "enemies": [
+   "core_guard",
+   "glitch_beast",
+   "core_guard"
+  ],
+  "pre": "ch6_11_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5750
+  },
+  "reward": {
+   "credit": 1880
+  }
+ },
+ {
+  "id": "ch6-12",
+  "chapter": "ch6",
+  "index": 12,
+  "name": "오라클 코어: 예외 처리기",
+  "recLevel": 66,
+  "enemyLevel": 66,
+  "enemies": [
+   "core_guard",
+   "oracle_core",
+   "core_guard"
+  ],
+  "pre": "ch6_12_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "seraphine",
+   "zero"
+  ],
+  "bg": "core",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 6000,
+   "pack_l": 2,
+   "weekly": 1,
+   "core": 1,
+   "part_void_l": 2
+  },
+  "reward": {
+   "credit": 1960
+  },
+  "post": "ch6_12_post",
+  "boss": true,
+  "starRounds": 11
+ }
+]

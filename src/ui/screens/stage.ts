@@ -15,6 +15,7 @@ import { ELEMENT_INFO } from '../labels';
 import { onPress } from '../press';
 import { playScript } from '../story';
 import { mapScreen } from './map';
+import { nestScreen } from './nest';
 import { sfx } from '../audio';
 
 const TUTORIALS: Record<string, string> = {
@@ -147,7 +148,12 @@ function finishStage(app: App, st: StageDef, b: Battle, view: BattleView): Promi
   app.persist();
 
   return (async () => {
-    if (st.post && first) await playScript(app, st.post, st.chapter);
+    let ending: string | undefined;
+    if (st.post && first) ending = (await playScript(app, st.post, st.chapter)).ending;
+    if (ending) {
+      await playEnding(app, ending);
+      return;
+    }
     showResult(app, st, out, view);
   })();
 }
@@ -244,4 +250,30 @@ export function partyModal(app: App, st: StageDef | null, onDone: () => void) {
   }, 'primary big'));
   m.el.append(row);
   void itemName;
+}
+
+export const ENDING_INFO: Record<string, { title: string; hint: string }> = {
+  A: { title: '정전', hint: '녹스트리트 신뢰도가 높고, 마지막에 오라클 넷을 "끄기"를 고른다.' },
+  B: { title: '재부팅', hint: '화이트 노이즈 신뢰도가 높고, 마지막에 오라클 넷을 "다시 쓰기"를 고른다.' },
+  C: { title: '공존 (트루 엔딩)', hint: '세 세력 신뢰도를 모두 5 이상으로 쌓고, 2장·4장·5장의 특정 선택지를 모두 고른 뒤 "함께 운영하기"를 고른다.' },
+};
+
+/** 엔딩 에필로그를 재생하고 엔딩 카드를 보여 준다 */
+export async function playEnding(app: App, id: string, sandbox = false) {
+  await playScript(app, `ending_${id}`, 'ch6', { sandbox });
+  const info = ENDING_INFO[id];
+  await new Promise<void>((done) => {
+    const first = app.save.story.endings.length === 1 && app.save.story.endings[0] === id;
+    const panel = h('div', { class: 'modal panel result' },
+      h('div', { class: 'muted', text: 'THE END' }),
+      h('div', { class: 'headline win', text: `엔딩 ${id}. ${info.title}` }),
+      h('div', { class: 'muted', text: `본 엔딩 ${app.save.story.endings.length} / 3` }),
+      !sandbox && first ? h('div', { class: 'r5', text: '기록 보관소에 "챕터 선택"이 열렸어. 전투 없이 선택지만 다시 골라서 다른 엔딩을 볼 수 있어.' }) : null,
+    );
+    panel.append(button('둥지로', () => (box.remove(), done()), 'primary big'));
+    const box = h('div', { class: 'modal-back', style: 'z-index:80' }, panel);
+    app.root.append(box);
+    sfx('win');
+  });
+  app.go(nestScreen, { reset: true });
 }

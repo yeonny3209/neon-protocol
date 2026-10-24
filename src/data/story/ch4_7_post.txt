@@ -1,0 +1,4 @@
+// ch4_7_post
+@bg garden
+피코[smile]: 같이 갈래! 나도 밖이 보고 싶어!
+@end

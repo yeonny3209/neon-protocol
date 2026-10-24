@@ -1,0 +1,310 @@
+[
+ {
+  "id": "ch2-1",
+  "chapter": "ch2",
+  "index": 1,
+  "name": "마켓 레이어 진입",
+  "recLevel": 20,
+  "enemyLevel": 20,
+  "enemies": [
+   "holo_ad",
+   "stall_bot"
+  ],
+  "pre": "ch2_1_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3250
+  },
+  "reward": {
+   "credit": 1080
+  }
+ },
+ {
+  "id": "ch2-2",
+  "chapter": "ch2",
+  "index": 2,
+  "name": "홀로그램 광고 골목",
+  "recLevel": 21,
+  "enemyLevel": 21,
+  "enemies": [
+   "holo_ad",
+   "holo_ad",
+   "stall_bot"
+  ],
+  "pre": "ch2_2_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3500
+  },
+  "reward": {
+   "credit": 1160
+  }
+ },
+ {
+  "id": "ch2-3",
+  "chapter": "ch2",
+  "index": 3,
+  "name": "37번 골목의 포장마차",
+  "recLevel": 22,
+  "enemyLevel": 22,
+  "enemies": [
+   "stall_bot",
+   "debt_collector",
+   "stall_bot"
+  ],
+  "pre": "ch2_3_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 3750
+  },
+  "reward": {
+   "credit": 1240
+  },
+  "post": "ch2_3_post"
+ },
+ {
+  "id": "ch2-4",
+  "chapter": "ch2",
+  "index": 4,
+  "name": "빚쟁이 추심꾼",
+  "recLevel": 23,
+  "enemyLevel": 23,
+  "enemies": [
+   "debt_collector",
+   "debt_collector",
+   "holo_ad"
+  ],
+  "pre": "ch2_4_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4000
+  },
+  "reward": {
+   "credit": 1320
+  }
+ },
+ {
+  "id": "ch2-5",
+  "chapter": "ch2",
+  "index": 5,
+  "name": "암시장의 입구",
+  "recLevel": 24,
+  "enemyLevel": 24,
+  "enemies": [
+   "auction_guard",
+   "stall_bot"
+  ],
+  "pre": "ch2_5_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4250
+  },
+  "reward": {
+   "credit": 1400
+  }
+ },
+ {
+  "id": "ch2-6",
+  "chapter": "ch2",
+  "index": 6,
+  "name": "기억 진열대",
+  "recLevel": 25,
+  "enemyLevel": 25,
+  "enemies": [
+   "memory_clerk",
+   "debt_collector",
+   "memory_clerk"
+  ],
+  "pre": "ch2_6_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4500
+  },
+  "reward": {
+   "credit": 1480
+  }
+ },
+ {
+  "id": "ch2-7",
+  "chapter": "ch2",
+  "index": 7,
+  "name": "무대 위의 용병",
+  "recLevel": 26,
+  "enemyLevel": 26,
+  "enemies": [
+   "holo_ad",
+   "stall_bot",
+   "holo_ad"
+  ],
+  "pre": "ch2_7_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 4750
+  },
+  "reward": {
+   "credit": 1560
+  },
+  "post": "ch2_7_post"
+ },
+ {
+  "id": "ch2-8",
+  "chapter": "ch2",
+  "index": 8,
+  "name": "헬릭스 저격조",
+  "recLevel": 27,
+  "enemyLevel": 27,
+  "enemies": [
+   "hit_squad",
+   "memory_clerk"
+  ],
+  "pre": "ch2_8_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5000
+  },
+  "reward": {
+   "credit": 1640
+  },
+  "post": "ch2_8_post"
+ },
+ {
+  "id": "ch2-9",
+  "chapter": "ch2",
+  "index": 9,
+  "name": "기억 경매장",
+  "recLevel": 28,
+  "enemyLevel": 28,
+  "enemies": [
+   "auction_guard",
+   "debt_collector",
+   "auction_guard"
+  ],
+  "pre": "ch2_9_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5250
+  },
+  "reward": {
+   "credit": 1720
+  },
+  "post": "ch2_9_post"
+ },
+ {
+  "id": "ch2-10",
+  "chapter": "ch2",
+  "index": 10,
+  "name": "기억 중개인 마담 오닉스",
+  "recLevel": 30,
+  "enemyLevel": 30,
+  "enemies": [
+   "memory_clerk",
+   "memory_broker",
+   "debt_collector"
+  ],
+  "pre": "ch2_10_pre",
+  "forcedParty": [
+   "runner",
+   "kai",
+   "luna",
+   "hana"
+  ],
+  "bg": "market",
+  "firstReward": {
+   "shard": 60,
+   "pack_s": 3,
+   "pack_m": 1,
+   "credit": 5500,
+   "pack_l": 2,
+   "weekly": 1,
+   "core": 1,
+   "part_void_m": 2
+  },
+  "reward": {
+   "credit": 1800
+  },
+  "post": "ch2_10_post",
+  "boss": true,
+  "starRounds": 11
+ }
+]
