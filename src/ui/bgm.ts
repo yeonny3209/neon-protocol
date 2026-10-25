@@ -1,7 +1,7 @@
 // 배경음. 실제 음원이 없을 때는 간단한 시퀀서로 곡을 합성한다.
 // src/data/audio.json에 { "곡이름": "파일 경로" }를 넣으면 그 파일을 반복 재생한다.
 import audioFiles from '../data/audio.json';
-import { audioContext } from './audio';
+import { audioContext, bgmVolume, onVolumeChange } from './audio';
 
 interface Track {
   bpm: number;
@@ -126,6 +126,10 @@ function schedule() {
   }
 }
 
+onVolumeChange(() => {
+  if (fileAudio) fileAudio.volume = Math.min(1, bgmVolume());
+});
+
 export function playBgm(name: string) {
   if (name === current) return;
   stopBgm();
@@ -134,7 +138,7 @@ export function playBgm(name: string) {
   if (file) {
     fileAudio = new Audio(file);
     fileAudio.loop = true;
-    fileAudio.volume = 0.6;
+    fileAudio.volume = Math.min(1, bgmVolume());
     void fileAudio.play().catch(() => undefined);
     return;
   }

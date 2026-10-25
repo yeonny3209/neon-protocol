@@ -1,0 +1,444 @@
+<title>네온 프로토콜 작업대</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* 레이아웃: 위에 필요한 그림 진행도, 가운데 올리기, 아래에 갤러리. 한 화면에서 올리고 바로 확인한다 */
+:root {
+  --bg: #0b0a1c;
+  --panel: #14122e;
+  --line: #2a2750;
+  --fg: #ece9ff;
+  --muted: #9894c4;
+  --cyan: #40e8ff;
+  --pink: #ff3e9a;
+  --ok: #4be39a;
+  --warn: #ffd04d;
+  --display: "Black Han Sans", "Noto Sans KR", sans-serif;
+  --body: "Noto Sans KR", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.55 var(--body);
+  padding-block: 20px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+h1 { font: 34px/1.1 var(--display); margin: 0; letter-spacing: .01em; text-wrap: balance; }
+h1 span { color: var(--cyan); }
+h2 { font: 700 13px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.sub { color: var(--muted); margin: 6px 0 0; }
+button, select, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 8px 14px; min-height: 40px; }
+button:hover { border-color: var(--cyan); }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, .drop:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+button.go { background: var(--pink); border-color: var(--pink); color: #12031a; font-weight: 700; }
+button.go:disabled { opacity: .45; cursor: default; }
+button.ghost { background: transparent; }
+input, select, textarea { background: #0e0c24; border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; min-height: 40px; width: 100%; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+
+.meters { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+.meter { text-align: left; display: grid; gap: 6px; padding: 10px 12px; }
+.meter b { font-weight: 500; display: flex; justify-content: space-between; gap: 8px; }
+.meter b i { font: 500 13px var(--mono); font-style: normal; color: var(--muted); }
+.meter .bar { height: 5px; background: #0e0c24; border-radius: 3px; overflow: hidden; }
+.meter .bar u { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--pink)); }
+.meter.on { border-color: var(--cyan); }
+
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.form .full { grid-column: 1 / -1; }
+label { display: grid; gap: 4px; color: var(--muted); font-size: 13px; }
+.drop { border: 2px dashed var(--line); border-radius: 12px; padding: 22px 14px; text-align: center; color: var(--muted); cursor: pointer; }
+.drop.over { border-color: var(--cyan); color: var(--fg); background: #101a33; }
+.drop strong { color: var(--fg); display: block; font-size: 16px; }
+.queue { display: flex; flex-wrap: wrap; gap: 8px; }
+.queue figure { margin: 0; width: 88px; position: relative; }
+.queue img { width: 88px; height: 88px; object-fit: cover; border-radius: 8px; border: 1px solid var(--line); display: block; background: #0e0c24; }
+.queue figcaption { font-size: 11px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.queue .x { position: absolute; top: 3px; right: 3px; min-height: 0; padding: 0 7px; line-height: 22px; background: #000a; }
+.progress { height: 6px; background: #0e0c24; border-radius: 3px; overflow: hidden; }
+.progress u { display: block; height: 100%; width: 0; background: var(--cyan); transition: width .2s; }
+.msg { min-height: 1.4em; font-size: 13px; color: var(--muted); }
+.msg.err { color: #ff8a9a; }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.filters select { width: auto; min-width: 150px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { padding: 4px 12px; min-height: 34px; border-radius: 99px; font-size: 13px; }
+.chip.on { background: var(--cyan); color: #04141a; border-color: var(--cyan); font-weight: 700; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.thumb { aspect-ratio: 1; background: repeating-conic-gradient(#171533 0 25%, #100e26 0 50%) 0 0 / 18px 18px; border: 0; padding: 0; border-radius: 0; width: 100%; display: block; }
+.thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.info { padding: 10px 12px 12px; display: grid; gap: 6px; min-width: 0; }
+.info .t { font-weight: 700; overflow-wrap: anywhere; }
+.meta { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 8px; }
+.kind { font: 500 11px var(--mono); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; color: var(--cyan); }
+.note { font-size: 13px; overflow-wrap: anywhere; }
+.status { display: flex; gap: 4px; }
+.status button { flex: 1; min-height: 34px; padding: 4px 6px; font-size: 12px; }
+.status button.on[data-s="new"] { background: var(--warn); color: #221a00; border-color: var(--warn); }
+.status button.on[data-s="seen"] { background: var(--cyan); color: #04141a; border-color: var(--cyan); }
+.status button.on[data-s="used"] { background: var(--ok); color: #03170d; border-color: var(--ok); }
+.acts { display: flex; gap: 6px; flex-wrap: wrap; }
+.acts button { min-height: 34px; padding: 4px 10px; font-size: 13px; }
+.empty { padding: 30px 12px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 12px; }
+
+.box { position: fixed; inset: 0; background: #000d; display: none; z-index: 20; padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.box.open { display: grid; grid-template-rows: 1fr auto; gap: 12px; }
+.box .stage { min-height: 0; display: grid; place-items: center; }
+.box .stage img { max-width: 100%; max-height: 100%; object-fit: contain; background: repeating-conic-gradient(#171533 0 25%, #100e26 0 50%) 0 0 / 18px 18px; }
+.box .bar { display: grid; gap: 10px; max-width: 760px; width: 100%; margin: 0 auto; }
+.fb { display: grid; gap: 6px; max-height: 22vh; overflow: auto; font-size: 13px; }
+.fb div { background: var(--panel); border-radius: 8px; padding: 6px 10px; overflow-wrap: anywhere; }
+.fb small { color: var(--muted); }
+.fbform { display: flex; gap: 8px; }
+.boxrow { display: flex; gap: 8px; justify-content: space-between; align-items: center; }
+
+.banner { border: 1px solid var(--warn); border-radius: 12px; padding: 12px 14px; color: var(--warn); }
+.hint { font-size: 13px; color: var(--muted); }
+details summary { cursor: pointer; color: var(--cyan); }
+details ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+@media (max-width: 560px) { h1 { font-size: 28px; } .form { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>네온 프로토콜 <span>작업대</span></h1>
+    <p class="sub">누나가 만든 그림을 올리면 바로 갤러리에 쌓여. 받는 쪽은 눌러서 확인하고, 게임에 넣으면 "넣음"으로 바꿔.</p>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <section>
+    <h2>필요한 그림 진행도</h2>
+    <div class="meters" id="meters"></div>
+    <p class="hint" style="margin-top:8px">숫자는 기획서의 출시 기준 수량이야. 칸을 누르면 그 종류만 볼 수 있어.</p>
+  </section>
+
+  <section class="panel" id="uploadPanel">
+    <h2>그림 올리기</h2>
+    <div class="form">
+      <label>종류
+        <select id="kind"></select>
+      </label>
+      <label>이름 (누구 · 어디 · 무엇)
+        <input id="subject" list="names" placeholder="예: 카이 웃음" autocomplete="off">
+        <datalist id="names"></datalist>
+      </label>
+      <label class="full">메모 (선택)
+        <input id="note" placeholder="예: 머리카락 색이 시트와 다르면 알려줘" autocomplete="off">
+      </label>
+      <div class="full drop" id="drop" tabindex="0" role="button" aria-label="그림 파일 고르기">
+        <strong>여기에 끌어다 놓거나, 눌러서 고르기</strong>
+        붙여넣기(Ctrl+V)도 돼. PNG · JPG · WEBP · GIF, 한 장에 20MB까지.
+        <input id="file" type="file" accept="image/*" multiple hidden>
+      </div>
+      <div class="full queue" id="queue"></div>
+      <div class="full progress" id="prog" hidden><u></u></div>
+      <div class="full" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+        <button class="go" id="send" disabled>올리기</button>
+        <span class="msg" id="msg" role="status"></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>갤러리</h2>
+    <div class="filters">
+      <select id="fkind" aria-label="종류로 거르기"></select>
+      <div class="chips" id="fstatus"></div>
+      <span class="hint" id="count"></span>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <details class="panel">
+    <summary>그림 만들 때 참고</summary>
+    <ul>
+      <li>표정은 같은 그림에서 얼굴만 바꿔 줘. 기본 · 웃음 · 화남 · 슬픔 네 장이야.</li>
+      <li>캐릭터와 컷인은 배경이 투명한 PNG가 가장 좋아.</li>
+      <li>그림 도구나 프롬프트에 다른 게임·작품·캐릭터 이름을 넣지 않기.</li>
+      <li>같은 이름으로 다시 올리면 새 버전으로 쌓여. 옛 그림은 지우기로 정리해.</li>
+    </ul>
+  </details>
+</div>
+
+<div class="box" id="box" role="dialog" aria-modal="true" aria-label="그림 크게 보기">
+  <div class="stage"><img id="bigimg" alt=""></div>
+  <div class="bar">
+    <div class="boxrow">
+      <button id="prev" aria-label="이전">‹ 이전</button>
+      <strong id="bigtitle" style="text-align:center;overflow-wrap:anywhere"></strong>
+      <button id="next" aria-label="다음">다음 ›</button>
+    </div>
+    <div class="fb" id="fb"></div>
+    <div class="fbform"><input id="fbtext" placeholder="이 그림에 한마디" maxlength="300" autocomplete="off"><button id="fbsend">보내기</button></div>
+    <div class="boxrow"><button id="bigdl">내려받기</button><button id="close">닫기</button></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var KINDS = [
+    { id: 'full', name: '캐릭터 전신', need: 13 },
+    { id: 'face', name: '대화 표정', need: 52 },
+    { id: 'npc', name: '조연 NPC', need: 10 },
+    { id: 'icon', name: '전투 아이콘', need: 13 },
+    { id: 'cutin', name: '오버클럭 컷인', need: 13 },
+    { id: 'enemy', name: '적', need: 25 },
+    { id: 'bg', name: '배경', need: 18 },
+    { id: 'cg', name: '스토리 CG', need: 15 },
+    { id: 'cart', name: '카트리지', need: 24 },
+    { id: 'ui', name: 'UI 아이콘', need: 60 },
+    { id: 'etc', name: '기타', need: 0 }
+  ];
+  var NAMES = ['러너', '카이', '세라핀', '제로', '루나', '도윤', '미오', '바실', '하나', '렉스', '유키', '그레이', '피코'];
+  var STATUS = [['new', '새 그림'], ['seen', '확인함'], ['used', '게임에 넣음']];
+  var $ = function (id) { return document.getElementById(id); };
+  var kindName = function (id) { var k = KINDS.filter(function (x) { return x.id === id; })[0]; return k ? k.name : '기타'; };
+
+  var db = null, assets = null, downloads = null, user = null, me = '', canWrite = false;
+  var items = [];          // 갤러리 문서
+  var queue = [];          // 올리려고 고른 파일
+  var fKind = '', fStatus = '';
+  var shown = [], openIdx = -1;
+  var names = {};          // 사용자 id → 이름
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+  function ago(t) {
+    var s = Math.max(0, (Date.now() - t) / 1000);
+    if (s < 60) return '방금';
+    if (s < 3600) return Math.floor(s / 60) + '분 전';
+    if (s < 86400) return Math.floor(s / 3600) + '시간 전';
+    return Math.floor(s / 86400) + '일 전';
+  }
+  function who(id) { return names[id] || '누군가'; }
+  function url(it) { return '/_blob/' + it.assetId; }
+  function say(text, err) { var m = $('msg'); m.textContent = text; m.className = 'msg' + (err ? ' err' : ''); }
+  function banner(text) { var b = $('banner'); b.hidden = !text; b.textContent = text || ''; }
+  try { fKind = localStorage.getItem('art.kind') || ''; } catch (e) {}
+
+  /* ---------- 폼 ---------- */
+  KINDS.forEach(function (k) { $('kind').insertAdjacentHTML('beforeend', '<option value="' + k.id + '">' + esc(k.name) + '</option>'); });
+  $('fkind').innerHTML = '<option value="">모든 종류</option>' + KINDS.map(function (k) { return '<option value="' + k.id + '">' + esc(k.name) + '</option>'; }).join('');
+  $('fkind').value = fKind;
+  $('names').innerHTML = NAMES.map(function (n) { return '<option value="' + esc(n) + '">'; }).join('');
+  $('fstatus').innerHTML = [['', '전체']].concat(STATUS).map(function (s) { return '<button class="chip' + (s[0] === '' ? ' on' : '') + '" data-s="' + s[0] + '">' + s[1] + '</button>'; }).join('');
+
+  function addFiles(list) {
+    Array.prototype.forEach.call(list, function (f) {
+      if (!/^image\//.test(f.type)) { say('이미지가 아닌 파일은 건너뛰었어: ' + f.name, true); return; }
+      if (f.size > 20 * 1024 * 1024) { say(f.name + ' 은 20MB가 넘어서 올릴 수 없어.', true); return; }
+      queue.push({ file: f, preview: URL.createObjectURL(f) });
+    });
+    drawQueue();
+  }
+  function drawQueue() {
+    $('queue').innerHTML = queue.map(function (q, i) {
+      return '<figure><img src="' + q.preview + '" alt=""><button class="x" data-i="' + i + '" aria-label="빼기">×</button><figcaption>' + esc(q.file.name) + '</figcaption></figure>';
+    }).join('');
+    $('send').disabled = !queue.length || !canWrite;
+    $('send').textContent = queue.length ? queue.length + '장 올리기' : '올리기';
+  }
+  $('queue').addEventListener('click', function (e) {
+    var b = e.target.closest('.x'); if (!b) return;
+    var q = queue.splice(Number(b.dataset.i), 1)[0]; if (q) URL.revokeObjectURL(q.preview);
+    drawQueue();
+  });
+  var drop = $('drop');
+  drop.addEventListener('click', function () { $('file').click(); });
+  drop.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); $('file').click(); } });
+  $('file').addEventListener('change', function () { addFiles($('file').files); $('file').value = ''; });
+  ['dragenter', 'dragover'].forEach(function (n) { drop.addEventListener(n, function (e) { e.preventDefault(); drop.classList.add('over'); }); });
+  ['dragleave', 'drop'].forEach(function (n) { drop.addEventListener(n, function (e) { e.preventDefault(); drop.classList.remove('over'); }); });
+  drop.addEventListener('drop', function (e) { addFiles(e.dataTransfer.files); });
+  document.addEventListener('paste', function (e) {
+    var files = e.clipboardData && e.clipboardData.files;
+    if (files && files.length) addFiles(files);
+  });
+
+  $('send').addEventListener('click', async function () {
+    if (!queue.length || !db || !assets) return;
+    var kind = $('kind').value, subject = $('subject').value.trim(), note = $('note').value.trim();
+    var total = queue.length, done = 0, fail = 0;
+    $('send').disabled = true; $('prog').hidden = false;
+    var batch = queue.slice();
+    for (var i = 0; i < batch.length; i++) {
+      var q = batch[i];
+      say((i + 1) + ' / ' + total + ' 올리는 중… ' + q.file.name);
+      try {
+        var up = await assets.upload(q.file);
+        await db.collection('images').add({
+          assetId: up.id, filename: q.file.name, kind: kind, subject: subject || q.file.name.replace(/\.[^.]+$/, ''),
+          note: note, by: me, at: Date.now(), status: 'new', size: up.sizeBytes, feedback: []
+        });
+        URL.revokeObjectURL(q.preview);
+        queue = queue.filter(function (x) { return x !== q; });
+        done++;
+      } catch (err) {
+        fail++;
+        say(q.file.name + ' 을 올리지 못했어: ' + (err && err.message ? err.message : '알 수 없는 오류'), true);
+      }
+      $('prog').firstElementChild.style.width = Math.round(((i + 1) / total) * 100) + '%';
+    }
+    $('prog').hidden = true; $('prog').firstElementChild.style.width = '0';
+    if (!fail) { say(done + '장 올렸어.'); $('subject').value = ''; $('note').value = ''; }
+    drawQueue();
+  });
+
+  /* ---------- 진행도 ---------- */
+  function drawMeters() {
+    var counts = {};
+    items.forEach(function (it) { counts[it.kind] = (counts[it.kind] || 0) + 1; });
+    $('meters').innerHTML = KINDS.map(function (k) {
+      var n = counts[k.id] || 0;
+      var pct = k.need ? Math.min(100, Math.round((n / k.need) * 100)) : 0;
+      return '<button class="meter panel' + (fKind === k.id ? ' on' : '') + '" data-k="' + k.id + '"><b>' + esc(k.name) + '<i>' + n + (k.need ? ' / ' + k.need : '') + '</i></b>' + (k.need ? '<span class="bar"><u style="width:' + pct + '%"></u></span>' : '') + '</button>';
+    }).join('');
+  }
+  $('meters').addEventListener('click', function (e) {
+    var b = e.target.closest('.meter'); if (!b) return;
+    setKind(fKind === b.dataset.k ? '' : b.dataset.k);
+  });
+  function setKind(k) {
+    fKind = k; $('fkind').value = k;
+    try { localStorage.setItem('art.kind', k); } catch (e) {}
+    draw();
+  }
+  $('fkind').addEventListener('change', function () { setKind($('fkind').value); });
+  $('fstatus').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return;
+    fStatus = b.dataset.s;
+    Array.prototype.forEach.call($('fstatus').children, function (c) { c.classList.toggle('on', c === b); });
+    draw();
+  });
+
+  /* ---------- 갤러리 ---------- */
+  function draw() {
+    drawMeters();
+    shown = items.filter(function (it) { return (!fKind || it.kind === fKind) && (!fStatus || it.status === fStatus); });
+    $('count').textContent = shown.length + '장';
+    if (!shown.length) {
+      $('grid').innerHTML = '<div class="empty" style="grid-column:1/-1">' + (items.length ? '조건에 맞는 그림이 없어.' : (db ? '아직 올라온 그림이 없어. 위에서 첫 그림을 올려 봐.' : '불러오는 중…')) + '</div>';
+      return;
+    }
+    $('grid').innerHTML = shown.map(function (it, i) {
+      return '<article class="card" data-id="' + it.id + '">' +
+        '<button class="thumb" data-open="' + i + '" aria-label="' + esc(it.subject) + ' 크게 보기"><img loading="lazy" src="' + url(it) + '" alt="' + esc(it.subject) + '"></button>' +
+        '<div class="info"><div class="t">' + esc(it.subject) + '</div>' +
+        '<div class="meta"><span class="kind">' + esc(kindName(it.kind)) + '</span><span>' + esc(who(it.by)) + ' · ' + ago(it.at) + '</span>' + ((it.feedback || []).length ? '<span>💬 ' + it.feedback.length + '</span>' : '') + '</div>' +
+        (it.note ? '<div class="note">' + esc(it.note) + '</div>' : '') +
+        '<div class="status">' + STATUS.map(function (s) { return '<button data-s="' + s[0] + '" class="' + (it.status === s[0] ? 'on' : '') + '"' + (canWrite ? '' : ' disabled') + '>' + s[1] + '</button>'; }).join('') + '</div>' +
+        '<div class="acts"><button data-dl="1">내려받기</button>' + (canWrite && (it.by === me || isOwner) ? '<button class="ghost" data-del="1">지우기</button>' : '') + '</div></div></article>';
+    }).join('');
+  }
+  var isOwner = false;
+  $('grid').addEventListener('click', async function (e) {
+    var card = e.target.closest('.card'); if (!card) return;
+    var it = items.filter(function (x) { return x.id === card.dataset.id; })[0]; if (!it) return;
+    var o = e.target.closest('[data-open]'), s = e.target.closest('[data-s]'), dl = e.target.closest('[data-dl]'), del = e.target.closest('[data-del]');
+    if (o) openBox(Number(o.dataset.open));
+    else if (s && canWrite) {
+      try { await db.doc('images/' + it.id).update({ status: s.dataset.s }); } catch (err) { say('바꾸지 못했어: ' + (err.message || ''), true); }
+    } else if (dl) download(it);
+    else if (del) {
+      if (del.dataset.sure !== '1') { del.dataset.sure = '1'; del.textContent = '정말 지울까?'; setTimeout(function () { del.dataset.sure = ''; del.textContent = '지우기'; }, 3000); return; }
+      try {
+        await db.doc('images/' + it.id).delete();
+        try { await assets.delete(it.assetId); } catch (x) { /* 파일이 이미 없으면 넘어감 */ }
+      } catch (err) { say('지우지 못했어: ' + (err.message || ''), true); }
+    }
+  });
+
+  async function download(it) {
+    if (!downloads) { window.open(url(it), '_blank'); return; }
+    try {
+      var res = await fetch(url(it));
+      var blob = await res.blob();
+      var ext = (it.filename.match(/\.[A-Za-z0-9]+$/) || ['.png'])[0].toLowerCase();
+      await downloads.save({ filename: it.subject.replace(/[\\/:*?"<>|]/g, '_') + ext, data: blob });
+    } catch (err) {
+      if (err && err.code === 'declined') return;
+      say('내려받기가 막혀 있어. 그림을 크게 열어서 길게 눌러 저장해 줘.', true);
+    }
+  }
+
+  /* ---------- 크게 보기 + 한마디 ---------- */
+  function openBox(i) {
+    openIdx = i; var it = shown[i]; if (!it) return;
+    $('box').classList.add('open');
+    $('bigimg').src = url(it); $('bigimg').alt = it.subject;
+    $('bigtitle').textContent = it.subject + ' · ' + kindName(it.kind);
+    $('prev').disabled = i === 0; $('next').disabled = i === shown.length - 1;
+    drawFb(it);
+    $('fbtext').disabled = $('fbsend').disabled = !canWrite;
+    $('close').focus();
+  }
+  function drawFb(it) {
+    $('fb').innerHTML = (it.feedback || []).map(function (f) { return '<div>' + esc(f.text) + ' <small>' + esc(who(f.by)) + ' · ' + ago(f.at) + '</small></div>'; }).join('');
+    $('fb').scrollTop = 1e6;
+  }
+  function closeBox() { $('box').classList.remove('open'); $('bigimg').removeAttribute('src'); openIdx = -1; }
+  $('close').addEventListener('click', closeBox);
+  $('prev').addEventListener('click', function () { if (openIdx > 0) openBox(openIdx - 1); });
+  $('next').addEventListener('click', function () { if (openIdx < shown.length - 1) openBox(openIdx + 1); });
+  $('bigdl').addEventListener('click', function () { if (shown[openIdx]) download(shown[openIdx]); });
+  document.addEventListener('keydown', function (e) {
+    if (openIdx < 0) return;
+    if (e.key === 'Escape') closeBox();
+    else if (e.target.tagName !== 'INPUT') {
+      if (e.key === 'ArrowLeft' && openIdx > 0) openBox(openIdx - 1);
+      if (e.key === 'ArrowRight' && openIdx < shown.length - 1) openBox(openIdx + 1);
+    }
+  });
+  async function sendFb() {
+    var it = shown[openIdx], text = $('fbtext').value.trim();
+    if (!it || !text || !canWrite) return;
+    $('fbtext').value = '';
+    var list = (it.feedback || []).concat([{ by: me, text: text, at: Date.now() }]);
+    try { await db.doc('images/' + it.id).update({ feedback: list }); } catch (err) { say('보내지 못했어: ' + (err.message || ''), true); }
+  }
+  $('fbsend').addEventListener('click', sendFb);
+  $('fbtext').addEventListener('keydown', function (e) { if (e.key === 'Enter') sendFb(); });
+
+  /* ---------- 연결 ---------- */
+  async function resolveNames() {
+    if (!user || !user.profiles) return;
+    var ids = {};
+    items.forEach(function (it) { ids[it.by] = 1; (it.feedback || []).forEach(function (f) { ids[f.by] = 1; }); });
+    ids[me] = 1;
+    var list = Object.keys(ids).filter(function (x) { return x && !(x in names); });
+    if (!list.length) return;
+    try {
+      var ps = await user.profiles(list);
+      list.forEach(function (id) { names[id] = (ps[id] && ps[id].name) || (id === me ? '나' : ''); });
+    } catch (e) { list.forEach(function (id) { names[id] = id === me ? '나' : ''; }); }
+  }
+
+  async function boot() {
+    draw();
+    try { db = await claude.use('db'); assets = await claude.use('assets'); downloads = await claude.use('downloads'); user = await claude.use('user'); } catch (e) {}
+    if (!db) { banner('이 페이지는 claude.ai에 로그인해서 열어야 그림을 주고받을 수 있어.'); $('uploadPanel').hidden = true; draw(); return; }
+    try { me = user ? String(await user.id()) : ''; isOwner = user ? !!user.isOwner() : false; } catch (e) {}
+    canWrite = !!assets;
+    if (!assets) banner('보기만 할 수 있는 권한이야. 그림을 올리려면 만든 사람에게 편집 권한을 받아야 해.');
+    if (!assets) $('uploadPanel').hidden = true;
+    drawQueue();
+    db.collection('images').orderBy('at', 'desc').onSnapshot(async function (snap) {
+      items = snap.docs.map(function (d) { var v = d.data() || {}; v.id = d.id; return v; });
+      await resolveNames();
+      draw();
+      if (openIdx >= 0 && shown[openIdx]) drawFb(shown[openIdx]);
+    }, function () { banner('갤러리를 불러오지 못했어. 새로고침해 줘.'); });
+  }
+  boot();
+})();
+</script>

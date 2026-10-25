@@ -27,7 +27,17 @@ export function setVolumes(v: { sfx: number; bgm: number }) {
   applyVolumes();
 }
 
+const volumeListeners: (() => void)[] = [];
+/** 음원 파일처럼 오디오 컨텍스트 밖에서 재생되는 소리가 볼륨 변경을 따라가게 한다 */
+export function onVolumeChange(fn: () => void) {
+  volumeListeners.push(fn);
+}
+export function bgmVolume(): number {
+  return volumes.bgm;
+}
+
 function applyVolumes() {
+  for (const fn of volumeListeners) fn();
   if (sfxGain) sfxGain.gain.value = volumes.sfx * 0.5;
   if (bgmGain) bgmGain.gain.value = volumes.bgm * 0.35;
 }
