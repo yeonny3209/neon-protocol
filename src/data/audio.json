@@ -7,5 +7,7 @@
   "academy": "audio/city.mp3",
   "garden": "audio/calm.mp3",
   "tower": "audio/calm.mp3",
-  "core": "audio/core.mp3"
+  "core": "audio/core.mp3",
+  "battle": "audio/battle.mp3",
+  "battle2": "audio/battle.mp3"
 }
