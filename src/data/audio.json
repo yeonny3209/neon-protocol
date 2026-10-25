@@ -9,5 +9,6 @@
   "tower": "audio/calm.mp3",
   "core": "audio/core.mp3",
   "battle": "audio/battle.mp3",
-  "battle2": "audio/battle.mp3"
+  "battle2": "audio/battle.mp3",
+  "boss": "audio/boss.mp3"
 }
