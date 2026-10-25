@@ -4,5 +4,7 @@
   "nest": "audio/nest.mp3",
   "undertown": "audio/city.mp3",
   "market": "audio/city.mp3",
-  "academy": "audio/city.mp3"
+  "academy": "audio/city.mp3",
+  "garden": "audio/calm.mp3",
+  "tower": "audio/calm.mp3"
 }
