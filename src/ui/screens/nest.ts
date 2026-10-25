@@ -109,6 +109,23 @@ export function nestScreen(app: App): Screen {
       ].map((t) => h('li', { text: t }))),
     ]);
 
+  // 새 기능이 처음 열렸을 때 한 번만 짧게 알려 준다(한 번에 하나씩)
+  const intros: { id: string; open: boolean; title: string; text: string }[] = [
+    { id: 'intro_dive', open: diveUnlocked(app), title: '다이브가 열렸어!', text: '네트워크 깊이 잠수해서 새 동료를 찾는 곳이야. 다이브 키 40개를 받았으니 10회 다이브를 해 봐. 처음엔 "초보자 다이브"가 제일 좋아.' },
+    { id: 'intro_daily', open: daily, title: '데일리 루틴이 열렸어', text: '하루 4가지를 끝내면 보상이 나와. 못 해도 괜찮아, 밀린 날은 쌓아 뒀다가 받을 수 있어.' },
+    { id: 'intro_deep', open: deepUnlocked(save), title: '딥 서버가 열렸어', text: '2주마다 환경이 바뀌는 도전 구간이야. 별을 모으면 보상이 나와. 난이도 설정과 상관없는 고정 난이도야.' },
+    { id: 'intro_loop', open: loopUnlocked(save), title: '시뮬레이션 루프가 열렸어', text: '갈림길을 골라 가며 패치를 모으는 도전이야. 매주 점수 목표를 채우면 샤드를 줘.' },
+  ];
+  const intro = intros.find((x) => x.open && !save.tutorials.includes(x.id));
+  if (intro && save.started) {
+    save.tutorials.push(intro.id);
+    setTimeout(() => {
+      if (!document.querySelector('.nest')) return;
+      modal([h('h2', { text: intro.title }), h('div', { class: 'muted', text: intro.text })]);
+      sfx('reward');
+    }, 450);
+  }
+
   const el = h('div', { class: 'scr' }, topBar(app, '둥지', { back: false, currencies: diveUnlocked(app) ? ['shard', 'key', 'credit'] : ['credit'] }), h('div', { class: 'nest' }, stage, menu));
   void dot;
   void portrait;

@@ -61,19 +61,20 @@ export class App {
 
   private currentFactory: ScreenFactory | null = null;
 
-  private mount(factory: ScreenFactory) {
+  private mount(factory: ScreenFactory, animate = true) {
     hideTip();
     this.current?.destroy?.();
     clear(this.root);
     this.currentFactory = factory;
     this.current = factory(this);
+    if (animate) this.current.el.classList.add('scr-enter');
     this.root.append(this.current.el);
     this.persist();
   }
 
   /** 지금 화면을 다시 그린다 */
   refresh() {
-    if (this.currentFactory) this.mount(this.currentFactory);
+    if (this.currentFactory) this.mount(this.currentFactory, false);
   }
 
   toast(text: string, ms = 1800) {

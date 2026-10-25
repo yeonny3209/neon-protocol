@@ -997,3 +997,172 @@
     animation: none;
   }
 }
+
+/* ───── 타격 연출 */
+.num.mid {
+  font-size: 32px;
+}
+
+.num.big {
+  font-size: 44px;
+  letter-spacing: 1px;
+}
+
+.num.crit.big {
+  font-size: 52px;
+  filter: drop-shadow(0 0 10px var(--gold));
+}
+
+.burst {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.burst::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  top: -40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, var(--bc) 35%, transparent 70%);
+  animation: burst-core 0.32s ease-out forwards;
+}
+
+.burst.s2::before {
+  left: -64px;
+  top: -64px;
+  width: 128px;
+  height: 128px;
+}
+
+.burst i {
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bc);
+  box-shadow: 0 0 8px var(--bc);
+  opacity: 0;
+  animation: burst-spark 0.5s ease-out var(--d) forwards;
+}
+
+.screen-flash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, var(--fc) 140%);
+  opacity: 0;
+  animation: screen-flash 0.42s ease-out forwards;
+}
+
+.bv-enemies.shake1 {
+  animation: shake-s 0.26s linear;
+}
+
+.bv-enemies.shake2 {
+  animation: shake-m 0.42s linear;
+}
+
+.enemy.dying {
+  animation: dying 0.42s ease-in forwards;
+}
+
+@keyframes burst-core {
+  0% {
+    opacity: 0.95;
+    transform: scale(0.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes burst-spark {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(0.3);
+  }
+}
+
+@keyframes screen-flash {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shake-s {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-4px, 2px);
+  }
+  40% {
+    transform: translate(4px, -2px);
+  }
+  60% {
+    transform: translate(-3px, 1px);
+  }
+  80% {
+    transform: translate(2px, -1px);
+  }
+}
+
+@keyframes shake-m {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  12% {
+    transform: translate(-9px, 4px);
+  }
+  28% {
+    transform: translate(8px, -5px);
+  }
+  44% {
+    transform: translate(-7px, 3px);
+  }
+  60% {
+    transform: translate(5px, -3px);
+  }
+  80% {
+    transform: translate(-2px, 1px);
+  }
+}
+
+@keyframes dying {
+  0% {
+    opacity: 1;
+    filter: brightness(2);
+  }
+  100% {
+    opacity: 0.1;
+    filter: brightness(3) blur(3px);
+    transform: scale(0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bv-enemies.shake1,
+  .bv-enemies.shake2,
+  .screen-flash,
+  .burst i {
+    animation: none;
+  }
+}

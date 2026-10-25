@@ -709,6 +709,32 @@ export class BattleView {
     setTimeout(() => n.remove(), 950);
   }
 
+  /** 맞은 자리에 속성 색 타격 효과(번쩍임 + 튀는 불꽃). strength: 0 약함, 1 보통, 2 강함 */
+  private impact(uid: string, color: string, strength: number) {
+    const p = this.pos(uid);
+    const wrap = h('div', { class: `burst s${strength}`, style: `left:${p.x}px;top:${p.y}px;--bc:${color}` });
+    const sparks = 4 + strength * 3;
+    for (let i = 0; i < sparks; i++) {
+      const ang = (Math.PI * 2 * i) / sparks + Math.random() * 0.6;
+      const dist = 34 + strength * 22 + Math.random() * 26;
+      wrap.append(h('i', { style: `--dx:${Math.cos(ang) * dist}px;--dy:${Math.sin(ang) * dist}px;--d:${Math.random() * 60}ms` }));
+    }
+    this.fx.append(wrap);
+    setTimeout(() => wrap.remove(), 650);
+  }
+
+  /** 전장을 흔든다(버튼은 흔들리지 않는다) */
+  private shake(level: 1 | 2) {
+    this.flashClass(this.enemiesEl, `shake${level}`, level === 1 ? 260 : 420);
+  }
+
+  /** 화면 전체가 속성 색으로 번쩍 */
+  private screenFlash(color: string, ms = 380) {
+    const f = h('div', { class: 'screen-flash', style: `--fc:${color}` });
+    this.fx.append(f);
+    setTimeout(() => f.remove(), ms);
+  }
+
   private banner(text: string, enemy = false, ms = 900, line = false) {
     this.fx.querySelectorAll('.banner').forEach((b) => b.remove());
     const b = h('div', { class: `banner${enemy ? ' enemy' : ''}${line ? ' line' : ''}`, text });
@@ -747,6 +773,7 @@ export class BattleView {
         if (e.kind === 'overclock') {
           await this.cutin(u);
           sfx('overclock');
+          this.screenFlash(ELEMENT_INFO[u.element].color, 520);
           this.banner(`${u.name} — ${e.name}`, false, 900);
           return 500;
         }
@@ -774,7 +801,15 @@ export class BattleView {
         const u = this.b.unit(e.uid);
         const info = ELEMENT_INFO[e.element];
         const cls = e.kind === 'dot' || e.kind === 'freeze' ? 'dot' : e.kind === 'break' ? 'break' : e.crit ? 'crit' : e.weak ? 'weak' : '';
-        this.float(e.uid, `${fmt(e.amount)}${e.crit ? '!' : ''}`, cls, info.color);
+        const ratio = e.amount / Math.max(1, u.maxHp);
+        const big = ratio >= 0.25 ? 'big' : ratio >= 0.12 ? 'mid' : '';
+        this.float(e.uid, `${fmt(e.amount)}${e.crit ? '!' : ''}`, `${cls} ${big}`.trim(), info.color);
+        if (e.kind !== 'dot' && e.kind !== 'freeze') {
+          const strength = e.crit || ratio >= 0.25 ? 2 : e.weak || ratio >= 0.12 ? 1 : 0;
+          this.impact(e.uid, info.color, strength);
+          if (u.side === 'enemy' && strength === 2) this.shake(1);
+          if (u.side === 'ally' && ratio >= 0.2) this.shake(1);
+        }
         if (e.absorbed) this.float(e.uid, `보호막 ${fmt(e.absorbed)}`, 'info small');
         this.flashClass(u.side === 'enemy' ? this.enemyEls.get(e.uid)?.root : this.cardEls.get(e.uid)?.root, 'hit', 340);
         if (u.side === 'enemy') {
@@ -787,7 +822,10 @@ export class BattleView {
           els.hp.style.width = `${(e.hp / u.maxHp) * 100}%`;
           setTimeout(() => (els.hpLag.style.width = els.hp.style.width), 80);
         }
-        sfx(e.crit ? 'crit' : 'hit', e.element);
+        const power = e.crit || ratio >= 0.25 ? 2 : e.weak || ratio >= 0.12 ? 1 : 0;
+        if (u.side === 'ally' && e.kind !== 'dot') sfx('hurt');
+        else sfx(e.crit ? 'crit' : 'hit', e.element, power);
+        if (e.weak && u.side === 'enemy' && !e.crit) sfx('weak');
         return e.kind === 'dot' ? 260 : 150;
       }
       case 'heal':
@@ -812,6 +850,8 @@ export class BattleView {
         els?.root.classList.add('down');
         const fx = h('div', { class: 'down-fx' }, h('span', { text: 'SYSTEM DOWN' }));
         this.fx.append(fx);
+        this.shake(2);
+        this.screenFlash(ELEMENT_INFO[e.element].color, 420);
         setTimeout(() => fx.remove(), 760);
         sfx('down', e.element);
         return 720;
@@ -840,6 +880,8 @@ export class BattleView {
         const u = this.b.unit(e.uid);
         this.renderUnit(e.uid);
         sfx(u.side === 'enemy' ? 'kill' : 'ko');
+        this.impact(e.uid, u.color, 2);
+        if (u.side === 'enemy') this.flashClass(this.enemyEls.get(e.uid)?.root, 'dying', 420);
         return 380;
       }
       case 'revive':

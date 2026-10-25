@@ -389,6 +389,22 @@
   box-shadow: 0 0 26px rgba(255, 62, 154, 0.35);
 }
 
+.menu-btn.main {
+  animation: main-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes main-glow {
+  50% {
+    box-shadow: 0 0 40px rgba(255, 62, 154, 0.65);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-btn.main {
+    animation: none;
+  }
+}
+
 .menu-btn.main small {
   display: block;
   font-size: 13px;
@@ -1474,4 +1490,97 @@
 .loop-node.t-shop,
 .loop-node.t-event {
   border-color: var(--cyan);
+}
+
+/* ───── 화면 전환과 눌림 반응 */
+.scr-enter {
+  animation: scr-in 0.22s ease-out;
+}
+
+@keyframes scr-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.modal-back {
+  animation: fade-in 0.15s ease-out;
+}
+
+.modal-back .modal {
+  animation: modal-pop 0.2s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+}
+
+.menu-btn,
+.char-card,
+.map-node,
+.mat-card,
+.node.big {
+  transition: transform 0.08s ease-out, filter 0.08s;
+}
+
+.menu-btn:active,
+.char-card:active,
+.map-node:active,
+.mat-card:active,
+.node.big:active {
+  transform: scale(0.97);
+  filter: brightness(1.2);
+}
+
+.rewards > * {
+  animation: reward-pop 0.35s ease-out backwards;
+}
+
+.rewards > *:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.rewards > *:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.rewards > *:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+.rewards > *:nth-child(n + 5) {
+  animation-delay: 0.32s;
+}
+
+@keyframes reward-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scr-enter,
+  .modal-back,
+  .modal-back .modal,
+  .rewards > * {
+    animation: none;
+  }
 }

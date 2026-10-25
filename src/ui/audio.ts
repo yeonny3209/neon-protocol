@@ -83,9 +83,12 @@ function noise(dur: number, vol = 0.25, delay = 0, hp = 800) {
 
 export type SfxName =
   | 'tap' | 'select' | 'confirm' | 'cancel' | 'attack' | 'enemy' | 'hit' | 'crit' | 'firewall' | 'down' | 'kill' | 'ko'
-  | 'heal' | 'shield' | 'overclock' | 'charge' | 'win' | 'lose' | 'reward' | 'levelup' | 'dive' | 'dive3' | 'dive4' | 'dive5' | 'page';
+  | 'heal' | 'shield' | 'overclock' | 'charge' | 'win' | 'lose' | 'reward' | 'levelup' | 'dive' | 'dive3' | 'dive4' | 'dive5' | 'page' | 'hurt' | 'weak';
 
-export function sfx(name: SfxName, el?: Element) {
+const EL_WAVE: Record<Element, OscillatorType> = { kinetic: 'square', volt: 'sawtooth', plasma: 'sawtooth', cryo: 'triangle', glitch: 'square', void: 'sine' };
+
+/** strength: 0 약함, 1 보통(약점·큰 피해), 2 강함(치명타·큰 피해) */
+export function sfx(name: SfxName, el?: Element, strength = 0) {
   if (!ctx) return;
   const f = el ? EL_FREQ[el] : 300;
   switch (name) {
@@ -103,12 +106,23 @@ export function sfx(name: SfxName, el?: Element) {
       return noise(0.12, 0.2, 0, 1600);
     case 'enemy':
       return tone(160, 0.18, 'sawtooth', 0.18, -60);
-    case 'hit':
-      tone(f, 0.08, 'square', 0.18, -f * 0.4);
-      return noise(0.06, 0.12, 0, 2000);
+    case 'hit': {
+      tone(f, 0.08 + strength * 0.03, el ? EL_WAVE[el] : 'square', 0.18, -f * 0.4);
+      noise(0.06 + strength * 0.04, 0.12, 0, el === 'cryo' ? 4000 : 2000);
+      if (strength >= 1) tone(90, 0.14, 'sine', 0.3, -50);
+      if (strength >= 2) noise(0.18, 0.18, 0.02, 500);
+      return;
+    }
+    case 'hurt':
+      tone(130, 0.16, 'sawtooth', 0.2, -60);
+      return noise(0.1, 0.14, 0, 700);
+    case 'weak':
+      tone(1320, 0.07, 'triangle', 0.14, 0, 0.02);
+      return tone(1760, 0.1, 'triangle', 0.12, 0, 0.07);
     case 'crit':
-      tone(f * 1.5, 0.12, 'square', 0.22, -f);
-      return noise(0.12, 0.2, 0, 1200);
+      tone(f * 1.5, 0.12, el ? EL_WAVE[el] : 'square', 0.22, -f);
+      tone(80, 0.2, 'sine', 0.32, -40);
+      return noise(0.14, 0.2, 0, 1200);
     case 'firewall':
       return tone(1400, 0.04, 'square', 0.1);
     case 'down':

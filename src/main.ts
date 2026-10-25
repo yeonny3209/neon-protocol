@@ -3,16 +3,17 @@ import './ui/styles/battle.css';
 import './ui/styles/screens.css';
 import { App } from './ui/app';
 import { watchOrient } from './ui/layout';
-import { showProto } from './ui/proto';
-import { devScreen } from './ui/screens/dev';
 import { titleScreen } from './ui/screens/title';
 
 watchOrient();
 const root = document.getElementById('app')!;
 
-if (location.hash === '#proto') showProto(root);
-else {
+// 테스트용 화면(#proto 전투 시험대, #dev 테스트 도구)은 개발 서버에서만 열린다. 배포판에는 들어가지 않는다.
+if (import.meta.env.DEV && location.hash === '#proto') {
+  void import('./ui/proto').then((m) => m.showProto(root));
+} else {
   const app = new App(root);
-  app.go(location.hash === '#dev' ? devScreen : titleScreen, { reset: true });
+  if (import.meta.env.DEV && location.hash === '#dev') void import('./ui/screens/dev').then((m) => app.go(m.devScreen, { reset: true }));
+  else app.go(titleScreen, { reset: true });
   if ('serviceWorker' in navigator && import.meta.env.PROD) navigator.serviceWorker.register('./sw.js').catch(() => undefined);
 }

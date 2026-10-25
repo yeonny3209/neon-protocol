@@ -6,6 +6,7 @@ import { button } from '../common';
 import { clear, h } from '../dom';
 import { onPress } from '../press';
 import { nestScreen } from './nest';
+import { startStage } from './stage';
 import { settingsModal } from './settings';
 
 export function titleScreen(app: App): Screen {
@@ -53,6 +54,8 @@ export function titleScreen(app: App): Screen {
       app.save.started = true;
       app.persist();
       app.go(nestScreen, { reset: true });
+      // 새 게임은 곧바로 프롤로그 첫 전투로 들어간다(뒤로 가면 둥지)
+      void startStage(app, 'prologue-1');
     }, 'primary big'));
     onPress(input, () => input.focus());
   };
