@@ -94,6 +94,14 @@ export function nestScreen(app: App): Screen {
   if (save.loop.run) items.push('진행 중인 시뮬레이션 루프가 있어');
   if (!items.length) items.push('오늘은 푹 쉬어도 돼');
   items.forEach((t) => todo.append(h('div', { text: `· ${t}` })));
+  // 저장 백업 안내: 이야기를 어느 정도 진행했는데 일주일 넘게 파일로 내보내지 않았다면
+  const last = save.stats.lastBackup ?? 0;
+  const progressed = Object.keys(save.story.cleared).length >= 5;
+  if (progressed && Date.now() - Math.max(last, save.created) > 7 * 86400000) {
+    const warn = h('div', { class: 'backup-warn', text: last ? '· 저장을 파일로 내보낸 지 일주일이 넘었어. 눌러서 지금 내보내기' : '· 저장을 아직 파일로 내보낸 적이 없어. 눌러서 지금 내보내기' });
+    onPress(warn, () => settingsModal(app));
+    todo.append(warn);
+  }
   menu.append(todo);
 
   const help = () =>

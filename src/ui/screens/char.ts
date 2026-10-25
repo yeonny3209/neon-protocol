@@ -14,6 +14,13 @@ import { ELEMENT_INFO, FACTION_NAME, KIND_NAME, PROTOCOL_INFO } from '../labels'
 import { onPress } from '../press';
 import { sfx } from '../audio';
 
+const TAB_HINTS = [
+  '레벨은 데이터 팩으로 올려. 레벨이 막히면 "돌파"를 해야 다음 단계로 넘어가. 돌파에는 속성 부품과 크레딧이 필요해. "일괄 성장"을 누르면 목표 레벨까지 알아서 올려 줘.',
+  '카트리지는 캐릭터에게 끼우는 무기야. 스토리 보상과 다이브에서 얻어. 레벨을 올리면 더 강해지고, 한 명에게만 끼울 수 있어.',
+  '회로도는 스킬을 키우는 곳이야. 큰 노드는 돌파 단계가 되면 열려. "추천 순서로 일괄 해금"을 누르면 알아서 골라 줘. 스킬 6레벨부터는 주간 보스 재료도 필요해.',
+  '같은 캐릭터를 다이브에서 또 만나면 동기화가 올라가. 올릴수록 그 캐릭터가 강해져.',
+];
+
 const TAB_NAMES = ['레벨·돌파', '카트리지', '회로도', '동기화'];
 let lastTab = 0;
 
@@ -40,7 +47,21 @@ export function charScreen(app: App, charId: string): Screen {
       return;
     }
     const g = growable(app.save, charId);
-    main.append(tabs(TAB_NAMES, (i, b) => ((lastTab = i), [levelTab, cartTab, circuitTab, syncTab][i](b)), lastTab, [g.level || g.ascend, g.cart, g.skill || g.node, false]));
+    main.append(tabs(TAB_NAMES, (i, b) => ((lastTab = i), tabHint(i, b), [levelTab, cartTab, circuitTab, syncTab][i](b)), lastTab, [g.level || g.ascend, g.cart, g.skill || g.node, false]));
+  };
+
+  /** 탭을 처음 열 때 한 번만 보이는 짧은 안내. 누르면 닫힌다 */
+  const tabHint = (i: number, body: HTMLElement) => {
+    const id = `hint_char_${i}`;
+    const text = TAB_HINTS[i];
+    if (!text || app.save.tutorials.includes(id)) return;
+    const tip = h('div', { class: 'tab-hint panel' }, h('div', { text }), h('small', { class: 'muted', text: '눌러서 닫기' }));
+    onPress(tip, () => {
+      app.save.tutorials.push(id);
+      app.persist();
+      tip.remove();
+    });
+    body.append(tip);
   };
 
   const drawSide = () => {

@@ -1584,3 +1584,67 @@
     animation: none;
   }
 }
+
+.tab-hint {
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  border-color: var(--cyan);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tab-hint small {
+  display: block;
+  margin-top: 4px;
+}
+
+/* ───── 글자 크게 */
+html[data-bigtext] .st-text {
+  font-size: clamp(21px, 3vh, 27px);
+}
+
+html[data-bigtext] .st-name {
+  font-size: 20px;
+}
+
+html[data-bigtext] .st-choice {
+  font-size: 20px;
+}
+
+html[data-bigtext] .muted,
+html[data-bigtext] .modal,
+html[data-bigtext] .tutorial-tip,
+html[data-bigtext] .tab-hint,
+html[data-bigtext] .todo {
+  font-size: 17px;
+}
+
+html[data-bigtext] .modal h2 {
+  font-size: 26px;
+}
+
+/* ───── 동작 줄이기(게임 안 설정) */
+html[data-calm] .scr-enter,
+html[data-calm] .modal-back,
+html[data-calm] .modal-back .modal,
+html[data-calm] .rewards > *,
+html[data-calm] .menu-btn.main,
+html[data-calm] .screen-flash,
+html[data-calm] .burst i,
+html[data-calm] .bv-enemies.shake1,
+html[data-calm] .bv-enemies.shake2 {
+  animation: none;
+}
+
+html[data-calm] .screen-flash {
+  display: none;
+}
+
+.backup-warn {
+  color: var(--gold);
+  cursor: pointer;
+  text-decoration: underline;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}

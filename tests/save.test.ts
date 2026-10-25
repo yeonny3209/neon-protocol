@@ -111,3 +111,14 @@ describe('저장 실패', () => {
     expect(writeSave(newSave(), memory())).toBe(true);
   });
 });
+
+describe('새 설정 칸', () => {
+  it('예전 저장에는 글자 크기·동작 줄이기가 꺼진 채로 채워진다', () => {
+    const old = JSON.parse(JSON.stringify(newSave())) as { settings: Record<string, unknown> };
+    delete old.settings.bigText;
+    delete old.settings.calm;
+    const s = migrate(old);
+    expect(s.settings.bigText).toBe(false);
+    expect(s.settings.calm).toBe(false);
+  });
+});

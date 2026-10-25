@@ -711,9 +711,12 @@ export class BattleView {
 
   /** 맞은 자리에 속성 색 타격 효과(번쩍임 + 튀는 불꽃). strength: 0 약함, 1 보통, 2 강함 */
   private impact(uid: string, color: string, strength: number) {
+    // 효과가 한꺼번에 너무 많으면(광역기, 배속 3x) 불꽃을 줄여서 오래된 기기에서도 끊기지 않게 한다
+    const crowded = this.fx.getElementsByClassName('burst').length >= 6;
+    if (this.fx.getElementsByClassName('burst').length >= 12) return;
     const p = this.pos(uid);
     const wrap = h('div', { class: `burst s${strength}`, style: `left:${p.x}px;top:${p.y}px;--bc:${color}` });
-    const sparks = 4 + strength * 3;
+    const sparks = crowded ? 2 : 4 + strength * 3;
     for (let i = 0; i < sparks; i++) {
       const ang = (Math.PI * 2 * i) / sparks + Math.random() * 0.6;
       const dist = 34 + strength * 22 + Math.random() * 26;

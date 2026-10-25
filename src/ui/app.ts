@@ -17,6 +17,12 @@ export interface Screen {
 
 export type ScreenFactory = (app: App) => Screen;
 
+/** 글자 크기·동작 줄이기 설정을 화면 전체에 적용한다 */
+export function applyDisplay(s: { bigText: boolean; calm: boolean }) {
+  document.documentElement.toggleAttribute('data-bigtext', s.bigText);
+  document.documentElement.toggleAttribute('data-calm', s.calm);
+}
+
 export class App {
   readonly root: HTMLElement;
   save: SaveData;
@@ -29,6 +35,7 @@ export class App {
     this.root = root;
     this.save = pruneUnknown(loadSave());
     setVolumes({ sfx: this.save.settings.sfx, bgm: this.save.settings.bgm });
+    applyDisplay(this.save.settings);
     document.addEventListener('pointerdown', () => unlockAudio(), { passive: true });
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') this.persist();

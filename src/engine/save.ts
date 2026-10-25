@@ -16,6 +16,10 @@ export interface Settings {
   instantText: boolean;
   bgm: number;
   sfx: number;
+  /** 글자 크기: 대사·안내·모달 글자를 키운다 */
+  bigText: boolean;
+  /** 흔들림·번쩍임·화면 전환 효과를 끈다(기기의 "동작 줄이기"와 별개로 게임 안에서도 켤 수 있다) */
+  calm: boolean;
 }
 
 export interface CharState {
@@ -154,7 +158,7 @@ export interface SaveV2 {
 export type SaveData = SaveV2;
 
 export function defaultSettings(): Settings {
-  return { speed: 1, difficulty: 'story', cutin: 'first', skipBossIntro: false, skipVictory: false, storyAlwaysSkip: false, autoText: false, instantText: false, bgm: 0.6, sfx: 0.8 };
+  return { speed: 1, difficulty: 'story', cutin: 'first', skipBossIntro: false, skipVictory: false, storyAlwaysSkip: false, autoText: false, instantText: false, bgm: 0.6, sfx: 0.8, bigText: false, calm: false };
 }
 
 export function newCharState(id: string, now = Date.now()): CharState {

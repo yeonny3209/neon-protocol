@@ -1,7 +1,7 @@
 // 설정. 어디서나 열 수 있고, 저장 내보내기·불러오기가 여기 있다(iPad 데이터 삭제 대비).
 import { pruneUnknown } from '../../engine/state';
 import { exportSave, importSave, newSave } from '../../engine/save';
-import type { App } from '../app';
+import { applyDisplay, type App } from '../app';
 import { setVolumes } from '../audio';
 import { button, confirmBox, modal } from '../common';
 import { clear, h } from '../dom';
@@ -46,6 +46,9 @@ export function settingsModal(app: App) {
       row('처음부터 스토리 항상 스킵', seg<boolean>([[false, '끄기'], [true, '켜기']], () => s.storyAlwaysSkip, (v) => ((s.storyAlwaysSkip = v), save()))),
       row('글자 즉시 표시', seg<boolean>([[false, '끄기'], [true, '켜기']], () => s.instantText, (v) => ((s.instantText = v), save()))),
       row('자동 넘기기', seg<boolean>([[false, '끄기'], [true, '켜기']], () => s.autoText, (v) => ((s.autoText = v), save()))),
+      row('글자 크기', seg<boolean>([[false, '보통'], [true, '크게']], () => s.bigText, (v) => ((s.bigText = v), applyDisplay(s), save()))),
+      row('동작 줄이기', seg<boolean>([[false, '끄기'], [true, '켜기']], () => s.calm, (v) => ((s.calm = v), applyDisplay(s), save()))),
+      h('div', { class: 'muted', style: 'font-size:12px', text: '화면 흔들림, 번쩍임, 화면 전환 효과를 꺼. 눈이 피곤하거나 멀미가 날 때 써.' }),
       row('배경음', slider(() => s.bgm, (v) => (s.bgm = v))),
       row('효과음', slider(() => s.sfx, (v) => (s.sfx = v))),
       h('h3', { text: '저장 관리' }),
@@ -61,6 +64,8 @@ export function settingsModal(app: App) {
       document.body.append(a);
       a.click();
       a.remove();
+      app.save.stats.lastBackup = Date.now();
+      app.persist();
       app.toast('저장 파일을 내보냈어');
     }),
     button('파일에서 불러오기', () => {
@@ -70,6 +75,8 @@ export function settingsModal(app: App) {
         if (!f) return;
         try {
           app.save = pruneUnknown(importSave(await f.text()));
+          applyDisplay(app.save.settings);
+          setVolumes({ sfx: app.save.settings.sfx, bgm: app.save.settings.bgm });
           app.persist();
           m.close();
           app.toast('불러왔어');
