@@ -130,11 +130,19 @@ onVolumeChange(() => {
   if (fileAudio) fileAudio.volume = Math.min(1, bgmVolume());
 });
 
+let currentFile = '';
+
 export function playBgm(name: string) {
   if (name === current) return;
+  const file = (audioFiles as Record<string, string>)[name];
+  // 이름은 달라도 같은 음원 파일이면 끊지 않고 이어서 재생한다(예: 프롤로그~3장이 한 곡을 같이 씀)
+  if (file && file === currentFile && fileAudio && !fileAudio.paused) {
+    current = name;
+    return;
+  }
   stopBgm();
   current = name;
-  const file = (audioFiles as Record<string, string>)[name];
+  currentFile = file ?? '';
   if (file) {
     fileAudio = new Audio(file);
     fileAudio.loop = true;
@@ -151,6 +159,7 @@ export function stopBgm() {
   clearInterval(timer);
   timer = 0;
   current = '';
+  currentFile = '';
   fileAudio?.pause();
   fileAudio = null;
 }

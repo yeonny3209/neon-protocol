@@ -1,5 +1,8 @@
 {
   "_note": "곡 이름별 음원 파일 경로. 비워 두면 합성음을 쓴다. 예: \"battle\": \"audio/battle.mp3\" (public/audio 폴더 기준)",
   "title": "audio/title.mp3",
-  "nest": "audio/nest.mp3"
+  "nest": "audio/nest.mp3",
+  "undertown": "audio/city.mp3",
+  "market": "audio/city.mp3",
+  "academy": "audio/city.mp3"
 }
