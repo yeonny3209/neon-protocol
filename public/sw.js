@@ -14,6 +14,8 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
+  // 음원은 서비스 워커를 거치지 않는다: Safari는 Range 요청에 200 응답을 받으면 재생하지 못한다
+  if (req.headers.has('range') || /\.(mp3|ogg|m4a|wav)$/i.test(new URL(req.url).pathname)) return;
   // 먼저 캐시를 보여 주고, 뒤에서 최신 파일로 갱신한다
   e.respondWith(
     caches.open(CACHE).then(async (cache) => {
