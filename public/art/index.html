@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0a1c">
+<title>네온 프로토콜 작업대</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* 위에 필요한 그림 진행도, 가운데 올리는 방법, 아래에 갤러리 */
+:root {
+  --bg: #0b0a1c; --panel: #14122e; --line: #2a2750; --fg: #ece9ff; --muted: #9894c4;
+  --cyan: #40e8ff; --pink: #ff3e9a; --ok: #4be39a; --warn: #ffd04d;
+  --display: "Black Han Sans", "Noto Sans KR", sans-serif;
+  --body: "Noto Sans KR", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--body);
+  padding: 20px max(16px, env(safe-area-inset-right)) max(56px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
+.wrap { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+h1 { font: 34px/1.1 var(--display); margin: 0; text-wrap: balance; }
+h1 span { color: var(--cyan); }
+h2 { font: 700 13px/1 var(--body); letter-spacing: .12em; color: var(--muted); margin: 0 0 10px; }
+.sub, .hint { color: var(--muted); } .sub { margin: 6px 0 0; } .hint { font-size: 13px; }
+button, select, input { font: inherit; color: inherit; }
+button, .btn { cursor: pointer; border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 8px 14px; min-height: 40px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+button:hover, .btn:hover { border-color: var(--cyan); }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.go { background: var(--pink); border-color: var(--pink); color: #12031a; font-weight: 700; }
+input, select { background: #0e0c24; border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; min-height: 40px; width: 100%; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.meters { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+.meter { text-align: left; display: grid; gap: 6px; padding: 10px 12px; }
+.meter b { font-weight: 500; display: flex; justify-content: space-between; gap: 8px; }
+.meter i { font: normal 13px ui-monospace, monospace; color: var(--muted); }
+.meter .bar { height: 5px; background: #0e0c24; border-radius: 3px; overflow: hidden; }
+.meter .bar u { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--pink)); }
+.meter.on { border-color: var(--cyan); }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.full { grid-column: 1 / -1; }
+label { display: grid; gap: 4px; color: var(--muted); font-size: 13px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.filters select { width: auto; min-width: 150px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.thumb { aspect-ratio: 1; background: repeating-conic-gradient(#171533 0 25%, #100e26 0 50%) 0 0 / 18px 18px; border: 0; padding: 0; border-radius: 0; width: 100%; display: block; position: relative; }
+.thumb img, .thumb video { width: 100%; height: 100%; object-fit: contain; display: block; }
+.badge { position: absolute; right: 8px; top: 8px; background: #000b; border-radius: 6px; padding: 1px 8px; font-size: 11px; }
+.linkbox { aspect-ratio: 1; display: grid; place-content: center; gap: 6px; text-align: center; padding: 14px; background: linear-gradient(135deg, #101a33, #22103a); color: var(--cyan); text-decoration: none; overflow-wrap: anywhere; }
+.linkbox b { font: 30px var(--display); color: var(--pink); }
+.info { padding: 10px 12px 12px; display: grid; gap: 4px; min-width: 0; }
+.info .t { font-weight: 700; overflow-wrap: anywhere; }
+.kind { font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; color: var(--cyan); justify-self: start; }
+.note { font-size: 13px; color: var(--muted); overflow-wrap: anywhere; }
+.empty { padding: 30px 12px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 12px; grid-column: 1 / -1; }
+.banner { border: 1px solid var(--warn); border-radius: 12px; padding: 12px 14px; color: var(--warn); }
+.box { position: fixed; inset: 0; background: #000e; display: none; z-index: 20; padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
+.box.open { display: grid; grid-template-rows: 1fr auto; gap: 12px; }
+.stage { min-height: 0; display: grid; place-items: center; }
+.stage img, .stage video { max-width: 100%; max-height: 100%; object-fit: contain; background: repeating-conic-gradient(#171533 0 25%, #100e26 0 50%) 0 0 / 18px 18px; }
+.bar { display: flex; gap: 8px; justify-content: space-between; align-items: center; max-width: 760px; width: 100%; margin: 0 auto; }
+.bar strong { text-align: center; overflow-wrap: anywhere; }
+@media (max-width: 560px) { h1 { font-size: 28px; } .form { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>네온 프로토콜 <span>작업대</span></h1>
+    <p class="sub">누나가 만든 그림·영상·링크를 모아 보는 곳이야. 올린 파일은 바로 아래 갤러리에 나타나.</p>
+  </header>
+  <div id="banner" class="banner" hidden></div>
+
+  <section>
+    <h2>필요한 그림 진행도</h2>
+    <div class="meters" id="meters"></div>
+    <p class="hint" style="margin-top:8px">숫자는 기획서의 출시 기준 수량이야. 칸을 누르면 그 종류만 볼 수 있어.</p>
+  </section>
+
+  <section class="panel">
+    <h2>올리는 방법</h2>
+    <div class="form">
+      <label>종류<select id="kind"></select></label>
+      <label>이름 (누구 · 어디 · 무엇) <input id="subject" list="names" placeholder="예: 카이 웃음" autocomplete="off"></label>
+      <datalist id="names"></datalist>
+      <div class="full row">
+        <a class="btn go" id="up" target="_blank" rel="noopener">그림·영상 올리기</a>
+        <span class="hint">GitHub 화면이 열려. 파일을 끌어다 놓고 아래쪽 초록색 "Commit changes"를 누르면 끝이야. 파일 이름이 그림 이름이 되니까 "카이_웃음.png"처럼 지어 줘.</span>
+      </div>
+      <label class="full">링크 (영상 사이트, 작업 파일 등)
+        <input id="linkurl" type="url" inputmode="url" placeholder="https://…" autocomplete="off">
+      </label>
+      <div class="full row">
+        <a class="btn" id="addlink" target="_blank" rel="noopener">링크 올리기</a>
+        <span class="hint">용량이 큰 영상은 파일 대신 링크로 올려 줘. 링크 한 개당 GitHub 화면이 한 번 열려.</span>
+      </div>
+    </div>
+    <p class="hint" style="margin:12px 0 0">처음 한 번만: GitHub 계정으로 로그인하고, 이 저장소 초대를 수락해야 올릴 수 있어. 보기는 로그인 없이도 돼.</p>
+  </section>
+
+  <section>
+    <h2>갤러리</h2>
+    <div class="filters">
+      <select id="fkind" aria-label="종류로 거르기"></select>
+      <button id="refresh">새로고침</button>
+      <span class="hint" id="count"></span>
+    </div>
+    <div class="grid" id="grid"><div class="empty">불러오는 중…</div></div>
+  </section>
+</div>
+
+<div class="box" id="box" role="dialog" aria-modal="true" aria-label="크게 보기">
+  <div class="stage" id="stage"></div>
+  <div class="bar">
+    <button id="prev">‹ 이전</button>
+    <strong id="bigtitle"></strong>
+    <button id="next">다음 ›</button>
+  </div>
+  <div class="bar"><a class="btn" id="bigopen" target="_blank" rel="noopener">원본 열기</a><button id="close">닫기</button></div>
+</div>
+
+<script>
+(function () {
+  var OWNER = 'yeonny3209', REPO = 'neon-protocol', BRANCH = 'main', DIR = 'art';
+  var RAW = 'https://raw.githubusercontent.com/' + OWNER + '/' + REPO + '/' + BRANCH + '/';
+  var KINDS = [
+    { id: 'full', name: '캐릭터 전신', need: 13 }, { id: 'face', name: '대화 표정', need: 52 },
+    { id: 'npc', name: '조연 NPC', need: 10 }, { id: 'icon', name: '전투 아이콘', need: 13 },
+    { id: 'cutin', name: '오버클럭 컷인', need: 13 }, { id: 'enemy', name: '적', need: 25 },
+    { id: 'bg', name: '배경', need: 18 }, { id: 'cg', name: '스토리 CG', need: 15 },
+    { id: 'cart', name: '카트리지', need: 24 }, { id: 'ui', name: 'UI 아이콘', need: 60 },
+    { id: 'ref', name: '영상 · 링크 · 참고', need: 0 }
+  ];
+  var NAMES = ['러너', '카이', '세라핀', '제로', '루나', '도윤', '미오', '바실', '하나', '렉스', '유키', '그레이', '피코'];
+  var IMG = /\.(png|jpe?g|webp|gif|svg)$/i, VID = /\.(mp4|webm|mov)$/i, LNK = /\.link\.json$/i;
+  var $ = function (id) { return document.getElementById(id); };
+  var items = [], shown = [], openIdx = -1, fKind = '';
+  function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+  function kindName(id) { var k = KINDS.filter(function (x) { return x.id === id; })[0]; return k ? k.name : id; }
+  function host(u) { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return u; } }
+  function enc(path) { return path.split('/').map(encodeURIComponent).join('/'); }
+  function banner(t) { $('banner').hidden = !t; $('banner').textContent = t || ''; }
+  try { fKind = localStorage.getItem('art.kind') || ''; } catch (e) {}
+
+  $('kind').innerHTML = KINDS.map(function (k) { return '<option value="' + k.id + '">' + esc(k.name) + '</option>'; }).join('');
+  $('fkind').innerHTML = '<option value="">모든 종류</option>' + KINDS.map(function (k) { return '<option value="' + k.id + '">' + esc(k.name) + '</option>'; }).join('');
+  $('fkind').value = fKind;
+  $('names').innerHTML = NAMES.map(function (n) { return '<option value="' + esc(n) + '">'; }).join('');
+
+  function repoUrl(kind) { return 'https://github.com/' + OWNER + '/' + REPO + '/upload/' + BRANCH + '/' + DIR + '/' + kind; }
+  function fixLinks() {
+    var kind = $('kind').value;
+    $('up').href = repoUrl(kind);
+    var raw = $('linkurl').value.trim();
+    var ok = /^https?:\/\/\S+$/i.test(raw);
+    var name = ($('subject').value.trim() || host(raw) || 'link').replace(/[\\/:*?"<>|\s]+/g, '_');
+    var body = JSON.stringify({ title: $('subject').value.trim() || host(raw), url: raw, kind: kind }, null, 2);
+    $('addlink').href = ok ? 'https://github.com/' + OWNER + '/' + REPO + '/new/' + BRANCH + '/' + DIR + '/' + kind + '?filename=' + encodeURIComponent(Date.now().toString(36) + '_' + name + '.link.json') + '&value=' + encodeURIComponent(body) : '#';
+    $('addlink').setAttribute('aria-disabled', ok ? 'false' : 'true');
+    $('addlink').style.opacity = ok ? '1' : '.5';
+  }
+  ['kind', 'subject', 'linkurl'].forEach(function (id) { $(id).addEventListener('input', fixLinks); $(id).addEventListener('change', fixLinks); });
+  $('addlink').addEventListener('click', function (e) { if (!/^https?:\/\/\S+$/i.test($('linkurl').value.trim())) { e.preventDefault(); banner('위 칸에 https:// 로 시작하는 링크를 먼저 붙여넣어 줘.'); } else banner(''); });
+  fixLinks();
+
+  function setKind(k) { fKind = k; $('fkind').value = k; try { localStorage.setItem('art.kind', k); } catch (e) {} draw(); }
+  $('fkind').addEventListener('change', function () { setKind($('fkind').value); });
+  $('meters').addEventListener('click', function (e) { var b = e.target.closest('.meter'); if (b) setKind(fKind === b.dataset.k ? '' : b.dataset.k); });
+  $('refresh').addEventListener('click', load);
+
+  function drawMeters() {
+    var counts = {};
+    items.forEach(function (it) { counts[it.kind] = (counts[it.kind] || 0) + 1; });
+    $('meters').innerHTML = KINDS.map(function (k) {
+      var n = counts[k.id] || 0, pct = k.need ? Math.min(100, Math.round(n / k.need * 100)) : 0;
+      return '<button class="meter panel' + (fKind === k.id ? ' on' : '') + '" data-k="' + k.id + '"><b>' + esc(k.name) + '<i>' + n + (k.need ? ' / ' + k.need : '') + '</i></b>' + (k.need ? '<span class="bar"><u style="width:' + pct + '%"></u></span>' : '') + '</button>';
+    }).join('');
+  }
+  function draw() {
+    drawMeters();
+    shown = items.filter(function (it) { return !fKind || it.kind === fKind; });
+    $('count').textContent = shown.length + '개';
+    if (!shown.length) { $('grid').innerHTML = '<div class="empty">' + (items.length ? '이 종류에는 아직 없어.' : '아직 올라온 파일이 없어. 위에서 첫 그림을 올려 봐.') + '</div>'; return; }
+    $('grid').innerHTML = shown.map(function (it, i) {
+      var t;
+      if (it.type === 'link') t = '<a class="linkbox" href="' + esc(it.link) + '" target="_blank" rel="noopener noreferrer"><b>↗</b><span>' + esc(host(it.link)) + '</span></a>';
+      else if (it.type === 'video') t = '<button class="thumb" data-open="' + i + '" aria-label="' + esc(it.subject) + ' 영상 보기"><video preload="metadata" muted playsinline src="' + it.src + '#t=0.1"></video><span class="badge">영상</span></button>';
+      else t = '<button class="thumb" data-open="' + i + '" aria-label="' + esc(it.subject) + ' 크게 보기"><img loading="lazy" src="' + it.src + '" alt="' + esc(it.subject) + '"></button>';
+      return '<article class="card">' + t + '<div class="info"><div class="t">' + esc(it.subject) + '</div><span class="kind">' + esc(kindName(it.kind)) + '</span></div></article>';
+    }).join('');
+  }
+  $('grid').addEventListener('click', function (e) { var o = e.target.closest('[data-open]'); if (o) openBox(Number(o.dataset.open)); });
+
+  /* 크게 보기: 링크는 건너뛰고 그림·영상만 */
+  function openable(i, dir) { while (shown[i] && shown[i].type === 'link') i += dir; return shown[i] ? i : -1; }
+  function openBox(i) {
+    openIdx = i; var it = shown[i]; if (!it) return;
+    $('box').classList.add('open');
+    $('stage').innerHTML = it.type === 'video' ? '<video controls playsinline autoplay src="' + it.src + '"></video>' : '<img alt="' + esc(it.subject) + '" src="' + it.src + '">';
+    $('bigtitle').textContent = it.subject + ' · ' + kindName(it.kind);
+    $('bigopen').href = it.src;
+    $('prev').disabled = openable(i - 1, -1) < 0; $('next').disabled = openable(i + 1, 1) < 0;
+    $('close').focus();
+  }
+  function closeBox() { $('box').classList.remove('open'); $('stage').innerHTML = ''; openIdx = -1; }
+  $('close').addEventListener('click', closeBox);
+  $('prev').addEventListener('click', function () { var j = openable(openIdx - 1, -1); if (j >= 0) openBox(j); });
+  $('next').addEventListener('click', function () { var j = openable(openIdx + 1, 1); if (j >= 0) openBox(j); });
+  document.addEventListener('keydown', function (e) {
+    if (openIdx < 0) return;
+    if (e.key === 'Escape') closeBox();
+    else if (e.key === 'ArrowLeft') $('prev').click();
+    else if (e.key === 'ArrowRight') $('next').click();
+  });
+
+  /* 저장소의 art 폴더를 읽어서 갤러리로 만든다. 로그인 없이 읽기만 한다 */
+  async function load() {
+    $('count').textContent = '';
+    try {
+      var res = await fetch('https://api.github.com/repos/' + OWNER + '/' + REPO + '/git/trees/' + BRANCH + '?recursive=1', { headers: { Accept: 'application/vnd.github+json' } });
+      if (res.status === 403) throw new Error('잠깐 너무 많이 불러왔어. 몇 분 뒤에 새로고침해 줘.');
+      if (!res.ok) throw new Error('갤러리를 불러오지 못했어. (' + res.status + ')');
+      var tree = (await res.json()).tree || [];
+      var list = [];
+      tree.forEach(function (n) {
+        if (n.type !== 'blob' || n.path.indexOf(DIR + '/') !== 0) return;
+        var parts = n.path.split('/');
+        if (parts.length < 3) return;
+        var kind = parts[1], file = parts[parts.length - 1];
+        if (/^\./.test(file) || /^readme/i.test(file)) return;
+        var base = file.replace(/\.[^.]+$/, '').replace(/_/g, ' ');
+        if (LNK.test(file)) list.push({ type: 'link', kind: kind, path: n.path, subject: base.replace(/\.link$/, '').replace(/^[a-z0-9]+ /, '') });
+        else if (VID.test(file)) list.push({ type: 'video', kind: kind, path: n.path, subject: base, src: RAW + enc(n.path) });
+        else if (IMG.test(file)) list.push({ type: 'image', kind: kind, path: n.path, subject: base, src: RAW + enc(n.path) });
+      });
+      await Promise.all(list.filter(function (it) { return it.type === 'link'; }).map(async function (it) {
+        try {
+          var r = await fetch(RAW + enc(it.path)); var j = await r.json();
+          it.link = /^https?:\/\//i.test(j.url) ? j.url : ''; if (j.title) it.subject = j.title;
+        } catch (e) { it.link = ''; }
+      }));
+      items = list.filter(function (it) { return it.type !== 'link' || it.link; }).sort(function (a, b) { return a.kind === b.kind ? (a.path < b.path ? 1 : -1) : 0; });
+      banner('');
+    } catch (err) { banner(err.message || '갤러리를 불러오지 못했어.'); }
+    draw();
+  }
+  draw();
+  load();
+})();
+</script>
+</body>
+</html>
