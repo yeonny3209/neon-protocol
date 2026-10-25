@@ -133,7 +133,11 @@ onVolumeChange(() => {
 let currentFile = '';
 
 export function playBgm(name: string) {
-  if (name === current) return;
+  if (name === current) {
+    // 첫 터치 전에 시작한 음원 파일은 브라우저가 막아 둔 상태라, 터치 뒤에 다시 부르면 재생을 시도한다
+    if (fileAudio?.paused) void fileAudio.play().catch(() => undefined);
+    return;
+  }
   const file = (audioFiles as Record<string, string>)[name];
   // 이름은 달라도 같은 음원 파일이면 끊지 않고 이어서 재생한다(예: 프롤로그~3장이 한 곡을 같이 씀)
   if (file && file === currentFile && fileAudio && !fileAudio.paused) {

@@ -18,6 +18,12 @@ export function titleScreen(app: App): Screen {
     body.append(h('div', { class: 'touch-hint', text: '화면을 터치하세요' }));
     const go = () => {
       unlockAudio();
+      app.bgm('title');
+      // iOS Safari는 손을 뗄 때부터 소리를 허용하는 경우가 있어서 한 번 더 시도한다
+      document.addEventListener('pointerup', () => {
+        unlockAudio();
+        app.bgm('title');
+      }, { once: true });
       el.removeEventListener('pointerdown', go);
       menu();
     };
