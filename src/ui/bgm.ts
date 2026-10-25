@@ -131,6 +131,22 @@ onVolumeChange(() => {
 });
 
 let currentFile = '';
+let hiddenPaused = false;
+
+// 앱을 내리거나 화면을 끄면 음악도 멈추고, 돌아오면 이어서 재생한다
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') {
+    if (fileAudio && !fileAudio.paused) {
+      fileAudio.pause();
+      hiddenPaused = true;
+    }
+    void audioContext().ctx?.suspend();
+  } else {
+    if (hiddenPaused && fileAudio) void fileAudio.play().catch(() => undefined);
+    hiddenPaused = false;
+    void audioContext().ctx?.resume();
+  }
+});
 
 export function playBgm(name: string) {
   if (name === current) {
@@ -164,6 +180,7 @@ export function stopBgm() {
   timer = 0;
   current = '';
   currentFile = '';
+  hiddenPaused = false;
   fileAudio?.pause();
   fileAudio = null;
 }
