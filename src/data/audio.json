@@ -11,5 +11,6 @@
   "battle": "audio/battle.mp3",
   "battle2": "audio/battle.mp3",
   "boss": "audio/boss.mp3",
-  "boss2": "audio/boss2.mp3"
+  "boss2": "audio/boss2.mp3",
+  "sad": "audio/sad.mp3"
 }
