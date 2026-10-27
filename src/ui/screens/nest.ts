@@ -67,7 +67,7 @@ export function nestScreen(app: App): Screen {
   mb('✦', '다이브', () => (diveUnlocked(app) ? app.go(diveScreen) : app.toast('프롤로그를 클리어하면 열려')), { locked: !diveUnlocked(app), dot: diveUnlocked(app) && keys > 0 });
   ensureDaily(save);
   const daily = dailyUnlocked(save);
-  mb('☑', '데일리 루틴', () => (daily ? app.go(missionsScreen) : app.toast('1장을 클리어하면 열려')), { locked: !daily, dot: missionsClaimable(save) });
+  mb('☑', '데일리 루틴', () => (daily ? app.go(missionsScreen) : app.toast('프롤로그를 클리어하면 열려')), { locked: !daily, dot: missionsClaimable(save) });
   mb('⛏', '재료 스테이지', () => app.go((a) => materialScreen(a)));
   const codexOpen = save.story.chapters.includes('prologue');
   mb('✎', '도감·업적', () => (codexOpen ? app.go(codexScreen) : app.toast('프롤로그를 클리어하면 열려')), { locked: !codexOpen, dot: codexOpen && (achClaimable(save).length > 0 || codexClaimable(save).length > 0) });

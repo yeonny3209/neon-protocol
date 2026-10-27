@@ -29,3 +29,8 @@ export const FACTION_NAME: Record<string, string> = {
   helix: '헬릭스',
   protagonist: '주인공',
 };
+
+/** 일러스트 파일을 찾을 때 쓰는 이름. 주인공만 선택한 모습에 따라 `runner_male` / `runner_female`로 갈린다 */
+export function artId(charId: string, gender: 'male' | 'female'): string {
+  return charId === 'runner' ? `runner_${gender}` : charId;
+}

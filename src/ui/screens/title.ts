@@ -7,7 +7,7 @@ import { clear, h } from '../dom';
 import { onPress } from '../press';
 import { nestScreen } from './nest';
 import { startStage } from './stage';
-import { settingsModal } from './settings';
+import { seg, settingsModal } from './settings';
 
 export function titleScreen(app: App): Screen {
   app.bgm('title');
@@ -47,10 +47,13 @@ export function titleScreen(app: App): Screen {
   const askName = () => {
     clear(body);
     const input = h('input', { class: 'name-input', maxlength: '8', placeholder: '러너', value: '' }) as HTMLInputElement;
-    body.append(h('div', { class: 'muted', text: '이름을 정해 줘 (비워 두면 "러너")' }), input, button('확인', () => {
+    let gender: 'male' | 'female' = 'male';
+    const pick = seg<'male' | 'female'>([['male', '남자'], ['female', '여자']], () => gender, (v) => (gender = v));
+    body.append(h('div', { class: 'muted', text: '이름을 정해 줘 (비워 두면 "러너")' }), input, h('div', { class: 'muted', text: '주인공 모습 (나중에 설정에서 바꿀 수 있어)' }), pick, button('확인', () => {
       const name = input.value.trim() || '러너';
       app.save = newSave();
       app.save.name = name;
+      app.save.gender = gender;
       app.save.started = true;
       app.persist();
       app.go(nestScreen, { reset: true });

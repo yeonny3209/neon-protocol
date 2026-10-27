@@ -119,6 +119,8 @@ export interface SaveV2 {
   created: number;
   updated: number;
   name: string;
+  /** 주인공 모습(일러스트 2종). 대사는 성별과 상관없이 같다 */
+  gender: 'male' | 'female';
   started: boolean;
   settings: Settings;
   seenCutins: string[];
@@ -171,6 +173,7 @@ export function newSave(now = Date.now()): SaveData {
     created: now,
     updated: now,
     name: '러너',
+    gender: 'male',
     started: false,
     settings: defaultSettings(),
     seenCutins: [],

@@ -76,3 +76,7 @@
 ## 새 파일을 넣었는데 테스트가 못 찾을 때
 
 `npm test`가 새로 만든 데이터 파일을 못 찾으면 `src/engine/data.ts`를 한 번 저장(내용 변경)한 뒤 다시 돌린다. 개발 서버는 자동으로 읽는다.
+
+## 일러스트 파일 이름 규칙 (그림이 들어올 때 쓸 이름)
+- 주인공은 새 게임에서 고른 모습에 따라 `runner_male`, `runner_female` 두 벌이 필요하다(`src/ui/labels.ts`의 `artId`). 나머지 캐릭터는 id 그대로(`kai`, `mio` …).
+- 표정은 `이름_smile`, `이름_angry`, `이름_sad`(예: `kai_smile`, `runner_female_sad`). 기본 표정은 접미사 없이.
