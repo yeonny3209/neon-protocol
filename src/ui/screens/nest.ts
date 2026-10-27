@@ -9,6 +9,7 @@ import { button, dot, modal, portrait, topBar } from '../common';
 import { h } from '../dom';
 import { onPress } from '../press';
 import { sfx } from '../audio';
+import { artFor } from '../labels';
 import { charsScreen } from './chars';
 import { diveScreen } from './dive';
 import { mapScreen } from './map';
@@ -36,7 +37,11 @@ export function nestScreen(app: App): Screen {
   const def = DATA.characters[repId];
   const speech = h('div', { class: 'speech', text: '…어서 와.' });
   const fig = h('div', { class: 'rep-figure', style: `--pc:${def.look.color}` });
-  if (def.art?.full) fig.append(h('img', { src: def.art.full, alt: def.name }));
+  const full = artFor(repId).full;
+  if (full) {
+    fig.classList.add('has-art');
+    fig.append(h('img', { src: full, alt: def.name }));
+  }
   else fig.textContent = def.name.slice(0, 1);
   onPress(fig, () => {
     const l = def.lines.nest;

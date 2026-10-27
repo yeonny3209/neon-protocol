@@ -1166,3 +1166,21 @@
     animation: none;
   }
 }
+
+/* ───── 일러스트가 있는 아군 얼굴 */
+.card .pf img,
+.tl-slot img,
+.cutin .face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 12%;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.tl-slot,
+.card .pf,
+.cutin .face {
+  overflow: hidden;
+}

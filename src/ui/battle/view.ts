@@ -6,7 +6,7 @@ import { DATA } from '../../engine/data';
 import type { SkillKind } from '../../engine/defs';
 import type { Settings } from '../../engine/save';
 import { clear, fmt, h, sleep } from '../dom';
-import { ELEMENT_INFO, KIND_NAME, PROTOCOL_INFO } from '../labels';
+import { ELEMENT_INFO, KIND_NAME, PROTOCOL_INFO, artFor } from '../labels';
 import { hideTip, onPress } from '../press';
 import { sfx } from '../audio';
 
@@ -204,7 +204,7 @@ export class BattleView {
       status: h('div', { class: 'status-row' }),
     };
     els.root.append(
-      h('div', { class: 'pf', style: `background:${u.color}` }, u.name.slice(0, 1)),
+      h('div', { class: 'pf', style: `background:${u.color}` }, ...this.faceOf(u)),
       h('div', { class: 'nm' }, h('span', { class: 'el-chip', style: `background:${el.color};width:18px;height:18px;font-size:11px` }, el.glyph), h('span', { text: u.name }), h('span', { class: 'key', text: String(u.slot + 1) })),
       h('div', { class: 'bar' }, hpLag, hp),
       h('div', { class: 'bar heat' }, heat),
@@ -286,7 +286,7 @@ export class BattleView {
     this.tl.append(h('div', { class: 'tl-title', text: '순서' }));
     order.forEach((uid, i) => {
       const u = this.b.unit(uid);
-      const slot = h('div', { class: `tl-slot side-${u.side}${i === 0 && this.b.phase === 'input' ? ' now' : ''}`, style: `background:${u.color}` }, u.name.slice(0, 1));
+      const slot = h('div', { class: `tl-slot side-${u.side}${i === 0 && this.b.phase === 'input' ? ' now' : ''}`, style: `background:${u.color}` }, ...this.faceOf(u));
       if (preview) {
         const before = prev.indexOf(uid);
         if (before >= 0 && before !== i) slot.classList.add(before > i ? 'moved-up' : 'moved-down', 'preview');
@@ -701,6 +701,12 @@ export class BattleView {
     return { x: r.left + r.width / 2 - base.left, y: r.top + r.height / 2 - base.top };
   }
 
+  /** 얼굴 칸에 들어갈 내용: 일러스트(아군)가 있으면 그림, 없으면 이름 첫 글자 */
+  private faceOf(u: Unit): (HTMLElement | string)[] {
+    const icon = u.side === 'ally' ? artFor(u.defId).icon : undefined;
+    return icon ? [h('img', { src: icon, alt: u.name, draggable: 'false' })] : [u.name.slice(0, 1)];
+  }
+
   private float(uid: string, text: string, cls: string, color?: string) {
     const p = this.pos(uid);
     const jitter = (Math.random() - 0.5) * 36;
@@ -928,7 +934,7 @@ export class BattleView {
     const box = h(
       'div',
       { class: 'cutin', style: `--elc:${el.color}` },
-      h('div', { class: 'strip' }, h('div', { class: 'face', style: `background:${u.color}` }, u.name.slice(0, 1)), h('div', { class: 'txt' }, h('div', { class: 'sk', text: u.skills.overclock?.name ?? '' }), h('div', { class: 'ln', text: def?.lines.overclock ?? '' }))),
+      h('div', { class: 'strip' }, h('div', { class: 'face', style: `background:${u.color}` }, ...this.faceOf(u)), h('div', { class: 'txt' }, h('div', { class: 'sk', text: u.skills.overclock?.name ?? '' }), h('div', { class: 'ln', text: def?.lines.overclock ?? '' }))),
       h('div', { class: 'skip', text: '눌러서 넘기기' }),
     );
     box.addEventListener('pointerdown', () => (this.skipCutin = true));

@@ -5,6 +5,7 @@ import type { App } from './app';
 import { sfx } from './audio';
 import { button } from './common';
 import { clear, h } from './dom';
+import { artFor } from './labels';
 import { onPress } from './press';
 
 const BG: Record<string, string> = {
@@ -93,8 +94,9 @@ export function playScript(app: App, scriptId: string, chapter: string, opts: Pl
         const def = charByName(nm);
         if (!def) return;
         const on = nm === who;
+        const full = artFor(def.id).full;
         figs.append(
-          h('div', { class: `st-fig ${i === 0 ? 'l' : 'r'}${on ? ' on' : ''}`, style: `--pc:${def.look.color}` }, h('span', { text: def.name.slice(0, 1) }), on && face && FACE_NAME[face] ? h('small', { text: FACE_NAME[face] }) : null),
+          h('div', { class: `st-fig ${i === 0 ? 'l' : 'r'}${on ? ' on' : ''}${full ? ' has-art' : ''}`, style: `--pc:${def.look.color}` }, full ? h('img', { src: full, alt: def.name }) : h('span', { text: def.name.slice(0, 1) }), on && face && FACE_NAME[face] ? h('small', { text: FACE_NAME[face] }) : null),
         );
       });
     };

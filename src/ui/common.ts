@@ -4,7 +4,7 @@ import type { Element, Reward } from '../engine/defs';
 import { count } from '../engine/state';
 import type { App } from './app';
 import { clear, fmt, h } from './dom';
-import { ELEMENT_INFO, PROTOCOL_INFO } from './labels';
+import { ELEMENT_INFO, PROTOCOL_INFO, artFor } from './labels';
 import { onPress } from './press';
 import { sfx } from './audio';
 
@@ -134,7 +134,8 @@ export function portrait(charId: string, size = 64, element?: Element): HTMLElem
   const def = DATA.characters[charId];
   const el = element ?? def?.element ?? 'kinetic';
   const box = h('div', { class: 'portrait', style: `--pc:${def?.look.color ?? '#888'};--elc:${ELEMENT_INFO[el].color};width:${size}px;height:${size}px;font-size:${Math.round(size * 0.42)}px` });
-  if (def?.art?.icon) box.append(h('img', { src: def.art.icon, alt: def.name }));
+  const icon = artFor(charId).icon;
+  if (icon) box.append(h('img', { src: icon, alt: def?.name ?? '' }));
   else box.textContent = def?.name.slice(0, 1) ?? '?';
   return box;
 }

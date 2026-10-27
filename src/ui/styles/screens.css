@@ -1648,3 +1648,45 @@ html[data-calm] .screen-flash {
   display: flex;
   align-items: center;
 }
+
+/* ───── 전신 일러스트(배경이 투명한 그림) */
+.rep-figure.has-art {
+  width: auto;
+  height: min(54vh, 520px);
+  aspect-ratio: auto;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.rep-figure.has-art img {
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(64, 232, 255, 0.45));
+}
+
+[data-orient='portrait'] .rep-figure.has-art {
+  height: min(42vh, 420px);
+}
+
+.st-fig.has-art {
+  width: auto;
+  height: min(58vh, 520px);
+  border-radius: 0;
+  background: none;
+  justify-content: flex-end;
+}
+
+.st-fig.has-art img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 14px rgba(64, 232, 255, 0.4));
+}
+
+.st-fig.has-art small {
+  position: absolute;
+  bottom: 8px;
+}

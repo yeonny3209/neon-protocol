@@ -3,6 +3,7 @@ import { pruneUnknown } from '../../engine/state';
 import { exportSave, importSave, newSave } from '../../engine/save';
 import { applyDisplay, type App } from '../app';
 import { setVolumes } from '../audio';
+import { setGender } from '../labels';
 import { button, confirmBox, modal } from '../common';
 import { clear, h } from '../dom';
 import { onPress } from '../press';
@@ -46,7 +47,7 @@ export function settingsModal(app: App) {
       row('처음부터 스토리 항상 스킵', seg<boolean>([[false, '끄기'], [true, '켜기']], () => s.storyAlwaysSkip, (v) => ((s.storyAlwaysSkip = v), save()))),
       row('글자 즉시 표시', seg<boolean>([[false, '끄기'], [true, '켜기']], () => s.instantText, (v) => ((s.instantText = v), save()))),
       row('자동 넘기기', seg<boolean>([[false, '끄기'], [true, '켜기']], () => s.autoText, (v) => ((s.autoText = v), save()))),
-      row('주인공 모습', seg<'male' | 'female'>([['male', '남자'], ['female', '여자']], () => app.save.gender, (v) => ((app.save.gender = v), save()))),
+      row('주인공 모습', seg<'male' | 'female'>([['male', '남자'], ['female', '여자']], () => app.save.gender, (v) => ((app.save.gender = v), setGender(v), save()))),
       row('글자 크기', seg<boolean>([[false, '보통'], [true, '크게']], () => s.bigText, (v) => ((s.bigText = v), applyDisplay(s), save()))),
       row('동작 줄이기', seg<boolean>([[false, '끄기'], [true, '켜기']], () => s.calm, (v) => ((s.calm = v), applyDisplay(s), save()))),
       h('div', { class: 'muted', style: 'font-size:12px', text: '화면 흔들림, 번쩍임, 화면 전환 효과를 꺼. 눈이 피곤하거나 멀미가 날 때 써.' }),

@@ -1,5 +1,7 @@
 // 화면에 보이는 이름과 색. 게임 안 글자는 전부 여기서 나온다.
-import type { Element, Protocol } from '../engine/defs';
+import artFiles from '../data/art.json';
+import { DATA } from '../engine/data';
+import type { ArtPaths, Element, Protocol } from '../engine/defs';
 
 export const ELEMENT_INFO: Record<Element, { name: string; color: string; glyph: string }> = {
   kinetic: { name: '키네틱', color: '#a7b0c0', glyph: '◆' },
@@ -29,6 +31,20 @@ export const FACTION_NAME: Record<string, string> = {
   helix: '헬릭스',
   protagonist: '주인공',
 };
+
+let gender: 'male' | 'female' = 'male';
+
+/** 지금 저장의 주인공 모습을 알려 준다(화면 전체가 같은 그림을 쓰게) */
+export function setGender(g: 'male' | 'female') {
+  gender = g;
+}
+
+/** 캐릭터의 일러스트 경로. 목록(art.json)에 있으면 그것을, 없으면 캐릭터 데이터의 art를 쓴다 */
+export function artFor(charId: string): ArtPaths {
+  const hit = (artFiles as Record<string, ArtPaths | string>)[artId(charId, gender)];
+  if (hit && typeof hit === 'object') return hit;
+  return DATA.characters[charId]?.art ?? {};
+}
 
 /** 일러스트 파일을 찾을 때 쓰는 이름. 주인공만 선택한 모습에 따라 `runner_male` / `runner_female`로 갈린다 */
 export function artId(charId: string, gender: 'male' | 'female'): string {

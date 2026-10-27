@@ -1,4 +1,5 @@
 // 화면 전환과 저장을 맡는 앱 껍데기.
+import { setGender } from './labels';
 import { pruneUnknown } from '../engine/state';
 import { loadSave, writeSave, type SaveData } from '../engine/save';
 import { setVolumes, sfx, unlockAudio } from './audio';
@@ -36,6 +37,7 @@ export class App {
     this.save = pruneUnknown(loadSave());
     setVolumes({ sfx: this.save.settings.sfx, bgm: this.save.settings.bgm });
     applyDisplay(this.save.settings);
+    setGender(this.save.gender);
     document.addEventListener('pointerdown', () => unlockAudio(), { passive: true });
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'hidden') this.persist();
@@ -69,6 +71,7 @@ export class App {
   private currentFactory: ScreenFactory | null = null;
 
   private mount(factory: ScreenFactory, animate = true) {
+    setGender(this.save.gender);
     hideTip();
     this.current?.destroy?.();
     clear(this.root);
