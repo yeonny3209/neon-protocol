@@ -1,4 +1,11 @@
 {
   "_note": "일러스트 목록. 키는 art 이름(주인공은 runner_male / runner_female, 나머지는 캐릭터 id). 값의 경로는 public 폴더 기준. icon은 얼굴 둥근 그림, full은 전신. 없는 칸은 도형 그림을 쓴다.",
-  "runner_female": { "icon": "art/runner_female_face.webp", "full": "art/runner_female.webp" }
+  "runner_female": {
+    "icon": "art/runner_female_face.webp",
+    "full": "art/runner_female.webp"
+  },
+  "mio": {
+    "icon": "art/mio_face.webp",
+    "full": "art/mio.webp"
+  }
 }
