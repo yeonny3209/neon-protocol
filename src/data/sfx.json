@@ -1,0 +1,9 @@
+{
+  "_note": "효과음 이름별 음원 파일(public 폴더 기준). 파일이 없거나 불러오지 못하면 합성음을 쓴다. hit_속성이름은 그 속성으로 때릴 때 나는 소리.",
+  "hit_kinetic": "audio/sfx/hit_kinetic.wav",
+  "hit_volt": "audio/sfx/hit_volt.wav",
+  "hit_plasma": "audio/sfx/hit_plasma.wav",
+  "hit_cryo": "audio/sfx/hit_cryo.wav",
+  "hit_glitch": "audio/sfx/hit_glitch.wav",
+  "hit_void": "audio/sfx/hit_void.wav"
+}

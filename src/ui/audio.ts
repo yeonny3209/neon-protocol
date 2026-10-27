@@ -1,6 +1,7 @@
-// 효과음과 BGM. 지금은 실제 음원 대신 브라우저에서 합성한 소리를 쓴다.
+// 효과음과 BGM. 효과음은 파일(src/data/sfx.json)이 있으면 파일을, 없으면 브라우저에서 합성한 소리를 쓴다.
 // 아이패드는 화면을 한 번 터치하기 전에는 소리를 낼 수 없어서 unlockAudio()를 첫 터치에서 부른다.
 import type { Element } from '../engine/defs';
+import sfxFiles from '../data/sfx.json';
 
 let ctx: AudioContext | null = null;
 let sfxGain: GainNode | null = null;
@@ -20,6 +21,39 @@ export function unlockAudio() {
   sfxGain.connect(ctx.destination);
   bgmGain.connect(ctx.destination);
   applyVolumes();
+  void loadSfxFiles();
+}
+
+// ───── 효과음 파일: 디코딩해 두었다가 바로 재생한다. 못 불러오면 합성음으로 대신한다
+const sfxBuffers = new Map<string, AudioBuffer>();
+
+async function loadSfxFiles() {
+  const c = ctx;
+  if (!c) return;
+  await Promise.all(
+    Object.entries(sfxFiles as Record<string, string>).map(async ([name, path]) => {
+      if (name.startsWith('_') || sfxBuffers.has(name)) return;
+      try {
+        const res = await fetch(new URL(path, document.baseURI));
+        if (!res.ok) return;
+        sfxBuffers.set(name, await c.decodeAudioData(await res.arrayBuffer()));
+      } catch {
+        /* 파일이 없거나 디코딩이 안 되면 합성음을 쓴다 */
+      }
+    }),
+  );
+}
+
+function playFile(name: string, gain = 1): boolean {
+  const buf = sfxBuffers.get(name);
+  if (!ctx || !sfxGain || !buf) return false;
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+  const g = ctx.createGain();
+  g.gain.value = gain;
+  src.connect(g).connect(sfxGain);
+  src.start();
+  return true;
 }
 
 export function setVolumes(v: { sfx: number; bgm: number }) {
@@ -107,6 +141,10 @@ export function sfx(name: SfxName, el?: Element, strength = 0) {
     case 'enemy':
       return tone(160, 0.18, 'sawtooth', 0.18, -60);
     case 'hit': {
+      if (el && playFile(`hit_${el}`)) {
+        if (strength >= 1) tone(90, 0.14, 'sine', 0.3, -50);
+        return;
+      }
       tone(f, 0.08 + strength * 0.03, el ? EL_WAVE[el] : 'square', 0.18, -f * 0.4);
       noise(0.06 + strength * 0.04, 0.12, 0, el === 'cryo' ? 4000 : 2000);
       if (strength >= 1) tone(90, 0.14, 'sine', 0.3, -50);
@@ -120,6 +158,10 @@ export function sfx(name: SfxName, el?: Element, strength = 0) {
       tone(1320, 0.07, 'triangle', 0.14, 0, 0.02);
       return tone(1760, 0.1, 'triangle', 0.12, 0, 0.07);
     case 'crit':
+      if (el && playFile(`hit_${el}`, 1.35)) {
+        tone(80, 0.2, 'sine', 0.32, -40);
+        return noise(0.14, 0.2, 0, 1200);
+      }
       tone(f * 1.5, 0.12, el ? EL_WAVE[el] : 'square', 0.22, -f);
       tone(80, 0.2, 'sine', 0.32, -40);
       return noise(0.14, 0.2, 0, 1200);
