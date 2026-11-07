@@ -2,7 +2,7 @@
   "id": "basil", "name": "바실", "rarity": 4, "element": "kinetic", "protocol": "shield", "faction": "neutral", "firstAppear": "프롤로그",
   "concept": "폐기된 경비 로봇. 말수는 적고 미오를 지킴",
   "profile": "헬릭스에서 구형 판정을 받고 폐기장에 버려진 경비 로봇. 미오가 주워 와 다시 켰다. 감정 모듈은 없다고 주장하지만, 미오가 다치면 경보음이 멈추지 않는다.",
-  "look": { "hair": "없음. 둥근 금속 머리에 한 줄짜리 시각 센서", "eyes": "주황 센서", "accents": ["녹슨 경비 장갑", "미오가 붙인 스티커", "팔에 접힌 방패"], "color": "#a7b0c0" },
+  "look": { "hair": "허리까지 내려오는 은백색 긴 머리", "eyes": "옅은 보랏빛 회색, 감정이 없어 보이는 무표정", "accents": ["푸른 빛줄기가 흐르는 검은 전신 슈트", "손목·무릎의 장갑 보호대", "한쪽으로 쏠려 늘어진 긴 머리카락"], "color": "#a7b0c0" },
   "stats": { "hp": [165, 1400], "atk": [60, 510], "def": [62, 162], "spd": 96, "critRate": 0.05, "critDmg": 0.5, "effHit": 0, "effRes": 0.1 },
   "heatMax": 110,
   "skills": {

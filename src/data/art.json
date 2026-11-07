@@ -7,5 +7,9 @@
   "mio": {
     "icon": "art/mio_face.webp",
     "full": "art/mio.webp"
+  },
+  "basil": {
+    "icon": "art/basil_face.webp",
+    "full": "art/basil.webp"
   }
 }
